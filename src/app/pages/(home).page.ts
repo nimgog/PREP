@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   template: `
     <div>
@@ -40,7 +40,7 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export default class HomeComponent {
+export default class HomePageComponent {
   count = 0;
 
   increment() {

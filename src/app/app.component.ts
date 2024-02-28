@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [RouterOutlet],
   template: ` <router-outlet></router-outlet> `,
