@@ -17,6 +17,9 @@ export default defineConfig(({ mode }) => ({
       prerender: {
         routes: async () => ['/', '/survival-kit', '/about-us'],
       },
+      vite: {
+        inlineStylesExtension: 'scss',
+      },
     }),
   ],
   test: {
