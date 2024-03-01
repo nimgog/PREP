@@ -6,8 +6,16 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <header>
-      <nav>
+    <header class="flex justify-between">
+      <div class="sm:hidden">
+        <button>[HAMBURGER]</button>
+      </div>
+
+      <div>
+        <a routerLink="/">[LOGO]</a>
+      </div>
+
+      <nav class="hidden sm:block">
         <ul class="flex justify-center gap-x-8">
           <li><a routerLink="/">Home</a></li>
           <li><a routerLink="/survival-kit">Survival Kit</a></li>
@@ -15,6 +23,10 @@ import { RouterLink } from '@angular/router';
           <li><a routerLink="/unknown">404 Test</a></li>
         </ul>
       </nav>
+
+      <div>
+        <button>[CART]</button>
+      </div>
     </header>
   `,
 })

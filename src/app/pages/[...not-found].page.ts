@@ -6,9 +6,11 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <h2>Page Not Found</h2>
+    <div class="pt-32">
+      <h2>Page Not Found</h2>
 
-    <a routerLink="/">Go Back Home</a>
+      <a routerLink="/">Go Back Home</a>
+    </div>
   `,
 })
 export default class NotFoundPageComponent {}
