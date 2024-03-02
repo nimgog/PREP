@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     analog({
-      ssr: false,
       static: true,
       prerender: {
         routes: async () => ['/', '/survival-kit', '/about-us'],
