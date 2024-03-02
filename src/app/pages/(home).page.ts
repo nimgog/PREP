@@ -15,7 +15,9 @@ export const routeMeta: RouteMeta = {
     <div class="flex flex-col w-full h-full">
       <div class="flex flex-col justify-center items-center h-[680px]">
         <div class="sm:max-w-[630px] sm:bg-green-900 sm:bg-opacity-25">
-          <div class="uppercase">Are you ready when it happens?</div>
+          <div class="uppercase !font-gunplay">
+            Are you ready when it happens?
+          </div>
 
           <div class="hidden sm:block">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, optio
