@@ -51,8 +51,10 @@ export const routeMeta: RouteMeta = {
 
           <table>
             <thead>
-              <th>Type</th>
-              <th>Amount</th>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
