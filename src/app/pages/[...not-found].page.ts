@@ -1,13 +1,21 @@
+import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+// TODO: Fill other metadata
+export const routeMeta: RouteMeta = {
+  title: 'Not Found | PREP',
+};
 
 @Component({
   selector: 'app-not-found-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="pt-32">
-      <h2>Page Not Found</h2>
+    <div class="w-full h-full pt-32">
+      <div>Page Not Found</div>
+
+      <div>The page you are looking for cannot be found.</div>
 
       <a routerLink="/">Go Back Home</a>
     </div>

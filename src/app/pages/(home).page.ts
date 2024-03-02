@@ -1,5 +1,11 @@
+import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+// TODO: Fill other metadata
+export const routeMeta: RouteMeta = {
+  title: 'Home | PREP',
+};
 
 @Component({
   selector: 'app-home-page', // TODO: Remove when dev team fixes auto selector generation
