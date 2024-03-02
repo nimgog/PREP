@@ -15,7 +15,7 @@ import { NgClass } from '@angular/common';
         [ngClass]="isHomePage() ? 'bg-transparent' : 'bg-green-900'"
       />
 
-      <main class="w-full h-full min-h-screen bg-stone-500">
+      <main class="w-full h-full min-h-screen">
         <router-outlet></router-outlet>
       </main>
 
