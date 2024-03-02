@@ -10,7 +10,7 @@ import MainFooterComponent from './components/main-footer/main-footer.component'
   standalone: true,
   imports: [RouterOutlet, MainHeaderComponent, MainFooterComponent],
   template: `
-    <div class="relative w-screen h-full">
+    <div class="relative w-full h-full">
       <app-main-header
         class="absolute top-0 left-0 right-0 z-10"
         [isTransparent]="isHomePage()"
