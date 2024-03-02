@@ -4,6 +4,8 @@ import MainHeaderComponent from './components/main-header/main-header.component'
 import MainFooterComponent from './components/main-footer/main-footer.component';
 import { NgClass } from '@angular/common';
 
+// TODO: Replace favicon.ico
+
 @Component({
   selector: 'app-root', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
