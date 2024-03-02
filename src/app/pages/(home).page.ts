@@ -13,13 +13,24 @@ export const routeMeta: RouteMeta = {
   imports: [RouterLink],
   template: `
     <div class="flex flex-col w-full h-full">
-      <div class="flex flex-col justify-center items-center h-[680px]">
+      <div
+        class="relative flex flex-col justify-center items-center h-screen max-h-screen"
+      >
+        <div class="absolute inset-0 -z-10 overflow-hidden">
+          <!-- TODO: Create smaller variants of the hero image -->
+          <img
+            class="w-full h-screen object-cover object-[center_top]"
+            src="/img/home-page/hero.jpg"
+            alt="A human wearing a survival kit"
+          />
+        </div>
+
         <div class="sm:max-w-[630px] sm:bg-green-900 sm:bg-opacity-25">
-          <div class="uppercase !font-gunplay">
+          <div class="uppercase text-white !font-gunplay">
             Are you ready when it happens?
           </div>
 
-          <div class="hidden sm:block">
+          <div class="hidden text-prep-beige sm:block">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, optio
             consequatur voluptatibus neque laudantium voluptate quae soluta.
           </div>

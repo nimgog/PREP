@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import MainFooterSocialMediaComponent from './social-media.component';
 import MainFooterCompanyInfoComponent from './company-info.component';
 import MainFooterLinksComponent from './links.component';
 import MainFooterPaymentMethodsComponent from './payment-methods.component';
 import MainFooterCopyrightComponent from './copyright.component';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-main-footer', // TODO: Remove when dev team fixes auto selector generation
@@ -16,9 +17,13 @@ import MainFooterCopyrightComponent from './copyright.component';
     MainFooterLinksComponent,
     MainFooterPaymentMethodsComponent,
     MainFooterCopyrightComponent,
+    NgClass,
   ],
   template: `
-    <footer class="text-white">
+    <footer
+      class="text-white"
+      [ngClass]="isTransparent() ? 'bg-transparent' : 'bg-prep-green'"
+    >
       <div class="sm:hidden flex flex-col">
         <app-main-footer-social-media />
         <app-main-footer-company-info />
@@ -48,4 +53,6 @@ import MainFooterCopyrightComponent from './copyright.component';
     </footer>
   `,
 })
-export default class MainFooterComponent {}
+export default class MainFooterComponent {
+  isTransparent = input.required<boolean>();
+}

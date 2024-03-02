@@ -1,20 +1,19 @@
-import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import MainHeaderComponent from './components/main-header/main-header.component';
 import MainFooterComponent from './components/main-footer/main-footer.component';
-import { NgClass } from '@angular/common';
 
 // TODO: Replace favicon.ico
 
 @Component({
   selector: 'app-root', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [RouterOutlet, MainHeaderComponent, MainFooterComponent, NgClass],
+  imports: [RouterOutlet, MainHeaderComponent, MainFooterComponent],
   template: `
     <div class="relative w-screen h-full">
       <app-main-header
-        class="absolute top-0 left-0 right-0"
-        [ngClass]="isHomePage() ? 'bg-transparent' : 'bg-green-900'"
+        class="absolute top-0 left-0 right-0 z-10"
+        [isTransparent]="isHomePage()"
       />
 
       <main class="w-full h-full min-h-screen">
@@ -22,8 +21,8 @@ import { NgClass } from '@angular/common';
       </main>
 
       <app-main-footer
-        class="absolute bottom-0 left-0 right-0"
-        [ngClass]="isHomePage() ? 'bg-transparent' : 'bg-green-900'"
+        class="absolute bottom-0 left-0 right-0 z-10"
+        [isTransparent]="isHomePage()"
       />
     </div>
   `,
