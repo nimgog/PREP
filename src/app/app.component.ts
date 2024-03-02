@@ -30,9 +30,6 @@ export class AppComponent implements OnInit {
   private readonly router = inject(Router);
 
   readonly isHomePage = signal(true);
-  // readonly headerAndFooterBgClass = computed(() =>
-  //   this.isHomePage() ? 'bg-transparent' : 'bg-green-900'
-  // );
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
