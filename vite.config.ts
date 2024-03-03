@@ -19,8 +19,8 @@ export default defineConfig(({ mode }) => ({
         routes: async () => ['/', '/survival-kit', '/about-us'],
         postRenderingHooks: [
           async (route) => {
-            const startMarker = '<app-prerender-exclude';
-            const endMarker = '</app-prerender-exclude>';
+            const startMarker = '<!-- __prerender_exclude_begin -->';
+            const endMarker = '<!-- __prerender_exclude_end -->';
 
             const regex = new RegExp(
               `${escapeRegExp(startMarker)}[\\s\\S]*?${escapeRegExp(
