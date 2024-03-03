@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <div class="flex items-center gap-x-[30px]">
-      <span class="uppercase text-prep-beige text-base font-bold font-poppins"
+      <span class="uppercase text-prep-beige text-base font-bold"
         >Follow Us</span
       >
 

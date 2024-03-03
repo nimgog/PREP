@@ -25,7 +25,7 @@ export const routeMeta: RouteMeta = {
           />
         </div>
 
-        <div class="sm:max-w-[630px] sm:bg-green-900 sm:bg-opacity-25">
+        <div class="sm:max-w-[630px] sm:bg-prep-green sm:bg-opacity-25">
           <div class="uppercase text-white !font-gunplay">
             Are you ready when it happens?
           </div>
@@ -62,7 +62,7 @@ export const routeMeta: RouteMeta = {
 
       <div
         id="dark-section"
-        class="text-white bg-gradient-to-b from-black to-green-900"
+        class="text-white bg-gradient-to-b from-black to-prep-green"
       >
         <div class="flex flex-col items-center h-[1200px]">
           <div class="flex flex-col sm:flex-row">

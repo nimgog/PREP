@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <ul
-      class="flex gap-x-2 sm:gap-x-[25px] text-prep-beige text-xs sm:text-base font-normal font-poppins"
+      class="flex gap-x-2 sm:gap-x-[25px] text-prep-beige text-xs sm:text-base font-normal"
     >
       <!-- TODO: Make this scroll down on the About Us page -->
       <li>

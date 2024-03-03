@@ -43,7 +43,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 
         <nav class="hidden sm:block">
           <ul
-            class="flex justify-center gap-x-16 text-prep-beige text-base font-medium font-poppins uppercase"
+            class="flex justify-center gap-x-16 text-prep-beige text-base font-medium uppercase"
           >
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/survival-kit">Survival Kit</a></li>

@@ -5,9 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <!-- TODO: Logo -->
-    <div
-      class="text-center text-prep-beige text-xs sm:text-base font-bold font-poppins"
-    >
+    <div class="text-center text-prep-beige text-xs sm:text-base font-bold">
       &copy; {{ currentYear }} LOGO
     </div>
   `,

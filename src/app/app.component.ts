@@ -4,27 +4,26 @@ import MainHeaderComponent from './components/main-header/main-header.component'
 import MainFooterComponent from './components/main-footer/main-footer.component';
 
 // TODO: Replace favicon.ico
-// TODO: Scrolling behavior (nav)
+// TODO: Scroll behavior (nav)
 
 @Component({
   selector: 'app-root', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [RouterOutlet, MainHeaderComponent, MainFooterComponent],
   template: `
-    <div class="relative w-full h-full">
+    <div class="flex flex-col relative h-full min-h-screen">
       <app-main-header
         class="absolute top-0 left-0 right-0 z-10"
         [isTransparent]="isHomePage()"
       />
 
-      <main class="w-full h-full min-h-screen">
+      <main class="grow h-full">
         <router-outlet></router-outlet>
       </main>
 
-      <app-main-footer
-        class="absolute bottom-0 left-0 right-0 z-10"
-        [isTransparent]="isHomePage()"
-      />
+      <div>
+        <app-main-footer class="w-full h-full" />
+      </div>
     </div>
   `,
 })
