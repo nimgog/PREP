@@ -17,29 +17,7 @@ export default defineConfig(({ mode }) => ({
       static: true,
       prerender: {
         routes: async () => ['/', '/survival-kit', '/about-us'],
-        postRenderingHooks: [
-          async (route) => {
-            const beginMarker =
-              '<div class="hidden prerender-exclude-begin"></div>';
-            const endMarker =
-              '<div class="hidden prerender-exclude-end"></div>';
-
-            const regex = new RegExp(
-              `${escapeRegExp(beginMarker)}[\\s\\S]*?${escapeRegExp(
-                endMarker
-              )}`,
-              'g'
-            );
-
-            route.contents = route.contents?.replace(regex, '');
-
-            function escapeRegExp(regExp: string) {
-              return regExp.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-            }
-          },
-        ],
       },
-
       vite: {
         inlineStylesExtension: 'scss',
       },

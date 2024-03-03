@@ -1,6 +1,6 @@
 import { RouteMeta } from '@analogjs/router';
-import { Component, signal } from '@angular/core';
-import PrerenderExcludeComponent from '../components/utils/prerender-exclude.component';
+import { Component } from '@angular/core';
+import { SsrExcludeDirective } from '../decorators/ssr-exclude.decorator';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
@@ -11,7 +11,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-about-us-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [PrerenderExcludeComponent],
+  imports: [SsrExcludeDirective],
   template: `
     <div class="w-full h-full pt-24 px-4 pb-[72px]">
       <div class="flex flex-col sm:flex-row-reverse">
@@ -113,9 +113,7 @@ export const routeMeta: RouteMeta = {
           </div>
 
           <!-- TODO: Add verification -->
-          <app-prerender-exclude>
-            <div>{{ turnstile() }}</div>
-          </app-prerender-exclude>
+          <div *ssrExclude>[TURNSTILE]</div>
 
           <!-- TODO: Submit logic: form validation, backend request -->
           <div
@@ -133,6 +131,4 @@ export const routeMeta: RouteMeta = {
     </div>
   `,
 })
-export default class AboutUsPageComponent {
-  readonly turnstile = signal('[Turnstile]');
-}
+export default class AboutUsPageComponent {}
