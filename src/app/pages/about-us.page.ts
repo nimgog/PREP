@@ -1,5 +1,5 @@
 import { RouteMeta } from '@analogjs/router';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import PrerenderExcludeComponent from '../components/utils/prerender-exclude.component';
 
 // TODO: Fill other metadata
@@ -114,7 +114,7 @@ export const routeMeta: RouteMeta = {
 
           <!-- TODO: Add verification -->
           <app-prerender-exclude>
-            <div>[Turnstile]</div>
+            <div>{{ turnstile() }}</div>
           </app-prerender-exclude>
 
           <!-- TODO: Submit logic: form validation, backend request -->
@@ -133,4 +133,6 @@ export const routeMeta: RouteMeta = {
     </div>
   `,
 })
-export default class AboutUsPageComponent {}
+export default class AboutUsPageComponent {
+  readonly turnstile = signal('[Turnstile]');
+}
