@@ -5,7 +5,9 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <div class="hidden prerender-exclude-begin"></div>
-    <ng-content></ng-content>
+    <div class="w-full h-full">
+      <ng-content></ng-content>
+    </div>
     <div class="hidden prerender-exclude-end"></div>
   `,
 })
