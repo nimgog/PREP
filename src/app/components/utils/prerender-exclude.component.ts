@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-prerender-exclude', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   template: `
-    <!-- __prerender_exclude_begin -->
+    <div class="hidden prerender-exclude-begin"></div>
     <ng-content></ng-content>
-    <!-- __prerender_exclude_end -->
+    <div class="hidden prerender-exclude-end"></div>
   `,
 })
 export default class PrerenderExcludeComponent {}
