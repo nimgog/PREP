@@ -62,6 +62,9 @@ dependencies:
   mermaid:
     specifier: ^10.2.4
     version: 10.8.0
+  ngx-turnstile:
+    specifier: ^0.2.1
+    version: 0.2.1(@angular/common@17.2.3)(@angular/core@17.2.3)
   prismjs:
     specifier: ^1.29.0
     version: 1.29.0
@@ -9716,6 +9719,17 @@ packages:
 
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  /ngx-turnstile@0.2.1(@angular/common@17.2.3)(@angular/core@17.2.3):
+    resolution: {integrity: sha512-HAhpjKarLfzJlSn1Z+SR8sseb5V0Dv+XyUTTVNZbF1QJp+Zd2yZ7gXutKBZveCGqGrdAOr812V41QywXXrAVug==}
+    peerDependencies:
+      '@angular/common': '>=16.0.0'
+      '@angular/core': '>=16.0.0'
+    dependencies:
+      '@angular/common': 17.2.3(@angular/core@17.2.3)(rxjs@7.5.7)
+      '@angular/core': 17.2.3(rxjs@7.5.7)(zone.js@0.14.4)
+      tslib: 2.6.2
+    dev: false
 
   /nice-napi@1.0.2:
     resolution: {integrity: sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA==}

@@ -10,11 +10,11 @@ import { MatToolbar } from '@angular/material/toolbar';
   imports: [RouterLink, NgClass, MatIcon, MatToolbar],
   template: `
     <header
-      class="flex justify-center items-center w-full h-[70px] sm:h-[80px]"
+      class="flex justify-center items-center w-full h-[70px] sm:h-[80px] px-4"
       [ngClass]="isTransparent() ? 'bg-transparent' : 'bg-prep-green'"
     >
       <div
-        class="flex justify-between items-center w-full max-w-centered-content h-full px-3 sm:px-0"
+        class="flex justify-between items-center w-full max-w-centered-content h-full"
       >
         <div class="flex justify-center items-center w-8 sm:hidden">
           <button class="w-6 h-6" aria-label="Open side menu">

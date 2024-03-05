@@ -10,11 +10,12 @@ import { Component } from '@angular/core';
       >
 
       <!-- TODO: Fill in social media links -->
+      <!-- TODO: Replate Twitter icon with X -->
       <div class="flex gap-x-[15px]">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img
             src="/img/main-footer/social/twitter.svg"
-            alt="Twitter"
+            alt="X (former Twitter)"
             width="24"
             height="24"
           />
