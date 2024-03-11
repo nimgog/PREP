@@ -16,9 +16,9 @@ import {
     <form
       [formGroup]="contactForm()"
       (ngSubmit)="onSubmit()"
-      class="flex flex-col gap-y-2 sm:gap-y-[22px] w-full"
+      class="flex flex-col gap-y-2 lg:gap-y-[22px] w-full"
     >
-      <div class="flex flex-col sm:gap-y-[15px]">
+      <div class="flex flex-col lg:gap-y-[15px]">
         <label
           for="fullName"
           class="text-gray-700 text-base font-medium leading-normal"
@@ -42,7 +42,7 @@ import {
         </div>
       </div>
 
-      <div class="flex flex-col sm:gap-y-[15px]">
+      <div class="flex flex-col lg:gap-y-[15px]">
         <label
           for="emailAddress"
           class="text-gray-700 text-base font-medium leading-normal"
@@ -68,7 +68,7 @@ import {
         </div>
       </div>
 
-      <div class="flex flex-col sm:gap-y-[15px]">
+      <div class="flex flex-col lg:gap-y-[15px]">
         <label
           for="message"
           class="text-gray-700 text-base font-medium leading-normal"
@@ -80,7 +80,7 @@ import {
           <textarea
             formControlName="message"
             id="message"
-            class="form-field w-full min-w-0 h-[106px] sm:h-[165px] px-1.5 bg-white border border-gray-200 !outline-none"
+            class="form-field w-full min-w-0 h-[106px] lg:h-[165px] px-1.5 bg-white border border-gray-200 !outline-none"
           ></textarea>
 
           <div class="form-field-error-container h-10">
@@ -101,13 +101,13 @@ import {
 
       <!-- TODO: Submit logic: form validation, backend request -->
       <div
-        class="flex justify-center items-center w-[100px] sm:w-full h-[52px] px-6 py-4 bg-prep-green"
+        class="flex justify-center items-center w-[100px] lg:w-full h-[52px] px-6 py-4 bg-prep-green"
       >
         <button
           type="submit"
           [disabled]="!allowSubmit()"
           [ngClass]="[allowSubmit() ? '' : 'opacity-50 cursor-not-allowed']"
-          class="text-white text-sm sm:text-xl font-semibold"
+          class="text-white text-sm lg:text-xl font-semibold"
           aria-label="Submit contact form"
         >
           Submit

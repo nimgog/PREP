@@ -15,7 +15,7 @@ export const routeMeta: RouteMeta = {
 
       <hr />
 
-      <div class="flex flex-col sm:flex-row">
+      <div class="flex flex-col lg:flex-row">
         <div>
           <div>[SELECTED IMAGE]</div>
 

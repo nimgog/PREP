@@ -10,13 +10,13 @@ import { MatToolbar } from '@angular/material/toolbar';
   imports: [RouterLink, NgClass, MatIcon, MatToolbar],
   template: `
     <header
-      class="flex justify-center items-center w-full h-[70px] sm:h-[80px] px-4"
+      class="flex justify-center items-center w-full h-[70px] lg:h-[80px] px-4"
       [ngClass]="isTransparent() ? 'bg-transparent' : 'bg-prep-green'"
     >
       <div
         class="flex justify-between items-center w-full max-w-centered-content h-full"
       >
-        <div class="flex justify-center items-center w-8 sm:hidden">
+        <div class="flex justify-center items-center w-8 lg:hidden">
           <button class="w-6 h-6" aria-label="Open side menu">
             <img src="/img/main-header/side-menu.svg" alt="Side menu" />
           </button>
@@ -36,12 +36,12 @@ import { MatToolbar } from '@angular/material/toolbar';
         <!-- TODO: Revisit logo -->
         <a routerLink="/">
           <div
-            class="w-[133px] sm:w-[112px] h-10 sm:h-[52px] bg-prep-beige"
-            [ngClass]="isTransparent() ? 'sm:bg-prep-green' : 'sm:bg-[#A3B18A]'"
+            class="w-[133px] lg:w-[112px] h-10 lg:h-[52px] bg-prep-beige"
+            [ngClass]="isTransparent() ? 'lg:bg-prep-green' : 'lg:bg-[#A3B18A]'"
           ></div>
         </a>
 
-        <nav class="hidden sm:block">
+        <nav class="hidden lg:block">
           <ul
             class="flex justify-center gap-x-16 text-prep-beige text-base font-medium uppercase"
           >
@@ -51,7 +51,7 @@ import { MatToolbar } from '@angular/material/toolbar';
           </ul>
         </nav>
 
-        <div class="sm:flex justify-end items-center sm:w-[112px]">
+        <div class="lg:flex justify-end items-center lg:w-[112px]">
           <button class="w-8 h-8 p-[3px]" aria-label="Open shopping cart">
             <img src="/img/main-header/shopping-cart.svg" alt="Shopping cart" />
           </button>

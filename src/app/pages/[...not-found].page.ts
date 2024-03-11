@@ -7,6 +7,7 @@ export const routeMeta: RouteMeta = {
   title: 'Not Found | PREP',
 };
 
+// TODO: Style this component
 @Component({
   selector: 'app-not-found-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,

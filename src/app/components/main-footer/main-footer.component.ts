@@ -21,7 +21,7 @@ import MainFooterCopyrightComponent from './copyright.component';
   template: `
     <footer class="flex justify-center px-[26px] bg-prep-green">
       <div class="w-full max-w-centered-content">
-        <div class="sm:hidden flex flex-col py-[10px]">
+        <div class="lg:hidden flex flex-col py-[10px]">
           <app-main-footer-social-media class="mb-[22px]" />
           <app-main-footer-company-info class="mb-7" />
           <app-main-footer-links class="mb-[25px]" />
@@ -29,7 +29,7 @@ import MainFooterCopyrightComponent from './copyright.component';
           <app-main-footer-copyright />
         </div>
 
-        <div class="hidden sm:block pt-[65px] pb-[37px]">
+        <div class="hidden lg:block pt-[65px] pb-[37px]">
           <div class="flex flex-col">
             <div class="flex">
               <div class="flex flex-col">
