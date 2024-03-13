@@ -24,33 +24,41 @@ export const routeMeta: RouteMeta = {
         </div>
 
         <div
-          class="portrait:hero-title-box-portrait landscape:mt-[30vh] gap-y-[30px] lg:max-w-[630px] px-10 lg:px-8 py-[9px] lg:py-4 lg:bg-prep-green lg:bg-opacity-80 rounded-lg"
+          class="absolute landscape:mt-[30vh] gap-y-[30px] lg:max-w-[630px] home-page__text-section--mobile landscape:px-10 lg:px-8 py-[9px] lg:py-4 lg:bg-prep-green lg:bg-opacity-80 rounded-lg"
         >
-          <h1
-            class="max-w-[318px] lg:max-w-none uppercase text-center lg:text-left text-white text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+          <div
+            class="portrait:p-3 portrait:mx-5 rounded home-page__text-section--mobile-background"
           >
-            Are you ready when it happens?
-          </h1>
-
-          <p
-            class="hidden lg:block text-prep-beige text-base font-normal leading-loose"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, optio
-            consequatur voluptatibus neque laudantium voluptate quae soluta.
-          </p>
-        </div>
-
-        <div class="portrait:shop-now-button-box-portrait landscape:mt-10">
-          <button
-            routerLink="/survival-kit"
-            class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg"
-            aria-label="Navigate to product page"
-          >
-            <span
-              class="text-white text-base lg:text-lg font-semibold leading-loose"
-              >Shop Now</span
+            <h1
+              class="max-w-[318px] lg:max-w-none uppercase text-left lg:text-left text-white text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
             >
-          </button>
+              Are you ready when it happens?
+            </h1>
+
+            <p
+              class="lg:block text-prep-beige text-base font-normal leading-loose mt-3 portrait:text-sm portrait:leading-6"
+            >
+              In moments of crisis, we don't rise to the occasion—we fall to our
+              level of preparedness. At PREP, we understand that emergencies
+              don't send a warning. From the unpredictable weather to the
+              unforeseen events, the Scandinavian spirit of resilience has
+              always been about being one step ahead. That's why we created
+              PREPC—your ultimate companion in preparedness, ensuring that when
+              push comes to shove, you're not just surviving; you're thriving.
+            </p>
+          </div>
+          <div class="mt-3 portrait:mx-5 landscape:mt-10">
+            <button
+              routerLink="/survival-kit"
+              class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg"
+              aria-label="Navigate to product page"
+            >
+              <span
+                class="text-white text-base lg:text-lg font-semibold leading-loose"
+                >Shop Now</span
+              >
+            </button>
+          </div>
         </div>
       </div>
 
@@ -58,17 +66,20 @@ export const routeMeta: RouteMeta = {
         <div
           class="flex flex-col justify-center items-center lg:flex-row-reverse h-[720px]"
         >
-          <div>[BACKPACK IMAGE]</div>
+          <div class="relative w-full">
+            <img class="z-0 absolute" src="/img/home-page/PREP-blob.png" alt="todo add relevant alt here">
+            <img class="z-10 absolute" src="/img/home-page/PREP-survival-kit.png" alt="todo add relevant alt here">
+          </div>
+
+        </div>
+        <div>
+          <div class="uppercase">Lorem ipsum dolor sit amet, consectetur</div>
 
           <div>
-            <div class="uppercase">Lorem ipsum dolor sit amet, consectetur</div>
-
-            <div>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-              odio unde similique repellat at, nihil eveniet assumenda et
-              blanditiis iure omnis laudantium culpa molestiae quos provident
-              aut voluptatem quas illum.
-            </div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+            odio unde similique repellat at, nihil eveniet assumenda et
+            blanditiis iure omnis laudantium culpa molestiae quos provident
+            aut voluptatem quas illum.
           </div>
         </div>
       </div>
@@ -115,6 +126,20 @@ export const routeMeta: RouteMeta = {
 
         .shop-now-button-box-portrait {
           margin-top: calc(160px / 683px * 100vh);
+        }
+
+        .home-page__text-section {
+          &--mobile {
+            @media screen and (max-width: 600px) {
+              top: calc(50% - 240px);
+            }
+          }
+
+          &--mobile-background {
+            @media screen and (max-width: 600px) {
+              background: rgba(0, 0, 0, 0.5);
+            }
+          }
         }
       }
 
