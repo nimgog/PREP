@@ -49,13 +49,13 @@ export const routeMeta: RouteMeta = {
           </div>
           <div class="mt-3 portrait:mx-5 landscape:mt-10">
             <button
-              routerLink="/survival-kit"
+              routerLink="/about-us"
               class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg"
               aria-label="Navigate to product page"
             >
               <span
                 class="text-white text-base lg:text-lg font-semibold leading-loose"
-                >Shop Now</span
+                >Learn More About Our Mission</span
               >
             </button>
           </div>
@@ -80,18 +80,18 @@ export const routeMeta: RouteMeta = {
               class="z-0 absolute"
               src="/img/home-page/PREP-blob.png"
               alt="todo add relevant alt here"
-              style="rotate: 180deg;"
+              style="rotate: 180deg; opacity:0.7;"
             />
             <img
               class="z-10 absolute"
               src="/img/home-page/PREP-survival-kit.png"
               alt="todo add relevant alt here"
-              style="height: 250px; left: calc(50% - 82px); top: calc(50% - 125px);"
+              style="height: 350px; left: calc(50% - 115px); top: calc(50% - 175px);"
             />
           </div>
         </div>
         <div>
-          <div class="portrait:ml-5 flex portrait:flex-col">
+          <div class="portrait:mx-5 flex portrait:flex-col">
             <span>
               Crafted with the Scandinavian ethos of efficiency and reliability,
               the PREPC is a testament to our commitment to emergency readiness.
@@ -109,7 +109,7 @@ export const routeMeta: RouteMeta = {
           >
             <span
               class="text-white text-base lg:text-lg font-semibold leading-loose"
-              >Learn more</span
+              >Discover PREPC</span
             >
           </button>
         </div>
@@ -119,27 +119,40 @@ export const routeMeta: RouteMeta = {
         id="dark-section"
         class="text-white bg-gradient-to-b from-black to-prep-green"
       >
-        <div class="flex flex-col items-center h-[1200px]">
+        <div class="flex flex-col items-center landscape:h-[1200px]">
           <div class="flex flex-col lg:flex-row">
-            <div>[BACKPACK DETAILED IMAGE]</div>
-
-            <div>
-              <div class="uppercase">
-                Lorem ipsum dolor sit amet, consectetur
-              </div>
-
-              <div>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Incidunt odio unde similique repellat at, nihil eveniet
-                assumenda et blanditiis iure omnis laudantium culpa molestiae
-                quos provident aut voluptatem quas illum.
+            <div class="flex justify-center portrait:mt-8">
+              <img
+                src="img/home-page/detailed_placeholder.png"
+                alt="todo better alt"
+              />
+            </div>
+              <div class="portrait:mx-5">
+                <span>
+                  PREPC is not just a product; it's a promise—a promise of safety,
+                  security, and peace of mind. Designed for the dynamic
+                  Scandinavian lifestyle, it's for the households that cherish
+                  their peace, the adventurers who seek the unknown, and everyone
+                  who believes in the power of preparedness. With PREPC, you're
+                  not just prepared for emergencies; you're equipped for life's
+                  every adventure.
+                </span>
               </div>
             </div>
           </div>
+          <button
+          routerLink="/survival-kit"
+          class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:ml-5 portrait:mt-8"
+          aria-label="Navigate to product page"
+        >
+          <span
+            class="text-white text-base lg:text-lg font-semibold leading-loose"
+            >Shop Now</span
+          >
+        </button>
 
-          <div class="flex flex-col justify-center h-[380px]">
-            [INFO ROW / SLIDER]
-          </div>
+        <div class="flex flex-col justify-center h-[380px]">
+          [INFO ROW / SLIDER]
         </div>
       </div>
     </div>
