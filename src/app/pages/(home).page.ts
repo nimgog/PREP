@@ -62,25 +62,56 @@ export const routeMeta: RouteMeta = {
         </div>
       </div>
 
-      <div id="light-section" class="-mb-5 bg-white text-orange-700">
+      <div
+        id="light-section"
+        style="height: 100svh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 20px 0 60px 0;"
+        class="mb-5 bg-white text-orange-700"
+      >
         <div
           class="flex flex-col justify-center items-center lg:flex-row-reverse h-[720px]"
+          style="height: 350px;"
         >
-          <div class="relative w-full">
-            <img class="z-0 absolute" src="/img/home-page/PREP-blob.png" alt="todo add relevant alt here">
-            <img class="z-10 absolute" src="/img/home-page/PREP-survival-kit.png" alt="todo add relevant alt here">
+          <div class="relative w-full" style="height: 350px;">
+            <img
+              class="z-0 absolute"
+              src="/img/home-page/PREP-blob.png"
+              alt="todo add relevant alt here"
+              style="rotate: 180deg;"
+            />
+            <img
+              class="z-10 absolute"
+              src="/img/home-page/PREP-survival-kit.png"
+              alt="todo add relevant alt here"
+              style="height: 250px; left: calc(50% - 82px); top: calc(50% - 125px);"
+            />
           </div>
-
         </div>
         <div>
-          <div class="uppercase">Lorem ipsum dolor sit amet, consectetur</div>
-
-          <div>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-            odio unde similique repellat at, nihil eveniet assumenda et
-            blanditiis iure omnis laudantium culpa molestiae quos provident
-            aut voluptatem quas illum.
+          <div class="portrait:ml-5 flex portrait:flex-col">
+            <span>
+              Crafted with the Scandinavian ethos of efficiency and reliability,
+              the PREPC is a testament to our commitment to emergency readiness.
+              Weighing less than a kilogram, this compact case is a powerhouse
+              of preparedness, containing 130 meticulously selected articles.
+              From the smallest inconvenience to the most critical emergencies,
+              the PREPC ensures you have everything you need, wherever you
+              are—be it in your car, at home, or on a wilderness adventure.
+            </span>
           </div>
+          <button
+            routerLink="/survival-kit"
+            class="px-6 py-3.5 bg-[#c2410c] uppercase lg:rounded-lg portrait:ml-5 portrait:mt-8"
+            aria-label="Navigate to product page"
+          >
+            <span
+              class="text-white text-base lg:text-lg font-semibold leading-loose"
+              >Learn more</span
+            >
+          </button>
         </div>
       </div>
 
