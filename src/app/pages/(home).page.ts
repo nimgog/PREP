@@ -92,15 +92,20 @@ export const routeMeta: RouteMeta = {
         </div>
         <div>
           <div class="portrait:mx-5 flex portrait:flex-col">
-            <span>
-              Crafted with the Scandinavian ethos of efficiency and reliability,
-              the PREPC is a testament to our commitment to emergency readiness.
-              Weighing less than a kilogram, this compact case is a powerhouse
-              of preparedness, containing 130 meticulously selected articles.
-              From the smallest inconvenience to the most critical emergencies,
-              the PREPC ensures you have everything you need, wherever you
-              are—be it in your car, at home, or on a wilderness adventure.
-            </span>
+            <h1
+              class=" text-orange-700 max-w-[318px] lg:max-w-none uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+            >
+              Crafted with Scandinavian
+            </h1>
+            <p class="portrait:mt-3">
+              ethos of efficiency and reliability, the PREPC is a testament to
+              our commitment to emergency readiness. Weighing less than a
+              kilogram, this compact case is a powerhouse of preparedness,
+              containing 130 meticulously selected articles. From the smallest
+              inconvenience to the most critical emergencies, the PREPC ensures
+              you have everything you need, wherever you are—be it in your car,
+              at home, or on a wilderness adventure.
+            </p>
           </div>
           <button
             routerLink="/survival-kit"
@@ -127,20 +132,20 @@ export const routeMeta: RouteMeta = {
                 alt="todo better alt"
               />
             </div>
-              <div class="portrait:mx-5">
-                <span>
-                  PREPC is not just a product; it's a promise—a promise of safety,
-                  security, and peace of mind. Designed for the dynamic
-                  Scandinavian lifestyle, it's for the households that cherish
-                  their peace, the adventurers who seek the unknown, and everyone
-                  who believes in the power of preparedness. With PREPC, you're
-                  not just prepared for emergencies; you're equipped for life's
-                  every adventure.
-                </span>
-              </div>
+            <div class="portrait:mx-5">
+              <p>
+                PREPC is not just a product; it's a promise—a promise of safety,
+                security, and peace of mind. Designed for the dynamic
+                Scandinavian lifestyle, it's for the households that cherish
+                their peace, the adventurers who seek the unknown, and everyone
+                who believes in the power of preparedness. With PREPC, you're
+                not just prepared for emergencies; you're equipped for life's
+                every adventure.
+              </p>
             </div>
           </div>
-          <button
+        </div>
+        <button
           routerLink="/survival-kit"
           class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:ml-5 portrait:mt-8"
           aria-label="Navigate to product page"
@@ -151,8 +156,59 @@ export const routeMeta: RouteMeta = {
           >
         </button>
 
-        <div class="flex flex-col justify-center h-[380px]">
-          [INFO ROW / SLIDER]
+        <div class="flex flex-col justify-center h-[380px] portrait:h-full p-5">
+          <div class="flex flex-col justify-between items-center portrait:mt-3">
+              <img
+                class="w-24"
+                src="/img/home-page/placeholder_info.png"
+                alt="todo add alt and real image"
+              />
+              <h3
+                class="mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              >
+                info title placeholder
+              </h3>
+            <p class="mt-3">text goes here</p>
+          </div>
+          <div class="flex flex-col justify-between items-center portrait:mt-3">
+              <img
+                class="w-24"
+                src="/img/home-page/placeholder_info.png"
+                alt="todo add alt and real image"
+              />
+              <h3
+                class="mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              >
+                info title placeholder
+              </h3>
+            <p class="mt-3">text goes here</p>
+          </div>
+          <div class="flex flex-col justify-between items-center portrait:mt-3">
+              <img
+                class="w-24"
+                src="/img/home-page/placeholder_info.png"
+                alt="todo add alt and real image"
+              />
+              <h3
+                class="mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              >
+                info title placeholder
+              </h3>
+            <p class="mt-3">text goes here</p>
+          </div>
+          <div class="flex flex-col justify-between items-center portrait:mt-3">
+              <img
+                class="w-24"
+                src="/img/home-page/placeholder_info.png"
+                alt="todo add alt and real image"
+              />
+              <h3
+                class="mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              >
+                info title placeholder
+              </h3>
+            <p class="mt-3">text goes here</p>
+          </div>
         </div>
       </div>
     </div>
