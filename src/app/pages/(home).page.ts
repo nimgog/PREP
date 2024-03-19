@@ -12,8 +12,8 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="flex flex-col w-full h-full">
-      <div class="relative flex flex-col items-center h-screen max-h-screen">
+    <div class="flex flex-col w-full h-full items-center">
+      <div class="container relative flex flex-col items-center h-screen max-h-screen">
         <div class="absolute inset-0 -z-10 overflow-hidden">
           <!-- TODO: Create smaller variants of the hero image -->
           <img
@@ -52,14 +52,14 @@ export const routeMeta: RouteMeta = {
               push comes to shove, you're not just surviving; you're thriving.
             </p>
           </div>
-          <div class="mt-3 portrait:mx-5 landscape:mt-10">
+          <div class="mt-3 portrait:mx-8 landscape:mt-10">
             <button
               routerLink="/about-us"
               class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg"
               aria-label="Navigate to product page"
             >
               <span
-                class="text-white text-base lg:text-lg font-semibold leading-loose"
+                class="whitespace-nowrap text-white text-base lg:text-lg font-semibold portrait:text-sm leading-loose"
                 >Learn More About Our Mission</span
               >
             </button>
@@ -69,34 +69,28 @@ export const routeMeta: RouteMeta = {
 
       <div
         id="light-section"
-        class="light-section__container portrait:light-section__container--mobile mb-5 bg-white text-orange-700 landscape:flex-row-reverse portrait:flex-col landscape:flex-row-reverse portrait:h-svh portrait:justify-between landscape:p-8"
+        class="container light-section__container portrait:light-section__container--mobile flex h-[720px] mb-5 bg-white text-orange-700 landscape:flex-row-reverse portrait:flex-col landscape:flex-row-reverse portrait:h-svh justify-between landscape:p-8"
       >
-        <div
-          class="flex flex-col justify-center items-center h-[720px] landscape:w-1/2 portrait:w-full"
-        >
-          <div class="relative w-full h-[350px]">
-            <img
-              class="z-0 absolute"
-              src="/img/home-page/PREP-blob.png"
-              alt="todo add relevant alt here"
-              style="rotate: 180deg; opacity:0.7;"
-            />
-            <img
-              class="z-10 absolute"
-              src="/img/home-page/PREPC-2.png"
-              alt="todo add relevant alt here"
-              style="height: 350px; left: calc(50% - 135px); top: calc(50% - 175px);"
-            />
-          </div>
+        <div class="image-container w-full relative flex-1 p-5">
+          <img
+            class="z-0 absolute image-container__image-background"
+            src="/img/home-page/PREP-blob.png"
+            alt="todo add relevant alt here"
+          />
+          <img
+            class="z-10 absolute image-container__image-foreground"
+            src="/img/home-page/PREPC-2.png"
+            alt="todo add relevant alt here"
+          />
         </div>
-        <div class="landscape:w-1/2">
+        <div class="flex-1 text-container">
           <div class="portrait:mx-5 flex flex-col">
             <h1
               class="header-fixed-32 text-orange-700 portrait:max-w-[318px] landscape:whitespace-nowrap text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
             >
               Crafted with Scandinavian
             </h1>
-            <p class="my-3">
+            <p class="my-3 portrait:text-sm portrait:leading-6">
               ethos of efficiency and reliability, the PREPC is a testament to
               our commitment to emergency readiness. Weighing less than a
               kilogram, this compact case is a powerhouse of preparedness,
@@ -121,7 +115,7 @@ export const routeMeta: RouteMeta = {
 
       <div
         id="dark-section"
-        class="text-white bg-gradient-to-b from-black to-prep-green"
+        class="container text-white bg-gradient-to-b from-black to-prep-green"
       >
         <div
           class="flex flex-col items-center justify-center landscape:h-[700px]"
@@ -129,17 +123,18 @@ export const routeMeta: RouteMeta = {
           <div class="flex flex-col lg:flex-row landscape:h-[500px]">
             <div class="flex justify-center portrait:mt-8 landscape:w-1/2">
               <img
+                class="p-5"
                 src="img/home-page/PREPC-Promise.png"
                 alt="todo better alt"
               />
             </div>
-            <div class="portrait:mx-5 landscape:w-1/2 portrait:mt-3">
+            <div class="portrait:mx-5 landscape:w-1/2 portrait:mt-3 text-container">
               <h1
                 class="header-fixed-32 portrait:max-w-[318px] landscape:whitespace-nowrap text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
               >
                 PREPC is not just a product;
               </h1>
-              <p class="my-3">
+              <p class="my-3 portrait:text-sm portrait:leading-6">
                 it's a promise — a promise of safety, security, and peace of
                 mind. Designed for the dynamic Scandinavian lifestyle, it's for
                 the households that cherish their peace, the adventurers who
@@ -187,11 +182,11 @@ export const routeMeta: RouteMeta = {
               alt="todo add alt and real image"
             />
             <h3
-              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
             >
               In Your Home
             </h3>
-            <p class="mt-3 text-center">
+            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
               From power outages to unexpected injuries, the PREPC ensures your
               home is a fortress of safety and preparedness. Compact yet
               comprehensive, it's the peace of mind every household deserves.
@@ -204,11 +199,11 @@ export const routeMeta: RouteMeta = {
               alt="todo add alt and real image"
             />
             <h3
-              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
             >
               In Your Car
             </h3>
-            <p class="mt-3 text-center">
+            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
               Road trips or daily commutes, the PREPC turns your car into a
               mobile safety hub. Whether it's a flat tire or a first aid
               necessity, you're always a step ahead
@@ -221,11 +216,11 @@ export const routeMeta: RouteMeta = {
               alt="todo add alt and real image"
             />
             <h3
-              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
             >
               Out on Adventure
             </h3>
-            <p class="mt-3 text-center">
+            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
               Embrace the wild with confidence. The PREPC is your silent
               guardian in the great outdoors, ensuring you're prepared for any
               twist your adventure takes.
@@ -238,11 +233,11 @@ export const routeMeta: RouteMeta = {
               alt="todo add alt and real image"
             />
             <h3
-              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px]"
+              class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
             >
               Everyday Preparedness
             </h3>
-            <p class="mt-3 text-center">
+            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
               Life is unpredictable, but with the PREPC, you're always equipped.
               It's the ultimate companion for the everyday hero, ready for
               whatever the day may bring
@@ -260,11 +255,11 @@ export const routeMeta: RouteMeta = {
 
       @layer utilities {
         .header-fixed-32 {
-          font-size: 32px;
+          font-size: 32px !important;
         }
 
         .header-fixed-20 {
-          font-size: 20px;
+          font-size: 20px !important;
         }
         .hero-title-box-portrait {
           margin-top: calc(230px / 683px * 100vh);
@@ -289,6 +284,30 @@ export const routeMeta: RouteMeta = {
           }
         }
 
+        .text-container {
+          max-width: 500px;
+        }
+
+        .image-container {
+          max-width: 500px;
+
+          &__image-background {
+            rotate: 180deg;
+            opacity: 0.7;
+            top: 50%;
+            left: 50%;
+            transform: translate(50%, 50%);
+          }
+
+          &__image-foreground {
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: auto;
+          }
+        }
+
         .divider-line {
           flex: 1;
           border: none;
@@ -303,31 +322,41 @@ export const routeMeta: RouteMeta = {
 
         .home-page__text-section {
           right: 20px;
+          max-width: 500px;
+
+          @media screen and (max-width: 1200px) {
+            margin-top: unset;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+
           &--mobile {
             @media screen and (max-width: 600px) {
-              bottom: 40px;
-              right: 5px;
-              left: 5px;
+              right: unset;
+              top: unset;
+              bottom: 5%;
+              max-width: 90%;
+              transform: unset;
             }
           }
 
           background: rgba(0, 0, 0, 0.5);
         }
-      }
 
-      #light-section {
-        clip-path: polygon(
-          0 0,
-          100% 0,
-          100% calc(100% - #{$section-offset}),
-          0 100%
-        );
-        margin-bottom: -#{$section-offset};
-      }
+        #light-section {
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - #{$section-offset}),
+            0 100%
+          );
+          margin-bottom: -#{$section-offset};
+        }
 
-      #dark-section {
-        clip-path: polygon(0 #{$section-offset}, 100% 0, 100% 100%, 0 100%);
-        padding-top: #{$section-offset};
+        #dark-section {
+          clip-path: polygon(0 #{$section-offset}, 100% 0, 100% 100%, 0 100%);
+          padding-top: #{$section-offset};
+        }
       }
     `,
   ],
