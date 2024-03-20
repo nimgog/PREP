@@ -86,11 +86,11 @@ export const routeMeta: RouteMeta = {
         <div class="flex-1 text-container">
           <div class="portrait:mx-5 flex flex-col">
             <h1
-              class="header-fixed-32 text-orange-700 portrait:max-w-[318px] landscape:whitespace-nowrap text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+              class="text-pretty header-fixed-32 text-orange-700 portrait:max-w-[318px] landscape:whitespace-nowrap text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
             >
               Crafted with Scandinavian
             </h1>
-            <p class="my-3 portrait:text-sm portrait:leading-6">
+            <p class="text-pretty my-3 portrait:text-sm portrait:leading-6">
               ethos of efficiency and reliability, the PREPC is a testament to
               our commitment to emergency readiness. Weighing less than a
               kilogram, this compact case is a powerhouse of preparedness,
@@ -118,23 +118,23 @@ export const routeMeta: RouteMeta = {
         class="container text-white bg-gradient-to-b from-black to-prep-green"
       >
         <div
-          class="flex flex-col items-center justify-center landscape:h-[700px]"
+          class="flex flex-col items-center justify-center landscape:h-[700px] p-5"
         >
-          <div class="flex flex-col lg:flex-row landscape:h-[500px]">
+          <div class="flex portrait:flex-col lg:flex-row items-center">
             <div class="flex justify-center portrait:mt-8 landscape:w-1/2">
               <img
-                class="p-5"
+                class="p-5 product-image"
                 src="img/home-page/PREPC-Promise.png"
                 alt="todo better alt"
               />
             </div>
-            <div class="portrait:mx-5 landscape:w-1/2 portrait:mt-3 text-container">
+            <div class="text-container portrait:mx-5 portrait:mt-3 flex flex-col justify-center landscape:w-1/2">
               <h1
-                class="header-fixed-32 portrait:max-w-[318px] landscape:whitespace-nowrap text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+                class="text-pretty header-fixed-32 text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
               >
                 PREPC is not just a product;
               </h1>
-              <p class="my-3 portrait:text-sm portrait:leading-6">
+              <p class="text-pretty my-3 portrait:text-sm portrait:leading-6">
                 it's a promise — a promise of safety, security, and peace of
                 mind. Designed for the dynamic Scandinavian lifestyle, it's for
                 the households that cherish their peace, the adventurers who
@@ -144,7 +144,7 @@ export const routeMeta: RouteMeta = {
               </p>
               <button
                 routerLink="/survival-kit"
-                class="portrait:hidden px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:ml-5 portrait:mt-8"
+                class="w-fit px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:mt-8"
                 aria-label="Navigate to product page"
               >
                 <span
@@ -155,16 +155,6 @@ export const routeMeta: RouteMeta = {
             </div>
           </div>
         </div>
-        <button
-          routerLink="/survival-kit"
-          class=" landscape:hidden px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:ml-5 portrait:mt-8"
-          aria-label="Navigate to product page"
-        >
-          <span
-            class="text-white text-base lg:text-lg font-semibold leading-loose"
-            >Shop Now</span
-          >
-        </button>
 
         <div class="divider-container portrait:mt-8">
           <hr class="divider-line" />
@@ -286,17 +276,33 @@ export const routeMeta: RouteMeta = {
 
         .text-container {
           max-width: 500px;
+          min-width: 50%;
+
+          &--product-hero {
+            @media screen and (max-width: 905px) {
+              width:unset;
+            }
+          }
+        }
+
+        .product-image {
+          @media screen and (max-width: 1025px) {
+              max-height:400px;
+            }
         }
 
         .image-container {
           max-width: 500px;
-
+          min-width: 50%;
           &__image-background {
             rotate: 180deg;
             opacity: 0.7;
             top: 50%;
             left: 50%;
             transform: translate(50%, 50%);
+            @media screen and (max-width: 905px) {
+              width:80%
+            }
           }
 
           &__image-foreground {
@@ -305,6 +311,9 @@ export const routeMeta: RouteMeta = {
             left: 50%;
             transform: translate(-50%, -50%);
             height: auto;
+            @media screen and (max-width: 905px) {
+              width:60%
+            }
           }
         }
 
