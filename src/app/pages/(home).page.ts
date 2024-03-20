@@ -163,12 +163,13 @@ export const routeMeta: RouteMeta = {
         </div>
 
         <div
-          class="flex portrait:flex-col landscape:flex-row justify-center h-[380px] h-full p-5"
+          class="flex flex-col justify-center h-[380px] h-full p-5"
         >
+        <div class="flex flex-row portrait:flex-col mt-5">
           <div class="flex flex-col justify-between items-center portrait:mt-8">
             <img
-              class="w-24"
-              src="/img/home-page/placeholder_info.png"
+              class="w-96"
+              src="/img/home-page/home.jpg"
               alt="todo add alt and real image"
             />
             <h3
@@ -176,7 +177,7 @@ export const routeMeta: RouteMeta = {
             >
               In Your Home
             </h3>
-            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
+            <p class="mt-3 text-center text-container text-sm portrait:leading-6">
               From power outages to unexpected injuries, the PREPC ensures your
               home is a fortress of safety and preparedness. Compact yet
               comprehensive, it's the peace of mind every household deserves.
@@ -184,8 +185,8 @@ export const routeMeta: RouteMeta = {
           </div>
           <div class="flex flex-col justify-between items-center portrait:mt-8">
             <img
-              class="w-24"
-              src="/img/home-page/placeholder_info.png"
+              class="w-96"
+              src="/img/home-page/car.jpg"
               alt="todo add alt and real image"
             />
             <h3
@@ -193,16 +194,18 @@ export const routeMeta: RouteMeta = {
             >
               In Your Car
             </h3>
-            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
+            <p class="mt-3 text-center text-container text-sm portrait:leading-6">
               Road trips or daily commutes, the PREPC turns your car into a
               mobile safety hub. Whether it's a flat tire or a first aid
               necessity, you're always a step ahead
             </p>
           </div>
+        </div>
+        <div class="flex flex-row portrait:flex-col mt-5">
           <div class="flex flex-col justify-between items-center portrait:mt-8">
             <img
-              class="w-24"
-              src="/img/home-page/placeholder_info.png"
+              class="w-96"
+              src="/img/home-page/adventure.jpg"
               alt="todo add alt and real image"
             />
             <h3
@@ -210,7 +213,7 @@ export const routeMeta: RouteMeta = {
             >
               Out on Adventure
             </h3>
-            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
+            <p class="mt-3 text-center text-container text-sm portrait:leading-6">
               Embrace the wild with confidence. The PREPC is your silent
               guardian in the great outdoors, ensuring you're prepared for any
               twist your adventure takes.
@@ -218,8 +221,8 @@ export const routeMeta: RouteMeta = {
           </div>
           <div class="flex flex-col justify-between items-center portrait:mt-8">
             <img
-              class="w-24"
-              src="/img/home-page/placeholder_info.png"
+              class="w-96"
+              src="/img/home-page/prep.jpg"
               alt="todo add alt and real image"
             />
             <h3
@@ -227,12 +230,13 @@ export const routeMeta: RouteMeta = {
             >
               Everyday Preparedness
             </h3>
-            <p class="mt-3 text-center text-container portrait:text-sm portrait:leading-6">
+            <p class="mt-3 text-center text-container text-sm portrait:leading-6">
               Life is unpredictable, but with the PREPC, you're always equipped.
               It's the ultimate companion for the everyday hero, ready for
               whatever the day may bring
             </p>
           </div>
+        </div>
         </div>
       </div>
     </div>
