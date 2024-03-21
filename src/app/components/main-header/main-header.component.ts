@@ -39,7 +39,7 @@ import { MatToolbar } from '@angular/material/toolbar';
             class="w-[133px] lg:w-[112px] h-10 lg:h-[52px] bg-prep-beige"
             [ngClass]="isTransparent() ? 'lg:bg-prep-green' : 'lg:bg-[#A3B18A]'"
           ></div> -->
-          <img class="w-[120px]" src="/img/main-header/PREP_logo.png" alt="">
+          <img class="w-[100px]" src="/img/main-header/PREP_logo.png" alt="">
         </a>
 
         <nav class="hidden lg:block">
