@@ -35,10 +35,11 @@ import { MatToolbar } from '@angular/material/toolbar';
 
         <!-- TODO: Revisit logo -->
         <a routerLink="/">
-          <div
+          <!-- <div
             class="w-[133px] lg:w-[112px] h-10 lg:h-[52px] bg-prep-beige"
             [ngClass]="isTransparent() ? 'lg:bg-prep-green' : 'lg:bg-[#A3B18A]'"
-          ></div>
+          ></div> -->
+          <img class="w-[100px]" src="/img/main-header/PREP_logo.png" alt="">
         </a>
 
         <nav class="hidden lg:block">

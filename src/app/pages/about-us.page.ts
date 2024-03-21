@@ -22,40 +22,72 @@ export const routeMeta: RouteMeta = {
         <section
           class="flex flex-col lg:flex-row-reverse items-center lg:items-start gap-x-10"
         >
-          <div class="lg:w-1/2 h-[284px] lg:h-[420px]">
+          <div class="lg:w-1/2 h-[284px] lg:h-[420px] lg:mt-10">
             <!-- TODO: Downscale image -->
             <img
               class="h-[284px] lg:h-[420px] object-cover object-[top_center]"
-              src="/img/about-us-page/survival-kit.jpg"
+              src="/img/about-us-page/about_us.jpg"
               alt="A human wearing a survival kit"
             />
           </div>
+          <div class="flex flex-col lg:w-1/2">
 
-          <div class="flex flex-col gap-y-6 lg:w-1/2 pt-10 lg:pt-0">
-            <h1
-              class="text-gray-700 text-[28px] lg:text-3xl font-semibold uppercase leading-9"
-            >
-              Our Purpose
-            </h1>
+            <div class="flex flex-col gap-y-6 pt-10 ">
+              <h1
+                class="text-gray-700 text-[28px] lg:text-3xl font-semibold uppercase leading-9"
+              >
+                Our Story:
+              </h1>
 
-            <p
-              class="text-gray-700 text-sm lg:text-base font-normal leading-normal"
-            >
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea esse
-              atque asperiores similique nostrum quas nulla blanditiis sint
-              optio corporis! Eos sint ea officiis delectus vel ipsum ipsam
-              blanditiis amet. Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Ea esse atque asperiores similique nostrum quas
-              nulla blanditiis sint optio corporis! Eos sint ea officiis
-              delectus vel ipsum ipsam blanditiis amet.<br />
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea esse
-              atque asperiores similique nostrum quas nulla blanditiis sint
-              optio corporis! Eos sint ea officiis delectus vel ipsum ipsam
-              blanditiis amet. Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Ea esse atque asperiores similique nostrum quas
-              nulla blanditiis sint optio corporis! Eos sint ea officiis
-              delectus vel ipsum ipsam blanditiis amet.
-            </p>
+              <p
+                class="text-gray-700 text-sm lg:text-base font-normal leading-normal"
+              >
+                At PREP - Preparedness Readiness Emergency Provisioning, our
+                journey began with a simple yet profound realization: in the face
+                of emergencies, preparedness is our most reliable ally. Born from
+                the rugged landscapes and resilient spirit of Scandinavia, our
+                mission is to empower households and nature enthusiasts with the
+                tools and knowledge to face any challenge with confidence. We
+                believe in a world where everyone is equipped to handle the
+                unexpected, turning potential crises into manageable situations.
+              </p>
+            </div>
+            <div class="flex flex-col gap-y-6  pt-10 ">
+              <h1
+                class="text-gray-700 text-[28px] lg:text-3xl font-semibold uppercase leading-9"
+              >
+                Our Mission:
+              </h1>
+
+              <p
+                class="text-gray-700 text-sm lg:text-base font-normal leading-normal"
+              >
+                To redefine emergency preparedness, making it accessible,
+                practical, and an integral part of every Scandinavian home and
+                adventure. We're not just selling a product; we're fostering a
+                community of readiness, where being prepared is a lifestyle
+                embraced by all. Through innovation, education, and dedication, we
+                aim to ensure that when emergencies arise, the PREP community
+                stands tall, ready, and resilient.
+              </p>
+            </div>
+            <div class="flex flex-col gap-y-6 pt-10 ">
+              <h1
+                class="text-gray-700 text-[28px] lg:text-3xl font-semibold uppercase leading-9"
+              >
+                Our Promise:
+              </h1>
+
+              <p
+                class="text-gray-700 text-sm lg:text-base font-normal leading-normal"
+              >
+                With every PREPC case, we pledge unwavering quality, reliability,
+                and functionality. We're committed to providing solutions that are
+                not only effective but also sustainable and ethical. Our vision is
+                a future where preparedness is synonymous with peace of mind, and
+                with PREP, that future is already here.
+              </p>
+            </div>
           </div>
         </section>
 
