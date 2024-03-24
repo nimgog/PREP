@@ -1,5 +1,6 @@
 import { RouteMeta } from '@analogjs/router';
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 // TODO: Fill other metadata
@@ -10,39 +11,39 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-survival-kit-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   template: `
     <div class="product-container landscape:pt-[80px] portrait:pt-[70px]">
-      <div class="product-image p-5">
-        <img src="path_to_survival_kit_main_image" alt="Survival Kit" />
-        <div class="small-image-row">
-          <div class="small-image-container">
-            <img
-              src="path_to_survival_kit_small_image_1"
-              alt="Survival Kit Item 1"
-            />
-          </div>
-          <div class="small-image-container">
-            <img
-              src="path_to_survival_kit_small_image_2"
-              alt="Survival Kit Item 2"
-            />
-          </div>
-          <div class="small-image-container">
-            <img
-              src="path_to_survival_kit_small_image_3"
-              alt="Survival Kit Item 3"
-            />
-          </div>
-          <!-- Add more small image containers as needed -->
+      <div class="flex flex-col">
+        <!-- Main image display -->
+        <div class="product-image">
+          <img [src]="mainImage" alt="Survival Kit" />
         </div>
+        <div class="w-full relative">
+          <button class="scroll-arrow left" (click)="scrollLeft()">&lt;</button>
+          <div class="small-image-row" #imageRow>
+            <div
+              class="small-image-container"
+              *ngFor="let image of images; let i = index"
+              (click)="setMainImage(image)"
+            >
+              <img
+                [src]="'img/product-page/' + image"
+                [alt]="'Survival Kit Item ' + (i + 1)"
+              />
+            </div>
+          </div>
+          <button class="scroll-arrow right" (click)="scrollRight()">&gt;</button>
+        </div>
+
       </div>
+
       <div class="product-details">
         <h1 class="product-title">Survival Kit</h1>
         <div class="product-pricing">
-          <span class="sale-price">$29.99</span>
-          <span class="original-price">$59.99</span>
-          <span class="discount-percentage">-50%</span>
+          <span class="sale-price">€79.99</span>
+          <span class="original-price">$99.99</span>
+          <span class="discount-percentage">-20%</span>
         </div>
         <div class="klarna-info">
           <!-- Klarna logo here if applicable -->
@@ -135,23 +136,48 @@ export const routeMeta: RouteMeta = {
         .small-image-row {
           display: flex;
           gap: 10px;
-          margin-top: 10px;
-          justify-content: center;
           overflow-x: auto;
+          padding: 10px 0;
+          scroll-behavior: smooth;
+          max-width: 900px;
         }
 
         .small-image-container {
+          flex: 0 0 auto; /* Flex items won't grow but can shrink, fixing width */
           background-color: #eee; /* Lighter gray background for the smaller images */
-          width: 80px;
-          height: 80px;
           display: flex;
           justify-content: center;
           align-items: center;
+          cursor: pointer; /* Indicates the item is clickable */
+          border: 1px solid #ddd; /* Optional: adds a border around the small images */
+          width:160px;
+          height:160px;
         }
 
         .small-image-container img {
           max-width: 100%;
           max-height: 100%;
+          display: block; /* Ensures that the image fills the container */
+        }
+
+        /* Style for the arrow indicators, if needed */
+        .scroll-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          background-color: #ffffffcc;
+          border: none;
+          padding: 10px;
+          z-index: 10;
+        }
+
+        .scroll-arrow.left {
+          left: 0;
+        }
+
+        .scroll-arrow.right {
+          right: 0;
         }
 
         .product-details {
@@ -226,11 +252,11 @@ export const routeMeta: RouteMeta = {
           align-items: stretch; /* Ensures the children stretch to fill the container */
           border: 1px solid #ddd;
           margin-right: 10px;
-          height:44px;
+          height: 44px;
         }
 
         .quantity-input {
-          width:50px;
+          width: 50px;
           text-align: center;
           border: none;
           padding: 10px; /* Adjust padding to match the height of the add-to-cart button */
@@ -252,7 +278,7 @@ export const routeMeta: RouteMeta = {
           border: none;
           padding: 0 5px;
           cursor: pointer;
-          height:18px;
+          height: 18px;
         }
 
         .add-to-cart-btn {
@@ -296,12 +322,14 @@ export const routeMeta: RouteMeta = {
             width: 100%;
           }
 
-          .small-image-row {
-            overflow-x: scroll;
+          .small-image-container {
+            width: 25%; /* Adjust width of images for smaller screens */
           }
 
           .small-image-container {
             flex: 0 0 auto; /* Prevents flex items from growing but allows them to shrink */
+            width: 80px;
+            height: 80px;
           }
         }
 
@@ -329,8 +357,38 @@ export const routeMeta: RouteMeta = {
   ],
 })
 export default class SurvivalKitPageComponent {
+  @ViewChild('imageRow') imageRow!: ElementRef;
+
   constructor() {}
   quantity: number = 1;
+  images: string[] = [
+    'PREPC_front.png',
+    'PREPC_back.png',
+    'PREPC_left.png',
+    'PREPC_right.png',
+    'PREPC-open__top.png',
+    'PREPC-open__mid.png',
+    'PREPC-open__pouch.png',
+    'PREPC-display.png',
+    'PREPC-paracord-compass-bracelet.png',
+    'PREPC-poncho.png',
+    'PREPC-poncho-open.png',
+    'PREPC-rescue.png',
+    'PREPC-thermal.png',
+    'PREPC-carbin-knife.png',
+    'PREPC-flash.png',
+    'PREPC-ignitor.png',
+    'PREPC-multitool-compact.png',
+    'PREPC-scissor.png',
+    'PREPC-tweezer.png',
+    'PREPC-bandage.png',
+  ];
+
+  mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
+
+  setMainImage(image: string): void {
+    this.mainImage = 'img/product-page/' + image;
+  }
 
   increaseQuantity(): void {
     this.quantity++;
@@ -340,5 +398,13 @@ export default class SurvivalKitPageComponent {
     if (this.quantity > 1) {
       this.quantity--;
     }
+  }
+
+  scrollLeft(): void {
+    this.imageRow.nativeElement.scrollBy({ left: -200, behavior: 'smooth' });
+  }
+
+  scrollRight(): void {
+    this.imageRow.nativeElement.scrollBy({ left: 200, behavior: 'smooth' });
   }
 }
