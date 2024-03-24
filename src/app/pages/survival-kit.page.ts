@@ -13,8 +13,16 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [FormsModule, CommonModule],
   template: `
-    <div class="product-container landscape:pt-[80px] portrait:pt-[70px]">
-      <div class="flex flex-col">
+    <div
+      class="w-full h-[200px] landscape:pt-[100px] portrait:pt-[90px] landscape:pl-[40px] portrait:pl-[8px]"
+    >
+      <h1 class="product-title portrait:text-2xl landscape:text-5xl">
+        PREPC: Your Compact Lifeline
+      </h1>
+      <h3>130 Essentials for Peace of Mind in Any Scenario</h3>
+    </div>
+    <div class="product-container">
+      <div class="flex flex-col h-fit">
         <!-- Main image display -->
         <div class="product-image">
           <img [src]="mainImage" alt="Survival Kit" />
@@ -33,20 +41,42 @@ export const routeMeta: RouteMeta = {
               />
             </div>
           </div>
-          <button class="scroll-arrow right" (click)="scrollRight()">&gt;</button>
+          <button class="scroll-arrow right" (click)="scrollRight()">
+            &gt;
+          </button>
         </div>
-
       </div>
 
       <div class="product-details">
-        <h1 class="product-title">Survival Kit</h1>
+        <h1 class="product-title">PREPC (PREP - Case)</h1>
         <div class="product-pricing">
           <span class="sale-price">€79.99</span>
-          <span class="original-price">$99.99</span>
+          <span class="original-price">€99.99</span>
           <span class="discount-percentage">-20%</span>
         </div>
-        <div class="klarna-info">
-          <!-- Klarna logo here if applicable -->
+        <div class="klarna-info flex items-center">
+          <h2 class="mr-2 whitespace-nowrap">Pay with:</h2>
+          <img
+            class="w-[160px]"
+            src="img/product-page/Marketing_Badge_With_Clear_Space.png"
+            alt="pay with Klarna"
+          />
+        </div>
+        <!-- Shipping Policy Summary Section -->
+        <div
+          class="shipping-policy-summary"
+          [class.expanded]="isExpanded"
+          (click)="toggleExpand()"
+        >
+          <h3>Shipping</h3>
+          <p>We keep things easy:</p>
+          <ul>
+            <li>Free shipping on orders over €99.</li>
+            <li>Flat fee of €5</li>
+            <li>Items are typically dispatched within 1-2 business days.</li>
+            <li>Track your order with a provided shipment number.</li>
+          </ul>
+          <img class="chevron w-[20px]" src="img/product-page/chevron-down-solid.svg" [ngClass]="{ expanded: isExpanded }">
         </div>
         <div class="quantity-add-to-cart">
           <div class="quantity-selector">
@@ -80,26 +110,57 @@ export const routeMeta: RouteMeta = {
           </button>
         </div>
 
-        <div class="product-description">
-          <h2>Description</h2>
+        <div class="product-description mt-5">
+          <h2>Product description</h2>
           <p>
             A survival kit should be considered mandatory equipment for all
-            outdoor enthusiasts...
+            outdoor enthusiasts. You never know when something will go wrong,
+            placing your life will be in danger. But if you have a
+            well-developed survival kit with you, your survival odds will be
+            greatly improved. Discover our latest survival kit with the
+            necessary survival gadgets. Box contains the following.
           </p>
-          <ul class="product-contents">
-            <li><strong>Whistle:</strong> 2</li>
-            <li><strong>Compass:</strong> 1</li>
-            <li><strong>Knives:</strong> 4</li>
-            <!-- More items here -->
-          </ul>
-        </div>
-        <div class="shipping-info">
-          <h2>Shipping</h2>
+          <!-- Features and Benefits section -->
+          <h2>Features and Benefits:</h2>
+
+          <h3>Compact and Lightweight:</h3>
           <p>
-            When you shop with us, we want to make sure your experience is
-            smooth and delightful...
+            Weighing less than a kilogram, the PREPC is engineered for
+            convenience and portability. Its sleek design allows it to be a
+            discreet yet indispensable addition to your car, home, or backpack.
           </p>
-          <!-- More shipping details -->
+
+          <h3>Comprehensive Emergency Kit:</h3>
+          <p>
+            From medical supplies to survival tools, the PREPC covers all bases.
+            Each of the 130 articles has been meticulously chosen to offer
+            solutions for a wide range of scenarios—ensuring you're always a
+            step ahead.
+          </p>
+
+          <h3>Designed for Scandinavian Lifestyles:</h3>
+          <p>
+            Whether you're braving the wilderness, navigating the urban jungle,
+            or simply enjoying the comfort of your home, the PREPC is tailored
+            to fit the dynamic Scandinavian way of life. It's the perfect
+            companion for households, nature enthusiasts, and anyone who values
+            preparedness and resilience.
+          </p>
+
+          <h3>Quality and Reliability:</h3>
+          <p>
+            Crafted with the highest standards of quality and reliability, the
+            PREPC is built to last. Each component is tested to ensure it meets
+            our rigorous requirements, providing you with peace of mind in every
+            situation.
+          </p>
+
+          <h3>Easy to Use and Access:</h3>
+          <p>
+            The PREPC is designed for efficiency and ease of use. With clearly
+            organized compartments and an intuitive layout, accessing the right
+            tool at the right time is simple and straightforward.
+          </p>
         </div>
       </div>
     </div>
@@ -150,14 +211,19 @@ export const routeMeta: RouteMeta = {
           align-items: center;
           cursor: pointer; /* Indicates the item is clickable */
           border: 1px solid #ddd; /* Optional: adds a border around the small images */
-          width:160px;
-          height:160px;
+          width: 160px;
+          height: 160px;
         }
 
         .small-image-container img {
           max-width: 100%;
           max-height: 100%;
           display: block; /* Ensures that the image fills the container */
+        }
+
+        .klarna-info {
+          max-width: 200px;
+          margin-bottom: 14px;
         }
 
         /* Style for the arrow indicators, if needed */
@@ -226,7 +292,7 @@ export const routeMeta: RouteMeta = {
         }
 
         .add-to-cart-btn {
-          background-color: #4caf50;
+          background-color: rgb(52 78 65);
           color: white;
           border: none;
           padding: 10px 20px;
@@ -237,7 +303,47 @@ export const routeMeta: RouteMeta = {
           cursor: pointer;
         }
 
-        .product-description,
+        .product-description {
+          font-family: 'Arial', sans-serif; /* This should match the font in the image */
+          color: #333; /* A standard dark gray text color */
+          line-height: 1.6; /* This increases readability */
+          margin-bottom: 20px; /* Add space below the description */
+        }
+
+        .product-description h2 {
+          font-size: 18px; /* Adjust size to match the image */
+          font-weight: bold; /* Normal weight for the title */
+          margin-bottom: 0.5em; /* Space after the title */
+          display: inline-block; /* Makes the underline only as wide as the text */
+          padding-bottom: 5px; /* Space between text and underline */
+        }
+        .product-description h3 {
+          font-size: 16px; /* Slightly smaller than the main title */
+          font-weight: bold; /* To distinguish the subheadings */
+          margin-top: 1em; /* Space above the subheading */
+          margin-bottom: 0.3em; /* Space below the subheading */
+        }
+
+        .product-description p {
+          margin-top: 0; /* No space above the paragraph to keep the title close */
+          margin-bottom: 1em; /* Space after the paragraph for separation */
+          font-size: 14px; /* Adjust size to match the image */
+          padding-left: 1em; /* Indent the paragraph text for better readability */
+        }
+
+        /* If there's a list of items, style them here */
+        .product-description ul {
+          list-style-type: none; /* Removes default list styling */
+          padding-left: 0; /* Aligns list with the rest of the content */
+          /* Style for list items goes here */
+        }
+
+        .product-description li::before {
+          content: '— '; /* Adds a dash before each list item */
+          color: #333; /* Same color as the text for consistency */
+          font-weight: bold; /* Makes the dash slightly more prominent */
+        }
+
         .shipping-info {
           margin-top: 20px;
         }
@@ -272,6 +378,87 @@ export const routeMeta: RouteMeta = {
           background-color: #f9f9f9;
         }
 
+        .shipping-policy-summary {
+          position: relative; /* Required for absolute positioning of pseudo-element */
+          background-color: #f2f2f2;
+          padding: 20px;
+          margin: 20px 0;
+          border-radius: 5px;
+          max-height: 150px;
+          overflow: hidden;
+          transition: max-height 0.5s ease;
+          cursor: pointer;
+        }
+
+        /* Gradient fade effect */
+        .shipping-policy-summary::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 100px; /* Height of the gradient effect */
+          background: linear-gradient(
+            to bottom,
+            transparent,
+            #f2f2f2
+          ); /* Adjust the color to match the background */
+          pointer-events: none; /* Allows click events to pass through */
+        }
+
+        /* Chevron icon */
+        .chevron {
+          position: absolute;
+          bottom: 10px; /* Positioned near the bottom of the container */
+          left: 50%; /* Horizontally centered */
+          transform: translateX(-50%); /* Center align the icon */
+          font-size: 20px; /* Size of the chevron */
+          color: #333; /* Chevron color */
+          pointer-events: none;
+          z-index: 10;
+        }
+
+        /* Rotate chevron when expanded */
+        .shipping-policy-summary.expanded .chevron {
+          transform: translateX(-50%) rotate(180deg); /* Rotate the chevron */
+        }
+
+        /* Remove gradient when expanded */
+        .shipping-policy-summary.expanded::after {
+          display: none;
+        }
+
+        .shipping-policy-summary.expanded {
+          max-height: 1000px; /* Set to a max-height that can contain all content */
+        }
+
+        .shipping-policy-summary h3 {
+          font-size: 20px; /* A moderate size for the section title */
+          margin-bottom: 0.5em; /* Space below the title */
+        }
+
+        .shipping-policy-summary p {
+          font-size: 16px; /* A comfortable reading size for the summary */
+          margin-bottom: 1em; /* Space below the paragraph before the list */
+        }
+
+        .shipping-policy-summary ul {
+          list-style-type: none; /* No bullets for a cleaner look */
+          padding-left: 20px; /* Indent the list for hierarchy */
+        }
+
+        .shipping-policy-summary li {
+          padding-left: 1em; /* Further indent list items */
+          text-indent: -1em; /* Align the first line of list items with the text above */
+          margin-bottom: 0.5em; /* Space between list items */
+        }
+
+        .shipping-policy-summary li::before {
+          content: '• '; /* Add a custom bullet */
+          color: #333; /* Bullet color matches the text */
+          font-weight: bold; /* Bold bullet for emphasis */
+        }
+
         .quantity-arrow-up,
         .quantity-arrow-down {
           background-color: transparent;
@@ -282,7 +469,7 @@ export const routeMeta: RouteMeta = {
         }
 
         .add-to-cart-btn {
-          background-color: #4caf50;
+          background-color: rgb(52 78 65);
           color: white;
           border: none;
           padding: 10px 20px; /* Adjusted padding to vertically center the text */
@@ -358,9 +545,8 @@ export const routeMeta: RouteMeta = {
 })
 export default class SurvivalKitPageComponent {
   @ViewChild('imageRow') imageRow!: ElementRef;
-
-  constructor() {}
   quantity: number = 1;
+  isExpanded: boolean = false;
   images: string[] = [
     'PREPC_front.png',
     'PREPC_back.png',
@@ -384,10 +570,16 @@ export default class SurvivalKitPageComponent {
     'PREPC-bandage.png',
   ];
 
+  constructor() {}
+
   mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
 
   setMainImage(image: string): void {
     this.mainImage = 'img/product-page/' + image;
+  }
+
+  toggleExpand(): void {
+    this.isExpanded = !this.isExpanded;
   }
 
   increaseQuantity(): void {
