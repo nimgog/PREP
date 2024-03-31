@@ -1,13 +1,13 @@
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-main-header', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [RouterLink, NgClass, MatIcon, MatToolbar],
+  imports: [CommonModule, RouterLink, NgClass, MatIcon, MatToolbar],
   template: `
     <header
       class="flex justify-center items-center w-full h-[70px] lg:h-[80px] px-4"
@@ -55,11 +55,106 @@ import { MatToolbar } from '@angular/material/toolbar';
               <ul
                 class="flex flex-col justify-center gap-x-16 text-prep-beige text-base font-medium uppercase"
               >
-                <li><a routerLink="/">Home</a></li>
-                <li><a routerLink="/survival-kit">Survival Kit</a></li>
-                <li><a routerLink="/about-us">About Us</a></li>
+                <li (click)="closeMenu()" class="mt-5">
+                  <a routerLink="/">Home</a>
+                </li>
+                <li (click)="closeMenu()" class="mt-5">
+                  <a routerLink="/survival-kit">Survival Kit</a>
+                </li>
+                <li (click)="closeMenu()" class="mt-5">
+                  <a routerLink="/about-us">About Us</a>
+                </li>
               </ul>
             </nav>
+          </div>
+        </div>
+        <!-- Cart Overlay -->
+        <div
+          *ngIf="cartOpen"
+          class="cart-overlay absolute top-0 left-0 w-full h-full z-60 bg-black bg-opacity-75 flex justify-center items-center"
+        >
+          <div
+            class="cart-content bg-white w-11/12 md:w-3/4 lg:w-1/2 h-3/4 overflow-auto"
+          >
+            <div class="flex justify-between items-center p-4">
+              <h2 class="text-lg font-bold">Your Cart</h2>
+              <button aria-label="Close cart" (click)="toggleCart()">
+                <!-- SVG or text to close the cart -->
+                Close
+              </button>
+            </div>
+            <!-- Cart Items Placeholder - Dynamically generated based on actual cart items -->
+            <div
+              *ngFor="let item of cartItems"
+              class="cart-item flex items-center p-4 bg-white shadow-md mb-4"
+            >
+              <!-- Product Image with Fallback -->
+              <div
+                class="image-container w-24 h-24 bg-gray-200 flex justify-center items-center"
+              >
+                <img
+                  [src]="item.image"
+                  alt="{{ item.title }}"
+                  class="object-cover w-full h-full"
+                  (error)="imageError($event)"
+                />
+              </div>
+
+              <!-- Product Details -->
+              <div class="flex-1 ml-4">
+                <div class="font-semibold text-lg">{{ item.title }}</div>
+                <div class="text-sm text-gray-500">{{ item.variation }}</div>
+
+                <!-- Stepper for Quantity and Pricing -->
+                <div class="flex items-center justify-between mt-2">
+                  <div class="stepper flex items-center">
+                    <button
+                      (click)="decrement(item)"
+                      class="text-gray-500 bg-gray-200 h-8 w-8 flex items-center justify-center"
+                    >
+                      &#8722;
+                    </button>
+                    <div class="px-3">{{ item.quantity }}</div>
+                    <button
+                      (click)="increment(item)"
+                      class="text-gray-500 bg-gray-200 h-8 w-8 flex items-center justify-center"
+                    >
+                      &#43;
+                    </button>
+                  </div>
+                  <!-- Pricing -->
+                  <div class="text-right">
+                    <div class="font-semibold text-lg">{{ item.price }}</div>
+                    <div
+                      *ngIf="item.compareAtPrice"
+                      class="text-sm line-through text-red-500"
+                    >
+                      {{ item.compareAtPrice }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remove Button -->
+              <button (click)="removeItem(item)" class="ml-4">
+                <img
+                  src="/path/to/trash-can-icon.svg"
+                  alt="Remove"
+                  class="w-6 h-6"
+                />
+              </button>
+            </div>
+            <!-- Summary -->
+            <div class="summary">
+              <div>Total Items: {{ numberOfItems }}</div>
+              <div>Total Price: {{ accumulatedPrice }}</div>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+              <button (click)="checkout()">Checkout</button>
+              <button (click)="continueShopping()">Continue Shopping</button>
+            </div>
           </div>
         </div>
 
@@ -76,32 +171,259 @@ import { MatToolbar } from '@angular/material/toolbar';
           <ul
             class="flex justify-center gap-x-16 text-prep-beige text-base font-medium uppercase"
           >
-            <li><a (click)="toggleMenu()" routerLink="/">Home</a></li>
+            <li><a routerLink="/">Home</a></li>
             <li>
-              <a (click)="toggleMenu()" routerLink="/survival-kit"
-                >Survival Kit</a
-              >
+              <a routerLink="/survival-kit">Survival Kit</a>
             </li>
             <li>
-              <a (click)="toggleMenu()" routerLink="/about-us">About Us</a>
+              <a routerLink="/about-us">About Us</a>
             </li>
           </ul>
         </nav>
 
         <div class="lg:flex justify-end items-center lg:w-[112px]">
-          <button class="w-8 h-8 p-[3px]" aria-label="Open shopping cart">
+          <button
+            class="w-8 h-8 p-[3px]"
+            aria-label="Open shopping cart"
+            (click)="toggleCart()"
+          >
             <img src="/img/main-header/shopping-cart.svg" alt="Shopping cart" />
           </button>
         </div>
       </div>
     </header>
   `,
+  styles: [
+    `
+      @tailwind utilities;
+      .cart-overlay {
+        position: fixed; /* Use fixed to ensure it covers the entire viewport */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent background */
+      }
+
+      .cart-content {
+        background-color: #fff;
+        overflow-y: auto; /* Allows scrolling if the content exceeds the height */
+      }
+
+      .cart-item + .cart-item {
+        border-top: 1px solid #eee; /* Separates items visually */
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+        border-radius: 8px;
+      }
+
+      .cart-item img {
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .cart-item .stepper {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e2e8f0;
+        border-radius: 9999px;
+      }
+
+      .cart-item .stepper button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: #f7fafc;
+        color: #4a5568;
+      }
+
+      .cart-item .stepper div {
+        padding: 0 12px;
+      }
+
+      .cart-item .text-right {
+        text-align: right;
+      }
+
+      .cart-item .text-lg {
+        font-size: 1.125rem; /* 18px */
+        font-weight: 600;
+      }
+
+      .cart-item .text-sm {
+        font-size: 0.875rem; /* 14px */
+      }
+
+      .cart-item .font-semibold {
+        font-weight: 600;
+      }
+
+      .cart-item .line-through {
+        text-decoration: line-through;
+      }
+
+      .cart-item .text-gray-500 {
+        color: #6b7280;
+      }
+
+      .cart-item .text-red-500 {
+        color: #ef4444;
+      }
+
+      .cart-item .bg-gray-200 {
+        background-color: #e2e8f0;
+      }
+
+      .cart-item button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cart-item button:focus {
+        outline: none;
+      }
+
+      .image-container {
+        width: 96px; /* Width of the image */
+        height: 96px; /* Height of the image */
+        background-color: #e2e8f0; /* Fallback color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        overflow: hidden; /* Ensures the content does not spill out */
+      }
+
+      /* Additional styles for summary and actions */
+      .summary {
+        padding: 16px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+        border-radius: 8px;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+
+      .actions button {
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+      }
+
+      /* Add styles for your checkout and continue shopping buttons */
+      .actions button.checkout {
+        background-color: #10b981; /* Green color */
+        color: #fff;
+      }
+
+      .actions button.continue-shopping {
+        background-color: #e2e8f0; /* Light gray color */
+        color: #4a5568;
+      }
+    `,
+  ],
 })
 export default class MainHeaderComponent {
   isTransparent = input.required<boolean>();
+  // State for menu and cart overlay visibility
   menuOpen: boolean = false;
+  cartOpen: boolean = false;
 
+  // Mocked cart items array
+  cartItems = [
+    {
+      id: 1,
+      image: '/img/product1.jpg',
+      title: 'The Coco Case iPhone 14',
+      variation: 'Sunset Orange',
+      quantity: 1,
+      price: '50.16 RON',
+      compareAtPrice: '152 RON',
+    },
+    {
+      id: 2,
+      image: '/img/product2.jpg',
+      title: 'The Package iPhone 14',
+      variation: 'Sunset Orange',
+      quantity: 1,
+      price: '88 RON',
+      compareAtPrice: '176 RON',
+    },
+  ];
+
+  // Computed properties for number of items and accumulated price
+  get numberOfItems() {
+    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  get accumulatedPrice() {
+    return (
+      this.cartItems
+        .reduce((total, item) => total + parseFloat(item.price), 0)
+        .toFixed(2) + ' RON'
+    );
+  }
+
+  imageError(event: any) {
+    event.target.style.display = 'none'; // Hide the broken image icon
+  }
+
+  // Component methods
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+  }
+
+  toggleCart(): void {
+    this.cartOpen = !this.cartOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
+
+  increment(item: any): void {
+    item.quantity++;
+  }
+
+  decrement(item: any): void {
+    if (item.quantity > 1) {
+      item.quantity--;
+    }
+  }
+
+  removeItem(itemToRemove: any): void {
+    this.cartItems = this.cartItems.filter(
+      (item) => item.id !== itemToRemove.id
+    );
+  }
+
+  checkout(): void {
+    // Implementation for checkout
+  }
+
+  continueShopping(): void {
+    this.toggleCart();
   }
 }

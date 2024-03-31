@@ -235,7 +235,7 @@ export const routeMeta: RouteMeta = {
           background-color: #ffffffcc;
           border: none;
           padding: 10px;
-          z-index: 10;
+          z-index: 9;
         }
 
         .scroll-arrow.left {
