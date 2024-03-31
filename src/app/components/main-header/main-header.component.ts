@@ -1,13 +1,16 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
+import { CartItem, CartService } from '../../services/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-header', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [CommonModule, RouterLink, NgClass, MatIcon, MatToolbar],
+  providers: [CartService],
   template: `
     <header
       class="flex justify-center items-center w-full h-[70px] lg:h-[80px] px-4"
@@ -347,27 +350,20 @@ export default class MainHeaderComponent {
   menuOpen: boolean = false;
   cartOpen: boolean = false;
 
-  // Mocked cart items array
-  cartItems = [
-    {
-      id: 1,
-      image: '/img/product1.jpg',
-      title: 'The Coco Case iPhone 14',
-      variation: 'Sunset Orange',
-      quantity: 1,
-      price: '50.16 RON',
-      compareAtPrice: '152 RON',
-    },
-    {
-      id: 2,
-      image: '/img/product2.jpg',
-      title: 'The Package iPhone 14',
-      variation: 'Sunset Orange',
-      quantity: 1,
-      price: '88 RON',
-      compareAtPrice: '176 RON',
-    },
-  ];
+  cartItems: CartItem[] = [];
+  private cartSubscription: Subscription;
+
+  constructor(private cartService: CartService) {
+    this.cartSubscription = this.cartService.cartItems$.subscribe(
+      items => this.cartItems = items
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
+    }
+  }
 
   // Computed properties for number of items and accumulated price
   get numberOfItems() {
