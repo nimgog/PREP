@@ -61,7 +61,7 @@ export class ShoppingCartService implements OnInit, OnDestroy {
     );
   }
 
-  addLineItem(productId: string) {
+  addLineItem(productId: string, quantity = 1) {
     return of(this.cartSubject.value).pipe(
       switchMap((cart) => {
         if (!cart) {
@@ -77,7 +77,11 @@ export class ShoppingCartService implements OnInit, OnDestroy {
       }),
       switchMap((cart) => {
         if (cart) {
-          return this.shopifyCartService.addLineItem(cart.id, productId);
+          return this.shopifyCartService.addLineItem(
+            cart.id,
+            productId,
+            quantity
+          );
         }
 
         return this.shopifyCartService

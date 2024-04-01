@@ -46,8 +46,8 @@ export class ShopifyCartService {
     );
   }
 
-  addLineItem(cartId: string, variantId: string) {
-    return this.addLineItemGQL.mutate({ cartId, variantId }).pipe(
+  addLineItem(cartId: string, variantId: string, quantity: number) {
+    return this.addLineItemGQL.mutate({ cartId, variantId, quantity }).pipe(
       map((response) => mapCart(response.data?.cartLinesAdd?.cart)),
       catchAndReportError(this.notificationService)
     );

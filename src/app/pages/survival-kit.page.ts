@@ -1,7 +1,9 @@
 import { RouteMeta } from '@analogjs/router';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ShoppingCartService } from '../services/shopping-cart.service';
+import { take } from 'rxjs';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
@@ -109,7 +111,7 @@ export const routeMeta: RouteMeta = {
               </button>
             </div>
           </div>
-          <button class="add-to-cart-btn">
+          <button class="add-to-cart-btn" (click)="addToCart()">
             <i class="cart-icon">🛒</i> Add to cart
           </button>
         </div>
@@ -574,9 +576,9 @@ export default class SurvivalKitPageComponent {
     'PREPC-bandage.png',
   ];
 
-  constructor() {}
-
   mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
+
+  private readonly shoppingCartService = inject(ShoppingCartService);
 
   setMainImage(image: string): void {
     this.mainImage = 'img/product-page/' + image;
@@ -584,6 +586,17 @@ export default class SurvivalKitPageComponent {
 
   toggleExpand(): void {
     this.isExpanded = !this.isExpanded;
+  }
+
+  addToCart(): void {
+    const quantity = this.quantity > 0 ? this.quantity : 1;
+
+    this.shoppingCartService
+      .addLineItem('gid://shopify/ProductVariant/47839582585162', quantity)
+      .pipe(take(1))
+      .subscribe({
+        complete: () => (this.quantity = 1),
+      });
   }
 
   increaseQuantity(): void {

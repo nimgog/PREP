@@ -8190,8 +8190,11 @@ export const ShoppingCartFragmentDoc = gql`
 }
     `;
 export const AddLineItem = gql`
-    mutation AddLineItem($cartId: ID!, $variantId: ID!) {
-  cartLinesAdd(cartId: $cartId, lines: {merchandiseId: $variantId}) {
+    mutation AddLineItem($cartId: ID!, $variantId: ID!, $quantity: Int!) {
+  cartLinesAdd(
+    cartId: $cartId
+    lines: {merchandiseId: $variantId, quantity: $quantity}
+  ) {
     cart {
       ...ShoppingCart
     }
@@ -8339,6 +8342,7 @@ export type ShoppingCartFragment = { __typename?: 'Cart', id: string, checkoutUr
 export type AddLineItemMutationVariables = Exact<{
   cartId: Scalars['ID']['input'];
   variantId: Scalars['ID']['input'];
+  quantity: Scalars['Int']['input'];
 }>;
 
 

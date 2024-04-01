@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
 import { ContextService } from 'src/app/services/context.service';
@@ -12,7 +12,6 @@ import { ContextService } from 'src/app/services/context.service';
   selector: 'app-main-header', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [CommonModule, RouterLink, NgClass, MatIcon, MatToolbar],
-  providers: [ShoppingCartService],
   template: `
     <header
       class="flex justify-center items-center w-full h-[70px] lg:h-[80px] px-4"
@@ -74,9 +73,8 @@ import { ContextService } from 'src/app/services/context.service';
           </div>
         </div>
         <!-- Cart Overlay -->
-        @if (contextService.isClientSide) {
         <div
-          *ngIf="cart && cartOpen"
+          *ngIf="contextService.isClientSide && cartOpen"
           class="cart-overlay absolute top-0 left-0 w-full h-full z-60 bg-black bg-opacity-75 flex justify-center items-center"
         >
           <div
@@ -91,7 +89,7 @@ import { ContextService } from 'src/app/services/context.service';
             </div>
             <!-- Cart Items Placeholder - Dynamically generated based on actual cart items -->
             <div
-              *ngFor="let lineItem of cart.lines"
+              *ngFor="let lineItem of cart?.lines || []"
               class="cart-item flex items-center p-4 bg-white shadow-md mb-4"
             >
               <!-- Product Image with Fallback -->
@@ -136,12 +134,14 @@ import { ContextService } from 'src/app/services/context.service';
                   <div class="text-right">
                     <div class="font-semibold text-lg">
                       {{ lineItem.totalPrice.amount }}
+                      {{ lineItem.totalPrice.currencyCode }}
                     </div>
                     <div
                       *ngIf="lineItem.originalTotalPrice"
                       class="text-sm line-through text-red-500"
                     >
                       {{ lineItem.originalTotalPrice.amount }}
+                      {{ lineItem.originalTotalPrice.currencyCode }}
                     </div>
                   </div>
                 </div>
@@ -161,14 +161,23 @@ import { ContextService } from 'src/app/services/context.service';
                 </svg>
               </button>
             </div>
+
+            <div *ngIf="!cart?.totalQuantity">
+              <p>Your cart is empty.</p>
+              <button>Go to the Shop</button>
+            </div>
+
             <!-- Summary -->
-            <div class="summary">
+            <div *ngIf="cart && cart?.totalQuantity" class="summary">
               <div>Total Items: {{ cart.totalQuantity }}</div>
-              <div>Total Price: {{ cart.totalPrice }}</div>
+              <div>
+                Total Price: {{ cart.totalPrice.amount }}
+                {{ cart.totalPrice.currencyCode }}
+              </div>
             </div>
 
             <!-- Actions -->
-            <div class="actions">
+            <div *ngIf="cart && cart?.totalQuantity" class="actions">
               <a [href]="cart.checkoutUrl" rel="noopener noreferrer"
                 >Checkout</a
               >
@@ -176,7 +185,6 @@ import { ContextService } from 'src/app/services/context.service';
             </div>
           </div>
         </div>
-        }
 
         <!-- TODO: Revisit logo -->
         <a routerLink="/">
@@ -407,19 +415,28 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
   }
 
   increment(item: LineItem): void {
-    this.shoppingCartService.addLineItem(item.product.id);
+    this.shoppingCartService
+      .addLineItem(item.product.id)
+      .pipe(take(1))
+      .subscribe();
   }
 
   decrement(item: LineItem): void {
     if (item.quantity > 1) {
-      this.shoppingCartService.setQuantity(item.id, item.quantity - 1);
+      this.shoppingCartService
+        .setQuantity(item.id, item.quantity - 1)
+        .pipe(take(1))
+        .subscribe();
     } else {
-      this.shoppingCartService.removeLineItem(item.id);
+      this.shoppingCartService
+        .removeLineItem(item.id)
+        .pipe(take(1))
+        .subscribe();
     }
   }
 
   removeItem(item: LineItem): void {
-    this.shoppingCartService.removeLineItem(item.id);
+    this.shoppingCartService.removeLineItem(item.id).pipe(take(1)).subscribe();
   }
 
   continueShopping(): void {
