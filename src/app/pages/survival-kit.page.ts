@@ -76,7 +76,11 @@ export const routeMeta: RouteMeta = {
             <li>Items are typically dispatched within 1-2 business days.</li>
             <li>Track your order with a provided shipment number.</li>
           </ul>
-          <img class="chevron w-[20px]" src="img/product-page/chevron-down-solid.svg" [ngClass]="{ expanded: isExpanded }">
+          <img
+            class="chevron w-[20px]"
+            src="img/product-page/chevron-down-solid.svg"
+            [ngClass]="{ expanded: isExpanded }"
+          />
         </div>
         <div class="quantity-add-to-cart">
           <div class="quantity-selector">

@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import TurnstileComponent from './turnstile.component';
 import { NgClass } from '@angular/common';
 import {
@@ -7,6 +7,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-contact-form', // TODO: Remove when dev team fixes auto selector generation
@@ -139,8 +141,8 @@ export default class ContactFormComponent {
   readonly messageMinLength = 50;
   readonly messageMaxLength = 1000;
 
-  // private readonly httpClient = inject(HttpClient);
-  // private readonly notificationService = inject(NotificationService); // TODO:
+  private readonly httpClient = inject(HttpClient);
+  private readonly notificationService = inject(NotificationService);
 
   readonly contactForm = signal<FormGroup>(null!);
   readonly isSubmitting = signal(false);
@@ -178,28 +180,28 @@ export default class ContactFormComponent {
 
     this.isSubmitting.set(true);
 
-    //   this.httpClient
-    //     .post(environment.contactWorkerEndpoint, this.contactForm.value, {
-    //       headers: new HttpHeaders().set('Accept', 'application/json'),
-    //     })
-    //     .pipe(finalize(() => (this.isSubmitting = false)))
-    //     .subscribe({
-    //       next: () => {
-    //         this.contactForm.reset();
+    // this.httpClient
+    //   .post(environment.contactWorkerEndpoint, this.contactForm.value, {
+    //     headers: new HttpHeaders().set('Accept', 'application/json'),
+    //   })
+    //   .pipe(finalize(() => (this.isSubmitting = false)))
+    //   .subscribe({
+    //     next: () => {
+    //       this.contactForm.reset();
 
-    //         // TODO:
-    //         // this.notificationService.showSuccessMessage({
-    //         //   title: 'Request sent',
-    //         //   message: 'We will contact you soon!',
-    //         // });
-    //       },
-    //       error: () => {
-    //         // TODO:
-    //         // this.notificationService.showErrorMessage({
-    //         //   title: 'Failed to send request',
-    //         //   message: 'Please try again later.',
-    //         // });
-    //       },
-    //     });
+    //       // TODO:
+    //       // this.notificationService.showSuccessMessage({
+    //       //   title: 'Request sent',
+    //       //   message: 'We will contact you soon!',
+    //       // });
+    //     },
+    //     error: () => {
+    //       // TODO:
+    //       // this.notificationService.showErrorMessage({
+    //       //   title: 'Failed to send request',
+    //       //   message: 'Please try again later.',
+    //       // });
+    //     },
+    //   });
   }
 }

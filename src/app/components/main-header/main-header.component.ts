@@ -1,16 +1,17 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
-import { CartItem, CartService } from '../../services/cart.service';
 import { Subscription } from 'rxjs';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
 
 @Component({
   selector: 'app-main-header', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [CommonModule, RouterLink, NgClass, MatIcon, MatToolbar],
-  providers: [CartService],
+  providers: [ShoppingCartService],
   template: `
     <header
       class="flex justify-center items-center w-full h-[70px] lg:h-[80px] px-4"
@@ -73,7 +74,7 @@ import { Subscription } from 'rxjs';
         </div>
         <!-- Cart Overlay -->
         <div
-          *ngIf="cartOpen"
+          *ngIf="cart && cartOpen"
           class="cart-overlay absolute top-0 left-0 w-full h-full z-60 bg-black bg-opacity-75 flex justify-center items-center"
         >
           <div
@@ -88,7 +89,7 @@ import { Subscription } from 'rxjs';
             </div>
             <!-- Cart Items Placeholder - Dynamically generated based on actual cart items -->
             <div
-              *ngFor="let item of cartItems"
+              *ngFor="let lineItem of cart.lines"
               class="cart-item flex items-center p-4 bg-white shadow-md mb-4"
             >
               <!-- Product Image with Fallback -->
@@ -96,8 +97,8 @@ import { Subscription } from 'rxjs';
                 class="image-container w-24 h-24 bg-gray-200 flex justify-center items-center"
               >
                 <img
-                  [src]="item.image"
-                  alt="{{ item.title }}"
+                  [src]="lineItem.product.imageUrl"
+                  [alt]="lineItem.product.title"
                   class="object-cover w-full h-full"
                   (error)="imageError($event)"
                 />
@@ -105,21 +106,25 @@ import { Subscription } from 'rxjs';
 
               <!-- Product Details -->
               <div class="flex-1 ml-4">
-                <div class="font-semibold text-lg">{{ item.title }}</div>
-                <div class="text-sm text-gray-500">{{ item.variation }}</div>
+                <div class="font-semibold text-lg">
+                  {{ lineItem.product.title }}
+                </div>
+                <!-- <div class="text-sm text-gray-500">
+                  {{ lineItem.variation }}
+                </div> -->
 
                 <!-- Stepper for Quantity and Pricing -->
                 <div class="flex items-center justify-between mt-2">
                   <div class="stepper flex items-center">
                     <button
-                      (click)="decrement(item)"
+                      (click)="decrement(lineItem)"
                       class="text-gray-500 bg-gray-200 h-8 w-8 flex items-center justify-center"
                     >
                       &#8722;
                     </button>
-                    <div class="px-3">{{ item.quantity }}</div>
+                    <div class="px-3">{{ lineItem.quantity }}</div>
                     <button
-                      (click)="increment(item)"
+                      (click)="increment(lineItem)"
                       class="text-gray-500 bg-gray-200 h-8 w-8 flex items-center justify-center"
                     >
                       &#43;
@@ -127,31 +132,44 @@ import { Subscription } from 'rxjs';
                   </div>
                   <!-- Pricing -->
                   <div class="text-right">
-                    <div class="font-semibold text-lg">{{ item.price }}</div>
+                    <div class="font-semibold text-lg">
+                      {{ lineItem.totalPrice.amount }}
+                    </div>
                     <div
-                      *ngIf="item.compareAtPrice"
+                      *ngIf="lineItem.originalTotalPrice"
                       class="text-sm line-through text-red-500"
                     >
-                      {{ item.compareAtPrice }}
+                      {{ lineItem.originalTotalPrice.amount }}
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- Remove Button -->
-              <button (click)="removeItem(item)" class="ml-4">
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+              <button (click)="removeItem(lineItem)" class="ml-4">
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                  />
+                </svg>
               </button>
             </div>
             <!-- Summary -->
             <div class="summary">
-              <div>Total Items: {{ numberOfItems }}</div>
-              <div>Total Price: {{ accumulatedPrice }}</div>
+              <div>Total Items: {{ cart.totalQuantity }}</div>
+              <div>Total Price: {{ cart.totalPrice }}</div>
             </div>
 
             <!-- Actions -->
             <div class="actions">
-              <button (click)="checkout()">Checkout</button>
+              <a [href]="cart.checkoutUrl" rel="noopener noreferrer"
+                >Checkout</a
+              >
               <button (click)="continueShopping()">Continue Shopping</button>
             </div>
           </div>
@@ -344,18 +362,20 @@ import { Subscription } from 'rxjs';
     `,
   ],
 })
-export default class MainHeaderComponent {
+export default class MainHeaderComponent implements OnInit, OnDestroy {
   isTransparent = input.required<boolean>();
   // State for menu and cart overlay visibility
   menuOpen: boolean = false;
   cartOpen: boolean = false;
 
-  cartItems: CartItem[] = [];
-  private cartSubscription: Subscription;
+  private cartSubscription!: Subscription;
+  cart: ShoppingCart | null = null;
 
-  constructor(private cartService: CartService) {
-    this.cartSubscription = this.cartService.cartItems$.subscribe(
-      items => this.cartItems = items
+  private readonly shoppingCartService = inject(ShoppingCartService);
+
+  ngOnInit(): void {
+    this.cartSubscription = this.shoppingCartService.cart$.subscribe(
+      (cart) => (this.cart = cart)
     );
   }
 
@@ -363,19 +383,6 @@ export default class MainHeaderComponent {
     if (this.cartSubscription) {
       this.cartSubscription.unsubscribe();
     }
-  }
-
-  // Computed properties for number of items and accumulated price
-  get numberOfItems() {
-    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
-  }
-
-  get accumulatedPrice() {
-    return (
-      this.cartItems
-        .reduce((total, item) => total + parseFloat(item.price), 0)
-        .toFixed(2) + ' RON'
-    );
   }
 
   imageError(event: any) {
@@ -395,24 +402,20 @@ export default class MainHeaderComponent {
     this.menuOpen = false;
   }
 
-  increment(item: any): void {
-    item.quantity++;
+  increment(item: LineItem): void {
+    this.shoppingCartService.addLineItem(item.product.id);
   }
 
-  decrement(item: any): void {
+  decrement(item: LineItem): void {
     if (item.quantity > 1) {
-      item.quantity--;
+      this.shoppingCartService.setQuantity(item.id, item.quantity - 1);
+    } else {
+      this.shoppingCartService.removeLineItem(item.id);
     }
   }
 
-  removeItem(itemToRemove: any): void {
-    this.cartItems = this.cartItems.filter(
-      (item) => item.id !== itemToRemove.id
-    );
-  }
-
-  checkout(): void {
-    // Implementation for checkout
+  removeItem(item: LineItem): void {
+    this.shoppingCartService.removeLineItem(item.id);
   }
 
   continueShopping(): void {
