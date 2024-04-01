@@ -6,6 +6,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { Subscription } from 'rxjs';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
+import { ContextService } from 'src/app/services/context.service';
 
 @Component({
   selector: 'app-main-header', // TODO: Remove when dev team fixes auto selector generation
@@ -73,6 +74,7 @@ import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
           </div>
         </div>
         <!-- Cart Overlay -->
+        @if (contextService.isClientSide) {
         <div
           *ngIf="cart && cartOpen"
           class="cart-overlay absolute top-0 left-0 w-full h-full z-60 bg-black bg-opacity-75 flex justify-center items-center"
@@ -174,6 +176,7 @@ import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
             </div>
           </div>
         </div>
+        }
 
         <!-- TODO: Revisit logo -->
         <a routerLink="/">
@@ -368,21 +371,22 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
   menuOpen: boolean = false;
   cartOpen: boolean = false;
 
-  private cartSubscription!: Subscription;
+  private cartSubscription?: Subscription;
   cart: ShoppingCart | null = null;
 
   private readonly shoppingCartService = inject(ShoppingCartService);
+  readonly contextService = inject(ContextService);
 
   ngOnInit(): void {
-    this.cartSubscription = this.shoppingCartService.cart$.subscribe(
-      (cart) => (this.cart = cart)
-    );
+    if (this.contextService.isClientSide) {
+      this.cartSubscription = this.shoppingCartService.cart$.subscribe(
+        (cart) => (this.cart = cart)
+      );
+    }
   }
 
   ngOnDestroy() {
-    if (this.cartSubscription) {
-      this.cartSubscription.unsubscribe();
-    }
+    this.cartSubscription?.unsubscribe();
   }
 
   imageError(event: any) {

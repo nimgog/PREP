@@ -12,6 +12,7 @@ import { HttpLink } from 'apollo-angular/http';
 import { ApolloClientOptions } from '@apollo/client/core/ApolloClient';
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { environment } from 'src/environments/environment';
+import { provideToastr } from 'ngx-toastr';
 
 //
 export const appConfig: ApplicationConfig = {
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimations(),
+    provideToastr(),
     {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,

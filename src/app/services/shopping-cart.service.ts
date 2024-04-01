@@ -7,28 +7,32 @@ import { ShopifyProductService } from './shopify-product.service';
 import { LocalStorageService } from './local-storage.service';
 import type { ShoppingCart } from '../models/shopping-cart.model';
 import { NotificationService } from './notification.service';
+import { ContextService } from './context.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShoppingCartService implements OnInit, OnDestroy {
   private cartSubject = new BehaviorSubject<ShoppingCart | null>(null);
-  private productPriceRefreshSignalSub!: Subscription;
+  private productPriceRefreshSignalSub?: Subscription;
 
   private readonly shopifyCartService = inject(ShopifyCartService);
   private readonly shopifyProductService = inject(ShopifyProductService);
   private readonly localStorageService = inject(LocalStorageService);
   private readonly notificationService = inject(NotificationService);
+  private readonly contextService = inject(ContextService);
 
   ngOnInit(): void {
-    this.productPriceRefreshSignalSub =
-      this.shopifyProductService.productPriceRefreshSignal$.subscribe(() =>
-        this.cartSubject.next(null)
-      );
+    if (this.contextService.isClientSide) {
+      this.productPriceRefreshSignalSub =
+        this.shopifyProductService.productPriceRefreshSignal$.subscribe(() =>
+          this.cartSubject.next(null)
+        );
+    }
   }
 
   ngOnDestroy(): void {
-    this.productPriceRefreshSignalSub.unsubscribe();
+    this.productPriceRefreshSignalSub?.unsubscribe();
   }
 
   get cart$() {
