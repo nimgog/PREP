@@ -387,9 +387,14 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.contextService.isClientSide) {
-      this.cartSubscription = this.shoppingCartService.cart$.subscribe(
-        (cart) => (this.cart = cart)
-      );
+      this.cartSubscription = this.shoppingCartService.cart$.subscribe({
+        next: (cart) => {
+          if(this.cart && cart && this.cart.totalQuantity < cart.totalQuantity) {
+            this.cartOpen = true;
+          }
+          this.cart = cart;
+        },
+      });
     }
   }
 
