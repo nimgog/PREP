@@ -111,7 +111,11 @@ export const routeMeta: RouteMeta = {
               </button>
             </div>
           </div>
-          <button *ngIf="!isLoading" class="add-to-cart-btn" (click)="addToCart()">
+          <button
+            *ngIf="!isLoading"
+            class="add-to-cart-btn"
+            (click)="addToCart()"
+          >
             <i class="cart-icon">🛒</i> Add to cart
           </button>
 
@@ -136,57 +140,92 @@ export const routeMeta: RouteMeta = {
           </div>
         </div>
 
-        <div class="product-description mt-5">
-          <h2>Product description</h2>
-          <p>
-            A survival kit should be considered mandatory equipment for all
-            outdoor enthusiasts. You never know when something will go wrong,
-            placing your life will be in danger. But if you have a
-            well-developed survival kit with you, your survival odds will be
-            greatly improved. Discover our latest survival kit with the
-            necessary survival gadgets. Box contains the following.
-          </p>
+        <div class="product-description mt-5 flex flex-col">
+          <h2
+            (click)="toggleSection('description')"
+            class="accordion-toggle items-center justify-between"
+          >
+            Product description
+
+            <div
+              class="w-[16px]"
+              [ngClass]="{ rotated: sections['description'] }"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                />
+              </svg>
+            </div>
+          </h2>
+          <div *ngIf="sections['description']" class="accordion-content">
+            <p>
+              In today's unpredictable world, being prepared is more than a
+              precaution—it's a necessity. Whether it's a natural disaster, a
+              power outage, or an unexpected emergency, having your PREP Case on
+              hand can make all the difference. PREPC is designed not just for
+              the outdoor adventurer but for every household and car - ensuring
+              that you and your loved ones have the necessary tools to navigate
+              any situation safely where ever you are.
+            </p>
+          </div>
           <!-- Features and Benefits section -->
-          <h2>Features and Benefits:</h2>
+          <h2
+            (click)="toggleSection('features')"
+            class="accordion-toggle  items-center justify-between"
+          >
+            Features:
+            <div class="w-[16px]" [ngClass]="{ rotated: sections['features'] }">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                />
+              </svg>
+            </div>
+          </h2>
+          <div *ngIf="sections['features']" class="accordion-content">
+            <h3>Compact and Lightweight:</h3>
+            <p>
+              Weighing less than a kilogram, the PREPC is engineered for
+              convenience and portability. Its sleek design allows it to be a
+              discreet yet indispensable addition to your car, home, or
+              backpack.
+            </p>
 
-          <h3>Compact and Lightweight:</h3>
-          <p>
-            Weighing less than a kilogram, the PREPC is engineered for
-            convenience and portability. Its sleek design allows it to be a
-            discreet yet indispensable addition to your car, home, or backpack.
-          </p>
+            <h3>Comprehensive Emergency Kit:</h3>
+            <p>
+              From medical supplies to survival tools, the PREPC covers all
+              bases. Each of the 130 articles has been meticulously chosen to
+              offer solutions for a wide range of scenarios—ensuring you're
+              always a step ahead.
+            </p>
 
-          <h3>Comprehensive Emergency Kit:</h3>
-          <p>
-            From medical supplies to survival tools, the PREPC covers all bases.
-            Each of the 130 articles has been meticulously chosen to offer
-            solutions for a wide range of scenarios—ensuring you're always a
-            step ahead.
-          </p>
+            <h3>Designed for Scandinavian Lifestyles:</h3>
+            <p>
+              Whether you're braving the wilderness, navigating the urban
+              jungle, or simply enjoying the comfort of your home, the PREPC is
+              tailored to fit the dynamic Scandinavian way of life. It's the
+              perfect companion for households, nature enthusiasts, and anyone
+              who values preparedness and resilience.
+            </p>
 
-          <h3>Designed for Scandinavian Lifestyles:</h3>
-          <p>
-            Whether you're braving the wilderness, navigating the urban jungle,
-            or simply enjoying the comfort of your home, the PREPC is tailored
-            to fit the dynamic Scandinavian way of life. It's the perfect
-            companion for households, nature enthusiasts, and anyone who values
-            preparedness and resilience.
-          </p>
+            <h3>Quality and Reliability:</h3>
+            <p>
+              Crafted with the highest standards of quality and reliability, the
+              PREPC is built to last. Each component is tested to ensure it
+              meets our rigorous requirements, providing you with peace of mind
+              in every situation.
+            </p>
 
-          <h3>Quality and Reliability:</h3>
-          <p>
-            Crafted with the highest standards of quality and reliability, the
-            PREPC is built to last. Each component is tested to ensure it meets
-            our rigorous requirements, providing you with peace of mind in every
-            situation.
-          </p>
-
-          <h3>Easy to Use and Access:</h3>
-          <p>
-            The PREPC is designed for efficiency and ease of use. With clearly
-            organized compartments and an intuitive layout, accessing the right
-            tool at the right time is simple and straightforward.
-          </p>
+            <h3>Easy to Use and Access:</h3>
+            <p>
+              The PREPC is designed for efficiency and ease of use. With clearly
+              organized compartments and an intuitive layout, accessing the
+              right tool at the right time is simple and straightforward.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -198,6 +237,10 @@ export const routeMeta: RouteMeta = {
       $section-offset: 40px;
 
       @layer utilities {
+        .rotated {
+          transform: rotate(180deg);
+          transition: transform 0.3s ease-in-out;
+        }
         .product-container {
           min-height: 100vh;
           display: flex;
@@ -340,7 +383,7 @@ export const routeMeta: RouteMeta = {
           font-size: 18px; /* Adjust size to match the image */
           font-weight: bold; /* Normal weight for the title */
           margin-bottom: 0.5em; /* Space after the title */
-          display: inline-block; /* Makes the underline only as wide as the text */
+          display: flex; /* Makes the underline only as wide as the text */
           padding-bottom: 5px; /* Space between text and underline */
         }
         .product-description h3 {
@@ -595,10 +638,17 @@ export default class SurvivalKitPageComponent {
     'PREPC-tweezer.png',
     'PREPC-bandage.png',
   ];
-
+  sections: Sections = {
+    description: false,
+    features: false,
+  };
   mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
   isLoading = false;
   private readonly shoppingCartService = inject(ShoppingCartService);
+
+  toggleSection(section: string): void {
+    this.sections[section] = !this.sections[section];
+  }
 
   setMainImage(image: string): void {
     this.mainImage = 'img/product-page/' + image;
@@ -617,7 +667,7 @@ export default class SurvivalKitPageComponent {
       .subscribe({
         complete: () => {
           this.isLoading = false;
-          this.quantity = 1
+          this.quantity = 1;
         },
       });
   }
@@ -639,4 +689,8 @@ export default class SurvivalKitPageComponent {
   scrollRight(): void {
     this.imageRow.nativeElement.scrollBy({ left: 200, behavior: 'smooth' });
   }
+}
+
+interface Sections {
+  [key: string]: boolean;
 }
