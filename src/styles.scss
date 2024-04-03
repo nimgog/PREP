@@ -20,3 +20,22 @@ $analog-theme: mat.define-light-theme(
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import 'ngx-toastr/toastr';
+
+.toast-container {
+  @apply z-[100] #{!important};
+
+  &.toast-top-center {
+    @apply flex flex-col items-center #{!important};
+
+    .ngx-toastr {
+
+      // 640px is Tailwind's "sm" breakpoint
+      @media screen and (max-width: 639px) {
+        @apply w-screen #{!important};
+      }
+    }
+  }
+
+}

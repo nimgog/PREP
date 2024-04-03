@@ -15,6 +15,7 @@ import { VideoModalComponent } from '../shared/video-modal.component';
 import { ShopifyProductService } from '../services/shopify-product.service';
 import { ProductVariant } from '../models/product.model';
 import { ContextService } from '../services/context.service';
+import { NotificationService } from '../services/notification.service';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
@@ -731,6 +732,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   private readonly shoppingCartService = inject(ShoppingCartService);
   private readonly shopifyProductService = inject(ShopifyProductService);
   private readonly contextService = inject(ContextService);
+  private readonly notificationService = inject(NotificationService);
 
   ngOnInit(): void {
     if (this.contextService.isClientSide) {
@@ -780,7 +782,10 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   }
 
   addToCart(): void {
-    if (!this.productVariant) return;
+    if (!this.productVariant) {
+      this.notificationService.showUnknownErrorMessage();
+      return;
+    }
 
     const quantity = this.quantity > 0 ? this.quantity : 1;
     this.isLoading = true;

@@ -1,4 +1,9 @@
-import { Injectable, inject } from '@angular/core';
+import {
+  Injectable,
+  Injector,
+  inject,
+  runInInjectionContext,
+} from '@angular/core';
 import { type IndividualConfig, ToastrService } from 'ngx-toastr';
 import type { Notification } from '../models/notification.model';
 
@@ -20,8 +25,10 @@ export class NotificationService {
 
   private static readonly DefaultErrorConfig: NotificationConfig = {};
 
+  private readonly injector = inject(Injector);
+
   public get toastrService(): ToastrService {
-    return inject(ToastrService);
+    return runInInjectionContext(this.injector, () => inject(ToastrService));
   }
 
   showSuccessMessage(notification: Notification) {

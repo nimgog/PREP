@@ -14,14 +14,19 @@ import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { environment } from 'src/environments/environment';
 import { provideToastr } from 'ngx-toastr';
 
-//
 export const appConfig: ApplicationConfig = {
   providers: [
     provideFileRouter(),
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimations(),
-    provideToastr(),
+    provideToastr({
+      closeButton: true,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+      progressBar: true,
+      maxOpened: 3,
+    }),
     {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,
