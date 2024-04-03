@@ -162,9 +162,8 @@ import { ContextService } from 'src/app/services/context.service';
               </button>
             </div>
 
-            <div *ngIf="!cart?.totalQuantity">
+            <div class="cart-empty__description" *ngIf="!cart?.totalQuantity">
               <p>Your cart is empty.</p>
-              <button>Go to the Shop</button>
             </div>
 
             <!-- Summary -->
@@ -178,10 +177,13 @@ import { ContextService } from 'src/app/services/context.service';
 
             <!-- Actions -->
             <div *ngIf="cart && cart?.totalQuantity" class="actions">
-              <a [href]="cart.checkoutUrl" rel="noopener noreferrer"
+              <button (click)="continueShopping()">back</button>
+              <a
+                class="button-checkout"
+                [href]="cart.checkoutUrl"
+                rel="noopener noreferrer"
                 >Checkout</a
               >
-              <button (click)="continueShopping()">Continue Shopping</button>
             </div>
           </div>
         </div>
@@ -238,7 +240,9 @@ import { ContextService } from 'src/app/services/context.service';
 
       .cart-content {
         background-color: #fff;
+        height: fit-content;
         overflow-y: auto; /* Allows scrolling if the content exceeds the height */
+        border-radius: 4px;
       }
 
       .cart-item + .cart-item {
@@ -348,27 +352,26 @@ import { ContextService } from 'src/app/services/context.service';
 
       .actions {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         margin-bottom: 32px;
       }
 
-      .actions button {
-        padding: 12px 24px;
-        border-radius: 9999px;
-        font-weight: 600;
-        cursor: pointer;
-        border: none;
-      }
-
       /* Add styles for your checkout and continue shopping buttons */
-      .actions button.checkout {
+      .actions > .button-checkout {
         background-color: #10b981; /* Green color */
         color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 12px 24px;
+        border-radius: 4px;
       }
 
-      .actions button.continue-shopping {
-        background-color: #e2e8f0; /* Light gray color */
-        color: #4a5568;
+      .cart-empty__description {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding:2rem;
       }
     `,
   ],
@@ -389,7 +392,11 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
     if (this.contextService.isClientSide) {
       this.cartSubscription = this.shoppingCartService.cart$.subscribe({
         next: (cart) => {
-          if(this.cart && cart && this.cart.totalQuantity < cart.totalQuantity) {
+          if (
+            this.cart &&
+            cart &&
+            this.cart.totalQuantity < cart.totalQuantity
+          ) {
             this.cartOpen = true;
           }
           this.cart = cart;

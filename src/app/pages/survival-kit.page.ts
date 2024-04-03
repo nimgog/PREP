@@ -124,6 +124,7 @@ export const routeMeta: RouteMeta = {
       <div class="product-details">
         <h1 class="product-title">PREPC (PREP - Case)</h1>
         <div *ngIf="productVariant" class="product-pricing">
+        <div class="flex flex-col mr-3">
           <span class="sale-price"
             >{{ productVariant.price.amount }}{{ ' '
             }}{{ productVariant.price.currencyCode }}</span
@@ -132,6 +133,7 @@ export const routeMeta: RouteMeta = {
             >{{ productVariant.price.amount * 1.25 }}{{ ' '
             }}{{ productVariant.price.currencyCode }}</span
           >
+        </div>
           <span class="discount-percentage">-20%</span>
         </div>
         <div class="klarna-info flex items-center">
@@ -152,7 +154,7 @@ export const routeMeta: RouteMeta = {
           <p>We keep things easy:</p>
           <ul>
             <li>Free shipping on orders over €99.</li>
-            <li>Flat fee of €5</li>
+            <li>Flat fee of €6</li>
             <li>Items are typically dispatched within 1-2 business days.</li>
             <li>Track your order with a provided shipment number.</li>
           </ul>
@@ -562,7 +564,7 @@ export const routeMeta: RouteMeta = {
           font-size: 20px; /* Size of the chevron */
           color: #333; /* Chevron color */
           pointer-events: none;
-          z-index: 10;
+          z-index: 9;
         }
 
         /* Rotate chevron when expanded */
