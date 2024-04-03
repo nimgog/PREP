@@ -4,6 +4,7 @@ import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { take } from 'rxjs';
+import { VideoModalComponent } from '../shared/video-modal.component';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
@@ -13,7 +14,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-survival-kit-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, VideoModalComponent],
   template: `
     <div
       class="w-full h-[200px] landscape:pt-[100px] portrait:pt-[90px] landscape:pl-[40px] portrait:pl-[8px]"
@@ -47,6 +48,66 @@ export const routeMeta: RouteMeta = {
             &gt;
           </button>
         </div>
+
+        <!-- Video thumbnails container -->
+        <div
+          class="flex flex-col md:flex-row w-full mt-4 landscape:max-h-[250px] landscape:overflow-hidden	"
+        >
+          <!-- Landscape video thumbnail with play icon -->
+          <div
+            class="flex-1 cursor-pointer relative"
+            (click)="openModal('landscape')"
+          >
+            <img
+              src="img/product-page/landscape_thumbnail.png"
+              alt="Landscape Video"
+              class="w-full h-auto"
+            />
+            <div class="absolute inset-0 flex justify-center items-center">
+              <div class="p-3 rounded-full bg-emerald-700">
+                <svg
+                  class="w-8 h-8 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#ffffff"
+                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portrait video thumbnail with play icon -->
+          <div
+            class="flex-1 cursor-pointer relative"
+            (click)="openModal('portrait')"
+          >
+            <img
+              src="img/product-page/portrait_thumbnail.png"
+              alt="Portrait Video"
+              class="w-full h-auto"
+            />
+            <div class="absolute inset-0 flex justify-center items-center">
+              <div class="p-3 rounded-full bg-emerald-700">
+                <svg
+                  class="w-8 h-8 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#ffffff"
+                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-video-modal></app-video-modal>
       </div>
 
       <div class="product-details">
@@ -614,6 +675,7 @@ export const routeMeta: RouteMeta = {
 })
 export default class SurvivalKitPageComponent {
   @ViewChild('imageRow') imageRow!: ElementRef;
+  @ViewChild(VideoModalComponent) videoModal!: VideoModalComponent;
   quantity: number = 1;
   isExpanded: boolean = false;
   images: string[] = [
@@ -656,6 +718,17 @@ export default class SurvivalKitPageComponent {
 
   toggleExpand(): void {
     this.isExpanded = !this.isExpanded;
+  }
+
+  currentVideoSource: string = '';
+
+  openModal(videoType: 'landscape' | 'portrait'): void {
+    this.currentVideoSource =
+      videoType === 'landscape'
+        ? 'video/Hemsida.mov'
+        : 'video/PREPC_voiceover.mov';
+    this.videoModal.showModal = true;
+    this.videoModal.videoSource = this.currentVideoSource;
   }
 
   addToCart(): void {
