@@ -1,10 +1,20 @@
 import { RouteMeta } from '@analogjs/router';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ShoppingCartService } from '../services/shopping-cart.service';
-import { take } from 'rxjs';
+import { Subscription, take, tap } from 'rxjs';
 import { VideoModalComponent } from '../shared/video-modal.component';
+import { ShopifyProductService } from '../services/shopify-product.service';
+import { ProductVariant } from '../models/product.model';
+import { ContextService } from '../services/context.service';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
@@ -112,9 +122,15 @@ export const routeMeta: RouteMeta = {
 
       <div class="product-details">
         <h1 class="product-title">PREPC (PREP - Case)</h1>
-        <div class="product-pricing">
-          <span class="sale-price">€79.99</span>
-          <span class="original-price">€99.99</span>
+        <div *ngIf="productVariant" class="product-pricing">
+          <span class="sale-price"
+            >{{ productVariant.price.amount }}{{ ' '
+            }}{{ productVariant.price.currencyCode }}</span
+          >
+          <span class="original-price"
+            >{{ productVariant.price.amount * 1.25 }}{{ ' '
+            }}{{ productVariant.price.currencyCode }}</span
+          >
           <span class="discount-percentage">-20%</span>
         </div>
         <div class="klarna-info flex items-center">
@@ -673,7 +689,9 @@ export const routeMeta: RouteMeta = {
     `,
   ],
 })
-export default class SurvivalKitPageComponent {
+export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
+  static readonly PRODUCT_HANDLE = 'prepc-prep-case';
+
   @ViewChild('imageRow') imageRow!: ElementRef;
   @ViewChild(VideoModalComponent) videoModal!: VideoModalComponent;
   quantity: number = 1;
@@ -706,7 +724,37 @@ export default class SurvivalKitPageComponent {
   };
   mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
   isLoading = false;
+
+  productVariant?: ProductVariant;
+  productPriceRefreshSignalSub?: Subscription;
+
   private readonly shoppingCartService = inject(ShoppingCartService);
+  private readonly shopifyProductService = inject(ShopifyProductService);
+  private readonly contextService = inject(ContextService);
+
+  ngOnInit(): void {
+    if (this.contextService.isClientSide) {
+      this.fetchProduct();
+
+      this.productPriceRefreshSignalSub =
+        this.shopifyProductService.productPriceRefreshSignal$
+          .pipe(tap(this.fetchProduct))
+          .subscribe();
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.productPriceRefreshSignalSub?.unsubscribe();
+  }
+
+  fetchProduct(): void {
+    this.shopifyProductService
+      .fetchProduct(SurvivalKitPageComponent.PRODUCT_HANDLE)
+      .pipe(take(1))
+      .subscribe({
+        next: (product) => (this.productVariant = product.variants[0]),
+      });
+  }
 
   toggleSection(section: string): void {
     this.sections[section] = !this.sections[section];
@@ -732,10 +780,12 @@ export default class SurvivalKitPageComponent {
   }
 
   addToCart(): void {
+    if (!this.productVariant) return;
+
     const quantity = this.quantity > 0 ? this.quantity : 1;
     this.isLoading = true;
     this.shoppingCartService
-      .addLineItem('gid://shopify/ProductVariant/47839582585162', quantity)
+      .addLineItem(this.productVariant.id, quantity)
       .pipe(take(1))
       .subscribe({
         complete: () => {

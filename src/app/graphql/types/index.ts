@@ -8291,36 +8291,15 @@ export const Cart = gql`
     }
   }
 export const Product = gql`
-    query Product($collectionHandle: String!, $countryCode: CountryCode!) @inContext(country: $countryCode) {
-  collection(handle: $collectionHandle) {
-    descriptionHtml
-    products(first: 250) {
+    query Product($productHandle: String!, $countryCode: CountryCode!) @inContext(country: $countryCode) {
+  product(handle: $productHandle) {
+    variants(first: 250) {
       nodes {
-        handle
-        images(first: 250) {
-          nodes {
-            url
-            altText
-          }
+        id
+        price {
+          amount
+          currencyCode
         }
-        options {
-          name
-          values
-        }
-        variants(first: 250) {
-          nodes {
-            id
-            selectedOptions {
-              name
-              value
-            }
-            price {
-              amount
-              currencyCode
-            }
-          }
-        }
-        tags
       }
     }
   }
@@ -8381,9 +8360,9 @@ export type CartQueryVariables = Exact<{
 export type CartQuery = { __typename?: 'QueryRoot', cart?: { __typename?: 'Cart', id: string, checkoutUrl: any, totalQuantity: number, lines: { __typename?: 'BaseCartLineConnection', nodes: Array<{ __typename?: 'CartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, image?: { __typename?: 'Image', url: any } | null, product: { __typename?: 'Product', handle: string }, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }> }, cost: { __typename?: 'CartLineCost', subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } } } | { __typename?: 'ComponentizableCartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, image?: { __typename?: 'Image', url: any } | null, product: { __typename?: 'Product', handle: string }, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }> }, cost: { __typename?: 'CartLineCost', subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } } }> }, cost: { __typename?: 'CartCost', totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } } } | null };
 
 export type ProductQueryVariables = Exact<{
-  collectionHandle: Scalars['String']['input'];
+  productHandle: Scalars['String']['input'];
   countryCode: CountryCode;
 }>;
 
 
-export type ProductQuery = { __typename?: 'QueryRoot', collection?: { __typename?: 'Collection', descriptionHtml: any, products: { __typename?: 'ProductConnection', nodes: Array<{ __typename?: 'Product', handle: string, tags: Array<string>, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any, altText?: string | null }> }, options: Array<{ __typename?: 'ProductOption', name: string, values: Array<string> }>, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }>, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> } }> } } | null };
+export type ProductQuery = { __typename?: 'QueryRoot', product?: { __typename?: 'Product', variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> } } | null };

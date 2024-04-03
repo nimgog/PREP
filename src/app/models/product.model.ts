@@ -9,13 +9,14 @@ export type Money = {
 };
 
 export type Product = {
-  slug: string;
-  description: string;
+  // slug: string;
+  // description: string;
+  variants: ProductVariant[];
 };
 
 export type ProductVariant = {
   id: string;
-  images: Image[];
-  originalPrice?: Money;
+  // images: Image[];
+  // originalPrice?: Money;
   price: Money;
 };

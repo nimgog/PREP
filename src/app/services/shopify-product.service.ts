@@ -6,7 +6,7 @@ import { LocationService } from './location.service';
 import { ProductGQL } from '../graphql/types';
 import { NotificationService } from './notification.service';
 import { catchAndReportError } from '../common/utils/catch-and-report-error.operator';
-import { mapShopifyProductsToCocoProduct } from '../common/utils/shopify-product-helpers';
+import { mapShopifyProductToPrepProduct } from '../common/utils/shopify-product-helpers';
 
 @Injectable({
   providedIn: 'root',
@@ -29,19 +29,17 @@ export class ShopifyProductService {
     return this._productPriceRefreshSignal$;
   }
 
-  fetchProduct(productSlug: string): Observable<Product> {
-    const collectionHandle = `new-${productSlug}`;
-
+  fetchProduct(productHandle: string): Observable<Product> {
     return this.locationService.getTwoLetterCountryCode().pipe(
       switchMap((countryCode) =>
         this.productGQL.fetch({
-          collectionHandle,
+          productHandle,
           countryCode,
         })
       ),
       map((response) => {
         if (
-          !response.data?.collection?.products.nodes.length ||
+          !response.data?.product ||
           response.error ||
           response.errors?.length
         ) {
@@ -50,15 +48,9 @@ export class ShopifyProductService {
           );
         }
 
-        return response.data.collection;
+        return response.data.product;
       }),
-      map((shopifyCollection) =>
-        mapShopifyProductsToCocoProduct(
-          shopifyCollection.products.nodes,
-          productSlug,
-          shopifyCollection.descriptionHtml
-        )
-      ),
+      map((shopifyProduct) => mapShopifyProductToPrepProduct(shopifyProduct)),
       catchAndReportError(this.notificationService)
     );
   }
