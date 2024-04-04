@@ -124,16 +124,16 @@ export const routeMeta: RouteMeta = {
       <div class="product-details">
         <h1 class="product-title">PREPC (PREP - Case)</h1>
         <div *ngIf="productVariant" class="product-pricing">
-        <div class="flex flex-col mr-3">
-          <span class="sale-price"
-            >{{ productVariant.price.amount }}{{ ' '
-            }}{{ productVariant.price.currencyCode }}</span
-          >
-          <span class="original-price"
-            >{{ productVariant.price.amount * 1.25 }}{{ ' '
-            }}{{ productVariant.price.currencyCode }}</span
-          >
-        </div>
+          <div class="flex flex-col mr-3">
+            <span *ngIf="productVariant" class="sale-price"
+              >{{ productVariant.price.amount }}{{ ' '
+              }}{{ productVariant.price.currencyCode }}</span
+            >
+            <span *ngIf="productVariant" class="original-price"
+              >{{ productVariant.price.amount * 1.25 }}{{ ' '
+              }}{{ productVariant.price.currencyCode }}</span
+            >
+          </div>
           <span class="discount-percentage">-20%</span>
         </div>
         <div class="klarna-info flex items-center">
@@ -362,6 +362,40 @@ export const routeMeta: RouteMeta = {
           border: 1px solid #ddd; /* Optional: adds a border around the small images */
           width: 160px;
           height: 160px;
+        }
+
+        .price-container {
+          width: 104.7px;
+          height: 66px;
+          background: #ececec; /* Light gray background */
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+
+        .price-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            #ececec 0%,
+            #d4d4d4 50%,
+            #ececec 100%
+          );
+          animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
         }
 
         .small-image-container img {
@@ -727,6 +761,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   };
   mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
   isLoading = false;
+  isFetching = true;
 
   productVariant?: ProductVariant;
   productPriceRefreshSignalSub?: Subscription;
@@ -756,7 +791,10 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
       .fetchProduct(SurvivalKitPageComponent.PRODUCT_HANDLE)
       .pipe(take(1))
       .subscribe({
-        next: (product) => (this.productVariant = product.variants[0]),
+        next: (product) => {
+          this.productVariant = product.variants[0];
+          this.isFetching = false;
+        },
       });
   }
 

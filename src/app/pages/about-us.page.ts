@@ -1,6 +1,7 @@
 import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 import ContactFormComponent from '../components/about-us-page/contact-form.component';
+import { RouterLink } from '@angular/router';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
@@ -11,7 +12,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-about-us-page', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [ContactFormComponent],
+  imports: [ContactFormComponent, RouterLink],
   template: `
     <div
       class="flex justify-center w-full h-full pt-24 lg:pt-[182px] px-4 pb-[72px] lg:pb-[283px]"
@@ -29,9 +30,18 @@ export const routeMeta: RouteMeta = {
               src="/img/about-us-page/about_us.jpg"
               alt="A human wearing a survival kit"
             />
+            <button
+              routerLink="/survival-kit"
+              class="w-fit px-6 py-3.5 bg-[#588157] uppercase mt-6"
+              aria-label="Navigate to product page"
+            >
+              <span
+                class="text-white text-base lg:text-lg font-semibold leading-loose"
+                >Shop Now</span
+              >
+            </button>
           </div>
-          <div class="flex flex-col lg:w-1/2">
-
+          <div class="flex flex-col lg:w-1/2 portrait:mt-16">
             <div class="flex flex-col gap-y-6 pt-10 ">
               <h1
                 class="text-gray-700 text-[28px] lg:text-3xl font-semibold uppercase leading-9"
@@ -43,13 +53,14 @@ export const routeMeta: RouteMeta = {
                 class="text-gray-700 text-sm lg:text-base font-normal leading-normal"
               >
                 At PREP - Preparedness Readiness Emergency Provisioning, our
-                journey began with a simple yet profound realization: in the face
-                of emergencies, preparedness is our most reliable ally. Born from
-                the rugged landscapes and resilient spirit of Scandinavia, our
-                mission is to empower households and nature enthusiasts with the
-                tools and knowledge to face any challenge with confidence. We
-                believe in a world where everyone is equipped to handle the
-                unexpected, turning potential crises into manageable situations.
+                journey began with a simple yet profound realization: in the
+                face of emergencies, preparedness is our most reliable ally.
+                Born from the rugged landscapes and resilient spirit of
+                Scandinavia, our mission is to empower households and nature
+                enthusiasts with the tools and knowledge to face any challenge
+                with confidence. We believe in a world where everyone is
+                equipped to handle the unexpected, turning potential crises into
+                manageable situations.
               </p>
             </div>
             <div class="flex flex-col gap-y-6  pt-10 ">
@@ -66,8 +77,8 @@ export const routeMeta: RouteMeta = {
                 practical, and an integral part of every Scandinavian home and
                 adventure. We're not just selling a product; we're fostering a
                 community of readiness, where being prepared is a lifestyle
-                embraced by all. Through innovation, education, and dedication, we
-                aim to ensure that when emergencies arise, the PREP community
+                embraced by all. Through innovation, education, and dedication,
+                we aim to ensure that when emergencies arise, the PREP community
                 stands tall, ready, and resilient.
               </p>
             </div>
@@ -81,11 +92,11 @@ export const routeMeta: RouteMeta = {
               <p
                 class="text-gray-700 text-sm lg:text-base font-normal leading-normal"
               >
-                With every PREPC case, we pledge unwavering quality, reliability,
-                and functionality. We're committed to providing solutions that are
-                not only effective but also sustainable and ethical. Our vision is
-                a future where preparedness is synonymous with peace of mind, and
-                with PREP, that future is already here.
+                With every PREPC case, we pledge unwavering quality,
+                reliability, and functionality. We're committed to providing
+                solutions that are not only effective but also sustainable and
+                ethical. Our vision is a future where preparedness is synonymous
+                with peace of mind, and with PREP, that future is already here.
               </p>
             </div>
           </div>
