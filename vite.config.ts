@@ -2,6 +2,8 @@
 
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import * as path from 'path';
+import { cjsInterop } from 'vite-plugin-cjs-interop';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -11,16 +13,25 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     mainFields: ['module'],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+    },
   },
   plugins: [
     analog({
+      ssr: true,
       static: true,
       prerender: {
-        routes: async () => ['/', '/survival-kit', '/about-us'],
+        routes: async () => {
+          return ['/', '/survival-kit', '/about-us'];
+        },
       },
       vite: {
         inlineStylesExtension: 'scss',
       },
+    }),
+    cjsInterop({
+      dependencies: ['@apollo/client/core'],
     }),
   ],
   test: {

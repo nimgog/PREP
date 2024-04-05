@@ -28,9 +28,9 @@ import MainFooterComponent from './components/main-footer/main-footer.component'
   `,
 })
 export class AppComponent implements OnInit {
-  private readonly router = inject(Router);
-
   readonly isHomePage = signal(true);
+
+  private readonly router = inject(Router);
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {

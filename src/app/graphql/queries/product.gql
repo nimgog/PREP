@@ -1,0 +1,31 @@
+query Product($productHandle: String!, $countryCode: CountryCode!)
+@inContext(country: $countryCode) {
+  product(handle: $productHandle) {
+    # descriptionHtml
+    # handle
+    # images(first: 250) {
+    #   nodes {
+    #     url
+    #     altText
+    #   }
+    # }
+    # options {
+    #   name
+    #   values
+    # }
+    variants(first: 250) {
+      nodes {
+        id
+        # selectedOptions {
+        #   name
+        #   value
+        # }
+        price {
+          amount
+          currencyCode
+        }
+      }
+    }
+    # tags
+  }
+}

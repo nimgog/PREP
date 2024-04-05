@@ -11,7 +11,10 @@
     "start": "pnpm run dev",
     "build": "ng build",
     "watch": "ng build --watch",
-    "test": "ng test"
+    "test": "ng test",
+    "gql:fetch": "ts-node codegen/fetch-shopify-schema.ts",
+    "gql:generate": "graphql-codegen --config codegen/codegen.ts",
+    "gql:watch": "graphql-codegen --config codegen/codegen.ts --watch"
   },
   "dependencies": {
     "@analogjs/content": "^0.2.45",
@@ -27,15 +30,20 @@
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/platform-server": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "@apollo/client": "^3.9.9",
     "@nx/angular": "~18.0.0",
+    "apollo-angular": "^6.0.0",
     "front-matter": "^4.0.2",
+    "graphql": "^16.8.1",
     "marked": "^5.0.2",
     "marked-gfm-heading-id": "^3.1.0",
     "marked-highlight": "^2.0.1",
     "mermaid": "^10.2.4",
+    "ngx-toastr": "^18.0.0",
     "ngx-turnstile": "^0.2.1",
     "prismjs": "^1.29.0",
     "rxjs": "~7.5.6",
+    "ts-node": "^10.9.2",
     "tslib": "^2.4.0",
     "zone.js": "~0.14.0"
   },
@@ -44,6 +52,11 @@
     "@angular-devkit/build-angular": "^17.2.0",
     "@angular/cli": "^17.2.0",
     "@angular/compiler-cli": "^17.2.0",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@graphql-codegen/typescript-apollo-angular": "^4.0.0",
+    "@graphql-codegen/typescript-operations": "^4.2.0",
+    "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@nx/vite": "~18.0.0",
     "autoprefixer": "^10.4.14",
     "jsdom": "^22.1.0",
@@ -52,6 +65,7 @@
     "tailwindcss": "^3.3.1",
     "typescript": "~5.3.0",
     "vite": "~5.0.0",
+    "vite-plugin-cjs-interop": "^2.1.0",
     "vitest": "^1.3.1"
   }
 }
