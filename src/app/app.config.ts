@@ -10,7 +10,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { APOLLO_OPTIONS, Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { ApolloClientOptions } from '@apollo/client/core/ApolloClient';
-import { ApolloLink, InMemoryCache } from '@apollo/client/core';
+import { InMemoryCache } from '@apollo/client/core';
 import { environment } from 'src/environments/environment';
 import { provideToastr } from 'ngx-toastr';
 
@@ -38,15 +38,13 @@ export const appConfig: ApplicationConfig = {
 
 function createApollo(httpLink: HttpLink): ApolloClientOptions<unknown> {
   return {
-    link: ApolloLink.from([
-      httpLink.create({
-        uri: environment.storefrontEndpoint,
-        headers: new HttpHeaders().set(
-          'X-Shopify-Storefront-Access-Token',
-          environment.storefrontAccessToken
-        ),
-      }),
-    ]),
+    link: httpLink.create({
+      uri: environment.storefrontEndpoint,
+      headers: new HttpHeaders().set(
+        'X-Shopify-Storefront-Access-Token',
+        environment.storefrontAccessToken
+      ),
+    }),
     cache: new InMemoryCache(),
     defaultOptions: {
       query: {

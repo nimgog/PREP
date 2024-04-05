@@ -3,7 +3,6 @@
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
 import * as path from 'path';
-import { cjsInterop } from 'vite-plugin-cjs-interop';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -17,6 +16,9 @@ export default defineConfig(({ mode }) => ({
       src: path.resolve(__dirname, 'src'),
     },
   },
+  ssr: {
+    noExternal: ['@apollo/client/**'],
+  },
   plugins: [
     analog({
       ssr: true,
@@ -29,9 +31,6 @@ export default defineConfig(({ mode }) => ({
       vite: {
         inlineStylesExtension: 'scss',
       },
-    }),
-    cjsInterop({
-      dependencies: ['@apollo/client/core'],
     }),
   ],
   test: {
