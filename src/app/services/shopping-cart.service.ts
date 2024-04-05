@@ -15,7 +15,7 @@ import { ContextService } from './context.service';
 export class ShoppingCartService implements OnInit, OnDestroy {
   private cartSubject = new BehaviorSubject<ShoppingCart | null>(null);
   private productPriceRefreshSignalSub?: Subscription;
-
+  private cartIsVisibleSubject = new BehaviorSubject(false);
   private readonly shopifyCartService = inject(ShopifyCartService);
   private readonly shopifyProductService = inject(ShopifyProductService);
   private readonly localStorageService = inject(LocalStorageService);
@@ -59,6 +59,18 @@ export class ShoppingCartService implements OnInit, OnDestroy {
         return of(cart);
       })
     );
+  }
+
+  get isCartVisible$() {
+    return this.cartIsVisibleSubject.asObservable();
+  }
+
+  openCart() {
+    this.cartIsVisibleSubject.next(true);
+  }
+
+  closeCart() {
+    this.cartIsVisibleSubject.next(false);
   }
 
   addLineItem(productId: string, quantity = 1) {

@@ -826,7 +826,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
       this.notificationService.showUnknownErrorMessage();
       return;
     }
-
+    this.shoppingCartService.openCart();
     const quantity = this.quantity > 0 ? this.quantity : 1;
     this.isLoading = true;
     this.shoppingCartService

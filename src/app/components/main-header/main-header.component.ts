@@ -82,7 +82,7 @@ import { ContextService } from 'src/app/services/context.service';
           >
             <div class="flex justify-between items-center p-4">
               <h2 class="text-lg font-bold">Your Cart</h2>
-              <button aria-label="Close cart" (click)="toggleCart()">
+              <button aria-label="Close cart" (click)="closeCart()">
                 <!-- SVG or text to close the cart -->
                 Close
               </button>
@@ -215,7 +215,7 @@ import { ContextService } from 'src/app/services/context.service';
           <button
             class="w-8 h-8 p-[3px]"
             aria-label="Open shopping cart"
-            (click)="toggleCart()"
+            (click)="openCart()"
           >
             <img src="/img/main-header/shopping-cart.svg" alt="Shopping cart" />
           </button>
@@ -371,7 +371,7 @@ import { ContextService } from 'src/app/services/context.service';
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding:2rem;
+        padding: 2rem;
       }
     `,
   ],
@@ -382,7 +382,7 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
   menuOpen: boolean = false;
   cartOpen: boolean = false;
 
-  private cartSubscription?: Subscription;
+  private subscriptions: Subscription[] = [];
   cart: ShoppingCart | null = null;
 
   private readonly shoppingCartService = inject(ShoppingCartService);
@@ -390,23 +390,25 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.contextService.isClientSide) {
-      this.cartSubscription = this.shoppingCartService.cart$.subscribe({
+      const cartSubscription = this.shoppingCartService.cart$.subscribe({
         next: (cart) => {
-          if (
-            this.cart &&
-            cart &&
-            this.cart.totalQuantity < cart.totalQuantity
-          ) {
-            this.cartOpen = true;
-          }
           this.cart = cart;
         },
       });
+      const sub = this.shoppingCartService.isCartVisible$.subscribe(
+        (value: boolean) => {
+          this.cartOpen = value;
+        }
+      );
+
+      this.subscriptions.push(cartSubscription);
+      this.subscriptions.push(sub);
     }
   }
 
   ngOnDestroy() {
-    this.cartSubscription?.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+    this.subscriptions = [];
   }
 
   imageError(event: any) {
@@ -418,8 +420,12 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
     this.menuOpen = !this.menuOpen;
   }
 
-  toggleCart(): void {
-    this.cartOpen = !this.cartOpen;
+  openCart(): void {
+    this.shoppingCartService.openCart();
+  }
+
+  closeCart(): void {
+    this.shoppingCartService.closeCart();
   }
 
   closeMenu(): void {
@@ -452,6 +458,6 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
   }
 
   continueShopping(): void {
-    this.toggleCart();
+    this.closeCart();
   }
 }
