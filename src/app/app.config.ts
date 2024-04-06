@@ -13,10 +13,16 @@ import { ApolloClientOptions } from '@apollo/client/core/ApolloClient';
 import { InMemoryCache } from '@apollo/client/core';
 import { environment } from 'src/environments/environment';
 import { provideToastr } from 'ngx-toastr';
+import { withInMemoryScrolling } from '@angular/router';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideFileRouter(),
+    provideFileRouter(
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled',
+      })
+    ),
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimations(),

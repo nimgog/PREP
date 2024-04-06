@@ -10,7 +10,7 @@ export const routeMeta: RouteMeta = {
 
 // TODO: HTML semantics
 @Component({
-  selector: 'app-about-us-page', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-about-us-page',
   standalone: true,
   imports: [ContactFormComponent, RouterLink],
   template: `
@@ -144,7 +144,7 @@ export const routeMeta: RouteMeta = {
             </div>
           </div>
 
-          <app-contact-form class="w-full" />
+          <app-contact-form id="contact" class="w-full" />
         </section>
       </div>
     </div>

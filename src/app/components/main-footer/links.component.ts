@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-main-footer-links', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-footer-links',
   standalone: true,
   imports: [RouterLink],
   template: `
@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
     >
       <!-- TODO: Make this scroll down on the About Us page -->
       <li>
-        <a routerLink="/about-us#contact-us">Contact Us</a>
+        <a routerLink="/about-us" fragment="contact">Contact Us</a>
       </li>
 
       <!-- TODO: Create policies -->
