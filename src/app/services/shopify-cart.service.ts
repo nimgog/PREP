@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { map, switchMap } from 'rxjs';
-import { catchAndReportError } from '../common/utils/catch-and-report-error.operator';
+import { catchAndReportError } from '../utils/catch-and-report-error.operator';
 import {
   AddLineItemGQL,
   CartGQL,
@@ -10,7 +10,7 @@ import {
 } from '../graphql/types';
 import { LocationService } from './location.service';
 import { NotificationService } from './notification.service';
-import { mapCart } from '../common/utils/shopify-cart-helpers';
+import { mapCart } from '../utils/shopify-cart-helpers';
 
 @Injectable({
   providedIn: 'root',

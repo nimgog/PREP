@@ -1,5 +1,5 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import TurnstileComponent from './turnstile.component';
+import { Component, inject, signal } from '@angular/core';
+import TurnstileComponent from '../common/turnstile.component';
 import { NgClass } from '@angular/common';
 import {
   FormControl,
@@ -7,16 +7,24 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotificationService } from 'src/app/services/notification.service';
+import { finalize } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import LoadingSpinnerComponent from '../common/loading-spinner.component';
 
 @Component({
   selector: 'app-contact-form', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
-  imports: [TurnstileComponent, NgClass, ReactiveFormsModule],
+  imports: [
+    TurnstileComponent,
+    NgClass,
+    ReactiveFormsModule,
+    LoadingSpinnerComponent,
+  ],
   template: `
     <form
-      [formGroup]="contactForm()"
+      [formGroup]="contactForm"
       (ngSubmit)="onSubmit()"
       class="flex flex-col gap-y-2 lg:gap-y-[22px] w-full"
     >
@@ -96,28 +104,30 @@ import { NotificationService } from 'src/app/services/notification.service';
         </div>
       </div>
 
-      <!-- TODO: Add verification -->
       <div>
         <app-turnstile />
       </div>
 
-      <!-- TODO: Submit logic: form validation, backend request -->
       <div
         class="flex justify-center items-center w-[100px] lg:w-full h-[52px] px-6 py-4 bg-prep-green"
       >
         <button
           type="submit"
-          [disabled]="!allowSubmit()"
-          [ngClass]="[allowSubmit() ? '' : 'opacity-50 cursor-not-allowed']"
+          [disabled]="isSubmitting()"
+          [ngClass]="[!isSubmitting() ? '' : 'opacity-50 cursor-not-allowed']"
           class="text-white text-sm lg:text-xl font-semibold"
           aria-label="Submit contact form"
         >
-          Submit
+          {{ isSubmitting() ? '' : 'Submit' }}
         </button>
 
-        <!-- TODO: -->
-        <!-- <app-loading-spinner *ngIf="isSubmitting()" color="white" bgClass="bg-coco-orange"
-                [scale]=".5"></app-loading-spinner> -->
+        @if (isSubmitting()) {
+        <app-loading-spinner
+          color="white"
+          bgClass="bg-coco-orange"
+          [scale]="0.5"
+        ></app-loading-spinner>
+        }
       </div>
     </form>
   `,
@@ -144,14 +154,12 @@ export default class ContactFormComponent {
   private readonly httpClient = inject(HttpClient);
   private readonly notificationService = inject(NotificationService);
 
-  readonly contactForm = signal<FormGroup>(null!);
   readonly isSubmitting = signal(false);
-  readonly allowSubmit = computed(
-    () => this.contactForm().valid && !this.isSubmitting()
-  );
+
+  contactForm!: FormGroup;
 
   ngOnInit() {
-    const contactForm = new FormGroup({
+    this.contactForm = new FormGroup({
       fullName: new FormControl(null, Validators.required),
       emailAddress: new FormControl(null, [
         Validators.required,
@@ -164,44 +172,41 @@ export default class ContactFormComponent {
       ]),
       turnstileToken: new FormControl(null, Validators.required),
     });
-
-    this.contactForm.set(contactForm);
   }
 
   isInvalidTouched(controlName: string): boolean {
-    const control = this.contactForm().get(controlName);
+    const control = this.contactForm.get(controlName);
     return control ? !control.valid && control.touched : false;
   }
 
   onSubmit() {
-    if (!this.allowSubmit()) {
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
       return;
     }
 
     this.isSubmitting.set(true);
 
-    // this.httpClient
-    //   .post(environment.contactWorkerEndpoint, this.contactForm.value, {
-    //     headers: new HttpHeaders().set('Accept', 'application/json'),
-    //   })
-    //   .pipe(finalize(() => (this.isSubmitting = false)))
-    //   .subscribe({
-    //     next: () => {
-    //       this.contactForm.reset();
+    this.httpClient
+      .post(environment.contactWorkerEndpoint, this.contactForm.value, {
+        headers: new HttpHeaders().set('Accept', 'application/json'),
+      })
+      .pipe(finalize(() => this.isSubmitting.set(false)))
+      .subscribe({
+        next: () => {
+          this.contactForm.reset();
 
-    //       // TODO:
-    //       // this.notificationService.showSuccessMessage({
-    //       //   title: 'Request sent',
-    //       //   message: 'We will contact you soon!',
-    //       // });
-    //     },
-    //     error: () => {
-    //       // TODO:
-    //       // this.notificationService.showErrorMessage({
-    //       //   title: 'Failed to send request',
-    //       //   message: 'Please try again later.',
-    //       // });
-    //     },
-    //   });
+          this.notificationService.showSuccessMessage({
+            title: 'Request sent',
+            message: 'We will contact you soon!',
+          });
+        },
+        error: () => {
+          this.notificationService.showErrorMessage({
+            title: 'Failed to send request',
+            message: 'Please try again later.',
+          });
+        },
+      });
   }
 }

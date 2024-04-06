@@ -5,4 +5,5 @@ export const environment = {
     'https://0d228a-b5.myshopify.com/api/2024-01/graphql.json',
   ipAPIKey: '6ff13c94f9a417ae8d85061410ca7c88',
   turnstileSiteKey: '0x4AAAAAAAWgVaiBmyrKPlr1',
+  contactWorkerEndpoint: 'https://prep-contact-worker.nsj.workers.dev',
 };

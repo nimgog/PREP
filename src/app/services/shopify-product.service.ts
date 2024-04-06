@@ -5,8 +5,8 @@ import type { Product } from '../models/product.model';
 import { LocationService } from './location.service';
 import { ProductGQL } from '../graphql/types';
 import { NotificationService } from './notification.service';
-import { catchAndReportError } from '../common/utils/catch-and-report-error.operator';
-import { mapShopifyProductToPrepProduct } from '../common/utils/shopify-product-helpers';
+import { catchAndReportError } from '../utils/catch-and-report-error.operator';
+import { mapShopifyProductToPrepProduct } from '../utils/shopify-product-helpers';
 
 @Injectable({
   providedIn: 'root',

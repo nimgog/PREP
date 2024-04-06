@@ -106,9 +106,7 @@ import { ContextService } from 'src/app/services/context.service';
 
               <!-- Product Details -->
               <div class="flex-1 ml-4">
-                <div class="font-semibold text-lg">
-                  PREP - Case
-                </div>
+                <div class="font-semibold text-lg">PREP - Case</div>
                 <!-- <div class="text-sm text-gray-500">
                   {{ lineItem.variation }}
                 </div> -->

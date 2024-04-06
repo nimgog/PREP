@@ -9,7 +9,11 @@ import { environment } from 'src/environments/environment';
   imports: [NgxTurnstileModule],
   template: `
     @if (contextService.isClientSide) {
-    <ngx-turnstile [siteKey]="turnstileSiteKey" theme="light" />
+    <ngx-turnstile
+      formControlName="turnstileToken"
+      [siteKey]="turnstileSiteKey"
+      theme="light"
+    />
     }
   `,
 })
