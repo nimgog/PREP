@@ -1,5 +1,4 @@
 import { Component, inject, signal } from '@angular/core';
-import TurnstileComponent from '../common/turnstile.component';
 import { NgClass } from '@angular/common';
 import {
   FormControl,
@@ -12,15 +11,18 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { finalize } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import LoadingSpinnerComponent from '../common/loading-spinner.component';
+import { NgxTurnstileFormsModule, NgxTurnstileModule } from 'ngx-turnstile';
+import { ContextService } from 'src/app/services/context.service';
 
 @Component({
   selector: 'app-contact-form', // TODO: Remove when dev team fixes auto selector generation
   standalone: true,
   imports: [
-    TurnstileComponent,
     NgClass,
     ReactiveFormsModule,
     LoadingSpinnerComponent,
+    NgxTurnstileModule,
+    NgxTurnstileFormsModule,
   ],
   template: `
     <form
@@ -105,7 +107,13 @@ import LoadingSpinnerComponent from '../common/loading-spinner.component';
       </div>
 
       <div>
-        <app-turnstile />
+        @if (contextService.isClientSide) {
+        <ngx-turnstile
+          formControlName="turnstileToken"
+          [siteKey]="turnstileSiteKey"
+          theme="light"
+        />
+        }
       </div>
 
       <div
@@ -150,9 +158,11 @@ import LoadingSpinnerComponent from '../common/loading-spinner.component';
 export default class ContactFormComponent {
   readonly messageMinLength = 50;
   readonly messageMaxLength = 1000;
+  readonly turnstileSiteKey = environment.turnstileSiteKey;
 
   private readonly httpClient = inject(HttpClient);
   private readonly notificationService = inject(NotificationService);
+  readonly contextService = inject(ContextService);
 
   readonly isSubmitting = signal(false);
 
