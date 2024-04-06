@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NgxTurnstileModule } from 'ngx-turnstile';
-import {} from '@angular/core';
 import { ContextService } from 'src/app/services/context.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-turnstile', // TODO: Remove when dev team fixes auto selector generation
@@ -14,7 +14,7 @@ import { ContextService } from 'src/app/services/context.service';
   `,
 })
 export default class TurnstileComponent {
-  readonly turnstileSiteKey = '1x00000000000000000000AA'; //TODO: environment.turnstileSiteKey; & use real site key
+  readonly turnstileSiteKey = environment.turnstileSiteKey;
 
   readonly contextService = inject(ContextService);
 }

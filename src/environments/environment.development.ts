@@ -4,4 +4,5 @@ export const environment = {
   storefrontEndpoint:
     'https://0d228a-b5.myshopify.com/api/2024-01/graphql.json',
   ipAPIKey: '6ff13c94f9a417ae8d85061410ca7c88',
+  turnstileSiteKey: '1x00000000000000000000AA',
 };
