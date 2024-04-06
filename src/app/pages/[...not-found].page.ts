@@ -9,7 +9,7 @@ export const routeMeta: RouteMeta = {
 
 // TODO: Style this component
 @Component({
-  selector: 'app-not-found-page', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-not-found-page',
   standalone: true,
   imports: [RouterLink],
   template: `

@@ -8,7 +8,7 @@ import MainFooterCopyrightComponent from './copyright.component';
 
 // TODO: Lazy-load all images in the footer (or maybe the whole footer component)
 @Component({
-  selector: 'app-main-footer', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-footer',
   standalone: true,
   imports: [
     RouterLink,

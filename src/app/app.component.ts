@@ -7,7 +7,7 @@ import MainFooterComponent from './components/main-footer/main-footer.component'
 // TODO: Scroll behavior (nav)
 
 @Component({
-  selector: 'app-root', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, MainHeaderComponent, MainFooterComponent],
   template: `

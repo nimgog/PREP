@@ -23,7 +23,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'app-survival-kit-page', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-survival-kit-page',
   standalone: true,
   imports: [FormsModule, CommonModule, VideoModalComponent],
   template: `

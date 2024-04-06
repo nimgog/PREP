@@ -9,7 +9,7 @@ import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
 import { ContextService } from 'src/app/services/context.service';
 
 @Component({
-  selector: 'app-main-header', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-header',
   standalone: true,
   imports: [CommonModule, RouterLink, NgClass, MatIcon, MatToolbar],
   template: `
@@ -192,7 +192,11 @@ import { ContextService } from 'src/app/services/context.service';
             class="w-[133px] lg:w-[112px] h-10 lg:h-[52px] bg-prep-beige"
             [ngClass]="isTransparent() ? 'lg:bg-prep-green' : 'lg:bg-[#A3B18A]'"
           ></div> -->
-          <img class="w-[100px]" src="/img/main-header/PREP_logo.png" alt="" />
+          <img
+            class="w-[100px]"
+            src="/img/main-header/PREP_logo.png"
+            alt="PREP logo"
+          />
         </a>
 
         <nav class="hidden lg:block">

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-main-footer-copyright', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-footer-copyright',
   standalone: true,
   template: `
     <!-- TODO: Logo -->

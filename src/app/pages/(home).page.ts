@@ -8,7 +8,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'app-home-page', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-home-page',
   standalone: true,
   imports: [RouterLink],
   template: `
@@ -118,150 +118,148 @@ export const routeMeta: RouteMeta = {
         id="dark-section"
         class="w-full text-white bg-gradient-to-b from-black to-prep-green flex flex-col items-center"
       >
-      <div class="container items-center">
-
-        <div
-          class="flex flex-col items-center justify-center landscape:h-[700px] p-5"
-        >
-          <div class="flex portrait:flex-col lg:flex-row items-center">
-            <div class="flex justify-center portrait:mt-8 landscape:w-1/2">
-              <img
-                class="p-5 product-image"
-                src="img/home-page/PREPC-Promise.png"
-                alt="todo better alt"
-              />
-            </div>
-            <div
-              class="text-container portrait:mx-5 portrait:mt-3 flex flex-col justify-center landscape:w-1/2"
-            >
-              <h1
-                class="text-pretty header-fixed-32 text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+        <div class="container items-center">
+          <div
+            class="flex flex-col items-center justify-center landscape:h-[700px] p-5"
+          >
+            <div class="flex portrait:flex-col lg:flex-row items-center">
+              <div class="flex justify-center portrait:mt-8 landscape:w-1/2">
+                <img
+                  class="p-5 product-image"
+                  src="img/home-page/PREPC-Promise.png"
+                  alt="todo better alt"
+                />
+              </div>
+              <div
+                class="text-container portrait:mx-5 portrait:mt-3 flex flex-col justify-center landscape:w-1/2"
               >
-                PREPC is not just a product;
-              </h1>
-              <p class="text-pretty my-3 portrait:text-sm portrait:leading-6">
-                it's a promise — a promise of safety, security, and peace of
-                mind. Designed for the dynamic Scandinavian lifestyle, it's for
-                the households that cherish their peace, the adventurers who
-                seek the unknown, and everyone who believes in the power of
-                preparedness. With PREPC, you're not just prepared for
-                emergencies; you're equipped for life's every adventure.
-              </p>
-              <button
-                routerLink="/survival-kit"
-                class="w-fit px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:mt-8"
-                aria-label="Navigate to product page"
-              >
-                <span
-                  class="text-white text-base lg:text-lg font-semibold leading-loose"
-                  >Shop Now</span
+                <h1
+                  class="text-pretty header-fixed-32 text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
                 >
-              </button>
+                  PREPC is not just a product;
+                </h1>
+                <p class="text-pretty my-3 portrait:text-sm portrait:leading-6">
+                  it's a promise — a promise of safety, security, and peace of
+                  mind. Designed for the dynamic Scandinavian lifestyle, it's
+                  for the households that cherish their peace, the adventurers
+                  who seek the unknown, and everyone who believes in the power
+                  of preparedness. With PREPC, you're not just prepared for
+                  emergencies; you're equipped for life's every adventure.
+                </p>
+                <button
+                  routerLink="/survival-kit"
+                  class="w-fit px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg portrait:mt-8"
+                  aria-label="Navigate to product page"
+                >
+                  <span
+                    class="text-white text-base lg:text-lg font-semibold leading-loose"
+                    >Shop Now</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="divider-container portrait:mt-8">
+            <hr class="divider-line" />
+            <div class="divider-text">Applications</div>
+            <hr class="divider-line" />
+          </div>
+          <div class="flex flex-col justify-center h-[380px] h-full p-5">
+            <div
+              class="flex flex-row portrait:flex-col mt-5 justify-evenly items-center"
+            >
+              <div
+                class="flex flex-col justify-between items-center portrait:mt-8 application"
+              >
+                <img
+                  class="w-96 application--image"
+                  src="/img/home-page/home.jpg"
+                  alt="todo add alt and real image"
+                />
+                <h3
+                  class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
+                >
+                  In Your Home
+                </h3>
+                <p
+                  class="mt-3 text-center text-container text-sm portrait:leading-6"
+                >
+                  From power outages to unexpected injuries, the PREPC ensures
+                  your home is a fortress of safety and preparedness. Compact
+                  yet comprehensive, it's the peace of mind every household
+                  deserves.
+                </p>
+              </div>
+              <div
+                class="flex flex-col justify-between items-center portrait:mt-8 application"
+              >
+                <img
+                  class="w-96 application--image"
+                  src="/img/home-page/car.jpg"
+                  alt="todo add alt and real image"
+                />
+                <h3
+                  class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
+                >
+                  In Your Car
+                </h3>
+                <p
+                  class="mt-3 text-center text-container text-sm portrait:leading-6"
+                >
+                  Road trips or daily commutes, the PREPC turns your car into a
+                  mobile safety hub. Whether it's a flat tire or a first aid
+                  necessity, you're always a step ahead
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row portrait:flex-col mt-5 justify-evenly items-center"
+            >
+              <div
+                class="flex flex-col justify-between items-center portrait:mt-8 application"
+              >
+                <img
+                  class="w-96 application--image"
+                  src="/img/home-page/adventure.jpg"
+                  alt="todo add alt and real image"
+                />
+                <h3
+                  class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
+                >
+                  Out on Adventure
+                </h3>
+                <p
+                  class="mt-3 text-center text-container text-sm portrait:leading-6"
+                >
+                  Embrace the wild with confidence. The PREPC is your silent
+                  guardian in the great outdoors, ensuring you're prepared for
+                  any twist your adventure takes.
+                </p>
+              </div>
+              <div
+                class="flex flex-col justify-between items-center portrait:mt-8 application"
+              >
+                <img
+                  class="w-96 application--image"
+                  src="/img/home-page/prep.jpg"
+                  alt="todo add alt and real image"
+                />
+                <h3
+                  class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
+                >
+                  Everyday Preparedness
+                </h3>
+                <p
+                  class="mt-3 text-center text-container text-sm portrait:leading-6"
+                >
+                  Life is unpredictable, but with the PREPC, you're always
+                  equipped. It's the ultimate companion for the everyday hero,
+                  ready for whatever the day may bring
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="divider-container portrait:mt-8">
-          <hr class="divider-line" />
-          <div class="divider-text">Applications</div>
-          <hr class="divider-line" />
-        </div>
-        <div class="flex flex-col justify-center h-[380px] h-full p-5">
-          <div
-            class="flex flex-row portrait:flex-col mt-5 justify-evenly items-center"
-          >
-            <div
-              class="flex flex-col justify-between items-center portrait:mt-8 application"
-            >
-              <img
-                class="w-96 application--image"
-                src="/img/home-page/home.jpg"
-                alt="todo add alt and real image"
-              />
-              <h3
-                class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
-              >
-                In Your Home
-              </h3>
-              <p
-                class="mt-3 text-center text-container text-sm portrait:leading-6"
-              >
-                From power outages to unexpected injuries, the PREPC ensures
-                your home is a fortress of safety and preparedness. Compact yet
-                comprehensive, it's the peace of mind every household deserves.
-              </p>
-            </div>
-            <div
-              class="flex flex-col justify-between items-center portrait:mt-8 application"
-            >
-              <img
-                class="w-96 application--image"
-                src="/img/home-page/car.jpg"
-                alt="todo add alt and real image"
-              />
-              <h3
-                class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
-              >
-                In Your Car
-              </h3>
-              <p
-                class="mt-3 text-center text-container text-sm portrait:leading-6"
-              >
-                Road trips or daily commutes, the PREPC turns your car into a
-                mobile safety hub. Whether it's a flat tire or a first aid
-                necessity, you're always a step ahead
-              </p>
-            </div>
-          </div>
-          <div
-            class="flex flex-row portrait:flex-col mt-5 justify-evenly items-center"
-          >
-            <div
-              class="flex flex-col justify-between items-center portrait:mt-8 application"
-            >
-              <img
-                class="w-96 application--image"
-                src="/img/home-page/adventure.jpg"
-                alt="todo add alt and real image"
-              />
-              <h3
-                class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
-              >
-                Out on Adventure
-              </h3>
-              <p
-                class="mt-3 text-center text-container text-sm portrait:leading-6"
-              >
-                Embrace the wild with confidence. The PREPC is your silent
-                guardian in the great outdoors, ensuring you're prepared for any
-                twist your adventure takes.
-              </p>
-            </div>
-            <div
-              class="flex flex-col justify-between items-center portrait:mt-8 application"
-            >
-              <img
-                class="w-96 application--image"
-                src="/img/home-page/prep.jpg"
-                alt="todo add alt and real image"
-              />
-              <h3
-                class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
-              >
-                Everyday Preparedness
-              </h3>
-              <p
-                class="mt-3 text-center text-container text-sm portrait:leading-6"
-              >
-                Life is unpredictable, but with the PREPC, you're always
-                equipped. It's the ultimate companion for the everyday hero,
-                ready for whatever the day may bring
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
       </div>
     </div>
   `,
@@ -298,8 +296,8 @@ export const routeMeta: RouteMeta = {
           align-items: center;
 
           @media screen and (min-width: 1525px) {
-              height: 1000px;
-            }
+            height: 1000px;
+          }
 
           &--mobile {
             padding: 20px 0 60px 0;

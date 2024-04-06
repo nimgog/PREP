@@ -15,7 +15,7 @@ import { NgxTurnstileFormsModule, NgxTurnstileModule } from 'ngx-turnstile';
 import { ContextService } from 'src/app/services/context.service';
 
 @Component({
-  selector: 'app-contact-form', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-contact-form',
   standalone: true,
   imports: [
     NgClass,

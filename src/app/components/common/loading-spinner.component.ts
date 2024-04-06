@@ -14,7 +14,7 @@ import {
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-loading-spinner', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-loading-spinner',
   standalone: true,
   imports: [NgClass, MatProgressSpinner],
   template: `

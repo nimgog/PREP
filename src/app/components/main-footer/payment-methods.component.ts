@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-main-footer-payment-methods', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-footer-payment-methods',
   standalone: true,
   template: `
     <ul class="flex justify-between lg:justify-center lg:gap-x-2">

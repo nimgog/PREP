@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-main-footer-company-info', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-footer-company-info',
   standalone: true,
   template: `<div
     class="text-prep-beige text-sm font-medium font-roboto uppercase leading-tight"

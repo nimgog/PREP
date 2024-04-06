@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-main-footer-social-media', // TODO: Remove when dev team fixes auto selector generation
+  selector: 'app-main-footer-social-media',
   standalone: true,
   template: `
     <div class="flex items-center gap-x-[30px]">
