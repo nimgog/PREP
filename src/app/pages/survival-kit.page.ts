@@ -27,284 +27,485 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [FormsModule, CommonModule, VideoModalComponent],
   template: `
-    <div
-      class="w-full h-[200px] landscape:pt-[100px] portrait:pt-[90px] landscape:pl-[40px] portrait:pl-[8px]"
-    >
-      <h1 class="product-title portrait:text-2xl landscape:text-5xl">
-        PREPC: Your Compact Lifeline
-      </h1>
-      <h3>130 Essentials for Peace of Mind in Any Scenario</h3>
-    </div>
-    <div class="product-container">
-      <div class="flex flex-col h-fit">
-        <!-- Main image display -->
-        <div class="product-image">
-          <img [src]="mainImage" alt="Survival Kit" />
+    <div class="flex flex-col w-full items-center">
+      <div class="container">
+        <div
+          class="w-full h-[200px] landscape:pt-[100px] portrait:pt-[90px] landscape:pl-[40px] portrait:pl-[8px]"
+        >
+          <h1 class="product-title portrait:text-2xl landscape:text-5xl">
+            PREPC: Your Compact Lifeline
+          </h1>
+          <h3>248 Essentials for Peace of Mind in Any Scenario</h3>
         </div>
-        <div class="w-full relative">
-          <button class="scroll-arrow left" (click)="scrollLeft()">&lt;</button>
-          <div class="small-image-row" #imageRow>
+        <div class="product-container">
+          <div class="flex flex-col h-fit product-creative-column">
+            <!-- Main image display -->
+            <div class="product-image">
+              <img [src]="mainImage" alt="Survival Kit" />
+            </div>
+            <div class="w-full relative">
+              <button class="scroll-arrow left" (click)="scrollLeft()">
+                &lt;
+              </button>
+              <div class="small-image-row" #imageRow>
+                <div
+                  class="small-image-container"
+                  *ngFor="let image of images; let i = index"
+                  (click)="setMainImage(image)"
+                >
+                  <img
+                    [src]="'img/product-page/' + image"
+                    [alt]="'Survival Kit Item ' + (i + 1)"
+                  />
+                </div>
+              </div>
+              <button class="scroll-arrow right" (click)="scrollRight()">
+                &gt;
+              </button>
+            </div>
+
+            <!-- Video thumbnails container -->
             <div
-              class="small-image-container"
-              *ngFor="let image of images; let i = index"
-              (click)="setMainImage(image)"
+              class="flex flex-col md:flex-row w-full mt-4 landscape:max-h-[250px] landscape:overflow-hidden	"
             >
+              <!-- Landscape video thumbnail with play icon -->
+              <div
+                class="flex-1 cursor-pointer relative"
+                (click)="openModal('landscape')"
+              >
+                <img
+                  src="img/product-page/landscape_thumbnail.png"
+                  alt="Landscape Video"
+                  class="w-full h-auto"
+                />
+                <div class="absolute inset-0 flex justify-center items-center">
+                  <div class="p-3 rounded-full bg-emerald-700">
+                    <svg
+                      class="w-8 h-8 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                    >
+                      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path
+                        fill="#ffffff"
+                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portrait video thumbnail with play icon -->
+              <div
+                class="flex-1 cursor-pointer relative"
+                (click)="openModal('portrait')"
+              >
+                <img
+                  src="img/product-page/portrait_thumbnail.png"
+                  alt="Portrait Video"
+                  class="w-full h-auto"
+                />
+                <div class="absolute inset-0 flex justify-center items-center">
+                  <div class="p-3 rounded-full bg-emerald-700">
+                    <svg
+                      class="w-8 h-8 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                    >
+                      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path
+                        fill="#ffffff"
+                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <app-video-modal></app-video-modal>
+          </div>
+
+          <div class="product-details">
+            <h1 class="product-title font-bold">PREPC (PREP - Case)</h1>
+            <div *ngIf="productVariant" class="product-pricing">
+              <div class="flex flex-col mr-3">
+                <span *ngIf="productVariant" class="sale-price"
+                  >{{ productVariant.price.amount }}{{ ' '
+                  }}{{ productVariant.price.currencyCode }}</span
+                >
+                <span *ngIf="productVariant" class="original-price"
+                  >{{ productVariant.price.amount * 1.25 }}{{ ' '
+                  }}{{ productVariant.price.currencyCode }}</span
+                >
+              </div>
+              <span class="discount-percentage">-20%</span>
+            </div>
+            <div class="klarna-info flex items-center">
+              <h2 class="mr-2 whitespace-nowrap">Pay with:</h2>
               <img
-                [src]="'img/product-page/' + image"
-                [alt]="'Survival Kit Item ' + (i + 1)"
+                class="w-[160px]"
+                src="img/product-page/Marketing_Badge_With_Clear_Space.png"
+                alt="pay with Klarna"
               />
             </div>
-          </div>
-          <button class="scroll-arrow right" (click)="scrollRight()">
-            &gt;
-          </button>
-        </div>
-
-        <!-- Video thumbnails container -->
-        <div
-          class="flex flex-col md:flex-row w-full mt-4 landscape:max-h-[250px] landscape:overflow-hidden	"
-        >
-          <!-- Landscape video thumbnail with play icon -->
-          <div
-            class="flex-1 cursor-pointer relative"
-            (click)="openModal('landscape')"
-          >
-            <img
-              src="img/product-page/landscape_thumbnail.png"
-              alt="Landscape Video"
-              class="w-full h-auto"
-            />
-            <div class="absolute inset-0 flex justify-center items-center">
-              <div class="p-3 rounded-full bg-emerald-700">
-                <svg
-                  class="w-8 h-8 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
-                >
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    fill="#ffffff"
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Portrait video thumbnail with play icon -->
-          <div
-            class="flex-1 cursor-pointer relative"
-            (click)="openModal('portrait')"
-          >
-            <img
-              src="img/product-page/portrait_thumbnail.png"
-              alt="Portrait Video"
-              class="w-full h-auto"
-            />
-            <div class="absolute inset-0 flex justify-center items-center">
-              <div class="p-3 rounded-full bg-emerald-700">
-                <svg
-                  class="w-8 h-8 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
-                >
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    fill="#ffffff"
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <app-video-modal></app-video-modal>
-      </div>
-
-      <div class="product-details">
-        <h1 class="product-title">PREPC (PREP - Case)</h1>
-        <div *ngIf="productVariant" class="product-pricing">
-          <div class="flex flex-col mr-3">
-            <span *ngIf="productVariant" class="sale-price"
-              >{{ productVariant.price.amount }}{{ ' '
-              }}{{ productVariant.price.currencyCode }}</span
-            >
-            <span *ngIf="productVariant" class="original-price"
-              >{{ productVariant.price.amount * 1.25 }}{{ ' '
-              }}{{ productVariant.price.currencyCode }}</span
-            >
-          </div>
-          <span class="discount-percentage">-20%</span>
-        </div>
-        <div class="klarna-info flex items-center">
-          <h2 class="mr-2 whitespace-nowrap">Pay with:</h2>
-          <img
-            class="w-[160px]"
-            src="img/product-page/Marketing_Badge_With_Clear_Space.png"
-            alt="pay with Klarna"
-          />
-        </div>
-        <!-- Shipping Policy Summary Section -->
-        <div
-          class="shipping-policy-summary"
-          [class.expanded]="isExpanded"
-          (click)="toggleExpand()"
-        >
-          <h3>Shipping</h3>
-          <p>We keep things easy:</p>
-          <ul>
-            <li>Free shipping on orders over €99.</li>
-            <li>Flat fee of €6</li>
-            <li>Items are typically dispatched within 1-2 business days.</li>
-            <li>Track your order with a provided shipment number.</li>
-          </ul>
-          <img
-            class="chevron w-[20px]"
-            src="img/product-page/chevron-down-solid.svg"
-            [ngClass]="{ expanded: isExpanded }"
-          />
-        </div>
-        <div class="quantity-add-to-cart">
-          <div class="quantity-selector">
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              [(ngModel)]="quantity"
-              min="1"
-              class="quantity-input"
-            />
-            <div class="quantity-arrows">
-              <button
-                type="button"
-                class="quantity-arrow-up"
-                (click)="increaseQuantity()"
-              >
-                ▲
-              </button>
-              <button
-                type="button"
-                class="quantity-arrow-down"
-                (click)="decreaseQuantity()"
-              >
-                ▼
-              </button>
-            </div>
-          </div>
-          <button
-            *ngIf="!isLoading"
-            class="add-to-cart-btn"
-            (click)="addToCart()"
-          >
-            <i class="cart-icon">🛒</i> Add to cart
-          </button>
-
-          <div *ngIf="isLoading" role="status" class="ml-5">
-            <svg
-              aria-hidden="true"
-              class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
-              viewBox="0 0 100 101"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                fill="currentColor"
-              />
-              <path
-                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                fill="currentFill"
-              />
-            </svg>
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-
-        <div class="product-description mt-5 flex flex-col">
-          <h2
-            (click)="toggleSection('description')"
-            class="accordion-toggle items-center justify-between"
-          >
-            Product description
-
+            <!-- Shipping Policy Summary Section -->
             <div
-              class="w-[16px]"
-              [ngClass]="{ rotated: sections['description'] }"
+              class="shipping-policy-summary"
+              [class.expanded]="isExpanded"
+              (click)="toggleExpand()"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                />
-              </svg>
+              <h3 class="font-bold">Shipping</h3>
+              <p>We keep things easy:</p>
+              <ul>
+                <li>Free shipping on orders over €99.</li>
+                <li>Flat fee of €6</li>
+                <li>
+                  Items are typically dispatched within 1-2 business days.
+                </li>
+                <li>Track your order with a provided shipment number.</li>
+              </ul>
+              <img
+                class="chevron w-[20px]"
+                src="img/product-page/chevron-down-solid.svg"
+                [ngClass]="{ expanded: isExpanded }"
+              />
             </div>
-          </h2>
-          <div *ngIf="sections['description']" class="accordion-content">
-            <p>
-              In today's unpredictable world, being prepared is more than a
-              precaution—it's a necessity. Whether it's a natural disaster, a
-              power outage, or an unexpected emergency, having your PREP Case on
-              hand can make all the difference. PREPC is designed not just for
-              the outdoor adventurer but for every household and car - ensuring
-              that you and your loved ones have the necessary tools to navigate
-              any situation safely where ever you are.
-            </p>
-          </div>
-          <!-- Features and Benefits section -->
-          <h2
-            (click)="toggleSection('features')"
-            class="accordion-toggle  items-center justify-between"
-          >
-            Features:
-            <div class="w-[16px]" [ngClass]="{ rotated: sections['features'] }">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+            <div class="quantity-add-to-cart">
+              <div class="quantity-selector">
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  [(ngModel)]="quantity"
+                  min="1"
+                  class="quantity-input"
                 />
-              </svg>
+                <div class="quantity-arrows">
+                  <button
+                    type="button"
+                    class="quantity-arrow-up"
+                    (click)="increaseQuantity()"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    class="quantity-arrow-down"
+                    (click)="decreaseQuantity()"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
+              <button
+                *ngIf="!isLoading"
+                class="add-to-cart-btn"
+                (click)="addToCart()"
+              >
+                <i class="cart-icon">🛒</i> Add to cart
+              </button>
+
+              <div *ngIf="isLoading" role="status" class="ml-5">
+                <svg
+                  aria-hidden="true"
+                  class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill"
+                  />
+                </svg>
+                <span class="sr-only">Loading...</span>
+              </div>
             </div>
-          </h2>
-          <div *ngIf="sections['features']" class="accordion-content">
-            <h3>Compact and Lightweight:</h3>
-            <p>
-              Weighing less than a kilogram, the PREPC is engineered for
-              convenience and portability. Its sleek design allows it to be a
-              discreet yet indispensable addition to your car, home, or
-              backpack.
-            </p>
 
-            <h3>Comprehensive Emergency Kit:</h3>
-            <p>
-              From medical supplies to survival tools, the PREPC covers all
-              bases. Each of the 130 articles has been meticulously chosen to
-              offer solutions for a wide range of scenarios—ensuring you're
-              always a step ahead.
-            </p>
+            <div class="product-description mt-5 flex flex-col">
+              <h2
+                (click)="toggleSection('items')"
+                class="accordion-toggle items-center justify-between"
+              >
+                All items
 
-            <h3>Designed for Scandinavian Lifestyles:</h3>
-            <p>
-              Whether you're braving the wilderness, navigating the urban
-              jungle, or simply enjoying the comfort of your home, the PREPC is
-              tailored to fit the dynamic Scandinavian way of life. It's the
-              perfect companion for households, nature enthusiasts, and anyone
-              who values preparedness and resilience.
-            </p>
+                <div
+                  class="w-[16px]"
+                  [ngClass]="{ rotated: sections['items'] }"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                    />
+                  </svg>
+                </div>
+              </h2>
+              <div *ngIf="sections['items']" class="accordion-content">
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Specification</th>
+                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Alcohol prep pad</td>
+                        <td>5*5cm</td>
+                        <td>40</td>
+                      </tr>
+                      <tr>
+                        <td>medium bandages</td>
+                        <td>72*19mm</td>
+                        <td>40</td>
+                      </tr>
+                      <tr>
+                        <td>cotton tip</td>
+                        <td>7.4cm</td>
+                        <td>80</td>
+                      </tr>
+                      <tr>
+                        <td>joint bandage</td>
+                        <td>75*38mm</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>butterfly bandages</td>
+                        <td>10x46mm</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Gauze pad</td>
+                        <td>7.5x7.5cm-8p</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>adhesive wound dressing</td>
+                        <td>6x7cm</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>relief pads</td>
+                        <td>5x5cm</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>disposable gloves</td>
+                        <td>L</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>first aid tape</td>
+                        <td>1.25x450cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>burn care</td>
+                        <td>3.5g</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>emergency Mylar blanket</td>
+                        <td>130x210cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>metal scissor</td>
+                        <td>14.5cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>PBT bandage</td>
+                        <td>5x450cm</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>CPR mask</td>
+                        <td>#022</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>Tweezer</td>
+                        <td>10.5cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>safety pin</td>
+                        <td>3.7cm</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>cotton balls</td>
+                        <td>N/A</td>
+                        <td>20</td>
+                      </tr>
+                      <tr>
+                        <td>soap wipes</td>
+                        <td>5x6cm</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>antiseptic wipes</td>
+                        <td>6x8cm</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>wound adhesive dressings large</td>
+                        <td>40x60cm</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>triangular bandage</td>
+                        <td>96x96x136cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>mini bandages</td>
+                        <td>10x40mm</td>
+                        <td>15</td>
+                      </tr>
+                      <tr>
+                        <td>Swedish patch flag</td>
+                        <td>8x5.3cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>Glow stick 12 hour duration</td>
+                        <td>15cm</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>flashlight</td>
+                        <td>SK68</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>paracord survival bracelet</td>
+                        <td>10inch adjustable</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>multifunctional card tool</td>
+                        <td>4.5x7cm</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>carabiner / knife</td>
+                        <td>N/A</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>disposable poncho</td>
+                        <td>L</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>EMT Molle tactical bag</td>
+                        <td>21x14x19cm</td>
+                        <td>1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <h2
+                (click)="toggleSection('description')"
+                class="accordion-toggle items-center justify-between"
+              >
+                Product description
 
-            <h3>Quality and Reliability:</h3>
-            <p>
-              Crafted with the highest standards of quality and reliability, the
-              PREPC is built to last. Each component is tested to ensure it
-              meets our rigorous requirements, providing you with peace of mind
-              in every situation.
-            </p>
+                <div
+                  class="w-[16px]"
+                  [ngClass]="{ rotated: sections['description'] }"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                    />
+                  </svg>
+                </div>
+              </h2>
+              <div *ngIf="sections['description']" class="accordion-content">
+                <p>
+                  In today's unpredictable world, being prepared is more than a
+                  precaution—it's a necessity. Whether it's a natural disaster,
+                  a power outage, or an unexpected emergency, having your PREP
+                  Case on hand can make all the difference. PREPC is designed
+                  not just for the outdoor adventurer but for every household
+                  and car - ensuring that you and your loved ones have the
+                  necessary tools to navigate any situation safely where ever
+                  you are.
+                </p>
+              </div>
+              <!-- Features and Benefits section -->
+              <h2
+                (click)="toggleSection('features')"
+                class="accordion-toggle  items-center justify-between"
+              >
+                Features:
+                <div
+                  class="w-[16px]"
+                  [ngClass]="{ rotated: sections['features'] }"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                    />
+                  </svg>
+                </div>
+              </h2>
+              <div *ngIf="sections['features']" class="accordion-content">
+                <h3>Compact and Lightweight:</h3>
+                <p>
+                  Weighing less than a kilogram, the PREPC is engineered for
+                  convenience and portability. Its sleek design allows it to be
+                  a discreet yet indispensable addition to your car, home, or
+                  backpack.
+                </p>
 
-            <h3>Easy to Use and Access:</h3>
-            <p>
-              The PREPC is designed for efficiency and ease of use. With clearly
-              organized compartments and an intuitive layout, accessing the
-              right tool at the right time is simple and straightforward.
-            </p>
+                <h3>Comprehensive Emergency Kit:</h3>
+                <p>
+                  From medical supplies to survival tools, the PREPC covers all
+                  bases. Each of the 248 articles has been meticulously chosen
+                  to offer solutions for a wide range of scenarios—ensuring
+                  you're always a step ahead.
+                </p>
+
+                <h3>Designed for Scandinavian Lifestyles:</h3>
+                <p>
+                  Whether you're braving the wilderness, navigating the urban
+                  jungle, or simply enjoying the comfort of your home, the PREPC
+                  is tailored to fit the dynamic Scandinavian way of life. It's
+                  the perfect companion for households, nature enthusiasts, and
+                  anyone who values preparedness and resilience.
+                </p>
+
+                <h3>Quality and Reliability:</h3>
+                <p>
+                  Crafted with the highest standards of quality and reliability,
+                  the PREPC is built to last. Each component is tested to ensure
+                  it meets our rigorous requirements, providing you with peace
+                  of mind in every situation.
+                </p>
+
+                <h3>Easy to Use and Access:</h3>
+                <p>
+                  The PREPC is designed for efficiency and ease of use. With
+                  clearly organized compartments and an intuitive layout,
+                  accessing the right tool at the right time is simple and
+                  straightforward.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -317,6 +518,49 @@ export const routeMeta: RouteMeta = {
       $section-offset: 40px;
 
       @layer utilities {
+        .table-responsive {
+          width: 100%;
+          overflow-x: auto; /* Allows table to scroll horizontally on small devices */
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse; /* Collapses the border lines between cells */
+        }
+
+        th,
+        td {
+          text-align: left;
+          padding: 8px; /* Adjust padding as needed */
+          border-bottom: 1px solid #ddd; /* Adds a border line below each row */
+        }
+
+        th {
+          background-color: #f2f2f2; /* Adds a background color to the header row */
+        }
+
+        /* Adds a zebra-striping effect to table rows */
+        tbody tr:nth-child(odd) {
+          background-color: #f9f9f9;
+        }
+
+        tbody tr td:first-child {
+          font-weight: bold; /* This will make the text bold for the first td in each tr */
+        }
+
+        /* Styling for mobile screens */
+        @media screen and (max-width: 600px) {
+          th,
+          td {
+            display: block; /* Makes table cells stack on top of each other */
+            width: 100%;
+          }
+          th {
+            position: sticky;
+            top: 0;
+          }
+        }
+
         .rotated {
           transform: rotate(180deg);
           transition: transform 0.3s ease-in-out;
@@ -568,6 +812,7 @@ export const routeMeta: RouteMeta = {
           margin: 20px 0;
           border-radius: 5px;
           max-height: 150px;
+          max-width: 300px;
           overflow: hidden;
           transition: max-height 0.5s ease;
           cursor: pointer;
@@ -681,6 +926,11 @@ export const routeMeta: RouteMeta = {
           -moz-appearance: textfield; /* Firefox */
         }
 
+        @media (min-width: 768px) {
+          .product-creative-column {
+            max-width: 50%;
+          }
+        }
         @media (max-width: 768px) {
           .product-container,
           .product-image-details {
@@ -756,6 +1006,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
     'PREPC-bandage.png',
   ];
   sections: Sections = {
+    items: false,
     description: false,
     features: false,
   };

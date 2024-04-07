@@ -63,7 +63,7 @@ import { ContextService } from 'src/app/services/context.service';
                   <a routerLink="/">Home</a>
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
-                  <a routerLink="/survival-kit">Survival Kit</a>
+                  <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
                   <a routerLink="/about-us">About Us</a>
@@ -205,7 +205,7 @@ import { ContextService } from 'src/app/services/context.service';
           >
             <li><a routerLink="/">Home</a></li>
             <li>
-              <a routerLink="/survival-kit">Survival Kit</a>
+              <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
             </li>
             <li>
               <a routerLink="/about-us">About Us</a>
