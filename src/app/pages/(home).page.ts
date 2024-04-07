@@ -95,7 +95,7 @@ export const routeMeta: RouteMeta = {
               ethos of efficiency and reliability, the PREPC is a testament to
               our commitment to emergency readiness. Weighing less than a
               kilogram, this compact case is a powerhouse of preparedness,
-              containing 130 meticulously selected articles. From the smallest
+              containing 248 meticulously selected articles. From the smallest
               inconvenience to the most critical emergencies, the PREPC ensures
               you have everything you need, wherever you are—be it in your car,
               at home, or on a wilderness adventure.
