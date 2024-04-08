@@ -37,10 +37,6 @@ import { ContextService } from 'src/app/services/context.service';
             <div class="flex flex-row w-full justify-between">
               <div class="w-[10px]"></div>
               <a routerLink="/">
-                <!-- <div
-            class="w-[133px] lg:w-[112px] h-10 lg:h-[52px] bg-prep-beige"
-            [ngClass]="isTransparent() ? 'lg:bg-prep-green' : 'lg:bg-[#A3B18A]'"
-          ></div> -->
                 <img
                   class="w-[100px]"
                   src="/img/main-header/PREP_logo.png"
