@@ -55,13 +55,13 @@ export const routeMeta: RouteMeta = {
           </div>
           <div class="mt-3 portrait:mx-8 landscape:mt-10">
             <button
-              routerLink="/about-us"
+              routerLink="/survival-kit"
               class="px-6 py-3.5 bg-[#588157] uppercase lg:rounded-lg"
               aria-label="Navigate to product page"
             >
               <span
                 class="whitespace-nowrap text-white text-base lg:text-lg font-semibold portrait:text-sm leading-loose"
-                >Learn More About Our Mission</span
+                >Discover your PREP Case</span
               >
             </button>
           </div>
@@ -102,13 +102,13 @@ export const routeMeta: RouteMeta = {
             </p>
           </div>
           <button
-            routerLink="/survival-kit"
+            routerLink="/about-us"
             class="px-6 py-3.5 bg-[#c2410c] uppercase lg:rounded-lg portrait:ml-5 portrait:mt-8"
             aria-label="Navigate to product page"
           >
             <span
               class="text-white text-base lg:text-lg font-semibold leading-loose"
-              >Discover PREPC</span
+              >Learn more about our mission</span
             >
           </button>
         </div>

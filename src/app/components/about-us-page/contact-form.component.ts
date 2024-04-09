@@ -117,7 +117,8 @@ import { ContextService } from 'src/app/services/context.service';
       </div>
 
       <div
-        class="flex justify-center items-center w-[100px] lg:w-full h-[52px] px-6 py-4 bg-prep-green"
+        class="cursor-pointer flex justify-center items-center w-[100px] lg:w-full h-[52px] px-6 py-4 bg-prep-green"
+        (click)="onSubmit()"
       >
         <button
           type="submit"
