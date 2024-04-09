@@ -157,8 +157,8 @@ export const routeMeta: RouteMeta = {
               <h3 class="font-bold">Shipping</h3>
               <p>We keep things easy:</p>
               <ul>
-                <li>Free shipping on orders over €99.</li>
                 <li>Flat fee of €6</li>
+                <li>Free shipping if you buy 2</li>
                 <li>
                   Items are typically dispatched within 1-2 business days.
                 </li>
@@ -225,13 +225,24 @@ export const routeMeta: RouteMeta = {
                 <span class="sr-only">Loading...</span>
               </div>
             </div>
+            <h2 class="font-bold mt-3">Whats included:</h2>
+            <div class="scrollable-row">
+              <div *ngFor="let item of itemsWithImages" class="item">
+                <img
+                  src="img/product-page/items/{{ item.file }}"
+                  [alt]="item.name"
+                  height="96"
+                />
+                <p>{{ item.name }}</p>
+              </div>
+            </div>
 
             <div class="product-description mt-5 flex flex-col">
               <h2
                 (click)="toggleSection('items')"
                 class="accordion-toggle items-center justify-between"
               >
-                All items
+                Items specification
 
                 <div
                   class="w-[16px]"
@@ -518,6 +529,41 @@ export const routeMeta: RouteMeta = {
       $section-offset: 40px;
 
       @layer utilities {
+        .scrollable-row {
+          display: flex;
+          overflow-x: scroll; /* Ensures horizontal scrolling */
+          white-space: nowrap; /* Keeps items in a single line */
+          padding: 10px 0; /* Adds some vertical padding */
+        }
+
+        .item {
+          flex: none; /* Prevents items from stretching */
+          display: flex;
+          flex-direction: column; /* Stacks image and text vertically */
+          align-items: center; /* Centers items horizontally within each 'item' */
+          margin-right: 20px; /* Adds space between items */
+          border: 1px solid #ccc; /* Adds a border around each item */
+          border-radius: 8px; /* Rounds the corners of the border */
+          padding: 10px; /* Adds some padding inside each item */
+        }
+
+        .item img {
+          max-height: 96px; /* Ensures images are no larger than 96px in height */
+          width: auto; /* Maintains aspect ratio */
+          margin-bottom: 10px; /* Adds space between the image and the name */
+        }
+
+        .item p {
+          margin: 0; /* Removes default paragraph margin */
+          text-align: center; /* Centers the name text */
+        }
+
+        .accordion-toggle {
+          padding: 1rem;
+          border: 1px solid black;
+          border-radius: 8px;
+          margin-top: 5px;
+        }
         .table-responsive {
           width: 100%;
           overflow-x: auto; /* Allows table to scroll horizontally on small devices */
@@ -742,7 +788,6 @@ export const routeMeta: RouteMeta = {
           font-weight: bold; /* Normal weight for the title */
           margin-bottom: 0.5em; /* Space after the title */
           display: flex; /* Makes the underline only as wide as the text */
-          padding-bottom: 5px; /* Space between text and underline */
         }
         .product-description h3 {
           font-size: 16px; /* Slightly smaller than the main title */
@@ -966,6 +1011,7 @@ export const routeMeta: RouteMeta = {
 
           .product-details {
             flex: 2;
+            max-width: 50%;
           }
 
           .small-image-row {
@@ -1005,6 +1051,54 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
     'PREPC-tweezer.png',
     'PREPC-bandage.png',
   ];
+
+  itemsWithImages: { name: string; file: string }[] = [
+    { name: 'Ignition steel', file: 'ignitor.png' },
+    {
+      name: 'Glow stick 12 hour duration',
+      file: 'Glow_stick_12_hour_duration.png',
+    },
+    { name: 'flashlight', file: 'flashlight.png' },
+    {
+      name: 'paracord survival bracelet',
+      file: 'paracord_survival_bracelet.png',
+    },
+    { name: 'Alcohol prep pad', file: 'Alcohol_prep_pad.png' },
+    { name: 'medium bandages', file: 'medium_bandages.png' },
+    { name: 'cotton tip', file: 'cotton_tip.png' },
+    { name: 'joint bandage', file: 'joint_bandage.png' },
+    { name: 'butterfly bandages', file: 'butterfly_bandages.png' },
+    { name: 'Gauze pad', file: 'Gauze_pad.png' },
+    { name: 'adhesive wound dressing', file: 'adhesive_wound_dressing.png' },
+    { name: 'relief pads', file: 'relief_pads.png' },
+    { name: 'disposable gloves', file: 'disposable_gloves.png' },
+    { name: 'first aid tape', file: 'first_aid_tape.png' },
+    { name: 'burn care', file: 'burn_care.png' },
+    { name: 'emergency Mylar blanket', file: 'emergency_Mylar_blanket.png' },
+    { name: 'metal scissor', file: 'metal_scissor.png' },
+    { name: 'PBT bandage', file: 'PBT_bandage.png' },
+    { name: 'CPR mask', file: 'CPR_mask.png' },
+    { name: 'Tweezer', file: 'Tweezer.png' },
+    { name: 'safety pin', file: 'safety_pin.png' },
+    { name: 'cotton balls', file: 'cotton_balls.png' },
+    { name: 'soap wipes', file: 'soap_wipes.png' },
+    { name: 'antiseptic wipes', file: 'antiseptic_wipes.png' },
+    {
+      name: 'wound adhesive dressings large',
+      file: 'wound_adhesive_dressings_large.png',
+    },
+    { name: 'triangular bandage', file: 'triangular_bandage.png' },
+    { name: 'mini bandages', file: 'mini_bandages.png' },
+    { name: 'Swedish patch flag', file: 'Swedish_patch_flag.jpg' },
+    {
+      name: 'multifunctional card tool',
+      file: 'multifunctional_card_tool.png',
+    },
+    { name: 'carabiner knife', file: 'carabiner_knife.png' }, // Note the adjusted name
+    { name: 'disposable poncho', file: 'disposable_poncho.png' },
+    { name: 'EMT Molle tactical bag', file: 'EMT_Molle_tactical_bag.png' },
+  ];
+
   sections: Sections = {
     items: false,
     description: false,
