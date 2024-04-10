@@ -160,17 +160,22 @@ export const routeMeta: RouteMeta = {
             </div>
             <!-- Shipping Policy Summary Section -->
             <div
-              class="shipping-policy-summary"
+              class="shipping-policy-summary w-full"
               [class.expanded]="isExpanded"
               (click)="toggleExpand()"
             >
               <h3 class="font-bold">Shipping</h3>
               <p>We keep things easy:</p>
               <ul>
-                <li>Flat fee of €6</li>
-                <li>Free shipping if you buy 2</li>
+                <li>Due to weight (700g), we have a flat fee of €6</li>
+                <li>Free shipping if you buy 2 (order value over 99€)</li>
+                <li>Carrier used: Postnord</li>
                 <li>
-                  Items are typically dispatched within 1-2 business days.
+                  Items ordered before 17:00 are sent the same day. Shipping time:
+                  <ul>
+                    <li>Sweden: 1-2 business days</li>
+                    <li>Europe: no longer than 7 bussiness days</li>
+                  </ul>
                 </li>
                 <li>Track your order with a provided shipment number.</li>
               </ul>
@@ -248,7 +253,7 @@ export const routeMeta: RouteMeta = {
               </div>
             </div> -->
             <div class="tldr-container ml-0">
-              <h2 class="tldr-title">Summary</h2>
+              <h2 class="tldr-title font-bold">Summary</h2>
               <ul class="tldr-list">
                 <li>Moll-e bag weighs ~700g</li>
                 <li>Full first-aid kit (total 248 articles)</li>
@@ -822,7 +827,7 @@ export const routeMeta: RouteMeta = {
           width: 100%;
           display: flex;
           justify-content: center;
-          background-color: #00BC5E !important;
+          background-color: #00bc5e !important;
           color: white;
           border: none;
           padding: 10px 20px;
@@ -914,9 +919,9 @@ export const routeMeta: RouteMeta = {
           margin: 20px 0;
           border-radius: 5px;
           max-height: 150px;
-          max-width: 300px;
           overflow: hidden;
           transition: max-height 0.5s ease;
+          border: 2px solid black;
           cursor: pointer;
         }
 
