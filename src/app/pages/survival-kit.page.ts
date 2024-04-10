@@ -63,7 +63,17 @@ export const routeMeta: RouteMeta = {
                 &gt;
               </button>
             </div>
-
+            <h2 class="font-bold mt-3">Whats included:</h2>
+            <div class="scrollable-row">
+              <div *ngFor="let item of itemsWithImages" class="item">
+                <img
+                  src="img/product-page/items/{{ item.file }}"
+                  [alt]="item.name"
+                  height="96"
+                />
+                <p>{{ item.name }}</p>
+              </div>
+            </div>
             <!-- Video thumbnails container -->
             <div
               class="flex flex-col md:flex-row w-full mt-4 landscape:max-h-[250px] landscape:overflow-hidden	"
@@ -202,7 +212,8 @@ export const routeMeta: RouteMeta = {
                 class="add-to-cart-btn"
                 (click)="addToCart()"
               >
-                <i class="cart-icon">🛒</i> Add to cart
+                <i class="cart-icon">🛒</i>
+                <p>Add to cart</p>
               </button>
 
               <div *ngIf="isLoading" role="status" class="ml-5">
@@ -225,7 +236,7 @@ export const routeMeta: RouteMeta = {
                 <span class="sr-only">Loading...</span>
               </div>
             </div>
-            <h2 class="font-bold mt-3">Whats included:</h2>
+            <!-- <h2 class="font-bold mt-3">Whats included:</h2>
             <div class="scrollable-row">
               <div *ngFor="let item of itemsWithImages" class="item">
                 <img
@@ -235,8 +246,18 @@ export const routeMeta: RouteMeta = {
                 />
                 <p>{{ item.name }}</p>
               </div>
+            </div> -->
+            <div class="tldr-container ml-0">
+              <h2 class="tldr-title">Summary</h2>
+              <ul class="tldr-list">
+                <li>Moll-e bag weighs ~700g</li>
+                <li>Full first-aid kit (total 248 articles)</li>
+                <li>
+                  Good to have emergency tools (glowsticks, compass.. etc)
+                </li>
+                <li>Easy to attach & deploy in the field</li>
+              </ul>
             </div>
-
             <div class="product-description mt-5 flex flex-col">
               <h2
                 (click)="toggleSection('items')"
@@ -325,7 +346,7 @@ export const routeMeta: RouteMeta = {
                       <tr>
                         <td>emergency Mylar blanket</td>
                         <td>130x210cm</td>
-                        <td>1</td>
+                        <td>4p - 1</td>
                       </tr>
                       <tr>
                         <td>metal scissor</td>
@@ -529,6 +550,39 @@ export const routeMeta: RouteMeta = {
       $section-offset: 40px;
 
       @layer utilities {
+        .tldr-container {
+          background-color: #f0f0f0; /* Light gray background */
+          border: 2px solid black; /* Black border, 2px */
+          border-radius: 10px; /* Rounded corners */
+          padding: 20px; /* Space inside the container */
+          margin: 20px 20px 0 0; /* Space outside the container */
+          max-width: 600px; /* Maximum width, but you can adjust or remove this as needed */
+          width: 100%; /* Makes the width responsive to the container */
+          box-sizing: border-box; /* Ensures padding and border are included in the total width/height */
+        }
+
+        .tldr-title {
+          margin-top: 0; /* Removes the default top margin from the title for a tighter look */
+          margin-bottom: 16px; /* Space between the title and the bullet points */
+        }
+
+        .tldr-list {
+          list-style-type: disc; /* Adds bullets to the list */
+          padding-left: 20px; /* Indents the list to align with the title text above */
+          margin: 0; /* Removes default margin */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .tldr-container {
+            margin: 20px 10px 0 0; /* Less space outside the container on smaller screens */
+            padding: 10px; /* Less space inside the container on smaller screens */
+          }
+          .tldr-title {
+            font-size: 18px; /* Smaller font size for the title on smaller screens */
+          }
+        }
+
         .scrollable-row {
           display: flex;
           overflow-x: scroll; /* Ensures horizontal scrolling */
@@ -765,7 +819,10 @@ export const routeMeta: RouteMeta = {
         }
 
         .add-to-cart-btn {
-          background-color: rgb(52 78 65);
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          background-color: #00BC5E !important;
           color: white;
           border: none;
           padding: 10px 20px;
