@@ -1,12 +1,23 @@
 import { Injectable, inject } from '@angular/core';
 import type { Observable } from 'rxjs';
-import { interval, map, share, switchMap } from 'rxjs';
-import type { Product } from '../models/product.model';
+import {
+  catchError,
+  concatMap,
+  interval,
+  map,
+  of,
+  share,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs';
+import type { Money, Product } from '../models/product.model';
 import { LocationService } from './location.service';
-import { ProductGQL } from '../graphql/types';
+import { ProductGQL, ShippingFeeProductGQL } from '../graphql/types';
 import { NotificationService } from './notification.service';
 import { catchAndReportError } from '../utils/catch-and-report-error.operator';
 import { mapShopifyProductToPrepProduct } from '../utils/shopify-product-helpers';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -22,8 +33,10 @@ export class ShopifyProductService {
   );
 
   private readonly locationService = inject(LocationService);
+  private readonly localStorageService = inject(LocalStorageService);
   private readonly notificationService = inject(NotificationService);
   private readonly productGQL = inject(ProductGQL);
+  private readonly shippingFeeProductGQL = inject(ShippingFeeProductGQL);
 
   get productPriceRefreshSignal$() {
     return this._productPriceRefreshSignal$;
@@ -51,6 +64,53 @@ export class ShopifyProductService {
         return response.data.product;
       }),
       map((shopifyProduct) => mapShopifyProductToPrepProduct(shopifyProduct)),
+      catchAndReportError(this.notificationService)
+    );
+  }
+
+  fetchShippingFee(): Observable<Money | null> {
+    const localStorageKey = 'free_shipping_threshold';
+
+    const shippingFee = this.localStorageService.get<Money>(localStorageKey);
+
+    if (shippingFee) {
+      return of(shippingFee);
+    }
+
+    return this.locationService.getTwoLetterCountryCode().pipe(
+      switchMap((countryCode) =>
+        this.shippingFeeProductGQL.fetch({ countryCode }).pipe(
+          concatMap((response) => {
+            if (response.error || response.errors) {
+              return of(null).pipe(take(1));
+            }
+
+            if (!response.data.product) {
+              return of(null).pipe(take(1));
+            }
+
+            return of(response.data.product);
+          }),
+          map((shopifyProduct) => {
+            if (!shopifyProduct) {
+              throw new Error(
+                'Product at this stage should never be null or undefined'
+              );
+            }
+
+            const price = shopifyProduct.priceRange.minVariantPrice;
+
+            return <Money>{
+              amount: parseFloat(price.amount),
+              currencyCode: price.currencyCode,
+            };
+          }),
+          tap((threshold) =>
+            this.localStorageService.set(localStorageKey, threshold)
+          ),
+          catchError(() => of(null))
+        )
+      ),
       catchAndReportError(this.notificationService)
     );
   }

@@ -13,7 +13,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Subscription, take, tap } from 'rxjs';
 import { VideoModalComponent } from '../shared/video-modal.component';
 import { ShopifyProductService } from '../services/shopify-product.service';
-import { ProductVariant } from '../models/product.model';
+import { Money, ProductVariant } from '../models/product.model';
 import { ContextService } from '../services/context.service';
 import { NotificationService } from '../services/notification.service';
 
@@ -167,11 +167,22 @@ export const routeMeta: RouteMeta = {
               <h3 class="font-bold">Shipping</h3>
               <p>We keep things easy:</p>
               <ul>
-                <li>Due to weight (700g), we have a flat fee of €6</li>
-                <li>Free shipping if you buy 2 (order value over 99€)</li>
+                <li>
+                  Due to weight (700g), we have a flat fee{{
+                    shippingFee ? ' of ' + shippingFeeText : ''
+                  }}
+                </li>
+                <li>
+                  Free shipping if you buy 2{{
+                    shippingFee
+                      ? ' (order value over ' + freeShippingThresholdText + ')'
+                      : ''
+                  }}
+                </li>
                 <li>Carrier used: Postnord</li>
                 <li>
-                  Items ordered before 17:00 are sent the same day. Shipping time:
+                  Items ordered before 17:00 are sent the same day. Shipping
+                  time:
                   <ul>
                     <li>Sweden: 1-2 business days</li>
                     <li>Europe: no longer than 7 bussiness days</li>
@@ -1171,6 +1182,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   isFetching = true;
 
   productVariant?: ProductVariant;
+  shippingFee?: Money;
   productPriceRefreshSignalSub?: Subscription;
 
   private readonly shoppingCartService = inject(ShoppingCartService);
@@ -1181,10 +1193,11 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.contextService.isClientSide) {
       this.fetchProduct();
+      this.fetchShippingFee();
 
       this.productPriceRefreshSignalSub =
         this.shopifyProductService.productPriceRefreshSignal$
-          .pipe(tap(this.fetchProduct))
+          .pipe(tap(this.fetchProduct), tap(this.fetchShippingFee))
           .subscribe();
     }
   }
@@ -1203,6 +1216,27 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
           this.isFetching = false;
         },
       });
+  }
+
+  fetchShippingFee(): void {
+    this.shopifyProductService
+      .fetchShippingFee()
+      .subscribe((threshold) => (this.shippingFee = threshold || undefined));
+  }
+
+  get shippingFeeText(): string {
+    return this.shippingFee
+      ? `${this.shippingFee.amount} ${this.shippingFee.currencyCode}`
+      : '';
+  }
+
+  get freeShippingThresholdText(): string {
+    if (!this.shippingFee) {
+      return '';
+    }
+
+    const thresholdAmount = this.shippingFee.amount * 16.5;
+    return `${thresholdAmount} ${this.shippingFee.currencyCode}`;
   }
 
   toggleSection(section: string): void {
