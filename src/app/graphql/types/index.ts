@@ -8316,6 +8316,29 @@ export const Product = gql`
       super(apollo);
     }
   }
+export const ShippingFeeProduct = gql`
+    query ShippingFeeProduct($countryCode: CountryCode!) @inContext(country: $countryCode) {
+  product(handle: "dummy-product-shipping") {
+    priceRange {
+      minVariantPrice {
+        currencyCode
+        amount
+      }
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class ShippingFeeProductGQL extends Apollo.Query<ShippingFeeProductQuery, ShippingFeeProductQueryVariables> {
+    override document = ShippingFeeProduct;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export type ShoppingCartFragment = { __typename?: 'Cart', id: string, checkoutUrl: any, totalQuantity: number, lines: { __typename?: 'BaseCartLineConnection', nodes: Array<{ __typename?: 'CartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, image?: { __typename?: 'Image', url: any } | null, product: { __typename?: 'Product', handle: string }, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }> }, cost: { __typename?: 'CartLineCost', subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } } } | { __typename?: 'ComponentizableCartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, image?: { __typename?: 'Image', url: any } | null, product: { __typename?: 'Product', handle: string }, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }> }, cost: { __typename?: 'CartLineCost', subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } } }> }, cost: { __typename?: 'CartCost', totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } } };
 
 export type AddLineItemMutationVariables = Exact<{
@@ -8366,3 +8389,10 @@ export type ProductQueryVariables = Exact<{
 
 
 export type ProductQuery = { __typename?: 'QueryRoot', product?: { __typename?: 'Product', variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> } } | null };
+
+export type ShippingFeeProductQueryVariables = Exact<{
+  countryCode: CountryCode;
+}>;
+
+
+export type ShippingFeeProductQuery = { __typename?: 'QueryRoot', product?: { __typename?: 'Product', priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', currencyCode: CurrencyCode, amount: any } } } | null };

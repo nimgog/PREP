@@ -1,0 +1,11 @@
+query ShippingFeeProduct($countryCode: CountryCode!)
+@inContext(country: $countryCode) {
+  product(handle: "dummy-product-shipping") {
+    priceRange {
+      minVariantPrice {
+        currencyCode
+        amount
+      }
+    }
+  }
+}
