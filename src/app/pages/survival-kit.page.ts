@@ -30,12 +30,14 @@ export const routeMeta: RouteMeta = {
     <div class="flex flex-col w-full items-center">
       <div class="container">
         <div
-          class="w-full h-[200px] landscape:pt-[100px] portrait:pt-[90px] landscape:pl-[40px] portrait:pl-[8px]"
+          class="w-full h-[230px] landscape:pt-[100px] portrait:pt-[90px] landscape:pl-[40px] portrait:pl-[8px] text-center"
         >
-          <h1 class="product-title portrait:text-2xl landscape:text-5xl">
-            PREPC: Your Compact Lifeline
+          <h1
+            class="product-title portrait:text-3xl landscape:text-4xl font-bold"
+          >
+            Your Ultimate Prepping Case
           </h1>
-          <h3>248 Essentials for Peace of Mind in Any Scenario</h3>
+          <h3>PREPC - 248 Essentials for Peace of Mind in Any Scenario</h3>
         </div>
         <div class="product-container">
           <div class="flex flex-col h-fit product-creative-column">
@@ -63,7 +65,7 @@ export const routeMeta: RouteMeta = {
                 &gt;
               </button>
             </div>
-            <h2 class="font-bold mt-3">Whats included:</h2>
+            <h2 class="pl-2 font-bold text-2xl mt-3">Whats included:</h2>
             <div class="scrollable-row">
               <div *ngFor="let item of itemsWithImages" class="item">
                 <img
@@ -74,6 +76,9 @@ export const routeMeta: RouteMeta = {
                 <p>{{ item.name }}</p>
               </div>
             </div>
+            <h3 *ngIf="portrait" class="text-center font-bold text-1xl mt-3">
+              Full prepping inventory below
+            </h3>
             <!-- Video thumbnails container -->
             <div
               class="flex flex-col md:flex-row w-full mt-4 landscape:max-h-[250px] landscape:overflow-hidden	"
@@ -136,7 +141,7 @@ export const routeMeta: RouteMeta = {
           </div>
 
           <div class="product-details">
-            <h1 class="product-title font-bold">PREPC (PREP - Case)</h1>
+            <h1 class="product-title font-bold">Prepping Case - PREPC</h1>
             <div *ngIf="productVariant" class="product-pricing">
               <div class="flex flex-col mr-3">
                 <span *ngIf="productVariant" class="sale-price"
@@ -144,11 +149,11 @@ export const routeMeta: RouteMeta = {
                   }}{{ productVariant.price.currencyCode }}</span
                 >
                 <span *ngIf="productVariant" class="original-price"
-                  >{{ productVariant.price.amount * 1.25 }}{{ ' '
-                  }}{{ productVariant.price.currencyCode }}</span
+                  >{{ productVariant.price.amount * 1.177 | number : '1.0-0'
+                  }}{{ ' ' }}{{ productVariant.price.currencyCode }}</span
                 >
               </div>
-              <span class="discount-percentage">-20%</span>
+              <span class="discount-percentage">-15%</span>
             </div>
             <div class="klarna-info flex items-center">
               <h2 class="mr-2 whitespace-nowrap">Pay with:</h2>
@@ -164,22 +169,22 @@ export const routeMeta: RouteMeta = {
               [class.expanded]="isExpanded"
               (click)="toggleExpand()"
             >
-              <h3 class="font-bold">Shipping</h3>
+              <h3 class="font-bold">Free Shipping</h3>
               <p>We keep things easy:</p>
               <ul>
                 <li>
-                  Due to weight (700g), we have a flat fee{{
-                    shippingFee ? ' of ' + shippingFeeText : ''
-                  }}
+                  Free shipping on all orders - you might have to enter address
+                  on checkout for it to show.
                 </li>
                 <li>
-                  Free shipping if you buy 2{{
-                    shippingFee
-                      ? ' (order value over ' + freeShippingThresholdText + ')'
-                      : ''
-                  }}
+                  Carrier used:
+                  <a
+                    style="color: blue;"
+                    target="_blank"
+                    href="https://www.postnord.se/en/"
+                    >Postnord</a
+                  >
                 </li>
-                <li>Carrier used: Postnord</li>
                 <li>
                   Items ordered before 17:00 are sent the same day. Shipping
                   time:
@@ -266,12 +271,14 @@ export const routeMeta: RouteMeta = {
             <div class="tldr-container ml-0">
               <h2 class="tldr-title font-bold">Summary</h2>
               <ul class="tldr-list">
-                <li>Moll-e bag weighs ~700g</li>
+                <li>Prepping Case weighs ~700g</li>
                 <li>Full first-aid kit (total 248 articles)</li>
                 <li>
                   Good to have emergency tools (glowsticks, compass.. etc)
                 </li>
-                <li>Easy to attach & deploy in the field</li>
+                <li>
+                  With Moll-e system it is easy to attach & deploy in the field
+                </li>
               </ul>
             </div>
             <div class="product-description mt-5 flex flex-col">
@@ -925,15 +932,16 @@ export const routeMeta: RouteMeta = {
 
         .shipping-policy-summary {
           position: relative; /* Required for absolute positioning of pseudo-element */
-          background-color: #f2f2f2;
+          background-color: #2ecc71;
           padding: 20px;
           margin: 20px 0;
           border-radius: 5px;
           max-height: 150px;
           overflow: hidden;
           transition: max-height 0.5s ease;
-          border: 2px solid black;
+          border: 2px solid #27ae60;
           cursor: pointer;
+          color: white;
         }
 
         /* Gradient fade effect */
@@ -947,7 +955,7 @@ export const routeMeta: RouteMeta = {
           background: linear-gradient(
             to bottom,
             transparent,
-            #f2f2f2
+            #2ecc71
           ); /* Adjust the color to match the background */
           pointer-events: none; /* Allows click events to pass through */
         }
@@ -1001,7 +1009,7 @@ export const routeMeta: RouteMeta = {
 
         .shipping-policy-summary li::before {
           content: '• '; /* Add a custom bullet */
-          color: #333; /* Bullet color matches the text */
+          color: #fff; /* Bullet color matches the text */
           font-weight: bold; /* Bold bullet for emphasis */
         }
 
@@ -1103,10 +1111,6 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   quantity: number = 1;
   isExpanded: boolean = false;
   images: string[] = [
-    'PREPC_front.png',
-    'PREPC_back.png',
-    'PREPC_left.png',
-    'PREPC_right.png',
     'PREPC-open__top.png',
     'PREPC-open__mid.png',
     'PREPC-open__pouch.png',
@@ -1123,6 +1127,10 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
     'PREPC-scissor.png',
     'PREPC-tweezer.png',
     'PREPC-bandage.png',
+    'PREPC_front.png',
+    'PREPC_back.png',
+    'PREPC_left.png',
+    'PREPC_right.png',
   ];
 
   itemsWithImages: { name: string; file: string }[] = [
@@ -1189,6 +1197,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   private readonly shopifyProductService = inject(ShopifyProductService);
   private readonly contextService = inject(ContextService);
   private readonly notificationService = inject(NotificationService);
+  portrait = false;
 
   ngOnInit(): void {
     if (this.contextService.isClientSide) {
@@ -1199,6 +1208,10 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
         this.shopifyProductService.productPriceRefreshSignal$
           .pipe(tap(this.fetchProduct), tap(this.fetchShippingFee))
           .subscribe();
+
+      if (window.screen.width < 768) {
+        this.portrait = true;
+      }
     }
   }
 
