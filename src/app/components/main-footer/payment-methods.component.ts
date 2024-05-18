@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-main-footer-payment-methods',
   standalone: true,
   template: `
-    <ul class="flex justify-between lg:justify-center lg:gap-x-2">
+    <ul class="flex justify-center gap-x-2">
       @for (paymentMethod of paymentMethods; track paymentMethod) {
       <li>
         <img
