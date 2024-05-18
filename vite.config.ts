@@ -47,6 +47,13 @@ export default defineConfig(({ mode }) => ({
         inlineStylesExtension: 'scss',
       },
     }),
+    {
+      name: 'delete-worker',
+      closeBundle: async () => {
+        const rootDir = path.resolve(__dirname, 'dist');
+        await deleteWorker(rootDir);
+      },
+    },
   ],
   test: {
     globals: true,
@@ -59,3 +66,17 @@ export default defineConfig(({ mode }) => ({
     'import.meta.vitest': mode !== 'production',
   },
 }));
+
+async function deleteWorker(dir: string) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+
+  for (let entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      await deleteWorker(fullPath);
+    } else if (entry.isFile() && entry.name === '_worker.js') {
+      await fs.unlink(fullPath);
+    }
+  }
+}
