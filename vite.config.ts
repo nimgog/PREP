@@ -50,7 +50,7 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'delete-worker',
       closeBundle: async () => {
-        const rootDir = path.resolve(__dirname, 'dist');
+        const rootDir = path.resolve(__dirname);
         await deleteWorker(rootDir);
       },
     },
