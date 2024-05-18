@@ -16,10 +16,11 @@ import { ShopifyProductService } from '../services/shopify-product.service';
 import { Money, ProductVariant } from '../models/product.model';
 import { ContextService } from '../services/context.service';
 import { NotificationService } from '../services/notification.service';
+import { getFullPageTitle } from '../utils/page-helpers';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
-  title: 'Survival Kit | PREP',
+  title: getFullPageTitle('Survival Kit'),
 };
 
 @Component({

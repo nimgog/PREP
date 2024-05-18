@@ -3,6 +3,7 @@
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
 import * as path from 'path';
+import * as fs from 'fs/promises';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -25,7 +26,21 @@ export default defineConfig(({ mode }) => ({
       static: true,
       prerender: {
         routes: async () => {
-          return ['/', '/survival-kit', '/about-us'];
+          const contentFilePaths = await fs.readdir('./src/content', {
+            recursive: true,
+          });
+
+          const contentFileRoutes = contentFilePaths
+            .filter((filePath) => !filePath.endsWith('index.md'))
+            .map((filePath) => '/blog/' + filePath.replace('.md', ''));
+
+          return [
+            '/',
+            '/survival-kit',
+            '/about-us',
+            '/blog',
+            ...contentFileRoutes,
+          ];
         },
       },
       vite: {

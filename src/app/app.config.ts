@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { provideToastr } from 'ngx-toastr';
 import { withInMemoryScrolling } from '@angular/router';
 import { IMAGE_CONFIG, provideCloudflareLoader } from '@angular/common';
+import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +25,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       })
     ),
+    provideContent(withMarkdownRenderer()),
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimations(),

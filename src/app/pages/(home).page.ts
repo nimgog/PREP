@@ -2,10 +2,11 @@ import { RouteMeta } from '@analogjs/router';
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { getFullPageTitle } from '../utils/page-helpers';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
-  title: 'Home | PREP',
+  title: getFullPageTitle('Home'),
 };
 
 @Component({

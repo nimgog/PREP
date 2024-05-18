@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import ContactFormComponent from '../components/about-us-page/contact-form.component';
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { getFullPageTitle } from '../utils/page-helpers';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
-  title: 'About Us | PREP',
+  title: getFullPageTitle('About Us'),
 };
 
 @Component({
