@@ -11,7 +11,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Subscription, take, tap } from 'rxjs';
-import { VideoModalComponent } from '../shared/video-modal.component';
+import { VideoModalComponent } from '../components/common/video-modal.component';
 import { ShopifyProductService } from '../services/shopify-product.service';
 import { Money, ProductVariant } from '../models/product.model';
 import { ContextService } from '../services/context.service';
@@ -179,7 +179,7 @@ export const routeMeta: RouteMeta = {
               <img
                 class="w-[160px]"
                 ngSrc="img/product-page/Marketing_Badge_With_Clear_Space.png"
-                alt="pay with Klarna"
+                alt="Pay with Klarna"
                 width="160"
                 height="74"
               />
@@ -219,6 +219,7 @@ export const routeMeta: RouteMeta = {
               <img
                 class="chevron w-[20px]"
                 src="img/product-page/chevron-down-solid.svg"
+                alt="Expand shipping details"
                 [ngClass]="{ expanded: isExpanded }"
               />
             </div>

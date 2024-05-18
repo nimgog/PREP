@@ -8,7 +8,6 @@ export const routeMeta: RouteMeta = {
   title: 'Survival sheet | PREP',
 };
 
-// TODO: HTML semantics
 @Component({
   selector: 'app-survival-cheat-sheet-page',
   standalone: true,
@@ -21,7 +20,7 @@ export const routeMeta: RouteMeta = {
         <!-- Image -->
         <img
           ngSrc="img/shared/survival.jpg"
-          alt="Survival Guide"
+          alt="A person scooping water from a stream with a green cup"
           class="w-full w-max-[800px] h-auto max-h-[537px] rounded-lg shadow-md"
           width="800"
           height="537"

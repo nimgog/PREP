@@ -27,7 +27,7 @@ export const routeMeta: RouteMeta = {
             <img
               class="h-[284px] lg:h-[420px] object-cover object-[top_center]"
               ngSrc="/img/about-us-page/about_us.jpg"
-              alt="A human wearing a survival kit"
+              alt="A person wearing a survival kit in a forested area"
               width="580"
               height="420"
               priority

@@ -3,7 +3,6 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import MainHeaderComponent from './components/main-header/main-header.component';
 import MainFooterComponent from './components/main-footer/main-footer.component';
 
-// TODO: Replace favicon.ico
 // TODO: Scroll behavior (nav)
 
 @Component({

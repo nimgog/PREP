@@ -18,7 +18,7 @@ export const routeMeta: RouteMeta = {
         <img
           class="w-full h-screen object-cover object-[center_top]"
           ngSrc="/img/home-page/home_landing_PREP.jpg"
-          alt="A human wearing a survival kit"
+          alt="A person wearing a survival kit in a forested area"
           fill
           priority
         />
@@ -67,20 +67,20 @@ export const routeMeta: RouteMeta = {
 
       <div
         id="light-section"
-        class="container light-section__container portrait:light-section__container--mobile flex h-[720px] mb-5 bg-white text-orange-700 landscape:flex-row-reverse portrait:flex-col landscape:flex-row-reverse portrait:h-svh justify-between landscape:p-8"
+        class="container light-section__container portrait:light-section__container--mobile flex h-[720px] mb-5 bg-white text-orange-700 portrait:flex-col landscape:flex-row-reverse portrait:h-svh justify-between landscape:p-8"
       >
         <div class="image-container w-full relative flex-1 p-5">
           <img
             class="z-0 absolute image-container__image-background"
             ngSrc="/img/home-page/PREP-blob.png"
-            alt="todo add relevant alt here"
+            alt="A bright red, irregularly shaped blob"
             width="500"
             height="500"
           />
           <img
             class="z-10 absolute image-container__image-foreground"
             ngSrc="/img/home-page/PREPC-2.png"
-            alt="todo add relevant alt here"
+            alt="The front view of a survival kit"
             width="500"
             height="500"
           />
@@ -88,7 +88,7 @@ export const routeMeta: RouteMeta = {
         <div class="flex-1 text-container">
           <div class="portrait:mx-5 flex flex-col">
             <h1
-              class="text-pretty header-fixed-32 text-orange-700 portrait:max-w-[318px] landscape:whitespace-nowrap text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+              class="text-pretty header-fixed-32 text-orange-700 portrait:max-w-[318px] landscape:whitespace-nowrap uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
             >
               Crafted with Scandinavian
             </h1>
@@ -128,7 +128,7 @@ export const routeMeta: RouteMeta = {
                 <img
                   class="p-5 product-image w-full"
                   ngSrc="/img/home-page/PREPC-Promise.png"
-                  alt="todo better alt"
+                  alt="An open survival kit showing its contents"
                   width="500"
                   height="500"
                 />
@@ -137,7 +137,7 @@ export const routeMeta: RouteMeta = {
                 class="text-container portrait:mx-5 portrait:mt-3 flex flex-col justify-center landscape:w-1/2"
               >
                 <h1
-                  class="text-pretty header-fixed-32 text-[32px] uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
+                  class="text-pretty header-fixed-32 uppercase text-left lg:text-left text-[32px] lg:text-[64px] font-normal font-gunplay leading-9 lg:leading-[84px]"
                 >
                   PREPC is not just a product;
                 </h1>
@@ -167,7 +167,7 @@ export const routeMeta: RouteMeta = {
             <div class="divider-text">Applications</div>
             <hr class="divider-line" />
           </div>
-          <div class="flex flex-col justify-center h-[380px] h-full p-5">
+          <div class="flex flex-col justify-center h-full p-5">
             <div
               class="flex flex-row portrait:flex-col mt-5 justify-evenly items-center"
             >
@@ -177,7 +177,7 @@ export const routeMeta: RouteMeta = {
                 <img
                   class="w-96 application--image"
                   ngSrc="/img/home-page/home.jpg"
-                  alt="todo add alt and real image"
+                  alt="A survival kit next to a fire extinguisher, placed on a wooden floor in an indoor setting"
                   width="300"
                   height="300"
                 />
@@ -201,7 +201,7 @@ export const routeMeta: RouteMeta = {
                 <img
                   class="w-96 application--image"
                   ngSrc="/img/home-page/car.jpg"
-                  alt="todo add alt and real image"
+                  alt="A survival kit inside the open glove compartment of a car"
                   width="300"
                   height="300"
                 />
@@ -251,7 +251,7 @@ export const routeMeta: RouteMeta = {
                 <img
                   class="w-96 application--image"
                   ngSrc="/img/home-page/prep.jpg"
-                  alt="todo add alt and real image"
+                  alt="An open survival kit showing its content, placed next to a fallen tree in a forested area"
                   width="300"
                   height="300"
                 />

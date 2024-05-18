@@ -6,7 +6,6 @@ import MainFooterLinksComponent from './links.component';
 import MainFooterPaymentMethodsComponent from './payment-methods.component';
 import MainFooterCopyrightComponent from './copyright.component';
 
-// TODO: Lazy-load all images in the footer (or maybe the whole footer component)
 @Component({
   selector: 'app-main-footer',
   standalone: true,
@@ -27,9 +26,12 @@ import MainFooterCopyrightComponent from './copyright.component';
           <app-main-footer-links class="mb-[25px]" />
           <app-main-footer-payment-methods class="mb-[17px]" />
           <app-main-footer-copyright />
-          <div class="text-xs text-white flex items-center w-full justify-center">
-              &copy;<p>2024 Shadida Trading Company - All Rights Reserved</p>
-            </div>
+          <div
+            class="text-xs text-white flex items-center w-full justify-center"
+          >
+            &copy;
+            <p>2024 Shadida Trading Company - All Rights Reserved</p>
+          </div>
         </div>
 
         <div class="hidden lg:block pt-[65px] pb-[37px]">
@@ -53,8 +55,11 @@ import MainFooterCopyrightComponent from './copyright.component';
             </div>
 
             <app-main-footer-payment-methods class="mt-6" />
-            <div class="mt-3 text-xs text-white flex items-center w-full justify-center">
-              &copy;<p>2024 Shadida Trading Company - All Rights Reserved</p>
+            <div
+              class="mt-3 text-xs text-white flex items-center w-full justify-center"
+            >
+              &copy;
+              <p>2024 Shadida Trading Company - All Rights Reserved</p>
             </div>
           </div>
         </div>
