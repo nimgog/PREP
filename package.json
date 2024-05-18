@@ -10,7 +10,7 @@
     "dev": "ng serve",
     "ng": "ng",
     "start": "pnpm run dev",
-    "build": "ng build",
+    "build": "ng build && node delete-worker.js",
     "watch": "ng build --watch",
     "test": "ng test",
     "gql:fetch": "ts-node codegen/fetch-shopify-schema.ts",
