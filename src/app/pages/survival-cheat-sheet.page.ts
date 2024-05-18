@@ -17,7 +17,7 @@ export const routeMeta: RouteMeta = {
     <div
       class="flex justify-center w-full min-h-screen bg-gray-50 pt-[100px] px-4 pb-12"
     >
-      <div class="w-full max-w-[800px] h-auto max-h-[537px]">
+      <div class="w-full max-w-[800px] h-auto">
         <!-- Image -->
         <img
           ngSrc="img/shared/survival.jpg"
