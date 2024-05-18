@@ -25,11 +25,11 @@ export const routeMeta: RouteMeta = {
       <p class="summary">
         Welcome to Becoming Prepared - our ultimate resource for all things
         preparedness. Whether you're just starting out or looking to enhance
-        your emergency readiness, our blog is filled with advice and
-        in-depth guides on a wide range of topics. From building comprehensive
-        emergency kits and mastering food and water storage techniques to honing
-        survival skills and creating robust emergency plans, we cover everything
-        you need to feel confident and prepared. Dive into our reviews and
+        your emergency readiness, our blog is filled with advice and in-depth
+        guides on a wide range of topics. From building comprehensive emergency
+        kits and mastering food and water storage techniques to honing survival
+        skills and creating robust emergency plans, we cover everything you need
+        to feel confident and prepared. Dive into our reviews and
         recommendations for the best gear and resources to ensure your safety
         and well-being, no matter what challenges may come your way. Stay
         prepared, stay safe, with Prepp.me
@@ -47,11 +47,9 @@ export const routeMeta: RouteMeta = {
             "
           ></div>
           <div class="content">
-            <a
-              [routerLink]="['/blog/' + page.slug]"
-              class="page-title"
-              >{{ page.attributes.title }}</a
-            >
+            <a [href]="['/blog/' + page.slug]" class="page-title">{{
+              page.attributes.title
+            }}</a>
             <p class="page-description">{{ page.attributes.description }}</p>
           </div>
         </div>
