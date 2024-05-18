@@ -46,6 +46,11 @@ export default defineConfig(({ mode }) => ({
       vite: {
         inlineStylesExtension: 'scss',
       },
+      nitro: {
+        output: {
+          serverDir: undefined,
+        },
+      },
     }),
   ],
   test: {
