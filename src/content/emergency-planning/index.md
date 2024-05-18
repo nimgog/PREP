@@ -1,9 +1,9 @@
 ---
 title: Emergency Planning
 description: "A comprehensive guide to emergency planning, outlining essential steps for ensuring safety and preparedness in any situation. Learn how to assess risks, create emergency contact lists and communication plans, assemble tailored emergency plans, develop evacuation routes, prepare your home, stay informed, account for special needs, practice your plan, and regularly review and update your preparations."
-date: 2024-01-01
+date: 2024-05-18
 thumbnailImageUrl: /img/blogs/emergency-planning_thumbnail_1280x720.jpg
-tags: tag1, tag2, tag3, tag4
+tags: emergency, emergency plan, plan, safety, prepare
 published: true
 ---
 
