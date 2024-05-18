@@ -69,7 +69,7 @@ export const routeMeta: RouteMeta = {
         id="light-section"
         class="container light-section__container portrait:light-section__container--mobile flex h-[720px] mb-5 bg-white text-orange-700 portrait:flex-col landscape:flex-row-reverse portrait:h-svh justify-between landscape:p-8"
       >
-        <div class="image-container w-full relative flex-1 p-5">
+        <div class="image-container w-full min-h-[300px] relative flex-1 p-5">
           <img
             class="z-0 absolute image-container__image-background"
             ngSrc="/img/home-page/PREP-blob.png"
