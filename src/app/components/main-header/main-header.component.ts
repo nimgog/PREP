@@ -64,6 +64,9 @@ import LogoComponent from '../common/logo.component';
                   <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
+                  <a routerLink="/blog">Becoming Prepared</a>
+                </li>
+                <li (click)="closeMenu()" class="mt-5">
                   <a routerLink="/about-us">About Us</a>
                 </li>
               </ul>
@@ -173,7 +176,7 @@ import LogoComponent from '../common/logo.component';
 
             <!-- Actions -->
             <div *ngIf="cart && cart?.totalQuantity" class="actions">
-              <button (click)="continueShopping()">back</button>
+              <button (click)="continueShopping()">Back</button>
               <a
                 class="button-checkout"
                 [href]="cart.checkoutUrl"
@@ -193,6 +196,9 @@ import LogoComponent from '../common/logo.component';
             <li><a routerLink="/">Home</a></li>
             <li>
               <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
+            </li>
+            <li>
+              <a routerLink="/blog">Becoming Prepared</a>
             </li>
             <li>
               <a routerLink="/about-us">About Us</a>

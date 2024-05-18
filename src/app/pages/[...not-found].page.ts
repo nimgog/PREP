@@ -1,10 +1,11 @@
 import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { getFullPageTitle } from '../utils/page-helpers';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
-  title: 'Not Found | PREP',
+  title: getFullPageTitle('Not Found'),
 };
 
 // TODO: Style this component
