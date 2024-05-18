@@ -1,4 +1,5 @@
 import { RouteMeta } from '@analogjs/router';
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -11,17 +12,22 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-survival-cheat-sheet-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NgOptimizedImage],
   template: `
     <div
       class="flex justify-center w-full min-h-screen bg-gray-50 pt-[100px] px-4 pb-12"
     >
-      <div class="w-full max-w-[800px]">
+      <div class="w-full max-w-[800px] h-auto max-h-[537px]">
         <!-- Image -->
         <img
-          src="img/shared/survival.jpg"
+          ngSrc="img/shared/survival.jpg"
           alt="Survival Guide"
-          class="w-full h-auto rounded-lg shadow-md"
+          class="w-full w-max-[800px] h-auto max-h-[537px] rounded-lg shadow-md"
+          width="800"
+          height="537"
+          ngSrcset="500w, 800w"
+          sizes="100vw"
+          priority
         />
 
         <!-- Title -->

@@ -2,17 +2,17 @@ import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 import ContactFormComponent from '../components/about-us-page/contact-form.component';
 import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 // TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: 'About Us | PREP',
 };
 
-// TODO: HTML semantics
 @Component({
   selector: 'app-about-us-page',
   standalone: true,
-  imports: [ContactFormComponent, RouterLink],
+  imports: [ContactFormComponent, RouterLink, NgOptimizedImage],
   template: `
     <div
       class="flex justify-center w-full h-full pt-24 lg:pt-[182px] px-4 pb-[72px] lg:pb-[283px]"
@@ -24,11 +24,13 @@ export const routeMeta: RouteMeta = {
           class="flex flex-col lg:flex-row-reverse items-center lg:items-start gap-x-10"
         >
           <div class="lg:w-1/2 h-[284px] lg:h-[420px] lg:mt-10">
-            <!-- TODO: Downscale image -->
             <img
               class="h-[284px] lg:h-[420px] object-cover object-[top_center]"
-              src="/img/about-us-page/about_us.jpg"
+              ngSrc="/img/about-us-page/about_us.jpg"
               alt="A human wearing a survival kit"
+              width="580"
+              height="420"
+              priority
             />
             <button
               routerLink="/survival-kit"

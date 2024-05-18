@@ -1,5 +1,5 @@
 import { RouteMeta } from '@analogjs/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -25,7 +25,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-survival-kit-page',
   standalone: true,
-  imports: [FormsModule, CommonModule, VideoModalComponent],
+  imports: [FormsModule, CommonModule, VideoModalComponent, NgOptimizedImage],
   template: `
     <div class="flex flex-col w-full items-center">
       <div class="container">
@@ -43,7 +43,15 @@ export const routeMeta: RouteMeta = {
           <div class="flex flex-col h-fit product-creative-column">
             <!-- Main image display -->
             <div class="product-image">
-              <img [src]="mainImage" alt="Survival Kit" />
+              <img
+                [ngSrc]="mainImage"
+                alt="Survival Kit"
+                width="768"
+                height="768"
+                ngSrcset="600w, 800w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
             <div class="w-full relative">
               <button class="scroll-arrow left" (click)="scrollLeft()">
@@ -56,8 +64,10 @@ export const routeMeta: RouteMeta = {
                   (click)="setMainImage(image)"
                 >
                   <img
-                    [src]="'img/product-page/' + image"
+                    [ngSrc]="'img/product-page/' + image"
                     [alt]="'Survival Kit Item ' + (i + 1)"
+                    width="160"
+                    height="160"
                   />
                 </div>
               </div>
@@ -69,8 +79,9 @@ export const routeMeta: RouteMeta = {
             <div class="scrollable-row">
               <div *ngFor="let item of itemsWithImages" class="item">
                 <img
-                  src="img/product-page/items/{{ item.file }}"
+                  ngSrc="img/product-page/items/{{ item.file }}"
                   [alt]="item.name"
+                  width="230"
                   height="96"
                 />
                 <p>{{ item.name }}</p>
@@ -89,9 +100,13 @@ export const routeMeta: RouteMeta = {
                 (click)="openModal('landscape')"
               >
                 <img
-                  src="img/product-page/landscape_thumbnail.png"
+                  ngSrc="img/product-page/landscape_thumbnail.png"
                   alt="Landscape Video"
                   class="w-full h-auto"
+                  width="640"
+                  height="360"
+                  ngSrcset="500w, 767w, 768w"
+                  sizes="(max-width: 500px) 100vw, (max-width: 767px) 100vw, 25vw"
                 />
                 <div class="absolute inset-0 flex justify-center items-center">
                   <div class="p-3 rounded-full bg-emerald-700">
@@ -116,9 +131,13 @@ export const routeMeta: RouteMeta = {
                 (click)="openModal('portrait')"
               >
                 <img
-                  src="img/product-page/portrait_thumbnail.png"
+                  ngSrc="img/product-page/portrait_thumbnail.png"
                   alt="Portrait Video"
                   class="w-full h-auto"
+                  width="640"
+                  height="357"
+                  ngSrcset="500w, 767w, 768w"
+                  sizes="(max-width: 500px) 100vw, (max-width: 767px) 100vw, 25vw"
                 />
                 <div class="absolute inset-0 flex justify-center items-center">
                   <div class="p-3 rounded-full bg-emerald-700">
@@ -159,8 +178,10 @@ export const routeMeta: RouteMeta = {
               <h2 class="mr-2 whitespace-nowrap">Pay with:</h2>
               <img
                 class="w-[160px]"
-                src="img/product-page/Marketing_Badge_With_Clear_Space.png"
+                ngSrc="img/product-page/Marketing_Badge_With_Clear_Space.png"
                 alt="pay with Klarna"
+                width="160"
+                height="74"
               />
             </div>
             <!-- Shipping Policy Summary Section -->
@@ -505,7 +526,7 @@ export const routeMeta: RouteMeta = {
                 (click)="toggleSection('features')"
                 class="accordion-toggle  items-center justify-between"
               >
-                Features:
+                Features
                 <div
                   class="w-[16px]"
                   [ngClass]="{ rotated: sections['features'] }"

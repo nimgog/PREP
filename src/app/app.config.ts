@@ -14,6 +14,7 @@ import { InMemoryCache } from '@apollo/client/core';
 import { environment } from 'src/environments/environment';
 import { provideToastr } from 'ngx-toastr';
 import { withInMemoryScrolling } from '@angular/router';
+import { IMAGE_CONFIG, provideCloudflareLoader } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -39,6 +40,13 @@ export const appConfig: ApplicationConfig = {
       deps: [HttpLink],
     },
     Apollo,
+    provideCloudflareLoader(environment.cloudflareZone),
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        placeholderResolution: 30,
+      },
+    },
   ],
 };
 

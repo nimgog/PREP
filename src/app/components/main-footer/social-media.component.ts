@@ -18,6 +18,7 @@ import { Component } from '@angular/core';
             alt="X (former Twitter)"
             width="24"
             height="24"
+            loading="lazy"
           />
         </a>
 
@@ -27,6 +28,7 @@ import { Component } from '@angular/core';
             alt="Instagram"
             width="24"
             height="24"
+            loading="lazy"
           />
         </a>
 
@@ -36,6 +38,7 @@ import { Component } from '@angular/core';
             alt="YouTube"
             width="24"
             height="24"
+            loading="lazy"
           />
         </a>
       </div>

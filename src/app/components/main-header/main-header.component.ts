@@ -7,11 +7,19 @@ import { Subscription, take } from 'rxjs';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
 import { ContextService } from 'src/app/services/context.service';
+import LogoComponent from '../common/logo.component';
 
 @Component({
   selector: 'app-main-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, NgClass, MatIcon, MatToolbar],
+  imports: [
+    CommonModule,
+    RouterLink,
+    NgClass,
+    MatIcon,
+    MatToolbar,
+    LogoComponent,
+  ],
   template: `
     <header
       class="flex justify-center items-center w-full h-[70px] lg:h-[80px] px-4"
@@ -36,13 +44,7 @@ import { ContextService } from 'src/app/services/context.service';
           <div class="flex flex-col w-full h-full p-2">
             <div class="flex flex-row w-full justify-between">
               <div class="w-[10px]"></div>
-              <a routerLink="/">
-                <img
-                  class="w-[100px]"
-                  src="/img/main-header/PREP_logo.png"
-                  alt=""
-                />
-              </a>
+              <app-logo />
               <div class="w-[20px]" (click)="toggleMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                   <path
@@ -182,18 +184,7 @@ import { ContextService } from 'src/app/services/context.service';
           </div>
         </div>
 
-        <!-- TODO: Revisit logo -->
-        <a routerLink="/">
-          <!-- <div
-            class="w-[133px] lg:w-[112px] h-10 lg:h-[52px] bg-prep-beige"
-            [ngClass]="isTransparent() ? 'lg:bg-prep-green' : 'lg:bg-[#A3B18A]'"
-          ></div> -->
-          <img
-            class="w-[100px]"
-            src="/img/main-header/PREP_logo.png"
-            alt="PREP logo"
-          />
-        </a>
+        <app-logo />
 
         <nav class="hidden lg:block">
           <ul

@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
           class="w-8 lg:w-[38px] h-5 lg:h-6"
           [src]="'/img/main-footer/payment/' + paymentMethod + '.svg'"
           [alt]="paymentMethod"
+          loading="lazy"
         />
       </li>
       }

@@ -1,4 +1,5 @@
 import { RouteMeta } from '@analogjs/router';
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -10,20 +11,16 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NgOptimizedImage],
   template: `
     <div class="flex flex-col w-full h-full items-center">
-      <div class="absolute inset-0 -z-10 overflow-hidden">
-        <!-- TODO: Create smaller variants of the hero image -->
+      <div class="w-full h-screen absolute -z-10 overflow-hidden">
         <img
-          class="portrait:hidden w-full h-screen object-cover object-[center_top]"
-          src="/img/home-page/home_landing_PREP.jpg"
+          class="w-full h-screen object-cover object-[center_top]"
+          ngSrc="/img/home-page/home_landing_PREP.jpg"
           alt="A human wearing a survival kit"
-        />
-        <img
-          class="landscape:hidden w-full h-screen object-cover object-[center_top]"
-          src="/img/home-page/home_landing_PREP_mobile.jpg"
-          alt="A human wearing a survival kit"
+          fill
+          priority
         />
       </div>
       <div
@@ -75,13 +72,17 @@ export const routeMeta: RouteMeta = {
         <div class="image-container w-full relative flex-1 p-5">
           <img
             class="z-0 absolute image-container__image-background"
-            src="/img/home-page/PREP-blob.png"
+            ngSrc="/img/home-page/PREP-blob.png"
             alt="todo add relevant alt here"
+            width="500"
+            height="500"
           />
           <img
             class="z-10 absolute image-container__image-foreground"
-            src="/img/home-page/PREPC-2.png"
+            ngSrc="/img/home-page/PREPC-2.png"
             alt="todo add relevant alt here"
+            width="500"
+            height="500"
           />
         </div>
         <div class="flex-1 text-container">
@@ -125,9 +126,11 @@ export const routeMeta: RouteMeta = {
             <div class="flex portrait:flex-col lg:flex-row items-center">
               <div class="flex justify-center portrait:mt-8 landscape:w-1/2">
                 <img
-                  class="p-5 product-image"
-                  src="img/home-page/PREPC-Promise.png"
+                  class="p-5 product-image w-full"
+                  ngSrc="/img/home-page/PREPC-Promise.png"
                   alt="todo better alt"
+                  width="500"
+                  height="500"
                 />
               </div>
               <div
@@ -173,8 +176,10 @@ export const routeMeta: RouteMeta = {
               >
                 <img
                   class="w-96 application--image"
-                  src="/img/home-page/home.jpg"
+                  ngSrc="/img/home-page/home.jpg"
                   alt="todo add alt and real image"
+                  width="300"
+                  height="300"
                 />
                 <h3
                   class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
@@ -195,8 +200,10 @@ export const routeMeta: RouteMeta = {
               >
                 <img
                   class="w-96 application--image"
-                  src="/img/home-page/car.jpg"
+                  ngSrc="/img/home-page/car.jpg"
                   alt="todo add alt and real image"
+                  width="300"
+                  height="300"
                 />
                 <h3
                   class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
@@ -220,8 +227,10 @@ export const routeMeta: RouteMeta = {
               >
                 <img
                   class="w-96 application--image"
-                  src="/img/home-page/adventure.jpg"
+                  ngSrc="/img/home-page/adventure.jpg"
                   alt="todo add alt and real image"
+                  width="300"
+                  height="300"
                 />
                 <h3
                   class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
@@ -241,8 +250,10 @@ export const routeMeta: RouteMeta = {
               >
                 <img
                   class="w-96 application--image"
-                  src="/img/home-page/prep.jpg"
+                  ngSrc="/img/home-page/prep.jpg"
                   alt="todo add alt and real image"
+                  width="300"
+                  height="300"
                 />
                 <h3
                   class="whitespace-nowrap header-fixed-20 mt-5 text-white max-w-[318px] lg:max-w-none uppercase text-center lg:text-center portrait:text-[18px] lg:text-[64px] font-normal leading-9 lg:leading-[84px] font-gunplay"
