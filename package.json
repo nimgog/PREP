@@ -5,6 +5,7 @@
   "engines": {
     "node": ">=18.13.0"
   },
+  "type": "module",
   "scripts": {
     "dev": "ng serve",
     "ng": "ng",
