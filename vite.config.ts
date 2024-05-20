@@ -78,23 +78,23 @@ export default defineConfig(({ mode }) => ({
 }));
 
 async function isFilePublished(filePath: string) {
-  const text = await fs.readFile(filePath, 'utf-8');
-  const metaStart = text.indexOf('---');
+  const content = await fs.readFile(filePath, 'utf-8');
+  const metaStart = content.indexOf('---');
 
   if (metaStart < 0) {
     return false;
   }
 
-  const metaEnd = text.indexOf('---', metaStart + 1);
+  const metaEnd = content.indexOf('---', metaStart + 1);
 
   if (metaEnd < 0) {
     return false;
   }
 
-  const meta = text.substring(metaStart + 1, metaEnd);
+  const meta = content.substring(metaStart + 1, metaEnd);
   const metaLines = meta.split('\n');
 
   return metaLines.some(
-    (line) => line.trim().toLowerCase() === 'published:true'
+    (line) => line.trim().toLowerCase() === 'published: true'
   );
 }
