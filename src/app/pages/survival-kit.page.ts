@@ -69,6 +69,7 @@ export const routeMeta: RouteMeta = {
                     [alt]="'Survival Kit Item ' + (i + 1)"
                     width="160"
                     height="160"
+                    [priority]="i < 5"
                   />
                 </div>
               </div>
