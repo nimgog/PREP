@@ -7,7 +7,6 @@ tags: emergency, emergency plan, plan, safety, prepare
 published: true
 ---
 
-___
 ## The Ultimate Guide to Emergency Planning for Your Household
 
 Emergencies can strike at any time, and being prepared could make all the difference. This comprehensive guide will help you develop an effective emergency plan for your household, touching on key areas such as evacuation routes, communication plans, and even pet preparedness. By the end, you'll be fully equipped to face any crisis with confidence.
@@ -90,4 +89,3 @@ Being prepared for an emergency involves careful planning and regular practice. 
 **Comments and Feedback**
 
 Have any tips or experiences to share? Send us a message on our contacts and we'll write all about it.
-___
