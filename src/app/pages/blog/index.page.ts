@@ -47,7 +47,7 @@ export const routeMeta: RouteMeta = {
             "
           ></div>
           <div class="content">
-            <a [href]="['/blog/' + page.slug]" class="page-title">{{
+            <a [routerLink]="['/blog/' + page.slug]" class="page-title">{{
               page.attributes.title
             }}</a>
             <p class="page-description">{{ page.attributes.description }}</p>

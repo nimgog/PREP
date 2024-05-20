@@ -2,6 +2,8 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import MainHeaderComponent from './components/main-header/main-header.component';
 import MainFooterComponent from './components/main-footer/main-footer.component';
+import { injectContent } from '@analogjs/content';
+import { take } from 'rxjs';
 
 // TODO: Scroll behavior (nav)
 
@@ -30,6 +32,15 @@ export class AppComponent implements OnInit {
   readonly isHomePage = signal(true);
 
   private readonly router = inject(Router);
+
+  constructor() {
+    // Dummy load random blog entry as workaround for "No content found" issue
+    injectContent<Record<string, any>>({
+      customFilename: `emergency-kits/index`,
+    })
+      .pipe(take(1))
+      .subscribe();
+  }
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
