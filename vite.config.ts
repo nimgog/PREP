@@ -28,28 +28,7 @@ export default defineConfig(({ mode }) => ({
       static: true,
       prerender: {
         routes: async () => {
-          const contentFilePaths = await fs.readdir('./src/content', {
-            recursive: true,
-          });
-
-          const publishedCheckPromises = contentFilePaths
-            .filter((filePath) => filePath.endsWith('.md'))
-            .map(async (filePath) => {
-              const fullPath = path.join('./src/content', filePath);
-              const isPublished = await isFilePublished(fullPath);
-              return { filePath, isPublished };
-            });
-
-          const publishedCheckResults = await Promise.all(
-            publishedCheckPromises
-          );
-
-          const contentFileRoutes = publishedCheckResults
-            .filter(({ isPublished }) => isPublished)
-            .map(
-              ({ filePath }) =>
-                '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
-            );
+          const contentFileRoutes = await getPublishedContentFileRoutes();
 
           return [
             '/',
@@ -79,6 +58,31 @@ export default defineConfig(({ mode }) => ({
     'import.meta.vitest': mode !== 'production',
   },
 }));
+
+async function getPublishedContentFileRoutes() {
+  const contentFilePaths = await fs.readdir('./src/content', {
+    recursive: true,
+  });
+
+  const publishedCheckPromises = contentFilePaths
+    .filter((filePath) => filePath.endsWith('.md'))
+    .map(async (filePath) => {
+      const fullPath = path.join('./src/content', filePath);
+      const isPublished = await isFilePublished(fullPath);
+      return { filePath, isPublished };
+    });
+
+  const publishedCheckResults = await Promise.all(publishedCheckPromises);
+
+  const contentFileRoutes = publishedCheckResults
+    .filter(({ isPublished }) => isPublished)
+    .map(
+      ({ filePath }) =>
+        '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
+    );
+
+  return contentFileRoutes;
+}
 
 async function isFilePublished(filePath: string) {
   const content = await fs.readFile(filePath, 'utf-8');
