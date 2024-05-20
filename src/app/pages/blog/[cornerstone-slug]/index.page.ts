@@ -15,6 +15,7 @@ import {
   OnInit,
   inject,
   runInInjectionContext,
+  signal,
 } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Subscription, map, take } from 'rxjs';
@@ -25,6 +26,7 @@ import {
 } from 'src/app/models/blog.model';
 import { metaResolver, titleResolver } from './resolvers';
 import { ContextService } from 'src/app/services/context.service';
+import BlogContentComponent from 'src/app/components/blog/blog-content.component';
 
 export const routeMeta: RouteMeta = {
   title: titleResolver,
@@ -35,7 +37,13 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-cornerstone-page',
   standalone: true,
-  imports: [MarkdownComponent, RouterLink, DatePipe, CommonModule],
+  imports: [
+    MarkdownComponent,
+    RouterLink,
+    DatePipe,
+    CommonModule,
+    BlogContentComponent,
+  ],
   template: `
     <div class="flex flex-col items-center gap-y-4 w-full h-full pt-32">
       @if (cornerstonePageFile) {
@@ -57,11 +65,9 @@ export const routeMeta: RouteMeta = {
         <hr />
       </div>
 
-      <analog-markdown
-        [content]="cornerstonePageFile.content || ''"
-      ></analog-markdown>
-
-      @if (supportingPageFiles.length) {
+      @if (contentText()) {
+      <app-blog-content [contentText]="contentText()!" />
+      } @if (supportingPageFiles.length) {
       <div
         class="more-articles"
         [ngClass]="{
@@ -291,19 +297,19 @@ export default class CornerstonePageComponent
   isMobile = false;
   otherContainerVisible: boolean = false;
   expanded = false;
-  constructor() {}
+  contentText = signal<string | null>(null);
 
   private attachEventListeners(): void {
     window.addEventListener('resize', this.onResize.bind(this));
     window.addEventListener('scroll', this.onScroll.bind(this));
   }
 
-  private onResize(event: any) {
+  private onResize(_event: any) {
     this.isMobile = window.innerWidth <= 768;
     this.checkVisibility();
   }
 
-  private onScroll(event: any) {
+  private onScroll(_event: any) {
     this.checkVisibility();
   }
 
@@ -367,9 +373,8 @@ export default class CornerstonePageComponent
             customFilename: `${cornerstonePageSlug}/index`,
           })
             .pipe(take(1))
-            .subscribe(
-              (pageFile) =>
-                (this.cornerstonePageFile!.content = pageFile.content)
+            .subscribe((pageFile) =>
+              this.contentText.set(pageFile.content?.toString() || null)
             )
         );
 

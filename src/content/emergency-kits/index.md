@@ -7,9 +7,9 @@ tags: emergency, emergency kit, kit, safety, disaster plan
 published: true
 ---
 
-___
-![Emergency Kit](https://images.pexels.com/photos/5656493/pexels-photo-5656493.jpeg)
-### Emergency Kits: An Introduction
+[IMAGE]{ "src": "/img/blogs/emergency-kit_cover.jpeg", "alt": "Emergency kit contents", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+
+## Emergency Kits: An Introduction
 
 Emergencies can strike at any time, leaving us scrambling for supplies. Whether it's a natural disaster, power outage, or medical emergency, being prepared is crucial for our safety and well-being. Emergency kits contain essential items like food, water, and medical supplies to help us survive during crises. In this guide, we’ll explore different types of emergency kits, their contents, and how to choose the right one. Let’s get started on ensuring we are prepared for any emergency.
 
@@ -104,5 +104,3 @@ When preparing your emergency kit, consider your household’s unique needs. Inc
 ### Conclusion: Be Prepared with the Right Emergency Kit
 
 Having a well-prepared emergency kit is a critical part of any preparedness plan. It ensures you have the necessary supplies to endure a crisis and rely on yourself until help arrives. By assessing your unique needs and regularly updating your kit, you can provide security and peace of mind for yourself and your loved ones. Start building your emergency kit today, and take the first step towards being prepared for whatever life throws your way.
-
-___

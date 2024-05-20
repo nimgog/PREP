@@ -1,6 +1,5 @@
 import {
   ContentFile,
-  MarkdownComponent,
   injectContent,
   injectContentFiles,
 } from '@analogjs/content';
@@ -13,6 +12,7 @@ import {
   OnInit,
   inject,
   runInInjectionContext,
+  signal,
 } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Subscription, map, take } from 'rxjs';
@@ -22,6 +22,7 @@ import {
   SupportingPageAttributes,
 } from 'src/app/models/blog.model';
 import { metaResolver, titleResolver } from './resolvers';
+import BlogContentComponent from 'src/app/components/blog/blog-content.component';
 
 export const routeMeta: RouteMeta = {
   title: titleResolver,
@@ -34,7 +35,7 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
 @Component({
   selector: 'app-supporting-page',
   standalone: true,
-  imports: [MarkdownComponent, RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, BlogContentComponent],
   template: `
     <div class="flex flex-col items-center gap-y-4 w-full h-full pt-32">
       @if (cornerstonePageFile && supportingPageFile) {
@@ -67,11 +68,9 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
         >
       </p>
 
-      <analog-markdown
-        [content]="supportingPageFile.content || ''"
-      ></analog-markdown>
-
-      @if (relatedSupportingPageFiles.length) {
+      @if(contentText()) {
+      <app-blog-content [contentText]="contentText()!" />
+      } @if (relatedSupportingPageFiles.length) {
       <p>Articles you might also like:</p>
 
       <ul class="flex flex-col gap-y-2">
@@ -95,7 +94,6 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
       } }
     </div>
   `,
-  styles: [``],
 })
 export default class SupportingPageComponent implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
@@ -114,6 +112,7 @@ export default class SupportingPageComponent implements OnInit, OnDestroy {
   cornerstonePageFile?: ContentFile<CornerstonePageAttributes>;
   supportingPageFile?: ContentFile<SupportingPageAttributes>;
   relatedSupportingPageFiles: ContentFile<SupportingPageAttributes>[] = [];
+  contentText = signal<string | null>(null);
 
   ngOnInit(): void {
     this.pageSlugsSub = this.pageSlugs$.subscribe(
@@ -164,9 +163,8 @@ export default class SupportingPageComponent implements OnInit, OnDestroy {
             customFilename: `${cornerstonePageSlug}/${supportingPageSlug}`,
           })
             .pipe(take(1))
-            .subscribe(
-              (pageFile) =>
-                (this.supportingPageFile!.content = pageFile.content)
+            .subscribe((pageFile) =>
+              this.contentText.set(pageFile.content?.toString() || null)
             )
         );
 
