@@ -32,9 +32,20 @@ export default defineConfig(({ mode }) => ({
             recursive: true,
           });
 
-          const contentFileRoutes = contentFilePaths
-            .filter((filePath) => !filePath.endsWith('index.md'))
-            .map((filePath) => '/blog/' + filePath.replace('.md', ''));
+          const publishedCheckPromises = contentFilePaths
+            .filter((filePath) => filePath.endsWith('index.md'))
+            .map(async (filePath) => {
+              const isPublished = await isFilePublished(filePath);
+              return { filePath, isPublished };
+            });
+
+          const publishedCheckResults = await Promise.all(
+            publishedCheckPromises
+          );
+
+          const contentFileRoutes = publishedCheckResults
+            .filter(({ isPublished }) => isPublished)
+            .map(({ filePath }) => '/blog/' + filePath.replace('.md', ''));
 
           return [
             '/',
@@ -64,3 +75,25 @@ export default defineConfig(({ mode }) => ({
     'import.meta.vitest': mode !== 'production',
   },
 }));
+
+async function isFilePublished(filePath: string) {
+  const text = await fs.readFile(filePath, 'utf-8');
+  const metaStart = text.indexOf('---');
+
+  if (metaStart < 0) {
+    return false;
+  }
+
+  const metaEnd = text.indexOf('---', metaStart + 1);
+
+  if (metaEnd < 0) {
+    return false;
+  }
+
+  const meta = text.substring(metaStart + 1, metaEnd);
+  const metaLines = meta.split('\n');
+
+  return metaLines.some(
+    (line) => line.trim().toLowerCase() === 'published:true'
+  );
+}
