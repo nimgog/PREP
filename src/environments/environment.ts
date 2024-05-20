@@ -6,5 +6,5 @@ export const environment = {
   ipAPIKey: '6ff13c94f9a417ae8d85061410ca7c88',
   turnstileSiteKey: '0x4AAAAAAAWgVaiBmyrKPlr1',
   contactWorkerEndpoint: 'https://prep-contact-worker.nsj.workers.dev',
-  cloudflareZone: 'https://prepp.me',
+  cloudflareZone: 'https://prepp.me/',
 };

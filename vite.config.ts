@@ -5,6 +5,8 @@ import analog from '@analogjs/platform';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 
+import { environment } from './src/environments/environment';
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   publicDir: 'src/assets',
@@ -41,6 +43,9 @@ export default defineConfig(({ mode }) => ({
             '/blog',
             ...contentFileRoutes,
           ];
+        },
+        sitemap: {
+          host: environment.cloudflareZone,
         },
       },
       vite: {
