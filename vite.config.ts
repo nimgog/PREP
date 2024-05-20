@@ -35,7 +35,8 @@ export default defineConfig(({ mode }) => ({
           const publishedCheckPromises = contentFilePaths
             .filter((filePath) => filePath.endsWith('index.md'))
             .map(async (filePath) => {
-              const isPublished = await isFilePublished(filePath);
+              const fullPath = path.join('./src/content', filePath);
+              const isPublished = await isFilePublished(fullPath);
               return { filePath, isPublished };
             });
 
