@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => ({
           });
 
           const publishedCheckPromises = contentFilePaths
-            .filter((filePath) => !filePath.endsWith('index.md'))
+            .filter((filePath) => filePath.endsWith('.md'))
             .map(async (filePath) => {
               const fullPath = path.join('./src/content', filePath);
               const isPublished = await isFilePublished(fullPath);
@@ -46,7 +46,10 @@ export default defineConfig(({ mode }) => ({
 
           const contentFileRoutes = publishedCheckResults
             .filter(({ isPublished }) => isPublished)
-            .map(({ filePath }) => '/blog/' + filePath.replace('.md', ''));
+            .map(
+              ({ filePath }) =>
+                '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
+            );
 
           return [
             '/',
