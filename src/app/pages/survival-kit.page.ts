@@ -69,7 +69,6 @@ export const routeMeta: RouteMeta = {
                     [alt]="'Survival Kit Item ' + (i + 1)"
                     width="160"
                     height="160"
-                    [priority]="i < 5"
                   />
                 </div>
               </div>
@@ -84,7 +83,7 @@ export const routeMeta: RouteMeta = {
                   ngSrc="img/product-page/items/{{ item.file }}"
                   [alt]="item.name"
                   width="230"
-                  height="96"
+                  [height]="item.heightFor230w"
                 />
                 <p>{{ item.name }}</p>
               </div>
@@ -1157,51 +1156,103 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
     'PREPC_right.png',
   ];
 
-  itemsWithImages: { name: string; file: string }[] = [
-    { name: 'Ignition steel', file: 'ignitor.png' },
+  itemsWithImages: { name: string; file: string; heightFor230w: number }[] = [
+    { name: 'Ignition steel', file: 'ignitor.png', heightFor230w: 230 },
     {
       name: 'Glow stick 12 hour duration',
       file: 'Glow_stick_12_hour_duration.png',
+      heightFor230w: 115,
     },
-    { name: 'flashlight', file: 'flashlight.png' },
+    { name: 'Flashlight', file: 'flashlight.png', heightFor230w: 166 },
     {
-      name: 'paracord survival bracelet',
+      name: 'Paracord survival bracelet',
       file: 'paracord_survival_bracelet.png',
+      heightFor230w: 194,
     },
-    { name: 'Alcohol prep pad', file: 'Alcohol_prep_pad.png' },
-    { name: 'medium bandages', file: 'medium_bandages.png' },
-    { name: 'cotton tip', file: 'cotton_tip.png' },
-    { name: 'joint bandage', file: 'joint_bandage.png' },
-    { name: 'butterfly bandages', file: 'butterfly_bandages.png' },
-    { name: 'Gauze pad', file: 'Gauze_pad.png' },
-    { name: 'adhesive wound dressing', file: 'adhesive_wound_dressing.png' },
-    { name: 'relief pads', file: 'relief_pads.png' },
-    { name: 'disposable gloves', file: 'disposable_gloves.png' },
-    { name: 'first aid tape', file: 'first_aid_tape.png' },
-    { name: 'burn care', file: 'burn_care.png' },
-    { name: 'emergency Mylar blanket', file: 'emergency_Mylar_blanket.png' },
-    { name: 'metal scissor', file: 'metal_scissor.png' },
-    { name: 'PBT bandage', file: 'PBT_bandage.png' },
-    { name: 'CPR mask', file: 'CPR_mask.png' },
-    { name: 'Tweezer', file: 'Tweezer.png' },
-    { name: 'safety pin', file: 'safety_pin.png' },
-    { name: 'cotton balls', file: 'cotton_balls.png' },
-    { name: 'soap wipes', file: 'soap_wipes.png' },
-    { name: 'antiseptic wipes', file: 'antiseptic_wipes.png' },
     {
-      name: 'wound adhesive dressings large',
+      name: 'Alcohol prep pad',
+      file: 'Alcohol_prep_pad.png',
+      heightFor230w: 230,
+    },
+    {
+      name: 'Medium bandages',
+      file: 'medium_bandages.png',
+      heightFor230w: 103,
+    },
+    { name: 'Cotton tip', file: 'cotton_tip.png', heightFor230w: 158 },
+    { name: 'Joint bandage', file: 'joint_bandage.png', heightFor230w: 156 },
+    {
+      name: 'Butterfly bandages',
+      file: 'butterfly_bandages.png',
+      heightFor230w: 106,
+    },
+    { name: 'Gauze pad', file: 'Gauze_pad.png', heightFor230w: 163 },
+    {
+      name: 'Adhesive wound dressing',
+      file: 'adhesive_wound_dressing.png',
+      heightFor230w: 167,
+    },
+    { name: 'Relief pads', file: 'relief_pads.png', heightFor230w: 231 },
+    {
+      name: 'Disposable gloves',
+      file: 'disposable_gloves.png',
+      heightFor230w: 348,
+    },
+    { name: 'First aid tape', file: 'first_aid_tape.png', heightFor230w: 160 },
+    { name: 'Burn care', file: 'burn_care.png', heightFor230w: 105 },
+    {
+      name: 'Emergency Mylar blanket',
+      file: 'emergency_Mylar_blanket.png',
+      heightFor230w: 160,
+    },
+    { name: 'Metal scissor', file: 'metal_scissor.png', heightFor230w: 149 },
+    { name: 'PBT bandage', file: 'PBT_bandage.png', heightFor230w: 144 },
+    { name: 'CPR mask', file: 'CPR_mask.png', heightFor230w: 204 },
+    { name: 'Tweezer', file: 'Tweezer.png', heightFor230w: 242 },
+    { name: 'Safety pin', file: 'safety_pin.png', heightFor230w: 271 },
+    { name: 'Cotton balls', file: 'cotton_balls.png', heightFor230w: 282 },
+    { name: 'Soap wipes', file: 'soap_wipes.png', heightFor230w: 247 },
+    {
+      name: 'Antiseptic wipes',
+      file: 'antiseptic_wipes.png',
+      heightFor230w: 294,
+    },
+    {
+      name: 'Wound adhesive dressings large',
       file: 'wound_adhesive_dressings_large.png',
+      heightFor230w: 284,
     },
-    { name: 'triangular bandage', file: 'triangular_bandage.png' },
-    { name: 'mini bandages', file: 'mini_bandages.png' },
-    { name: 'Swedish patch flag', file: 'Swedish_patch_flag.jpg' },
     {
-      name: 'multifunctional card tool',
-      file: 'multifunctional_card_tool.png',
+      name: 'Triangular bandage',
+      file: 'triangular_bandage.png',
+      heightFor230w: 250,
     },
-    { name: 'carabiner knife', file: 'carabiner_knife.png' }, // Note the adjusted name
-    { name: 'disposable poncho', file: 'disposable_poncho.png' },
-    { name: 'EMT Molle tactical bag', file: 'EMT_Molle_tactical_bag.png' },
+    { name: 'Mini bandages', file: 'mini_bandages.png', heightFor230w: 99 },
+    {
+      name: 'Swedish patch flag',
+      file: 'Swedish_patch_flag.jpg',
+      heightFor230w: 134,
+    },
+    {
+      name: 'Multifunctional card tool',
+      file: 'multifunctional_card_tool.png',
+      heightFor230w: 167,
+    },
+    {
+      name: 'Carabiner knife',
+      file: 'carabiner_knife.png',
+      heightFor230w: 230,
+    }, // Note the adjusted name
+    {
+      name: 'Disposable poncho',
+      file: 'disposable_poncho.png',
+      heightFor230w: 183,
+    },
+    {
+      name: 'EMT Molle tactical bag',
+      file: 'EMT_Molle_tactical_bag.png',
+      heightFor230w: 230,
+    },
   ];
 
   sections: Sections = {

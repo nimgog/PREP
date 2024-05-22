@@ -30,7 +30,7 @@ export const routeMeta: RouteMeta = {
               ngSrc="/img/about-us-page/about_us.jpg"
               alt="A person wearing a survival kit in a forested area"
               width="580"
-              height="420"
+              height="386"
               priority
             />
             <button

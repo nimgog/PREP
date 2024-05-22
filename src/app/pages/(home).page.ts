@@ -76,14 +76,14 @@ export const routeMeta: RouteMeta = {
             ngSrc="/img/home-page/PREP-blob.png"
             alt="A bright red, irregularly shaped blob"
             width="500"
-            height="500"
+            height="440"
           />
           <img
             class="z-10 absolute image-container__image-foreground"
             ngSrc="/img/home-page/PREPC-2.png"
             alt="The front view of a survival kit"
             width="500"
-            height="500"
+            height="627"
           />
         </div>
         <div class="flex-1 text-container">
@@ -131,7 +131,7 @@ export const routeMeta: RouteMeta = {
                   ngSrc="/img/home-page/PREPC-Promise.png"
                   alt="An open survival kit showing its contents"
                   width="500"
-                  height="500"
+                  height="624"
                 />
               </div>
               <div
