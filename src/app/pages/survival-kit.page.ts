@@ -60,15 +60,15 @@ export const routeMeta: RouteMeta = {
               </button>
               <div class="small-image-row" #imageRow>
                 <div
-                  class="small-image-container"
+                  class="small-image-container relative"
                   *ngFor="let image of images; let i = index"
                   (click)="setMainImage(image)"
                 >
                   <img
                     [ngSrc]="'img/product-page/' + image"
                     [alt]="'Survival Kit Item ' + (i + 1)"
-                    width="160"
-                    height="160"
+                    sizes="25vw"
+                    fill
                   />
                 </div>
               </div>
