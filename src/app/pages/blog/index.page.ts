@@ -1,6 +1,6 @@
 import { ContentFile, injectContentFiles } from '@analogjs/content';
 import { RouteMeta } from '@analogjs/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   Injector,
@@ -18,7 +18,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-becoming-prepared-page',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, NgOptimizedImage],
   template: `
     <div class="blog-container pt-[100px] pb-5">
       <h1 class="title">Becoming Prepared</h1>
@@ -36,16 +36,20 @@ export const routeMeta: RouteMeta = {
       </p>
       <div class="cards-container">
         <div
-          *ngFor="let page of cornerstonePageFiles"
+          *ngFor="let page of cornerstonePageFiles; index as i"
           class="card"
           [routerLink]="['/blog/' + page.slug]"
         >
-          <div
-            class="image-container"
-            [style.background-image]="
-              'url(' + page.attributes.thumbnailImageUrl + ')'
-            "
-          ></div>
+          <div class="image-container relative overflow-hidden">
+            <img
+              class="object-cover object-center"
+              [ngSrc]="page.attributes.thumbnailImageUrl"
+              sizes="(max-width: 767px) 80vw, 30vw"
+              [alt]="page.attributes.title"
+              [priority]="i === 0"
+              fill
+            />
+          </div>
           <div class="content">
             <a [routerLink]="['/blog/' + page.slug]" class="page-title">{{
               page.attributes.title
@@ -95,8 +99,6 @@ export const routeMeta: RouteMeta = {
       .image-container {
         width: 100%; /* Full width of the card */
         height: 200px; /* Fixed height for all images */
-        background-size: cover;
-        background-position: center;
         border-radius: 8px; /* Rounded corners for the image */
       }
 
