@@ -109,7 +109,7 @@ export const metaResolver: ResolveFn<MetaTag[]> = (route) => {
     },
     {
       property: 'article:tag',
-      content: pageAttributes.tags || pageAttributes.title,
+      content: pageAttributes.title,
     },
   ];
 };
