@@ -4,8 +4,10 @@ import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
 import * as path from 'path';
 import * as fs from 'fs/promises';
+import fm from 'front-matter';
 
 import { environment } from './src/environments/environment';
+import { PageAttributes } from 'src/app/models/blog.model';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -68,8 +70,10 @@ async function getPublishedContentFileRoutes() {
     .filter((filePath) => filePath.endsWith('.md'))
     .map(async (filePath) => {
       const fullPath = path.join('./src/content', filePath);
-      const isPublished = await isFilePublished(fullPath);
-      return { filePath, isPublished };
+      const fileContent = await fs.readFile(fullPath, 'utf-8');
+      const pageAttributes = fm<PageAttributes>(fileContent).attributes;
+
+      return { filePath, isPublished: pageAttributes.published };
     });
 
   const publishedCheckResults = await Promise.all(publishedCheckPromises);
@@ -82,26 +86,4 @@ async function getPublishedContentFileRoutes() {
     );
 
   return contentFileRoutes;
-}
-
-async function isFilePublished(filePath: string) {
-  const content = await fs.readFile(filePath, 'utf-8');
-  const metaStart = content.indexOf('---');
-
-  if (metaStart < 0) {
-    return false;
-  }
-
-  const metaEnd = content.indexOf('---', metaStart + 1);
-
-  if (metaEnd < 0) {
-    return false;
-  }
-
-  const meta = content.substring(metaStart + 1, metaEnd);
-  const metaLines = meta.split('\n');
-
-  return metaLines.some(
-    (line) => line.trim().toLowerCase() === 'published: true'
-  );
 }
