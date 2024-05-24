@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => ({
           ];
         },
         sitemap: {
-          host: environment.cloudflareZone,
+          host: environment.cloudflareZone + '/',
         },
       },
       vite: {
