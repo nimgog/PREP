@@ -2,10 +2,14 @@ import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getFullPageTitle } from '../utils/page-helpers';
+import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
-// TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Not Found'),
+  meta: createCommonMetaResolver(
+    'Some Title',
+    'The page you are looking for cannot be found.'
+  ),
 };
 
 // TODO: Style this component

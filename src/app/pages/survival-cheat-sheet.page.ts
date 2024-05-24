@@ -2,10 +2,11 @@ import { RouteMeta } from '@analogjs/router';
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
-// TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: 'Survival sheet | PREP',
+  meta: createCommonMetaResolver('Some Title', 'Some description'),
 };
 
 @Component({

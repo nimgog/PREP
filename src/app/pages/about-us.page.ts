@@ -4,10 +4,11 @@ import ContactFormComponent from '../components/about-us-page/contact-form.compo
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { getFullPageTitle } from '../utils/page-helpers';
+import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
-// TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('About Us'),
+  meta: createCommonMetaResolver('Some Title', 'Some description'),
 };
 
 @Component({

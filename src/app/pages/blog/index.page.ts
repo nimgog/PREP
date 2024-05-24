@@ -9,10 +9,12 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CornerstonePageAttributes } from 'src/app/models/blog.model';
+import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Becoming Prepared'),
+  meta: createCommonMetaResolver('Some Title', 'Some description'),
 };
 
 @Component({
