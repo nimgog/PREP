@@ -34,7 +34,12 @@ import LogoComponent from '../common/logo.component';
             aria-label="Open side menu"
             (click)="toggleMenu()"
           >
-            <img src="/img/main-header/side-menu.svg" alt="Side menu" />
+            <img
+              src="/img/main-header/side-menu.svg"
+              alt="Side menu"
+              width="24"
+              height="24"
+            />
           </button>
         </div>
         <div
@@ -212,7 +217,12 @@ import LogoComponent from '../common/logo.component';
             aria-label="Open shopping cart"
             (click)="openCart()"
           >
-            <img src="/img/main-header/shopping-cart.svg" alt="Shopping cart" />
+            <img
+              src="/img/main-header/shopping-cart.svg"
+              alt="Shopping cart"
+              width="26"
+              height="26"
+            />
           </button>
         </div>
       </div>
