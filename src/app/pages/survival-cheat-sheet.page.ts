@@ -6,7 +6,7 @@ import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
 export const routeMeta: RouteMeta = {
   title: 'Survival sheet | PREP',
-  meta: createCommonMetaResolver('Some Title', 'Some description'),
+  meta: createCommonMetaResolver('Survival Cheat Sheet | PREP', 'Download the essential Survival Cheat Sheet. Equip yourself with crucial tips and knowledge for emergency preparedness.'),
 };
 
 @Component({

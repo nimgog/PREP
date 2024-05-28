@@ -1,6 +1,6 @@
 ---
 title: Emergency Kits
-description: "A well-prepared emergency kit is crucial for safety during disasters. Learn how to assess your needs, types of emergency kits, and where to store them. In this section we write about not only what to do and what to have, but how to assess and plan accordingly."
+description: "A well-prepared emergency kit is crucial for safety during disasters. Learn to assess your needs, types of kits, and where to store them."
 date: 2024-05-18
 thumbnailImageUrl: /img/blogs/emergency-kit_thumbnail_1280x720.jpg
 published: true

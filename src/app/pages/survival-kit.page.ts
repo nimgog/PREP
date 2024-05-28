@@ -23,7 +23,7 @@ import { Meta } from '@angular/platform-browser';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Survival Kit'),
-meta: createCommonMetaResolver('Some Title', 'Some description', 'article'),
+meta: createCommonMetaResolver('Survival Kit | PREP', 'Some description', 'Discover PREP´s Survival Kits, designed to help you face emergencies with confidence. Quality, reliability, and functionality in every kit.'),
 };
 
 @Component({
