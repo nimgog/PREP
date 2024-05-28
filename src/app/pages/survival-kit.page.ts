@@ -17,10 +17,13 @@ import { Money, ProductVariant } from '../models/product.model';
 import { ContextService } from '../services/context.service';
 import { NotificationService } from '../services/notification.service';
 import { getFullPageTitle } from '../utils/page-helpers';
+import { environment } from 'src/environments/environment';
+import { createCommonMetaResolver } from '../utils/open-graph-helpers';
+import { Meta } from '@angular/platform-browser';
 
-// TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Survival Kit'),
+meta: createCommonMetaResolver('Survival Kit | PREP', 'Some description', 'Discover PREP´s Survival Kits, designed to help you face emergencies with confidence. Quality, reliability, and functionality in every kit.'),
 };
 
 @Component({
@@ -69,6 +72,7 @@ export const routeMeta: RouteMeta = {
                     [alt]="'Survival Kit Item ' + (i + 1)"
                     sizes="25vw"
                     fill
+                    [priority]="i === 0"
                   />
                 </div>
               </div>
@@ -165,7 +169,7 @@ export const routeMeta: RouteMeta = {
             <div *ngIf="productVariant" class="product-pricing">
               <div class="flex flex-col mr-3">
                 <span *ngIf="productVariant" class="sale-price"
-                  >{{ productVariant.price.amount }}{{ ' '
+                  >{{ productVariant.price.amount | number : '1.0-0' }}{{ ' '
                   }}{{ productVariant.price.currencyCode }}</span
                 >
                 <span *ngIf="productVariant" class="original-price"
@@ -1272,7 +1276,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   private readonly shopifyProductService = inject(ShopifyProductService);
   private readonly contextService = inject(ContextService);
   private readonly notificationService = inject(NotificationService);
-  portrait = false;
+  private readonly meta = inject(Meta);
 
   ngOnInit(): void {
     if (this.contextService.isClientSide) {
@@ -1302,6 +1306,16 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
         next: (product) => {
           this.productVariant = product.variants[0];
           this.isFetching = false;
+
+          this.meta.updateTag({
+            property: 'og:price:amount',
+            content: this.productVariant.price.amount.toFixed(2),
+          });
+
+          this.meta.updateTag({
+            property: 'og:price:currency',
+            content: this.productVariant.price.currencyCode,
+          });
         },
       });
   }

@@ -9,10 +9,12 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CornerstonePageAttributes } from 'src/app/models/blog.model';
+import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Becoming Prepared'),
+  meta: createCommonMetaResolver('Emergency Preparedness Basics | PREP Blog', 'Learn the fundamentals of emergency preparedness. Our blog covers essential tips and strategies to keep you and your family safe.'),
 };
 
 @Component({

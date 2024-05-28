@@ -5,7 +5,7 @@ import {
   CornerstonePageAttributes,
   SupportingPageAttributes,
 } from 'src/app/models/blog.model';
-import { getCommonMetaTags } from 'src/app/utils/open-graph-helpers';
+import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
 
 const injectActivePageAttributes = (
@@ -69,7 +69,7 @@ export const titleResolver: ResolveFn<string> = (route) => {
   return getFullPageTitle(pageAttributes.title);
 };
 
-export const metaResolver: ResolveFn<MetaTag[]> = (route) => {
+export const metaResolver: ResolveFn<MetaTag[]> = (route, state) => {
   const pageAttributesPair = injectActivePageAttributes(route);
 
   if (!pageAttributesPair) {
@@ -80,13 +80,15 @@ export const metaResolver: ResolveFn<MetaTag[]> = (route) => {
     ? pageAttributesPair.supportingPageAttributes
     : pageAttributesPair.cornerstonePageAttributes;
 
-  // TODO: Add more meta tags if needed, i.e. see below... meta robots tag can also be added here
+  const resolveCommonMetaTags = createCommonMetaResolver(
+    pageAttributes.title,
+    pageAttributes.description,
+    pageAttributes.thumbnailImageUrl,
+    'article'
+  );
+
   return [
-    ...getCommonMetaTags(
-      pageAttributes.title,
-      pageAttributes.description,
-      'article'
-    ),
+    ...resolveCommonMetaTags(route, state),
     {
       name: 'author',
       content: 'Nimer Shadida Johansson',
@@ -95,21 +97,21 @@ export const metaResolver: ResolveFn<MetaTag[]> = (route) => {
       property: 'article:published_time',
       content: pageAttributes.date,
     },
-    // {
-    //   property: 'article:modified_date',
-    //   content: pageAttributes.date,
-    // },
+    {
+      property: 'article:modified_date',
+      content: pageAttributes.date,
+    },
     {
       property: 'article:author',
       content: 'Nimer Shadida Johansson',
     },
     {
-      property: 'article:section', // High-level section name, i.e. Technology
+      property: 'article:section',
       content: pageAttributesPair.cornerstonePageAttributes.title,
     },
     {
       property: 'article:tag',
-      content: pageAttributes.tags || pageAttributes.title,
+      content: pageAttributes.title,
     },
   ];
 };

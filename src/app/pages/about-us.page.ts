@@ -4,10 +4,11 @@ import ContactFormComponent from '../components/about-us-page/contact-form.compo
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { getFullPageTitle } from '../utils/page-helpers';
+import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
-// TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('About Us'),
+  meta: createCommonMetaResolver('About Us | PREP: Preparedness, Readiness, Emergency Provisioning', 'Our mission is to empower Scandinavian households and nature enthusiasts with tools and knowledge to face any challenge with confidence.'),
 };
 
 @Component({

@@ -4,7 +4,6 @@ export type PageAttributes = {
   thumbnailImageUrl: string;
   date: string;
   published?: boolean;
-  tags?: string;
 };
 
 // Add more cornerstone page specific attributes here

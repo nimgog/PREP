@@ -3,10 +3,11 @@ import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getFullPageTitle } from '../utils/page-helpers';
+import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
-// TODO: Fill other metadata
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Home'),
+  meta: createCommonMetaResolver('Home | PREP: Your Source for Survival Kits and Emergency Preparedness', 'Explore PREP for high-quality survival kits and emergency preparedness solutions. Equip yourself to handle any challenge with confidence.'),
 };
 
 @Component({
