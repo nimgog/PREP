@@ -157,7 +157,7 @@ import { ContextService } from 'src/app/services/context.service';
   ],
 })
 export default class ContactFormComponent {
-  readonly messageMinLength = 50;
+  readonly messageMinLength = 80;
   readonly messageMaxLength = 1000;
   readonly turnstileSiteKey = environment.turnstileSiteKey;
 
