@@ -17,13 +17,15 @@ import { Money, ProductVariant } from '../models/product.model';
 import { ContextService } from '../services/context.service';
 import { NotificationService } from '../services/notification.service';
 import { getFullPageTitle } from '../utils/page-helpers';
-import { environment } from 'src/environments/environment';
 import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 import { Meta } from '@angular/platform-browser';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Survival Kit'),
-meta: createCommonMetaResolver('Survival Kit | PREP', 'Some description', 'Discover PREP´s Survival Kits, designed to help you face emergencies with confidence. Quality, reliability, and functionality in every kit.'),
+  meta: createCommonMetaResolver(
+    'Survival Kit',
+    'Discover PREP´s Survival Kits, designed to help you face emergencies with confidence. Quality, reliability, and functionality in every kit.'
+  ),
 };
 
 @Component({
@@ -1267,6 +1269,7 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   mainImage = 'img/product-page/' + this.images[0]; // Default to the first image
   isLoading = false;
   isFetching = true;
+  portrait = false;
 
   productVariant?: ProductVariant;
   shippingFee?: Money;

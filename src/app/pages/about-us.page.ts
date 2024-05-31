@@ -8,7 +8,10 @@ import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('About Us'),
-  meta: createCommonMetaResolver('About Us | PREP: Preparedness, Readiness, Emergency Provisioning', 'Our mission is to empower Scandinavian households and nature enthusiasts with tools and knowledge to face any challenge with confidence.'),
+  meta: createCommonMetaResolver(
+    'Preparedness, Readiness, Emergency Provisioning',
+    'Our mission is to empower Scandinavian households and nature enthusiasts with tools and knowledge to face any challenge with confidence.'
+  ),
 };
 
 @Component({

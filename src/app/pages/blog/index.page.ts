@@ -14,7 +14,10 @@ import { getFullPageTitle } from 'src/app/utils/page-helpers';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Becoming Prepared'),
-  meta: createCommonMetaResolver('Emergency Preparedness Basics | PREP Blog', 'Learn the fundamentals of emergency preparedness. Our blog covers essential tips and strategies to keep you and your family safe.'),
+  meta: createCommonMetaResolver(
+    'Emergency Preparedness Basics',
+    'Learn the fundamentals of emergency preparedness. Our blog covers essential tips and strategies to keep you and your family safe.'
+  ),
 };
 
 @Component({

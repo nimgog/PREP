@@ -7,7 +7,7 @@ import { createCommonMetaResolver } from '../utils/open-graph-helpers';
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Not Found'),
   meta: createCommonMetaResolver(
-    'Page Not Found | PREP',
+    'Page Not Found',
     'Oops! The page you’re looking for can’t be found. Visit our homepage for survival kits and emergency preparedness solutions.'
   ),
 };
