@@ -82,7 +82,7 @@ async function getPublishedContentFileRoutes() {
     .filter(({ isPublished }) => isPublished)
     .map(
       ({ filePath }) =>
-        '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
+        '/blog/' + filePath.replace('/index.md', '').replace('.md', '') + '/'
     );
 
   return contentFileRoutes;
