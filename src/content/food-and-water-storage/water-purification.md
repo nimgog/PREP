@@ -3,7 +3,7 @@ title: Why Water Purification is Crucial
 description: "Water purification is vital for health and environmental protection. Learn about health risks, environmental impacts, and methods to ensure safe, clean drinking water."
 date: 2024-06-01
 thumbnailImageUrl: /img/blogs/waterfilter.jpeg
-published: true
+published: false
 ---
 ### Why Water Purification is Crucial for Our Health and Environment
 
