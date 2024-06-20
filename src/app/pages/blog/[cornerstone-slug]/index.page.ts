@@ -77,7 +77,7 @@ export const routeMeta: RouteMeta = {
         }"
         (click)="toggleExpansion()"
       >
-        <p>Read more about {{ cornerstonePageFile.attributes.title }}:</p>
+        <p class="mr-3 mb-3 font-bold">Read more about {{ cornerstonePageFile.attributes.title }}</p>
         <ul class="flex flex-col gap-y-2">
           @for (supportingPageFile of supportingPageFiles; track
           supportingPageFile.slug) {
@@ -88,19 +88,21 @@ export const routeMeta: RouteMeta = {
               [alt]="supportingPageFile.attributes.title"
             />
 
-            <a
-              class="text-prep-green font-semibold"
-              [routerLink]="['./' + supportingPageFile.slug]"
-              >{{ supportingPageFile.attributes.title }}</a
-            >
+            <div class="max-w-[200px] whitespace-normal p-3 overflow-auto">
+              <a
+                class="text-prep-green font-semibold text-ellipsis	"
+                [routerLink]="['./' + supportingPageFile.slug]"
+                >{{ supportingPageFile.attributes.title }}</a
+              >
+            </div>
           </li>
           }
         </ul>
         <span class="chevron" [class.rotated]="expanded"></span>
       </div>
 
-      <div class="other-container">
-        <p>Read more about {{ cornerstonePageFile.attributes.title }}:</p>
+      <div class="other-container p-3 border-t-2 border-solid border-black">
+        <p class="mr-3 mb-3 font-bold">Read more about {{ cornerstonePageFile.attributes.title }}</p>
 
         <ul class="flex flex-col gap-y-2">
           @for (supportingPageFile of supportingPageFiles; track
@@ -111,12 +113,13 @@ export const routeMeta: RouteMeta = {
               [src]="supportingPageFile.attributes.thumbnailImageUrl"
               [alt]="supportingPageFile.attributes.title"
             />
-
-            <a
-              class="text-prep-green font-semibold"
-              [routerLink]="['./' + supportingPageFile.slug]"
-              >{{ supportingPageFile.attributes.title }}</a
-            >
+            <div class="max-w-[200px] whitespace-normal p-3 overflow-auto">
+              <a
+                class="text-prep-green font-semibold text-ellipsis	"
+                [routerLink]="['./' + supportingPageFile.slug]"
+                >{{ supportingPageFile.attributes.title }}</a
+              >
+            </div>
           </li>
           }
         </ul>
