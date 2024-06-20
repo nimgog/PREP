@@ -1,9 +1,9 @@
 ---
 title: "The Essential Pack: Must-Have Packing Tips..."
 description: "Whether you’re packing a bug out bag for emergencies or just preparing for a leisurely vacation, this ultimate guide provides the tips and strategies you need to create an essential pack."
-date: 2024-01-02
+date: 2024-06-20
 thumbnailImageUrl: /img/blogs/emergency-kit/essential-pack/essential-pack_cover.jpeg
-published: true
+published: false
 ---
 
 [IMAGE]{ "src": "/img/blogs/emergency-kit/essential-pack/essential-pack_cover.jpeg", "alt": "essential pack", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
