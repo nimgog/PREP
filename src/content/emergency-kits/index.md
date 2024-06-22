@@ -12,6 +12,8 @@ published: true
 
 Emergencies can strike at any time, leaving us scrambling for supplies. Whether it's a natural disaster, power outage, or medical emergency, being prepared is crucial for our safety and well-being. Emergency kits contain essential items like food, water, and medical supplies to help us survive during crises. In this guide, we’ll explore different types of emergency kits, their contents, and how to choose the right one. Let’s get started on ensuring we are prepared for any emergency.
 
+[PRODUCT]{ "title": "Check out our prepping kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your PREP Case on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
+
 ### Why You Need an Emergency Kit
 
 Disasters can strike without warning, leaving limited time to gather supplies. A well-stocked emergency kit ensures you have the essentials ready. It provides the necessities to sustain you until help arrives.
