@@ -24,7 +24,7 @@ import { BlogContentProduct } from 'src/app/models/blog.model';
         [href]="data().url"
         (click)="onClick($event)"
       >
-        <div class="flex w-full h-full">
+        <div class="flex justify-center items-center w-full h-full">
           @if(isExternalImage()){
           <img
             class="w-[100px] h-[100px]"
