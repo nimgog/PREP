@@ -39,43 +39,14 @@ export default class BlogContentComponent {
   );
 
   splitContent(content: string): BlogContentPart[] {
-    const imageRegex = /\[IMAGE\]\{.*?\}/gi;
-    const imagePlaceholderPrefix = '[IMAGE]';
-    const images: BlogContentImage[] = [];
-
-    const productRegex = /\[PRODUCT\]\{.*?\}/gi;
-    const productPlaceholderPrefix = '[PRODUCT]';
-    const products: BlogContentProduct[] = [];
-
-    const contentWithPlaceholders = content
-      .replace(imageRegex, (match) => {
-        const placeholder = `${imagePlaceholderPrefix}_${images.length}`;
-
-        const image = JSON.parse(
-          match.replace(imagePlaceholderPrefix, '')
-        ) as BlogContentImage;
-
-        images.push(image);
-
-        return placeholder;
-      })
-      .replace(productRegex, (match) => {
-        const placeholder = `${productPlaceholderPrefix}_${products.length}`;
-
-        const product = JSON.parse(
-          match.replace(productPlaceholderPrefix, '')
-        ) as BlogContentProduct;
-
-        products.push(product);
-
-        return placeholder;
-      });
-
     const parts: BlogContentPart[] = [];
-    let remainingContent = contentWithPlaceholders;
+    let remainingContent = content;
 
-    images.forEach((image, index) => {
-      const placeholder = `${imagePlaceholderPrefix}_${index}`;
+    const combinedRegex = /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}/gi;
+    let match;
+
+    while ((match = combinedRegex.exec(content)) !== null) {
+      const placeholder = match[0];
       const splitIndex = remainingContent.indexOf(placeholder);
 
       if (splitIndex > -1) {
@@ -86,50 +57,42 @@ export default class BlogContentComponent {
           });
         }
 
-        parts.push({
-          type: 'image',
-          src: image.src,
-          alt: image.alt,
-          srcset: image.srcset || '',
-          width: image.width,
-          height: image.height,
-          fill: image.fill || false,
-          priority: image.priority || false,
-        });
+        if (placeholder.startsWith('[IMAGE]')) {
+          const image = JSON.parse(
+            placeholder.replace('[IMAGE]', '')
+          ) as BlogContentImage;
 
-        remainingContent = remainingContent.substring(
-          splitIndex + placeholder.length
-        );
-      }
-    });
-
-    products.forEach((product, index) => {
-      const placeholder = `${productPlaceholderPrefix}_${index}`;
-      const splitIndex = remainingContent.indexOf(placeholder);
-
-      if (splitIndex > -1) {
-        if (splitIndex > 0) {
           parts.push({
-            type: 'markdown',
-            text: remainingContent.substring(0, splitIndex),
+            type: 'image',
+            src: image.src,
+            alt: image.alt,
+            srcset: image.srcset || '',
+            width: image.width,
+            height: image.height,
+            fill: image.fill || false,
+            priority: image.priority || false,
+          });
+        } else if (placeholder.startsWith('[PRODUCT]')) {
+          const product = JSON.parse(
+            placeholder.replace('[PRODUCT]', '')
+          ) as BlogContentProduct;
+
+          parts.push({
+            type: 'product',
+            title: product.title,
+            description: product.description,
+            url: product.url,
+            imageUrl: product.imageUrl,
+            imageAlt: product.imageAlt,
+            imagePriority: product.imagePriority || false,
           });
         }
 
-        parts.push({
-          type: 'product',
-          title: product.title,
-          description: product.description,
-          url: product.url,
-          imageUrl: product.imageUrl,
-          imageAlt: product.imageAlt,
-          imagePriority: product.imagePriority || false,
-        });
-
         remainingContent = remainingContent.substring(
           splitIndex + placeholder.length
         );
       }
-    });
+    }
 
     if (remainingContent.length > 0) {
       parts.push({ type: 'markdown', text: remainingContent });
