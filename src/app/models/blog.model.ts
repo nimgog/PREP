@@ -28,4 +28,17 @@ export type BlogContentMarkdown = {
   text: string;
 };
 
-export type BlogContentPart = BlogContentImage | BlogContentMarkdown;
+export type BlogContentProduct = {
+  type: 'product';
+  title: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  imageAlt: string;
+  imagePriority: boolean;
+};
+
+export type BlogContentPart =
+  | BlogContentImage
+  | BlogContentMarkdown
+  | BlogContentProduct;

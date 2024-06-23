@@ -20,6 +20,8 @@ First responders and healthcare professionals may not be readily available durin
 
 No one is immune to disaster. By having an emergency kit, you show you value your household’s well-being and are taking proactive steps to protect them.
 
+[PRODUCT]{ "title": "Check out our prepping kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your PREP Case on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
+
 ### Assessing Your Needs
 
 Before assembling your emergency kit, it’s crucial to assess the specific needs of your household. Each family is unique, and your kit should reflect this. Start by considering the size and composition of your household. Think about the number of people and their ages—children, adults, and elderly family members may have different requirements. Additionally, account for any disabilities or special needs, which could include medical equipment, mobility aids, or other specific supplies.

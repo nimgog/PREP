@@ -61,25 +61,6 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
         <hr />
       </div>
 
-      <div
-        class="flex max-w-md p-4 bg-white border border-gray-300 rounded-lg shadow-md flex-row cursor-pointer" routerLink="/survival-kit"
-      >
-        <div class="flex w-full h-full">
-          <img
-            class="w-[100px] h-[100px]"
-            src="img/product-page/PREPC-open__top.png"
-            alt="survival kit"
-          />
-        </div>
-        <div class="flex flex-col ml-3">
-          <h2 class="text-lg font-semibold">Check out our prepping kit</h2>
-          <p class="mt-2 text-gray-700">
-            Whether it's a natural disaster, a power outage, or an unexpected
-            emergency, having your PREP Case on hand can make all the difference
-          </p>
-        </div>
-      </div>
-
       @if(contentText()) {
       <app-blog-content [contentText]="contentText()!" />
       } @if (relatedSupportingPageFiles.length) {
