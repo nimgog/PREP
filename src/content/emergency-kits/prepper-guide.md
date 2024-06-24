@@ -75,7 +75,7 @@ Scandinavian countries recommend households maintain a substantial emergency sup
 
 **Scandinavian Insights:** The Swedish Civil Contingencies Agency's 2018 brochure "If Crisis or War Comes" provides practical examples such as stocking oat milk, tinned food, and bottled water. This reflects the emphasis on preparedness in Sweden [[1]](https://theweek.com/93765/what-s-inside-sweden-s-prepare-for-war-survival-manual) [[2]](https://dc.gov/page/emergency-preparedness).
 
-[IMAGE]{ "src": "/img/blogs/emergency-kit/prepper-guide/prepper-guide-orientation.jpg", "alt": "prepper guide food", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+[IMAGE]{ "src": "/img/blogs/emergency-kit/prepper-guide/prepper-guide-orientation.jpg", "alt": "prepper guide orientation", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 
 ### Basic Survival Skills
 
