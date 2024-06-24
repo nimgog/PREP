@@ -1,9 +1,9 @@
 ---
 title: "The Essential Pack: Must-Have Packing Tips..."
 description: "Whether you’re packing a bug out bag for emergencies or just preparing for a leisurely vacation, this ultimate guide provides the tips and strategies you need to create an essential pack."
-date: 2024-06-20
+date: 2024-06-24
 thumbnailImageUrl: /img/blogs/emergency-kit/essential-pack/essential-pack_cover.jpeg
-published: false
+published: true
 ---
 
 [IMAGE]{ "src": "/img/blogs/emergency-kit/essential-pack/essential-pack_cover.jpeg", "alt": "essential pack", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
@@ -14,7 +14,7 @@ Picture this: It’s just hours before your much-awaited trip, and your suitcase
 
 But what if you could eliminate that stress with a well-organized, essential pack? Whether you’re packing a bug out bag for emergencies or just preparing for a leisurely vacation, this ultimate guide provides the tips and strategies you need to create an essential pack. Ensure a worry-free start to your journey, regardless of the destination or duration.
 
-[IMAGE]{ "src": "/img/blogs/emergency-kit/essential-pack/essential_pack_preparation.webp", "alt": "Preparation for Your Essential Pack", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": false }
+[PRODUCT]{ "title": "Check out our prepping kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your PREP Case on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
 ## Preparation for Your Essential Pack
 
 ### Tip 1: Start with a Packing List
@@ -52,7 +52,7 @@ Minimalist packing reduces strain and leaves room for items you may pick up duri
 
 Packing cubes are game-changers for your essential pack. They help categorize and compartmentalize your clothing, making it easier to find items and maximize suitcase space.
 
-[IMAGE]{ "src": "/img/blogs/emergency-kit/essential-pack/essential_pack_travel_essentials.webp", "alt": "Travel Essentials for Your Essential Pack", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": false }
+[PRODUCT]{ "title": "TravelWise Luggage Packing Organization Cubes 5 Pack", "description": "PACKING MADE EASY – This 5 piece travel organizer set (1 small, 2 medium and 2 large packing cubes) compartmentalizes...", "url": "https://amzn.to/3XAqZ9F", "imageUrl": "https://m.media-amazon.com/images/I/810ilrLuB-L._AC_SL1500_.jpg", "imageAlt": "luggage packing organization cubes", "imagePriority": false }
 ## Travel Essentials for Your Essential Pack
 
 ### Tip 9: Toiletries and Personal Items
@@ -82,7 +82,6 @@ Compression bags can drastically reduce the space taken by bulky clothing, like 
 
 A small laundry bag helps separate dirty clothes from clean ones, simplifying laundry management during and after your trip. Reusable, eco-friendly options are recommended.
 
-[IMAGE]{ "src": "/img/blogs/emergency-kit/essential-pack/essential_pack_final_checks.webp", "alt": "Final Checks and Additional Resources", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": false }
 ## Final Checks and Additional Resources
 
 ### Tip 15: Double-Check Your Essential Pack
