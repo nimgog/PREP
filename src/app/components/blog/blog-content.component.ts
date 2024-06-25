@@ -1,13 +1,15 @@
 import { MarkdownComponent } from '@analogjs/content';
-import { NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import {
   BlogContentImage,
+  BlogContentOptimonkEmbedd,
   BlogContentPart,
   BlogContentProduct,
 } from 'src/app/models/blog.model';
 import BlogImageComponent from './blog-image.component';
 import BlogProductCardComponent from './blog-product-card.component';
+import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-prepper-checklist.component';
 
 @Component({
   selector: 'app-blog-content',
@@ -17,18 +19,24 @@ import BlogProductCardComponent from './blog-product-card.component';
     NgOptimizedImage,
     BlogImageComponent,
     BlogProductCardComponent,
+    CommonModule,
+    BlogOptimonkPrepperChecklistComponent,
   ],
   template: `
-    <div>
-      @for (contentPart of contentParts(); track contentPart) { @if
-      (contentPart.type === 'image') {
-      <app-blog-image [data]="contentPart"></app-blog-image>
-      } @else if (contentPart.type === 'markdown' && !!contentPart.text) {
-      <analog-markdown [content]="contentPart.text"></analog-markdown>
-      } @else if (contentPart.type === 'product') {
-      <app-blog-product-card [data]="contentPart"></app-blog-product-card>
-      } }
-    </div>
+   <ng-container *ngFor="let contentPart of contentParts(); track: contentParts">
+  <ng-container *ngIf="contentPart.type === 'image'">
+    <app-blog-image [data]="contentPart"></app-blog-image>
+  </ng-container>
+  <ng-container *ngIf="contentPart.type === 'markdown' && !!contentPart.text">
+    <analog-markdown [content]="contentPart.text"></analog-markdown>
+  </ng-container>
+  <ng-container *ngIf="contentPart.type === 'product'">
+    <app-blog-product-card [data]="contentPart"></app-blog-product-card>
+  </ng-container>
+  <ng-container *ngIf="contentPart.type === 'embed'">
+    <app-blog-optimonk-prepper-checklist></app-blog-optimonk-prepper-checklist>
+  </ng-container>
+</ng-container>
   `,
 })
 export default class BlogContentComponent {
@@ -42,7 +50,7 @@ export default class BlogContentComponent {
     const parts: BlogContentPart[] = [];
     let remainingContent = content;
 
-    const combinedRegex = /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}/gi;
+    const combinedRegex = /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}|\[EMBED\]\{.*?\}/gi;
     let match;
 
     while ((match = combinedRegex.exec(content)) !== null) {
@@ -85,6 +93,14 @@ export default class BlogContentComponent {
             imageUrl: product.imageUrl,
             imageAlt: product.imageAlt,
             imagePriority: product.imagePriority || false,
+          });
+        } else if (placeholder.startsWith('[EMBED]')) {
+          const embed = JSON.parse(
+            placeholder.replace('[EMBED]', '')
+          ) as BlogContentOptimonkEmbedd;
+
+          parts.push({
+            type: 'embed',
           });
         }
 
