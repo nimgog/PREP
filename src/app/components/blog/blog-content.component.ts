@@ -1,5 +1,5 @@
 import { MarkdownComponent } from '@analogjs/content';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import {
   BlogContentImage,
@@ -19,24 +19,21 @@ import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-preppe
     NgOptimizedImage,
     BlogImageComponent,
     BlogProductCardComponent,
-    CommonModule,
     BlogOptimonkPrepperChecklistComponent,
   ],
   template: `
-   <ng-container *ngFor="let contentPart of contentParts(); track: contentParts">
-  <ng-container *ngIf="contentPart.type === 'image'">
-    <app-blog-image [data]="contentPart"></app-blog-image>
-  </ng-container>
-  <ng-container *ngIf="contentPart.type === 'markdown' && !!contentPart.text">
-    <analog-markdown [content]="contentPart.text"></analog-markdown>
-  </ng-container>
-  <ng-container *ngIf="contentPart.type === 'product'">
-    <app-blog-product-card [data]="contentPart"></app-blog-product-card>
-  </ng-container>
-  <ng-container *ngIf="contentPart.type === 'embed'">
-    <app-blog-optimonk-prepper-checklist></app-blog-optimonk-prepper-checklist>
-  </ng-container>
-</ng-container>
+    <div>
+      @for (contentPart of contentParts(); track contentPart) { @if
+      (contentPart.type === 'image') {
+      <app-blog-image [data]="contentPart"></app-blog-image>
+      } @else if (contentPart.type === 'markdown' && !!contentPart.text) {
+      <analog-markdown [content]="contentPart.text"></analog-markdown>
+      } @else if (contentPart.type === 'product') {
+      <app-blog-product-card [data]="contentPart"></app-blog-product-card>
+      } @else if (contentPart.type === 'embed') {
+      <app-blog-optimonk-prepper-checklist></app-blog-optimonk-prepper-checklist>
+      } }
+    </div>
   `,
 })
 export default class BlogContentComponent {
@@ -50,7 +47,8 @@ export default class BlogContentComponent {
     const parts: BlogContentPart[] = [];
     let remainingContent = content;
 
-    const combinedRegex = /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}|\[EMBED\]\{.*?\}/gi;
+    const combinedRegex =
+      /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}|\[EMBED\]\{.*?\}/gi;
     let match;
 
     while ((match = combinedRegex.exec(content)) !== null) {
