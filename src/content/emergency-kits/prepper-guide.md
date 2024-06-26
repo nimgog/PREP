@@ -8,8 +8,6 @@ published: true
 
 [IMAGE]{ "src": "/img/blogs/emergency-kit/prepper-guide/prepper-guide-food.jpg", "alt": "prepper guide food", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 
-[EMBED]{}
-
 # Ultimate Prepper Guide: From Assumptions to Actions
 
 ## Navigating the Unpredictable
