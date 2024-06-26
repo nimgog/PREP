@@ -38,7 +38,12 @@ export type BlogContentProduct = {
   imagePriority: boolean;
 };
 
+export type BlogContentOptimonkEmbedd = {
+  type: 'embed'
+}
+
 export type BlogContentPart =
   | BlogContentImage
   | BlogContentMarkdown
-  | BlogContentProduct;
+  | BlogContentProduct
+  | BlogContentOptimonkEmbedd;
