@@ -6,7 +6,7 @@ thumbnailImageUrl: /img/blogs/emergency-kit/prepper-checklist/prepper-checklist-
 published: true
 ---
 
-[IMAGE]{ "src": "/img/blogs/emergency-kit/prepper-checklist/prepper-checklist-pdf-header.jpg", "alt": "prepper checklist pdf", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+[IMAGE]{ "src": "/img/blogs/emergency-kit/prepper-checklist/prepper-checklist-pdf-header.jpeg", "alt": "prepper checklist pdf", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 
 # Prepper Checklist PDF: Be Prepared for Anything
 
