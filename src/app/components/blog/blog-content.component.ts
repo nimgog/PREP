@@ -31,7 +31,7 @@ import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-preppe
       } @else if (contentPart.type === 'product') {
       <app-blog-product-card [data]="contentPart"></app-blog-product-card>
       } @else if (contentPart.type === 'embed') {
-      <app-blog-optimonk-prepper-checklist></app-blog-optimonk-prepper-checklist>
+      <app-blog-optimonk-prepper-checklist [data]="contentPart"></app-blog-optimonk-prepper-checklist>
       } }
     </div>
   `,
@@ -99,6 +99,7 @@ export default class BlogContentComponent {
 
           parts.push({
             type: 'embed',
+            id: embed.id
           });
         }
 

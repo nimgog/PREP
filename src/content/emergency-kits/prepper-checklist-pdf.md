@@ -1,7 +1,7 @@
 ---
 title: "Prepper Checklist PDF"
 description: "Is it Prepper Checklist or is it Preppers Checklist? I'm no authority on spelling but in today’s unpredictable world, being prepared for emergencies is more important than ever."
-date: 2024-06-24
+date: 2024-06-26
 thumbnailImageUrl: /img/blogs/emergency-kit/prepper-checklist/prepper-checklist-pdf-thumbnail.png
 published: true
 ---
@@ -33,4 +33,4 @@ Don’t wait until it’s too late. Get your free prepper checklist PDF today an
 By signing up, you’ll also receive updates and tips on emergency preparedness, so you can stay informed and ready for any situation.
 
 ## Sign Up Now to Get Your Prepper Checklist PDF!
-[EMBED]{}
+[EMBED]{"id": "3"}
