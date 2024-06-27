@@ -1,7 +1,7 @@
 ---
 title: "The Essential Pack: Must-Have Packing Tips..."
 description: "Whether you’re packing a bug out bag for emergencies or just preparing for a leisurely vacation, this ultimate guide provides the tips and strategies you need to create an essential pack."
-date: 2024-06-24
+date: 2024-06-27
 thumbnailImageUrl: /img/blogs/emergency-kit/essential-pack/essential-pack_cover.jpeg
 published: true
 ---
@@ -52,7 +52,7 @@ Minimalist packing reduces strain and leaves room for items you may pick up duri
 
 Packing cubes are game-changers for your essential pack. They help categorize and compartmentalize your clothing, making it easier to find items and maximize suitcase space.
 
-[PRODUCT]{ "title": "TravelWise Luggage Packing Organization Cubes 5 Pack", "description": "PACKING MADE EASY – This 5 piece travel organizer set (1 small, 2 medium and 2 large packing cubes) compartmentalizes...", "url": "https://amzn.to/3XAqZ9F", "imageUrl": "https://m.media-amazon.com/images/I/810ilrLuB-L._AC_SL1500_.jpg", "imageAlt": "luggage packing organization cubes", "imagePriority": false }
+[PRODUCT]{ "title": "TravelWise Packing Cube System - Durable 3 Piece", "description": "PACKING MADE EASY – This 3 piece travel organizer set (1 small, 1 medium and 1 large packing cubes)", "url": "https://amzn.to/45Jnjoa", "imageUrl": "https://m.media-amazon.com/images/I/81Lgq9oSgnL._AC_SL1500_.jpg", "imageAlt": "luggage packing organization cubes", "imagePriority": false }
 ## Travel Essentials for Your Essential Pack
 
 ### Tip 9: Toiletries and Personal Items
