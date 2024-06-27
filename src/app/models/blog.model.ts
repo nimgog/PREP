@@ -40,6 +40,7 @@ export type BlogContentProduct = {
 
 export type BlogContentOptimonkEmbedd = {
   type: 'embed'
+  id: string;
 }
 
 export type BlogContentPart =
