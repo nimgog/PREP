@@ -3,7 +3,7 @@ title: "Get Home Bag Checklist"
 description: "Having a well-prepared Get Home Bag is crucial for ensuring your safety in emergencies."
 date: 2024-06-27
 thumbnailImageUrl: /img/blogs/emergency-kit/get home bag/get-home-bag-header.png
-published: false
+published: true
 ---
 
 [IMAGE]{ "src": "/img/blogs/emergency-kit/get home bag/get-home-bag-header.png", "alt": "prepper checklist pdf", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
