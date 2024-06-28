@@ -3,7 +3,7 @@ title: "Your Ultimate Guide to free survival stuff"
 description: "Imagine a world where survival stuff just falls from the sky into your lap, free of charge, like manna from heaven."
 date: 2024-06-28
 thumbnailImageUrl: /img/blogs/emergency-kit/free-survival-stuff/free-survival-stuff.png
-published: false
+published: true
 ---
 [IMAGE]{ "src": "/img/blogs/emergency-kit/free-survival-stuff/free-survival-stuff.png", "alt": "free survival stuff", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": false }
 
