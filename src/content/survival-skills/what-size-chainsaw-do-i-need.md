@@ -1,7 +1,7 @@
 ---
 title: "What size chainsaw do I need?"
-description: "Is it Prepper Checklist or is it Preppers Checklist? I'm no authority on spelling but in today’s unpredictable world, being prepared for emergencies is more important than ever."
-date: 2024-06-26
+description: "Choosing the right chainsaw size is crucial for efficiently and safely tackling your outdoor projects"
+date: 2024-06-28
 thumbnailImageUrl: /img/blogs/survival-skills/what-size-chainsaw-do-i-need/what-size-chainsaw-do-i-need.jpeg
 published: true
 ---
