@@ -30,7 +30,11 @@ export default defineConfig(({ mode }) => ({
       static: true,
       prerender: {
         routes: async () => {
-          const contentFileRoutes = await getPublishedContentFileRoutes();
+          const contentFiles = await getPublishedContentFiles();
+
+          const pageCount = Math.ceil(
+            contentFiles.length / environment.blogArticleListPageSize
+          );
 
           return [
             '/',
@@ -38,7 +42,9 @@ export default defineConfig(({ mode }) => ({
             '/survival-cheat-sheet',
             '/about-us',
             '/blog',
-            ...contentFileRoutes,
+            ...contentFiles.map((file) => file.route),
+            '/blog/pages',
+            ...[...Array(pageCount).keys()].map((i) => `/blog/pages/${i + 1}`),
             '/not-found',
           ];
         },
@@ -68,7 +74,7 @@ export default defineConfig(({ mode }) => ({
   },
 }));
 
-async function getPublishedContentFileRoutes() {
+async function getPublishedContentFiles() {
   const contentFilePaths = await fs.readdir('./src/content', {
     recursive: true,
   });
@@ -80,17 +86,20 @@ async function getPublishedContentFileRoutes() {
       const fileContent = await fs.readFile(fullPath, 'utf-8');
       const pageAttributes = fm<PageAttributes>(fileContent).attributes;
 
-      return { filePath, isPublished: pageAttributes.published };
+      return {
+        filePath,
+        attributes: pageAttributes,
+      };
     });
 
   const publishedCheckResults = await Promise.all(publishedCheckPromises);
 
-  const contentFileRoutes = publishedCheckResults
-    .filter(({ isPublished }) => isPublished)
-    .map(
-      ({ filePath }) =>
-        '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
-    );
+  const contentFiles = publishedCheckResults
+    .filter(({ attributes }) => attributes.published)
+    .map(({ filePath, attributes }) => ({
+      route: '/blog/' + filePath.replace('/index.md', '').replace('.md', ''),
+      attributes,
+    }));
 
-  return contentFileRoutes;
+  return contentFiles;
 }

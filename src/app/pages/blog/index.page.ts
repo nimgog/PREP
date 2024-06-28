@@ -27,6 +27,7 @@ export const routeMeta: RouteMeta = {
   template: `
     <div class="blog-container pt-[100px] pb-5">
       <h1 class="title">Becoming Prepared</h1>
+
       <p class="summary">
         Welcome to Becoming Prepared - our ultimate resource for all things
         preparedness. Whether you're just starting out or looking to enhance
@@ -39,6 +40,7 @@ export const routeMeta: RouteMeta = {
         and well-being, no matter what challenges may come your way. Stay
         prepared, stay safe, with Prepp.me
       </p>
+
       <div class="cards-container">
         <div
           *ngFor="let page of cornerstonePageFiles; index as i"
@@ -55,13 +57,26 @@ export const routeMeta: RouteMeta = {
               fill
             />
           </div>
+
           <div class="content">
             <a [routerLink]="['/blog/' + page.slug]" class="page-title">{{
               page.attributes.title
             }}</a>
+
             <p class="page-description">{{ page.attributes.description }}</p>
           </div>
         </div>
+      </div>
+
+      <div class="flex justify-center my-10">
+        <a
+          routerLink="/blog/pages/1"
+          role="button"
+          aria-label="See all articles"
+          class="px-4 py-2 border-2 border-black rounded-[10px] bg-[#f5f5f5] text-black"
+        >
+          See All Articles
+        </a>
       </div>
     </div>
   `,
