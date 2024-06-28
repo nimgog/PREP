@@ -20,7 +20,7 @@ First responders and healthcare professionals may not be readily available durin
 
 No one is immune to disaster. By having an emergency kit, you show you value your household’s well-being and are taking proactive steps to protect them.
 
-[PRODUCT]{ "title": "Check out our prepping kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your PREP Case on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
+[PRODUCT]{ "title": "Check out your prepping kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your PREP Case on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
 
 ### Assessing Your Needs
 
