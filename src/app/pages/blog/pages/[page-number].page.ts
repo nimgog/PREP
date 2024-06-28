@@ -40,7 +40,8 @@ export const routeMeta: RouteMeta = {
       <h1>Blog</h1>
 
       <ol class="flex flex-col gap-y-8 py-8">
-        @for (pageFile of pageFiles$ | async; track pageFile.filename) {
+        @for (pageFile of pageFiles$ | async; track pageFile.filename; let index
+        = $index) {
         <li>
           <article class="flex flex-col sm:flex-row items-center gap-x-4">
             <div
@@ -51,7 +52,7 @@ export const routeMeta: RouteMeta = {
                 [ngSrc]="pageFile.attributes.thumbnailImageUrl"
                 [alt]="pageFile.attributes.title"
                 sizes="(max-width: 639px) 100vw, (max-width: 767px) 30vw, 20vw"
-                [priority]="true"
+                [priority]="index === 0"
                 fill
               />
             </div>
