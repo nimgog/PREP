@@ -286,17 +286,6 @@ export const routeMeta: RouteMeta = {
                 <span class="sr-only">Loading...</span>
               </div>
             </div>
-            <!-- <h2 class="font-bold mt-3">Whats included:</h2>
-            <div class="scrollable-row">
-              <div *ngFor="let item of itemsWithImages" class="item">
-                <img
-                  src="img/product-page/items/{{ item.file }}"
-                  [alt]="item.name"
-                  height="96"
-                />
-                <p>{{ item.name }}</p>
-              </div>
-            </div> -->
             <div class="tldr-container ml-0">
               <h2 class="tldr-title font-bold">Summary</h2>
               <ul class="tldr-list">

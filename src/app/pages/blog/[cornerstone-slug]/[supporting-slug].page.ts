@@ -4,7 +4,7 @@ import {
   injectContentFiles,
 } from '@analogjs/content';
 import { RouteMeta } from '@analogjs/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   Injector,
@@ -35,7 +35,7 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
 @Component({
   selector: 'app-supporting-page',
   standalone: true,
-  imports: [RouterLink, DatePipe, BlogContentComponent],
+  imports: [RouterLink, DatePipe, BlogContentComponent, NgOptimizedImage],
   template: `
     <div class="flex flex-col items-center gap-y-4 w-full h-full pt-32">
       @if (cornerstonePageFile && supportingPageFile) {
@@ -71,9 +71,11 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
         relatedPageFile.slug) {
         <li class="flex items-center">
           <img
-            class="w-40 h-20 object-cover"
-            [src]="relatedPageFile.attributes.thumbnailImageUrl"
+            class="w-40 h-20 object-cover object-center"
+            [ngSrc]="relatedPageFile.attributes.thumbnailImageUrl"
             [alt]="relatedPageFile.attributes.title"
+            width="160"
+            height="80"
           />
 
           <a
