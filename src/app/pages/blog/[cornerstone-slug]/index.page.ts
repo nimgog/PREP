@@ -33,6 +33,8 @@ export const routeMeta: RouteMeta = {
   meta: metaResolver,
 };
 
+const MAX_READ_MORE_PAGES = 4;
+
 // TODO: Style this component
 @Component({
   selector: 'app-cornerstone-page',
@@ -67,7 +69,7 @@ export const routeMeta: RouteMeta = {
 
       @if (contentText()) {
       <app-blog-content [contentText]="contentText()!" />
-      } @if (supportingPageFiles.length) {
+      } @if (readMoreSupportingPageFiles.length) {
       <div
         class="more-articles"
         [ngClass]="{
@@ -77,9 +79,11 @@ export const routeMeta: RouteMeta = {
         }"
         (click)="toggleExpansion()"
       >
-        <p class="mr-3 mb-3 font-bold">Read more about {{ cornerstonePageFile.attributes.title }}</p>
+        <p class="mr-3 mb-3 font-bold">
+          Read more about {{ cornerstonePageFile.attributes.title }}
+        </p>
         <ul class="flex flex-col gap-y-2">
-          @for (supportingPageFile of supportingPageFiles; track
+          @for (supportingPageFile of readMoreSupportingPageFiles; track
           supportingPageFile.slug) {
           <li class="flex items-center">
             <img
@@ -102,10 +106,12 @@ export const routeMeta: RouteMeta = {
       </div>
 
       <div class="other-container p-3 border-t-2 border-solid border-black">
-        <p class="mr-3 mb-3 font-bold">Read more about {{ cornerstonePageFile.attributes.title }}</p>
+        <p class="mr-3 mb-3 font-bold">
+          Read more about {{ cornerstonePageFile.attributes.title }}
+        </p>
 
         <ul class="flex flex-col gap-y-2">
-          @for (supportingPageFile of supportingPageFiles; track
+          @for (supportingPageFile of readMoreSupportingPageFiles; track
           supportingPageFile.slug) {
           <li class="flex items-center">
             <img
@@ -340,7 +346,7 @@ export default class CornerstonePageComponent
   private cornerstonePageSlugSub?: Subscription;
 
   cornerstonePageFile?: ContentFile<CornerstonePageAttributes>;
-  supportingPageFiles: ContentFile<SupportingPageAttributes>[] = [];
+  readMoreSupportingPageFiles: ContentFile<SupportingPageAttributes>[] = [];
 
   ngOnInit(): void {
     this.cornerstonePageSlugSub = this.cornerstonePageSlug$.subscribe(
@@ -381,9 +387,12 @@ export default class CornerstonePageComponent
             )
         );
 
-        this.supportingPageFiles = allPageFiles.filter(
+        const allSupportingPageFiles = allPageFiles.filter(
           (pageFile) => pageFile.filename !== cornerstonePageFile.filename
         ) as ContentFile<SupportingPageAttributes>[];
+
+        this.readMoreSupportingPageFiles =
+          this.selectRandomReadMoreSupportingPageFiles(allSupportingPageFiles);
       }
     );
   }
@@ -404,5 +413,26 @@ export default class CornerstonePageComponent
       window.removeEventListener('resize', this.onResize.bind(this));
       window.removeEventListener('scroll', this.onScroll.bind(this));
     }
+  }
+
+  private selectRandomReadMoreSupportingPageFiles(
+    allSupportingPageFiles: ContentFile<SupportingPageAttributes>[]
+  ) {
+    if (allSupportingPageFiles.length <= MAX_READ_MORE_PAGES) {
+      return allSupportingPageFiles;
+    }
+
+    let shuffledPageFiles = [...allSupportingPageFiles];
+
+    for (let i = shuffledPageFiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+
+      [shuffledPageFiles[i], shuffledPageFiles[j]] = [
+        shuffledPageFiles[j],
+        shuffledPageFiles[i],
+      ];
+    }
+
+    return shuffledPageFiles.slice(0, MAX_READ_MORE_PAGES);
   }
 }
