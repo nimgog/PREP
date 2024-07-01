@@ -35,6 +35,7 @@ export default defineConfig(({ mode }) => ({
           return [
             '/',
             '/survival-kit/',
+            '/survival-cheat-sheet/',
             '/about-us/',
             '/blog/',
             ...contentFileRoutes,
