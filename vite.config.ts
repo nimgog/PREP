@@ -42,8 +42,8 @@ export default defineConfig(({ mode }) => ({
             '/about-us/',
             '/blog/',
             ...contentFiles.map((file) => file.route),
-            '/blog/pages',
-            ...[...Array(pageCount).keys()].map((i) => `/blog/pages/${i + 1}`),
+            '/blog/pages/',
+            ...[...Array(pageCount).keys()].map((i) => `/blog/pages/${i + 1}/`),
           ];
         },
         sitemap: {
