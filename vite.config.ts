@@ -39,6 +39,7 @@ export default defineConfig(({ mode }) => ({
             '/about-us/',
             '/blog/',
             ...contentFileRoutes,
+            '/not-found/',
           ];
         },
         sitemap: {
