@@ -81,10 +81,7 @@ async function getPublishedContentFileRoutes() {
   const publishedCheckResults = await Promise.all(publishedCheckPromises);
 
   const contentFileRoutes = publishedCheckResults
-    .filter(
-      ({ filePath, isPublished }) =>
-        filePath.includes('emergency-kits') && isPublished
-    )
+    .filter(({ isPublished }) => isPublished)
     .map(
       ({ filePath }) =>
         '/blog/' + filePath.replace('/index.md', '').replace('.md', '') + '/'
