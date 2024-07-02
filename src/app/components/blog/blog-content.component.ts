@@ -131,7 +131,6 @@ export default class BlogContentComponent {
     try {
       return JSON.parse(decodedElement) as T;
     } catch (error) {
-      console.log(placeholder);
       console.log(decodedElement);
       throw Error('Something went wrong');
     }
