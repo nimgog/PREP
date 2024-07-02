@@ -31,7 +31,9 @@ import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-preppe
       } @else if (contentPart.type === 'product') {
       <app-blog-product-card [data]="contentPart"></app-blog-product-card>
       } @else if (contentPart.type === 'embed') {
-      <app-blog-optimonk-prepper-checklist [data]="contentPart"></app-blog-optimonk-prepper-checklist>
+      <app-blog-optimonk-prepper-checklist
+        [data]="contentPart"
+      ></app-blog-optimonk-prepper-checklist>
       } }
     </div>
   `,
@@ -65,7 +67,7 @@ export default class BlogContentComponent {
 
         if (placeholder.startsWith('[IMAGE]')) {
           const image = JSON.parse(
-            placeholder.replace('[IMAGE]', '')
+            placeholder.replace('[IMAGE]', '').replaceAll('&quot;', '"')
           ) as BlogContentImage;
 
           parts.push({
@@ -80,7 +82,7 @@ export default class BlogContentComponent {
           });
         } else if (placeholder.startsWith('[PRODUCT]')) {
           const product = JSON.parse(
-            placeholder.replace('[PRODUCT]', '')
+            placeholder.replace('[PRODUCT]', '').replaceAll('&quot;', '"')
           ) as BlogContentProduct;
 
           parts.push({
@@ -94,12 +96,12 @@ export default class BlogContentComponent {
           });
         } else if (placeholder.startsWith('[EMBED]')) {
           const embed = JSON.parse(
-            placeholder.replace('[EMBED]', '')
+            placeholder.replace('[EMBED]', '').replaceAll('&quot;', '"')
           ) as BlogContentOptimonkEmbedd;
 
           parts.push({
             type: 'embed',
-            id: embed.id
+            id: embed.id,
           });
         }
 
