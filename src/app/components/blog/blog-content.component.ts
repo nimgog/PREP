@@ -128,6 +128,11 @@ export default class BlogContentComponent {
     elementPrefix: string
   ): T {
     const decodedElement = decode(placeholder.replace(elementPrefix, ''));
-    return JSON.parse(decodedElement) as T;
+    try {
+      return JSON.parse(decodedElement) as T;
+    } catch (error) {
+      console.log(decodedElement);
+      throw Error('Something went wrong');
+    }
   }
 }
