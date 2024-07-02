@@ -1,5 +1,5 @@
 ---
-title: "what birds like safflower seed?"
+title: "What birds like safflower seed?"
 description: "Safflower seeds attract a wonderful array of delightful bird species and have the added advantage of being unappealing to squirrels and bully birds"
 date: 2024-07-01
 thumbnailImageUrl: /img/blogs/survival-skills/what-birds-like-safflower-seed/safflower-seeds.jpeg
