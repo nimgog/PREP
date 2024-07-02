@@ -1,6 +1,7 @@
 import { MarkdownComponent } from '@analogjs/content';
 import { NgOptimizedImage } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
+import { decode } from 'html-entities';
 import {
   BlogContentImage,
   BlogContentOptimonkEmbedd,
@@ -31,7 +32,9 @@ import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-preppe
       } @else if (contentPart.type === 'product') {
       <app-blog-product-card [data]="contentPart"></app-blog-product-card>
       } @else if (contentPart.type === 'embed') {
-      <app-blog-optimonk-prepper-checklist [data]="contentPart"></app-blog-optimonk-prepper-checklist>
+      <app-blog-optimonk-prepper-checklist
+        [data]="contentPart"
+      ></app-blog-optimonk-prepper-checklist>
       } }
     </div>
   `,
@@ -43,7 +46,7 @@ export default class BlogContentComponent {
     this.splitContent(this.contentText())
   );
 
-  splitContent(content: string): BlogContentPart[] {
+  private splitContent(content: string): BlogContentPart[] {
     const parts: BlogContentPart[] = [];
     let remainingContent = content;
 
@@ -64,9 +67,10 @@ export default class BlogContentComponent {
         }
 
         if (placeholder.startsWith('[IMAGE]')) {
-          const image = JSON.parse(
-            placeholder.replace('[IMAGE]', '')
-          ) as BlogContentImage;
+          const image = this.parseCustomMarkdownElement<BlogContentImage>(
+            placeholder,
+            '[IMAGE]'
+          );
 
           parts.push({
             type: 'image',
@@ -79,9 +83,10 @@ export default class BlogContentComponent {
             priority: image.priority || false,
           });
         } else if (placeholder.startsWith('[PRODUCT]')) {
-          const product = JSON.parse(
-            placeholder.replace('[PRODUCT]', '')
-          ) as BlogContentProduct;
+          const product = this.parseCustomMarkdownElement<BlogContentProduct>(
+            placeholder,
+            '[PRODUCT]'
+          );
 
           parts.push({
             type: 'product',
@@ -93,13 +98,15 @@ export default class BlogContentComponent {
             imagePriority: product.imagePriority || false,
           });
         } else if (placeholder.startsWith('[EMBED]')) {
-          const embed = JSON.parse(
-            placeholder.replace('[EMBED]', '')
-          ) as BlogContentOptimonkEmbedd;
+          const embed =
+            this.parseCustomMarkdownElement<BlogContentOptimonkEmbedd>(
+              placeholder,
+              '[EMBED]'
+            );
 
           parts.push({
             type: 'embed',
-            id: embed.id
+            id: embed.id,
           });
         }
 
@@ -114,5 +121,13 @@ export default class BlogContentComponent {
     }
 
     return parts;
+  }
+
+  private parseCustomMarkdownElement<T>(
+    placeholder: string,
+    elementPrefix: string
+  ): T {
+    const decodedElement = decode(placeholder.replace(elementPrefix, ''));
+    return JSON.parse(decodedElement) as T;
   }
 }
