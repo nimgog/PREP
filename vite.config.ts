@@ -34,16 +34,21 @@ export default defineConfig(({ mode }) => ({
 
           return [
             '/',
-            '/survival-kit/',
-            '/survival-cheat-sheet/',
-            '/about-us/',
-            '/blog/',
+            '/survival-kit',
+            '/survival-cheat-sheet',
+            '/about-us',
+            '/blog',
             ...contentFileRoutes,
-            '/not-found/',
+            '/not-found',
           ];
         },
         sitemap: {
           host: environment.cloudflareZone + '/',
+        },
+      },
+      nitro: {
+        prerender: {
+          autoSubfolderIndex: false,
         },
       },
       vite: {
@@ -84,7 +89,7 @@ async function getPublishedContentFileRoutes() {
     .filter(({ isPublished }) => isPublished)
     .map(
       ({ filePath }) =>
-        '/blog/' + filePath.replace('/index.md', '').replace('.md', '') + '/'
+        '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
     );
 
   return contentFileRoutes;
