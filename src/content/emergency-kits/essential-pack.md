@@ -14,7 +14,7 @@ Picture this: It’s just hours before your much-awaited trip, and your suitcase
 
 But what if you could eliminate that stress with a well-organized, essential pack? Whether you’re packing a bug out bag for emergencies or just preparing for a leisurely vacation, this ultimate guide provides the tips and strategies you need to create an essential pack. Ensure a worry-free start to your journey, regardless of the destination or duration.
 
-[PRODUCT]{ "title": "Check out our prepping kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your PREP Case on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
+[PRODUCT]{ "title": "Check out your survival kit", "description": "Whether it's a natural disaster, a power outage, or an unexpected emergency, having your survival kit on hand can make all the difference", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC-open__top.png", "imageAlt": "Survival kit", "imagePriority": true }
 ## Preparation for Your Essential Pack
 
 ### Tip 1: Start with a Packing List
