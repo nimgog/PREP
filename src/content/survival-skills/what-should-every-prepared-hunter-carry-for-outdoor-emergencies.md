@@ -85,6 +85,8 @@ Efficient packing enhances mobility. Balance essential items with weight to ensu
 - **Survival Tools**: [Prepp Me's survival kit](https://prepp.me/survival-kit), [Leatherman Wave Multi-tool](https://amzn.to/45Sklhi), [UCO Titan Stormproof Matches](https://amzn.to/4eNdGJn), [SOL Escape Bivvy](https://amzn.to/3xK571a).
 - **Communication Devices**: [Motorola T605 H2O Talkabout Radios](https://amzn.to/3VPIBvY), [Iridium GO! Satellite Phone](https://amzn.to/3W7RNgC), [ACR ResQLink 400 PLB](https://amzn.to/3zEJ1O7). 
 ---
+
+[EMBED]{ "id": "7" }
 ### Conclusion
 
 #### Recap

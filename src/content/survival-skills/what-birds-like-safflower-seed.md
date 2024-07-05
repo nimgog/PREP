@@ -87,7 +87,7 @@ Squirrels’ aversion to safflower seeds is one of its biggest advantages. In pa
 Use feeders with smaller perches or mesh to prevent larger, aggressive birds from monopolizing the food supply, leaving more room for the smaller, charming species you wish to attract.
 
 ---
-
+[EMBED]{ "id": "7" }
 ## V. Creating a Bird-Friendly Backyard Paradise
 
 **1. Fresh Water Sources**
