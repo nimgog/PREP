@@ -65,6 +65,8 @@ Chainsaws vary widely in price:
 
 ---
 
+[EMBED]{ "id": "7" }
+
 ### Essential Chainsaw Size Options and Their Best Uses
 
 #### Small Chainsaws (10-14 inches)

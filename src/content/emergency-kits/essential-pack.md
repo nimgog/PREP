@@ -88,3 +88,5 @@ A small laundry bag helps separate dirty clothes from clean ones, simplifying la
 
 Before zipping up your suitcase, go through your packing list one last time. This final review helps ensure you haven’t missed anything essential.
 
+
+[EMBED]{ "id": "7" }

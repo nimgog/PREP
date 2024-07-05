@@ -75,6 +75,8 @@ Comprehensive water testing is essential to identify contaminants and determine 
 
 Consider factors like cost, maintenance, and effectiveness when selecting a treatment system. Different treatment options have varying costs, maintenance requirements, and effectiveness against different contaminants.
 
+[EMBED]{ "id": "7" }
+
 ### Practical Tips and Resources
 
 #### Everyday Use

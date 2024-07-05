@@ -94,6 +94,8 @@ Securing your home is as vital as stocking supplies. Use sturdy locks, reinforce
 
 **Community Preparedness:** Scandinavian countries emphasize community efforts in preparedness. For instance, Sweden encourages collective responsibility and mutual assistance during crises, highlighting the importance of working together [[6]](https://theweek.com/93765/what-s-inside-sweden-s-prepare-for-war-survival-manual).
 
+[EMBED]{ "id": "7" }
+
 **Wilderness Tie-In:** For those interested in outdoor survival, similar principles apply. Knowing how to secure a campsite and build a proper shelter is equally important for staying safe in the wilderness.
 
 By integrating these essential skills and actions into your prepping routine, and drawing on the practical insights from Scandinavian countries, you can significantly enhance your readiness and ability to cope with a wide range of emergencies.
