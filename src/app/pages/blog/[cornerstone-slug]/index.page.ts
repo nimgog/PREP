@@ -27,6 +27,8 @@ import {
 import { metaResolver, titleResolver } from './resolvers';
 import { ContextService } from 'src/app/services/context.service';
 import BlogContentComponent from 'src/app/components/blog/blog-content.component';
+import BreadcrumbComponent from 'src/app/components/common/breadcrumb.component';
+import BlogReadMoreComponent from 'src/app/components/blog/blog-read-more.component';
 
 export const routeMeta: RouteMeta = {
   title: titleResolver,
@@ -46,18 +48,20 @@ const MAX_READ_MORE_PAGES = 4;
     CommonModule,
     BlogContentComponent,
     NgOptimizedImage,
+    BreadcrumbComponent,
+    BlogReadMoreComponent,
   ],
   template: `
-    <div class="flex flex-col items-center gap-y-4 w-full h-full pt-32">
+    <div class="flex flex-col items-center gap-y-4 w-full h-full pt-[100px]">
       @if (cornerstonePageFile) {
-      <p>
-        <a class="text-prep-green font-semibold" routerLink="/blog"
-          >Becoming Prepared</a
-        >
-        &gt; {{ cornerstonePageFile.attributes.title }}
-      </p>
+      <app-breadcrumb
+        class="w-full"
+        basePath="/blog"
+        baseTitle="Becoming Prepared"
+        [nestedTitles]="[cornerstonePageFile.attributes.title]"
+      ></app-breadcrumb>
 
-      <h1 class="font-medium text-2xl">
+      <h1 class="mt-8 font-medium text-2xl text-center">
         {{ cornerstonePageFile.attributes.title }}
       </h1>
 
@@ -80,60 +84,31 @@ const MAX_READ_MORE_PAGES = 4;
         }"
         (click)="toggleExpansion()"
       >
-        <p class="mr-3 mb-3 font-bold">
+        <p class="mr-3 mb-3 font-bold text-center">
           Read more about {{ cornerstonePageFile.attributes.title }}
         </p>
-        <ul class="flex flex-col gap-y-2">
-          @for (supportingPageFile of readMoreSupportingPageFiles; track
-          supportingPageFile.slug) {
-          <li class="flex items-center">
-            <img
-              class="w-40 h-20 object-cover object-center"
-              [ngSrc]="supportingPageFile.attributes.thumbnailImageUrl"
-              [alt]="supportingPageFile.attributes.title"
-              width="160"
-              height="80"
-            />
 
-            <div class="max-w-[200px] whitespace-normal p-3 overflow-auto">
-              <a
-                class="text-prep-green font-semibold text-ellipsis	"
-                [routerLink]="['./' + supportingPageFile.slug]"
-                >{{ supportingPageFile.attributes.title }}</a
-              >
-            </div>
-          </li>
-          }
-        </ul>
+        <div class="w-full flex justify-center">
+          <app-blog-read-more
+            [pageFiles]="readMoreSupportingPageFiles"
+            pathPrefix="./"
+            anchorClasses="md:max-w-[200px]"
+          ></app-blog-read-more>
+        </div>
+
         <span class="chevron" [class.rotated]="expanded"></span>
       </div>
 
       <div class="other-container p-3 border-t-2 border-solid border-black">
-        <p class="mr-3 mb-3 font-bold">
+        <p class="mr-3 mb-3 font-bold text-center">
           Read more about {{ cornerstonePageFile.attributes.title }}
         </p>
 
-        <ul class="flex flex-col gap-y-2">
-          @for (supportingPageFile of readMoreSupportingPageFiles; track
-          supportingPageFile.slug) {
-          <li class="flex items-center">
-            <img
-              class="w-40 h-20 object-cover object-center"
-              [ngSrc]="supportingPageFile.attributes.thumbnailImageUrl"
-              [alt]="supportingPageFile.attributes.title"
-              width="160"
-              height="80"
-            />
-            <div class="max-w-[200px] whitespace-normal p-3 overflow-auto">
-              <a
-                class="text-prep-green font-semibold text-ellipsis	"
-                [routerLink]="['./' + supportingPageFile.slug]"
-                >{{ supportingPageFile.attributes.title }}</a
-              >
-            </div>
-          </li>
-          }
-        </ul>
+        <app-blog-read-more
+          class="max-w-[90%]"
+          [pageFiles]="readMoreSupportingPageFiles"
+          pathPrefix="./"
+        ></app-blog-read-more>
       </div>
       } }
     </div>

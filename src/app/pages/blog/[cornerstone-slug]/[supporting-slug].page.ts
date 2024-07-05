@@ -23,6 +23,8 @@ import {
 } from 'src/app/models/blog.model';
 import { metaResolver, titleResolver } from './resolvers';
 import BlogContentComponent from 'src/app/components/blog/blog-content.component';
+import BreadcrumbComponent from 'src/app/components/common/breadcrumb.component';
+import BlogReadMoreComponent from 'src/app/components/blog/blog-read-more.component';
 
 export const routeMeta: RouteMeta = {
   title: titleResolver,
@@ -35,22 +37,30 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
 @Component({
   selector: 'app-supporting-page',
   standalone: true,
-  imports: [RouterLink, DatePipe, BlogContentComponent, NgOptimizedImage],
+  imports: [
+    RouterLink,
+    DatePipe,
+    BlogContentComponent,
+    NgOptimizedImage,
+    BreadcrumbComponent,
+    BlogReadMoreComponent,
+  ],
   template: `
-    <div class="flex flex-col items-center gap-y-4 w-full h-full pt-32">
+    <div
+      class="flex flex-col items-center gap-y-4 w-full h-full pt-[100px] pb-10 m-auto"
+    >
       @if (cornerstonePageFile && supportingPageFile) {
-      <p>
-        <a class="text-prep-green font-semibold" routerLink="/blog"
-          >Becoming Prepared</a
-        >
-        &gt;
-        <a class="text-prep-green font-semibold" [routerLink]="['..']">{{
-          cornerstonePageFile.attributes.title
-        }}</a>
-        &gt; {{ supportingPageFile.attributes.title }}
-      </p>
+      <app-breadcrumb
+        class="max-w-[90%]"
+        basePath="/blog"
+        baseTitle="Becoming Prepared"
+        [nestedTitles]="[
+          cornerstonePageFile.attributes.title,
+          supportingPageFile.attributes.title
+        ]"
+      ></app-breadcrumb>
 
-      <h1 class="font-medium text-2xl">
+      <h1 class="mt-8 font-medium text-2xl text-center">
         {{ supportingPageFile.attributes.title }}
       </h1>
 
@@ -64,28 +74,15 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
       @if(contentText()) {
       <app-blog-content [contentText]="contentText()!" />
       } @if (relatedSupportingPageFiles.length) {
-      <p>Articles you might also like:</p>
+      <div class="flex flex-col items-center gap-y-4 w-full">
+        <p>Articles you might also like:</p>
 
-      <ul class="flex flex-col gap-y-2">
-        @for (relatedPageFile of relatedSupportingPageFiles; track
-        relatedPageFile.slug) {
-        <li class="flex items-center">
-          <img
-            class="w-40 h-20 object-cover object-center"
-            [ngSrc]="relatedPageFile.attributes.thumbnailImageUrl"
-            [alt]="relatedPageFile.attributes.title"
-            width="160"
-            height="80"
-          />
-
-          <a
-            class="text-prep-green font-medium"
-            [routerLink]="['../' + relatedPageFile.slug]"
-            >{{ relatedPageFile.attributes.title }}</a
-          >
-        </li>
-        }
-      </ul>
+        <app-blog-read-more
+          class="max-w-[90%]"
+          [pageFiles]="relatedSupportingPageFiles"
+          pathPrefix="../"
+        ></app-blog-read-more>
+      </div>
       } }
     </div>
   `,
