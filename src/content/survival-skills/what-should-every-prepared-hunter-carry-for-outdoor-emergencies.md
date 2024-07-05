@@ -1,6 +1,6 @@
 ---
-title: "What to wear pheasant hunting?"
-description: "Ill-preparedness can transform a promising hunt into a frustrating ordeal, a scenario not unfamiliar to experienced hunters either."
+title: "What should every prepared hunter carry for outdoor emergencies?"
+description: "Anyone that has been out in the wilderness knows that things don't always go exactly as planned."
 date: 2024-07-04
 thumbnailImageUrl: /img/blogs/survival-skills/what-should-every-prepared-hunter-carry-for-outdoor-emergencies/hunter-packing.jpeg
 published: true
