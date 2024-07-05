@@ -30,10 +30,10 @@ export default defineConfig(({ mode }) => ({
       static: true,
       prerender: {
         routes: async () => {
-          const contentFiles = await getPublishedContentFiles();
+          const contentFileRoutes = await getPublishedContentFileRoutes();
 
           const pageCount = Math.ceil(
-            contentFiles.length / environment.blogArticleListPageSize
+            contentFileRoutes.length / environment.blogArticleListPageSize
           );
 
           return [
@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => ({
             '/survival-cheat-sheet',
             '/about-us',
             '/blog',
-            ...contentFiles.map((file) => file.route),
+            ...contentFileRoutes,
             '/blog/pages',
             ...[...Array(pageCount).keys()].map((i) => `/blog/pages/${i + 1}`),
             '/not-found',
@@ -74,7 +74,7 @@ export default defineConfig(({ mode }) => ({
   },
 }));
 
-async function getPublishedContentFiles() {
+async function getPublishedContentFileRoutes() {
   const contentFilePaths = await fs.readdir('./src/content', {
     recursive: true,
   });
@@ -86,20 +86,17 @@ async function getPublishedContentFiles() {
       const fileContent = await fs.readFile(fullPath, 'utf-8');
       const pageAttributes = fm<PageAttributes>(fileContent).attributes;
 
-      return {
-        filePath,
-        attributes: pageAttributes,
-      };
+      return { filePath, isPublished: pageAttributes.published };
     });
 
   const publishedCheckResults = await Promise.all(publishedCheckPromises);
 
-  const contentFiles = publishedCheckResults
-    .filter(({ attributes }) => attributes.published)
-    .map(({ filePath, attributes }) => ({
-      route: '/blog/' + filePath.replace('/index.md', '').replace('.md', ''),
-      attributes,
-    }));
+  const contentFileRoutes = publishedCheckResults
+    .filter(({ isPublished }) => isPublished)
+    .map(
+      ({ filePath }) =>
+        '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
+    );
 
-  return contentFiles;
+  return contentFileRoutes;
 }
