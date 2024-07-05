@@ -70,7 +70,7 @@ Evaluate each item’s necessity based on crucial criteria. Safety and survival 
 #### Regularly Check and Maintain Gear
 Establish routines for inspecting your gear. Ensure batteries are charged, first aid kits are updated, and tools are in working condition before each trip.
 
-[IMAGE]{ "src": "/img/blogs/survival-skills/what-should-every-prepared-hunter-carry-for-outdoor-emergencies/hunting-autumn.jpeg", "alt": "Hunters in autumn", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+[IMAGE]{ "src": "/img/blogs/survival-skills/what-should-every-prepared-hunter-carry-for-outdoor-emergencies/hunter-autumn", "alt": "Hunters in autumn", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 #### Understand Your Environment
 Tailor your gear checklist to the specific terrain and weather of your hunting area. Desert hunts require more water supplies, while mountainous expeditions demand weather-appropriate clothing.
 
