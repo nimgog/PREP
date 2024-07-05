@@ -7,5 +7,5 @@ export const environment = {
   turnstileSiteKey: '0x4AAAAAAAWgVaiBmyrKPlr1',
   contactWorkerEndpoint: 'https://prep-contact-worker.nsj.workers.dev',
   cloudflareZone: 'https://prepp.me',
-  blogArticleListPageSize: 3,
+  blogArticleListPageSize: 10,
 };

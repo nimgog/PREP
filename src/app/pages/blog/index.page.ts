@@ -53,7 +53,7 @@ export const routeMeta: RouteMeta = {
               [ngSrc]="page.attributes.thumbnailImageUrl"
               sizes="(max-width: 767px) 80vw, 30vw"
               [alt]="page.attributes.title"
-              [priority]="i === 0"
+              [priority]="i < 2"
               fill
             />
           </div>

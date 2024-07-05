@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="flex gap-x-2">
+    <div class="flex gap-x-3">
       <span>
         <a
           [routerLink]="
@@ -76,7 +76,7 @@ import { RouterLink } from '@angular/router';
     `
       .disabled-link {
         pointer-events: none;
-        color: grey;
+        color: lightgray;
         text-decoration: none;
         cursor: not-allowed;
       }

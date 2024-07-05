@@ -17,14 +17,13 @@ import { environment } from 'src/environments/environment';
 import PaginatorComponent from 'src/app/components/common/paginator.component';
 
 export const routeMeta: RouteMeta = {
-  title: getFullPageTitle('Blog'),
+  title: getFullPageTitle('All Articles - Blog'),
   meta: createCommonMetaResolver(
-    'Blog - All Articles',
+    'All Articles - Blog',
     'Browse all of our articles at one place here.'
   ),
 };
 
-// TODO: Style this component
 @Component({
   selector: 'app-blog-article-list-page',
   standalone: true,
@@ -36,60 +35,80 @@ export const routeMeta: RouteMeta = {
     NgOptimizedImage,
   ],
   template: `
-    <div class="flex flex-col items-center w-full h-full pt-32">
-      <h1>Blog</h1>
+    <div
+      class="flex flex-col items-center w-[90%] h-full pt-[100px] pb-5 m-auto"
+    >
+      <h1 class="text-[2rem]">All Articles</h1>
 
-      <ol class="flex flex-col gap-y-8 py-8">
-        @for (pageFile of pageFiles$ | async; track pageFile.filename; let index
-        = $index) {
+      @if (pageNumber$ | async; as pageNumber) {
+      <app-paginator
+        class="my-10"
+        resourcePath="/blog/pages"
+        [pageNumber]="pageNumber"
+        [pageCount]="listPageCount()"
+      ></app-paginator>
+      }
+
+      <ol class="flex flex-col gap-y-5">
+        @for (pageFile of pageFiles$ | async; track pageFile.filename; let i =
+        $index) {
         <li>
-          <article class="flex flex-col sm:flex-row items-center gap-x-4">
-            <div
-              class="shrink-0 w-full h-48 sm:w-40 sm:h-20 relative overflow-hidden"
+          <a
+            [routerLink]="
+              pageFile.filename
+                .replace('/src/content', '/blog')
+                .replace('/index.md', '/')
+                .replace('.md', '/')
+            "
+          >
+            <article
+              class="flex flex-col md:flex-row gap-x-4 gap-y-2.5 p-5 bg-[#f5f5f5] border-2 border-black rounded-[10px]"
             >
-              <img
-                class="w-full h-48 sm:w-40 sm:h-20 object-cover object-center"
-                [ngSrc]="pageFile.attributes.thumbnailImageUrl"
-                [alt]="pageFile.attributes.title"
-                sizes="(max-width: 639px) 100vw, (max-width: 767px) 30vw, 20vw"
-                [priority]="index === 0"
-                fill
-              />
-            </div>
+              <div
+                class="w-full h-[200px] md:w-[40%] md:mr-5 relative rounded-lg overflow-hidden"
+              >
+                <img
+                  class="object-cover"
+                  [ngSrc]="pageFile.attributes.thumbnailImageUrl"
+                  sizes="(max-width: 767px) 80vw, 30vw"
+                  [alt]="pageFile.attributes.title"
+                  [priority]="i < 2"
+                  fill
+                />
+              </div>
 
-            <div class="flex flex-col gap-y-2 max-w-4xl">
-              <header class="flex flex-col sm:flex-row gap-x-4">
-                <h2>
-                  <a
-                    [routerLink]="
-                      pageFile.filename
-                        .replace('/src/content', '/blog')
-                        .replace('/index.md', '/')
-                        .replace('.md', '/')
-                    "
-                    >{{ pageFile.attributes.title }}</a
-                  >
-                </h2>
-
-                <time
-                  [attr.datetime]="
-                    pageFile.attributes.date | date : 'yyyy-MM-dd'
-                  "
-                  >{{ pageFile.attributes.date | date }}</time
+              <div class="flex flex-col gap-y-2.5 md:w-[60%] p-2.5">
+                <header
+                  class="flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-0.5"
                 >
-              </header>
+                  <h2 class="font-bold text-xl text-[#4caf50]">
+                    {{ pageFile.attributes.title }}
+                  </h2>
 
-              <main>
-                <p>{{ pageFile.attributes.description }}</p>
-              </main>
-            </div>
-          </article>
+                  <time
+                    class="text-sm text-gray-400"
+                    [attr.datetime]="
+                      pageFile.attributes.date | date : 'yyyy-MM-dd'
+                    "
+                    >{{ pageFile.attributes.date | date }}</time
+                  >
+                </header>
+
+                <main>
+                  <p class="text-base text-[#333]">
+                    {{ pageFile.attributes.description }}
+                  </p>
+                </main>
+              </div>
+            </article>
+          </a>
         </li>
         }
       </ol>
 
       @if (pageNumber$ | async; as pageNumber) {
       <app-paginator
+        class="my-10"
         resourcePath="/blog/pages"
         [pageNumber]="pageNumber"
         [pageCount]="listPageCount()"
