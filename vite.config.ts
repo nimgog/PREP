@@ -32,6 +32,10 @@ export default defineConfig(({ mode }) => ({
         routes: async () => {
           const contentFileRoutes = await getPublishedContentFileRoutes();
 
+          const pageCount = Math.ceil(
+            contentFileRoutes.length / environment.blogArticleListPageSize
+          );
+
           return [
             '/',
             '/survival-kit',
@@ -39,6 +43,8 @@ export default defineConfig(({ mode }) => ({
             '/about-us',
             '/blog',
             ...contentFileRoutes,
+            '/blog/pages',
+            ...[...Array(pageCount).keys()].map((i) => `/blog/pages/${i + 1}`),
             '/not-found',
           ];
         },
