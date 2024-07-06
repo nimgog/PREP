@@ -1,6 +1,6 @@
 ---
 title: "Urban survival kit"
-description: "Survival in the wilderness goes beyond simple preference for robust and reliable equipment."
+description: "This guide will walk you through creating the ultimate urban survival kit."
 date: 2024-07-06
 thumbnailImageUrl: /img/product-page/PREPC-open__top.png
 published: true
