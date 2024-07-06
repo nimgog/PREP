@@ -10,8 +10,13 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
 import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
 import { map, of, switchMap } from 'rxjs';
-import { AsyncPipe, DatePipe, NgOptimizedImage } from '@angular/common';
-import { injectContentFiles } from '@analogjs/content';
+import {
+  AsyncPipe,
+  DatePipe,
+  NgOptimizedImage,
+  TitleCasePipe,
+} from '@angular/common';
+import { ContentFile, injectContentFiles } from '@analogjs/content';
 import { PageAttributes } from 'src/app/models/blog.model';
 import { environment } from 'src/environments/environment';
 import PaginatorComponent from 'src/app/components/common/paginator.component';
@@ -33,6 +38,7 @@ export const routeMeta: RouteMeta = {
     DatePipe,
     PaginatorComponent,
     NgOptimizedImage,
+    TitleCasePipe,
   ],
   template: `
     <div
@@ -53,14 +59,7 @@ export const routeMeta: RouteMeta = {
         @for (pageFile of pageFiles$ | async; track pageFile.filename; let i =
         $index) {
         <li>
-          <a
-            [routerLink]="
-              pageFile.filename
-                .replace('/src/content', '/blog')
-                .replace('/index.md', '/')
-                .replace('.md', '/')
-            "
-          >
+          <a [routerLink]="getUrl(pageFile)">
             <article
               class="flex flex-col md:flex-row gap-x-4 gap-y-2.5 p-5 bg-[#f5f5f5] border-2 border-black rounded-[10px]"
             >
@@ -99,6 +98,17 @@ export const routeMeta: RouteMeta = {
                     {{ pageFile.attributes.description }}
                   </p>
                 </main>
+
+                <footer class="grow mt-4">
+                  <div class="flex justify-end items-end w-full h-full">
+                    @for (category of getCategories(pageFile); track category) {
+                    <span
+                      class="px-2 py-0.5 text-sm text-[#333] bg-gray-200 rounded-lg"
+                      >{{ category | titlecase }}</span
+                    >
+                    }
+                  </div>
+                </footer>
               </div>
             </article>
           </a>
@@ -167,4 +177,19 @@ export default class BlogArticleListPageComponent {
       return of(pageFilesByDateDesc.slice(startFileIndex, endFileIndex));
     })
   );
+
+  getUrl(pageFile: ContentFile<PageAttributes>): string {
+    return pageFile.filename
+      .replace('/src/content', '/blog')
+      .replace('/index.md', '/')
+      .replace('.md', '/');
+  }
+
+  getCategories(pageFile: ContentFile<PageAttributes>): string[] {
+    return pageFile.filename
+      .replace('/src/content/', '')
+      .replace('-', ' ')
+      .split('/')
+      .slice(0, -1);
+  }
 }
