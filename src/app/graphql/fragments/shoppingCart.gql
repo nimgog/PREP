@@ -8,10 +8,10 @@ fragment ShoppingCart on Cart {
         ... on ProductVariant {
           id
           image {
-            url
+            url: url(transform: { maxWidth: 96, maxHeight: 96 })
           }
           product {
-            handle
+            title
           }
           selectedOptions {
             name

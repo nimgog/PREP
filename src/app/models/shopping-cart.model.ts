@@ -14,7 +14,6 @@ export type LineItem = {
   product: {
     id: string;
     title: string;
-    subtitle: string;
     imageUrl: string;
   };
   originalTotalPrice?: Money;

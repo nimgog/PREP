@@ -20,3 +20,14 @@ export type ProductVariant = {
   // originalPrice?: Money;
   price: Money;
 };
+
+export type ProductListItem = {
+  productId: string;
+  title: string;
+  summary: string;
+  productPageUrl?: string;
+  discounted: boolean;
+  imageUrl: string;
+  imageAlt?: string;
+  price: Money;
+};

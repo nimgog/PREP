@@ -10,4 +10,8 @@ export class ContextService {
   get isClientSide(): boolean {
     return isPlatformBrowser(this.platformId);
   }
+
+  get isServerSide(): boolean {
+    return !isPlatformBrowser(this.platformId);
+  }
 }
