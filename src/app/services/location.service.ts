@@ -4,6 +4,7 @@ import type { Observable } from 'rxjs';
 import { BehaviorSubject, catchError, map, of, switchMap, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { LocalStorageService } from './local-storage.service';
+import { ContextService } from './context.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +15,13 @@ export class LocationService {
 
   private readonly httpClient = inject(HttpClient);
   private readonly localStorageService = inject(LocalStorageService);
+  private readonly contextService = inject(ContextService);
 
   getTwoLetterCountryCode() {
+    if (this.contextService.isServerSide) {
+      return of('DE');
+    }
+
     const cachedCountryCode =
       this.localStorageService.get<string>('country_code');
 
@@ -46,11 +52,11 @@ export class LocationService {
     );
   }
 
-  getUserIP() {
+  private getUserIP() {
     return this.httpClient.get('https://api.ipify.org?format=json');
   }
 
-  getLocation(ip: string): Observable<any> {
+  private getLocation(ip: string): Observable<any> {
     return this.httpClient.get(
       `https://api.ipapi.com/${ip}?access_key=${environment.ipAPIKey}`
     );

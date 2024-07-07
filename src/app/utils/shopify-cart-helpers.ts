@@ -20,8 +20,7 @@ export const mapCart = (
       id: shopifyLineItem.id,
       product: {
         id: productId,
-        title: `TODO: Product title`,
-        subtitle: `TODO: Product subtitle`,
+        title: product.title,
         imageUrl: productImage?.url,
       },
       totalPrice: {

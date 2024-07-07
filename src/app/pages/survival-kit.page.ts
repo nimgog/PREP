@@ -1271,10 +1271,10 @@ export default class SurvivalKitPageComponent implements OnInit, OnDestroy {
   private readonly meta = inject(Meta);
 
   ngOnInit(): void {
-    if (this.contextService.isClientSide) {
-      this.fetchProduct();
-      this.fetchShippingFee();
+    this.fetchProduct();
+    this.fetchShippingFee();
 
+    if (this.contextService.isClientSide) {
       this.productPriceRefreshSignalSub =
         this.shopifyProductService.productPriceRefreshSignal$
           .pipe(tap(this.fetchProduct), tap(this.fetchShippingFee))

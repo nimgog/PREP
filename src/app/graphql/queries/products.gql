@@ -1,0 +1,35 @@
+query Products($countryCode: CountryCode!) @inContext(country: $countryCode) {
+  products(first: 250, query: "NOT title:dummy") {
+    nodes {
+      title
+      summary: metafield(
+        namespace: "import_information"
+        key: "trade_item_description"
+      ) {
+        value
+      }
+      productPageUrl: metafield(
+        namespace: "prepp_app"
+        key: "product_page_url"
+      ) {
+        value
+      }
+      discounted: metafield(namespace: "prepp_app", key: "discounted") {
+        value
+      }
+      variants(first: 1) {
+        nodes {
+          id
+          image {
+            url: url(transform: { maxWidth: 220, maxHeight: 220 })
+            altText
+          }
+          price {
+            amount
+            currencyCode
+          }
+        }
+      }
+    }
+  }
+}

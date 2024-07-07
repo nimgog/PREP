@@ -66,6 +66,9 @@ import LogoComponent from '../common/logo.component';
                   <a routerLink="/">Home</a>
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
+                  <a routerLink="/shop">Shop</a>
+                </li>
+                <li (click)="closeMenu()" class="mt-5">
                   <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
@@ -112,7 +115,9 @@ import LogoComponent from '../common/logo.component';
 
               <!-- Product Details -->
               <div class="flex-1 ml-4">
-                <div class="font-semibold text-lg">PREP - Case</div>
+                <div class="font-semibold text-lg">
+                  {{ lineItem.product.title }}
+                </div>
                 <!-- <div class="text-sm text-gray-500">
                   {{ lineItem.variation }}
                 </div> -->
@@ -199,6 +204,7 @@ import LogoComponent from '../common/logo.component';
             class="flex justify-center gap-x-16 text-prep-beige text-base font-medium uppercase"
           >
             <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/shop">Shop</a></li>
             <li>
               <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
             </li>

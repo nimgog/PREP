@@ -18,6 +18,7 @@ import { mapCart } from '../utils/shopify-cart-helpers';
 export class ShopifyCartService {
   private readonly locationService = inject(LocationService);
   private readonly notificationService = inject(NotificationService);
+
   private readonly addLineItemGQL = inject(AddLineItemGQL);
   private readonly removeLineItemGQL = inject(RemoveLineItemGQL);
   private readonly cartGQL = inject(CartGQL);

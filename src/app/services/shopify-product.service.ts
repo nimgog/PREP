@@ -11,13 +11,21 @@ import {
   take,
   tap,
 } from 'rxjs';
-import type { Money, Product } from '../models/product.model';
+import type { Money, Product, ProductListItem } from '../models/product.model';
 import { LocationService } from './location.service';
-import { ProductGQL, ShippingFeeProductGQL } from '../graphql/types';
+import {
+  ProductGQL,
+  ProductsGQL,
+  ShippingFeeProductGQL,
+} from '../graphql/types';
 import { NotificationService } from './notification.service';
 import { catchAndReportError } from '../utils/catch-and-report-error.operator';
-import { mapShopifyProductToPrepProduct } from '../utils/shopify-product-helpers';
+import {
+  mapShopifyProductToPrepProduct,
+  mapShopifyProductToPrepProductListItem,
+} from '../utils/shopify-product-helpers';
 import { LocalStorageService } from './local-storage.service';
+import { ContextService } from './context.service';
 
 @Injectable({
   providedIn: 'root',
@@ -35,11 +43,40 @@ export class ShopifyProductService {
   private readonly locationService = inject(LocationService);
   private readonly localStorageService = inject(LocalStorageService);
   private readonly notificationService = inject(NotificationService);
+
+  private readonly productsGQL = inject(ProductsGQL);
   private readonly productGQL = inject(ProductGQL);
   private readonly shippingFeeProductGQL = inject(ShippingFeeProductGQL);
 
   get productPriceRefreshSignal$() {
     return this._productPriceRefreshSignal$;
+  }
+
+  fetchProducts(): Observable<ProductListItem[]> {
+    return this.locationService.getTwoLetterCountryCode().pipe(
+      switchMap((countryCode) =>
+        this.productsGQL.fetch({
+          countryCode,
+        })
+      ),
+      map((response) => {
+        if (
+          !response.data?.products ||
+          response.error ||
+          response.errors?.length
+        ) {
+          throw new Error(
+            `Shopify request failed: ${JSON.stringify(response)}`
+          );
+        }
+
+        return response.data.products;
+      }),
+      map((shopifyProducts) =>
+        shopifyProducts.nodes.map(mapShopifyProductToPrepProductListItem)
+      ),
+      catchAndReportError(this.notificationService)
+    );
   }
 
   fetchProduct(productHandle: string): Observable<Product> {
