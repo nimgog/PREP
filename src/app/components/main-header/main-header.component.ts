@@ -142,14 +142,16 @@ import LogoComponent from '../common/logo.component';
                   <!-- Pricing -->
                   <div class="text-right">
                     <div class="font-semibold text-lg">
-                      {{ lineItem.totalPrice.amount }}
+                      {{ lineItem.totalPrice.amount | number : '1.0-0' }}
                       {{ lineItem.totalPrice.currencyCode }}
                     </div>
                     <div
                       *ngIf="lineItem.originalTotalPrice"
                       class="text-sm line-through text-red-500"
                     >
-                      {{ lineItem.originalTotalPrice.amount }}
+                      {{
+                        lineItem.originalTotalPrice.amount | number : '1.0-0'
+                      }}
                       {{ lineItem.originalTotalPrice.currencyCode }}
                     </div>
                   </div>
@@ -179,7 +181,7 @@ import LogoComponent from '../common/logo.component';
             <div *ngIf="cart && cart?.totalQuantity" class="summary">
               <div>Total Items: {{ cart.totalQuantity }}</div>
               <div>
-                Total Price: {{ cart.totalPrice.amount }}
+                Total Price: {{ cart.totalPrice.amount | number : '1.0-0' }}
                 {{ cart.totalPrice.currencyCode }}
               </div>
             </div>
