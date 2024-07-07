@@ -1,7 +1,7 @@
 ---
 title: "Free Survival Gear"
-description: "This guide will walk you through creating the ultimate urban survival kit."
-date: 2024-07-06
+description: "Free survival gear serves as an excellent starting point for beginners and a valuable supplement for experienced survivalists."
+date: 2024-07-07
 thumbnailImageUrl: /img/product-page/PREPC-ignitor.png
 published: true
 ---
