@@ -188,7 +188,7 @@ export default class BlogArticleListPageComponent {
   getCategories(pageFile: ContentFile<PageAttributes>): string[] {
     return pageFile.filename
       .replace('/src/content/', '')
-      .replace('-', ' ')
+      .replaceAll('-', ' ')
       .split('/')
       .slice(0, -1);
   }
