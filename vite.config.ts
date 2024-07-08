@@ -38,6 +38,7 @@ export default defineConfig(({ mode }) => ({
 
           return [
             '/',
+            '/shop',
             '/survival-kit',
             '/survival-cheat-sheet',
             '/about-us',
