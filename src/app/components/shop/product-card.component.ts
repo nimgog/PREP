@@ -13,10 +13,10 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
     <div class="flex flex-col w-[220px] h-[380px] rounded-lg">
       <a
         [routerLink]="product().productPageUrl"
-        class="grow relative flex justify-center items-center rounded-lg"
+        class="grow relative flex justify-center items-center w-[220px] h-[220px] rounded-lg"
       >
         <img
-          class="w-full h-auto rounded-lg object-cover object-center"
+          class="w-full max-w-[220px] h-auto max-h-[220px] rounded-lg object-contain object-center"
           [src]="product().imageUrl"
           [alt]="product().imageAlt || product().title"
           loading="eager"
@@ -36,7 +36,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
           [routerLink]="product().productPageUrl"
           class="flex flex-col mt-2.5 mb-6 gap-y-1"
         >
-          <h2 class="text-sm font-semibold">
+          <h2 class="text-sm font-semibold line-clamp-2 min-lines-2">
             {{ product().title }}
           </h2>
 
@@ -66,6 +66,10 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   `,
   styles: [
     `
+      .min-lines-2 {
+        height: calc(2 * 1.25rem);
+      }
+
       .min-lines-3 {
         height: calc(3 * 1.25rem);
       }
