@@ -1,6 +1,6 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Subscription, take } from 'rxjs';
@@ -390,10 +390,12 @@ import LogoComponent from '../common/logo.component';
   ],
 })
 export default class MainHeaderComponent implements OnInit, OnDestroy {
+  private readonly router = inject(Router);
   isTransparent = input.required<boolean>();
   // State for menu and cart overlay visibility
   menuOpen: boolean = false;
   cartOpen: boolean = false;
+
 
   private subscriptions: Subscription[] = [];
   cart: ShoppingCart | null = null;
@@ -413,7 +415,14 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
           this.cartOpen = value;
         }
       );
+      const routerSubscription = this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          const body = document.getElementsByTagName('body')[0];
+          body.classList.remove('overflow-hidden')
+        }
+      })
 
+      this.subscriptions.push(routerSubscription)
       this.subscriptions.push(cartSubscription);
       this.subscriptions.push(sub);
     }
@@ -431,6 +440,17 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
   // Component methods
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+    this.setOverflowHidden();
+  }
+
+  private setOverflowHidden(): void {
+    const body = document.getElementsByTagName('body')[0];
+
+    if(body.classList.contains('overflow-hidden')) {
+      body.classList.remove('overflow-hidden')
+    } else {
+      body.classList.add('overflow-hidden')
+    }
   }
 
   openCart(): void {

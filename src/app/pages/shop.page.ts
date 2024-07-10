@@ -21,7 +21,7 @@ export const routeMeta: RouteMeta = {
   imports: [RouterLink, ShopProductCard, AsyncPipe],
   template: `
   <div class="relative w-full h-full pt-[100px] pb-5 px-4 flex justify-center bg-white">
-  <div class="container relative z-10 flex items-center justify-between bg-opacity-75 bg-green-800 p-10 rounded-2xl portrait:flex-col">
+  <div class="container relative z-0 flex items-center justify-between bg-opacity-75 bg-green-800 p-10 rounded-2xl portrait:flex-col">
     <div class="flex-1">
       <div class="w-full h-full flex items-center justify-center">
           <img loading="eager" src="/img/product-page/PREPC-display-no-background.png" alt="emergency survival kit">
@@ -42,7 +42,7 @@ export const routeMeta: RouteMeta = {
       </div>
     </div>
   </div>
-  <div class="absolute inset-0 bg-white opacity-50 z-0"></div>
+
 </div>
     <div class="w-full h-full pt-[100px] pb-5 px-4 flex justify-center">
       <div class="container">
