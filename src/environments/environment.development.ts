@@ -8,4 +8,5 @@ export const environment = {
   contactWorkerEndpoint: 'https://prep-contact-worker.nsj.workers.dev',
   cloudflareZone: 'https://prepp.me',
   blogArticleListPageSize: 10,
+  survivalKitPageLink: '/shop/products/survival-kit-47839582585162',
 };

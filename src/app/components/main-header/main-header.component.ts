@@ -8,6 +8,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { LineItem, ShoppingCart } from 'src/app/models/shopping-cart.model';
 import { ContextService } from 'src/app/services/context.service';
 import LogoComponent from '../common/logo.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-header',
@@ -69,7 +70,9 @@ import LogoComponent from '../common/logo.component';
                   <a routerLink="/shop">Shop</a>
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
-                  <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
+                  <a [routerLink]="survivalKitPageLink"
+                    >PREPC | Your Survival Kit</a
+                  >
                 </li>
                 <li (click)="closeMenu()" class="mt-5">
                   <a routerLink="/blog">Becoming Prepared</a>
@@ -208,7 +211,9 @@ import LogoComponent from '../common/logo.component';
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/shop">Shop</a></li>
             <li>
-              <a routerLink="/survival-kit">PREPC | Your Survival Kit</a>
+              <a [routerLink]="survivalKitPageLink"
+                >PREPC | Your Survival Kit</a
+              >
             </li>
             <li>
               <a routerLink="/blog">Becoming Prepared</a>
@@ -391,11 +396,13 @@ import LogoComponent from '../common/logo.component';
 })
 export default class MainHeaderComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
+
+  readonly survivalKitPageLink = environment.survivalKitPageLink;
+
   isTransparent = input.required<boolean>();
   // State for menu and cart overlay visibility
   menuOpen: boolean = false;
   cartOpen: boolean = false;
-
 
   private subscriptions: Subscription[] = [];
   cart: ShoppingCart | null = null;
@@ -415,14 +422,14 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
           this.cartOpen = value;
         }
       );
-      const routerSubscription = this.router.events.subscribe(event => {
+      const routerSubscription = this.router.events.subscribe((event) => {
         if (event instanceof NavigationEnd) {
           const body = document.getElementsByTagName('body')[0];
-          body.classList.remove('overflow-hidden')
+          body.classList.remove('overflow-hidden');
         }
-      })
+      });
 
-      this.subscriptions.push(routerSubscription)
+      this.subscriptions.push(routerSubscription);
       this.subscriptions.push(cartSubscription);
       this.subscriptions.push(sub);
     }
@@ -446,10 +453,10 @@ export default class MainHeaderComponent implements OnInit, OnDestroy {
   private setOverflowHidden(): void {
     const body = document.getElementsByTagName('body')[0];
 
-    if(body.classList.contains('overflow-hidden')) {
-      body.classList.remove('overflow-hidden')
+    if (body.classList.contains('overflow-hidden')) {
+      body.classList.remove('overflow-hidden');
     } else {
-      body.classList.add('overflow-hidden')
+      body.classList.add('overflow-hidden');
     }
   }
 
