@@ -12,7 +12,6 @@ export const routeMeta: RouteMeta = {
   ),
 };
 
-// TODO: Style this component
 @Component({
   selector: 'app-not-found-page',
   standalone: true,

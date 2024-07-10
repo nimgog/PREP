@@ -9,8 +9,7 @@ import { Component } from '@angular/core';
         >Follow Us</span
       >
 
-      <!-- TODO: Fill in social media links -->
-      <!-- TODO: Replate Twitter icon with X -->
+      <!-- TODO: Fill in social media links and replace Twitter icon with X -->
       <div class="flex gap-x-[15px]">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img

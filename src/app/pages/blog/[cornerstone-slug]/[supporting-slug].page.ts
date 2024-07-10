@@ -33,7 +33,6 @@ export const routeMeta: RouteMeta = {
 
 const MAX_RELATED_SUPPORTING_PAGES = 4;
 
-// TODO: Style this component
 @Component({
   selector: 'app-supporting-page',
   standalone: true,
@@ -64,7 +63,6 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
         {{ supportingPageFile.attributes.title }}
       </h1>
 
-      <!-- TODO: Internationalize the date, just pass a locale to it -->
       <div>
         <p>{{ supportingPageFile.attributes.date | date }} | by N Johansson</p>
 
