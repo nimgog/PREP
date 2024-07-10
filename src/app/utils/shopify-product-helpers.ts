@@ -36,6 +36,20 @@ export const mapShopifyProductToPrepProduct = (
   };
 };
 
+export const buildPreppProductUrl = (
+  variantId: string,
+  productTitle: string,
+  variantSlugSeoTagOverride?: string
+) => {
+  const variantSlugSeoTags = variantSlugSeoTagOverride
+    ? variantSlugSeoTagOverride
+    : slugify(productTitle.toLowerCase());
+
+  const preppProductId = variantId.replace('gid://shopify/ProductVariant/', '');
+
+  return `/shop/products/${variantSlugSeoTags}-${preppProductId}`;
+};
+
 type ShopifyProductList = ProductsQuery['products'];
 type ShopifyProductListItem = ElementType<ShopifyProductList['nodes']>;
 
@@ -43,16 +57,11 @@ export const mapShopifyProductToPrepProductListItem = (
   shopifyProduct: ShopifyProductListItem
 ): ProductListItem => {
   const variant = shopifyProduct.variants.nodes[0];
-
-  const variantSlugSeoTagOverride = variant.variantSlugSeoTagOverride?.value;
-  const variantSlugSeoTags = variantSlugSeoTagOverride
-    ? variantSlugSeoTagOverride
-    : slugify(shopifyProduct.title.toLowerCase());
-  const preppProductId = variant.id.replace(
-    'gid://shopify/ProductVariant/',
-    ''
+  const productPageUrl = buildPreppProductUrl(
+    variant.id,
+    shopifyProduct.title,
+    variant.variantSlugSeoTagOverride?.value
   );
-  const productPageUrl = `/shop/products/${variantSlugSeoTags}-${preppProductId}`;
 
   return {
     productId: variant.id,

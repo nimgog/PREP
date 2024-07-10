@@ -1,13 +1,19 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import {
+  ApolloClient,
+  gql,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from '@apollo/client/core';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 import fm from 'front-matter';
-
+import { defineConfig } from 'vite';
 import { environment } from './src/environments/environment';
-import { PageAttributes } from 'src/app/models/blog.model';
+import { PageAttributes } from './src/app/models/blog.model';
+import { buildPreppProductUrl } from './src/app/utils/shopify-product-helpers';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -30,23 +36,27 @@ export default defineConfig(({ mode }) => ({
       static: true,
       prerender: {
         routes: async () => {
-          const contentFileRoutes = await getPublishedContentFileRoutes();
+          const productRoutes = await getProductRoutes();
 
-          const pageCount = Math.ceil(
-            contentFileRoutes.length / environment.blogArticleListPageSize
+          const contentRoutes = await getContentRoutes();
+          const contentPageCount = Math.ceil(
+            contentRoutes.length / environment.blogArticleListPageSize
           );
 
           return [
             '/',
             '/shop',
             '/shop/products',
+            ...productRoutes,
             '/survival-kit',
             '/survival-cheat-sheet',
             '/about-us',
             '/blog',
-            ...contentFileRoutes,
+            ...contentRoutes,
             '/blog/pages',
-            ...[...Array(pageCount).keys()].map((i) => `/blog/pages/${i + 1}`),
+            ...[...Array(contentPageCount).keys()].map(
+              (i) => `/blog/pages/${i + 1}`
+            ),
             '/not-found',
           ];
         },
@@ -76,7 +86,7 @@ export default defineConfig(({ mode }) => ({
   },
 }));
 
-async function getPublishedContentFileRoutes() {
+async function getContentRoutes(): Promise<string[]> {
   const contentFilePaths = await fs.readdir('./src/content', {
     recursive: true,
   });
@@ -93,12 +103,93 @@ async function getPublishedContentFileRoutes() {
 
   const publishedCheckResults = await Promise.all(publishedCheckPromises);
 
-  const contentFileRoutes = publishedCheckResults
+  const contentRoutes = publishedCheckResults
     .filter(({ isPublished }) => isPublished)
     .map(
       ({ filePath }) =>
         '/blog/' + filePath.replace('/index.md', '').replace('.md', '')
     );
 
-  return contentFileRoutes;
+  return contentRoutes;
+}
+
+async function getProductRoutes(): Promise<string[]> {
+  const apolloClient = new ApolloClient({
+    uri: environment.storefrontEndpoint,
+    headers: {
+      'X-Shopify-Storefront-Access-Token': environment.storefrontAccessToken,
+    },
+    cache: new InMemoryCache(),
+  });
+
+  const products = await fetchProducts(apolloClient);
+
+  const productRoutes = products.map((product) =>
+    buildPreppProductUrl(
+      product.variantId,
+      product.title,
+      product.variantSlugSeoTagOverride
+    )
+  );
+
+  return productRoutes;
+}
+
+type Product = {
+  variantId: string;
+  title: string;
+  variantSlugSeoTagOverride?: string;
+};
+
+async function fetchProducts(
+  apolloClient: ApolloClient<NormalizedCacheObject>
+): Promise<Product[]> {
+  const query = gql`
+    query Products($countryCode: CountryCode!)
+    @inContext(country: $countryCode) {
+      products(first: 250, query: "NOT title:dummy") {
+        nodes {
+          title
+          variants(first: 1) {
+            nodes {
+              id
+              variantSlugSeoTagOverride: metafield(
+                namespace: "prepp_app"
+                key: "variant_slug_seo_tag_override"
+              ) {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await apolloClient.query({
+    query,
+    variables: {
+      countryCode: 'DE',
+    },
+  });
+
+  if (
+    !response.data?.products?.nodes?.length ||
+    response.error ||
+    response.errors?.length
+  ) {
+    throw new Error(`Shopify request failed: ${JSON.stringify(response)}`);
+  }
+
+  const products = response.data.products.nodes.map((product: any) => {
+    const variant = product.variants.nodes[0];
+
+    return <Product>{
+      variantId: variant.id,
+      title: product.title,
+      variantSlugSeoTagOverride: variant.variantSlugSeoTagOverride?.value,
+    };
+  });
+
+  return products;
 }
