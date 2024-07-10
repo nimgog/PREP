@@ -8316,6 +8316,47 @@ export const Product = gql`
       super(apollo);
     }
   }
+export const ProductV2 = gql`
+    query ProductV2($variantId: ID!, $countryCode: CountryCode!) @inContext(country: $countryCode) {
+  node(id: $variantId) {
+    ... on ProductVariant {
+      id
+      price {
+        amount
+        currencyCode
+      }
+      product {
+        title
+        summary: metafield(
+          namespace: "import_information"
+          key: "trade_item_description"
+        ) {
+          value
+        }
+        description
+        descriptionHtml
+        images(first: 250) {
+          nodes {
+            url
+            altText
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class ProductV2GQL extends Apollo.Query<ProductV2Query, ProductV2QueryVariables> {
+    override document = ProductV2;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const Products = gql`
     query Products($countryCode: CountryCode!) @inContext(country: $countryCode) {
   products(first: 250, query: "NOT title:dummy") {
@@ -8325,9 +8366,6 @@ export const Products = gql`
         namespace: "import_information"
         key: "trade_item_description"
       ) {
-        value
-      }
-      productPageUrl: metafield(namespace: "prepp_app", key: "product_page_url") {
         value
       }
       discounted: metafield(namespace: "prepp_app", key: "discounted") {
@@ -8343,6 +8381,12 @@ export const Products = gql`
           price {
             amount
             currencyCode
+          }
+          variantSlugSeoTagOverride: metafield(
+            namespace: "prepp_app"
+            key: "variant_slug_seo_tag_override"
+          ) {
+            value
           }
         }
       }
@@ -8435,12 +8479,20 @@ export type ProductQueryVariables = Exact<{
 
 export type ProductQuery = { __typename?: 'QueryRoot', product?: { __typename?: 'Product', variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> } } | null };
 
+export type ProductV2QueryVariables = Exact<{
+  variantId: Scalars['ID']['input'];
+  countryCode: CountryCode;
+}>;
+
+
+export type ProductV2Query = { __typename?: 'QueryRoot', node?: { __typename?: 'AppliedGiftCard' } | { __typename?: 'Article' } | { __typename?: 'Blog' } | { __typename?: 'Cart' } | { __typename?: 'CartLine' } | { __typename?: 'Checkout' } | { __typename?: 'CheckoutLineItem' } | { __typename?: 'Collection' } | { __typename?: 'Comment' } | { __typename?: 'ComponentizableCartLine' } | { __typename?: 'ExternalVideo' } | { __typename?: 'GenericFile' } | { __typename?: 'Location' } | { __typename?: 'MailingAddress' } | { __typename?: 'Market' } | { __typename?: 'MediaImage' } | { __typename?: 'MediaPresentation' } | { __typename?: 'Menu' } | { __typename?: 'MenuItem' } | { __typename?: 'Metafield' } | { __typename?: 'Metaobject' } | { __typename?: 'Model3d' } | { __typename?: 'Order' } | { __typename?: 'Page' } | { __typename?: 'Payment' } | { __typename?: 'Product' } | { __typename?: 'ProductOption' } | { __typename?: 'ProductVariant', id: string, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, product: { __typename?: 'Product', title: string, description: string, descriptionHtml: any, summary?: { __typename?: 'Metafield', value: string } | null, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any, altText?: string | null }> } } } | { __typename?: 'Shop' } | { __typename?: 'ShopPolicy' } | { __typename?: 'UrlRedirect' } | { __typename?: 'Video' } | null };
+
 export type ProductsQueryVariables = Exact<{
   countryCode: CountryCode;
 }>;
 
 
-export type ProductsQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', nodes: Array<{ __typename?: 'Product', title: string, summary?: { __typename?: 'Metafield', value: string } | null, productPageUrl?: { __typename?: 'Metafield', value: string } | null, discounted?: { __typename?: 'Metafield', value: string } | null, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, image?: { __typename?: 'Image', altText?: string | null, url: any } | null, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> } }> } };
+export type ProductsQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', nodes: Array<{ __typename?: 'Product', title: string, summary?: { __typename?: 'Metafield', value: string } | null, discounted?: { __typename?: 'Metafield', value: string } | null, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, image?: { __typename?: 'Image', altText?: string | null, url: any } | null, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, variantSlugSeoTagOverride?: { __typename?: 'Metafield', value: string } | null }> } }> } };
 
 export type ShippingFeeProductQueryVariables = Exact<{
   countryCode: CountryCode;

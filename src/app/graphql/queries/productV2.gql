@@ -1,0 +1,29 @@
+query ProductV2($variantId: ID!, $countryCode: CountryCode!)
+@inContext(country: $countryCode) {
+  node(id: $variantId) {
+    ... on ProductVariant {
+      id
+      price {
+        amount
+        currencyCode
+      }
+      product {
+        title
+        summary: metafield(
+          namespace: "import_information"
+          key: "trade_item_description"
+        ) {
+          value
+        }
+        description
+        descriptionHtml
+        images(first: 250) {
+          nodes {
+            url
+            altText
+          }
+        }
+      }
+    }
+  }
+}

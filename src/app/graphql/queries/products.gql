@@ -8,12 +8,6 @@ query Products($countryCode: CountryCode!) @inContext(country: $countryCode) {
       ) {
         value
       }
-      productPageUrl: metafield(
-        namespace: "prepp_app"
-        key: "product_page_url"
-      ) {
-        value
-      }
       discounted: metafield(namespace: "prepp_app", key: "discounted") {
         value
       }
@@ -27,6 +21,12 @@ query Products($countryCode: CountryCode!) @inContext(country: $countryCode) {
           price {
             amount
             currencyCode
+          }
+          variantSlugSeoTagOverride: metafield(
+            namespace: "prepp_app"
+            key: "variant_slug_seo_tag_override"
+          ) {
+            value
           }
         }
       }
