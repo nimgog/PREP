@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@analogjs/content':
-        specifier: ^1.3.1
-        version: 1.3.1(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/router@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(front-matter@4.0.2)(marked-gfm-heading-id@3.1.3(marked@5.1.2))(marked-highlight@2.1.1(marked@5.1.2))(marked@5.1.2)(mermaid@10.9.0)(prismjs@1.29.0)(rxjs@7.5.7)
+        specifier: 1.5.0
+        version: 1.5.0(jhvjvfc3bzwqemty47kribftxy)
       '@analogjs/router':
-        specifier: ^1.3.1
-        version: 1.3.1(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/router@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(front-matter@4.0.2)(marked-gfm-heading-id@3.1.3(marked@5.1.2))(marked-highlight@2.1.1(marked@5.1.2))(marked@5.1.2)(mermaid@10.9.0)(prismjs@1.29.0)(rxjs@7.5.7)
+        specifier: 1.5.0
+        version: 1.5.0(jhvjvfc3bzwqemty47kribftxy)
       '@angular/animations':
         specifier: ^17.2.0
         version: 17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))
@@ -34,7 +34,7 @@ importers:
         version: 17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7)
       '@angular/material':
         specifier: ^17.2.1
-        version: 17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/cdk@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/forms@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7)
+        version: 17.3.2(jot7uvknoj57mq4kktqiyl3ima)
       '@angular/platform-browser':
         specifier: ^17.2.0
         version: 17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))
@@ -52,7 +52,7 @@ importers:
         version: 3.9.10(graphql-ws@5.16.0(graphql@16.8.1))(graphql@16.8.1)
       '@nx/angular':
         specifier: ~18.0.0
-        version: 18.0.8(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@angular-devkit/core@17.3.2(chokidar@3.6.0))(@angular-devkit/schematics@17.3.2(chokidar@3.6.0))(@babel/traverse@7.24.1)(@schematics/angular@17.3.2(chokidar@3.6.0))(@types/node@20.12.2)(esbuild@0.19.12)(eslint@8.57.0)(js-yaml@4.1.0)(nx@18.0.8)(rxjs@7.5.7)(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3))(typescript@5.3.3)
+        version: 18.0.8(kz6gni2vzwsxqucdwxsvinqruy)
       apollo-angular:
         specifier: ^6.0.0
         version: 6.0.0(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@apollo/client@3.9.10(graphql-ws@5.16.0(graphql@16.8.1))(graphql@16.8.1))(graphql@16.8.1)(rxjs@7.5.7)
@@ -68,6 +68,9 @@ importers:
       marked-gfm-heading-id:
         specifier: ^3.1.0
         version: 3.1.3(marked@5.1.2)
+      marked-highlight:
+        specifier: ^2.0.1
+        version: 2.1.1(marked@5.1.2)
       ngx-toastr:
         specifier: ^18.0.0
         version: 18.0.0(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))
@@ -77,6 +80,9 @@ importers:
       rxjs:
         specifier: ~7.5.6
         version: 7.5.7
+      slugify:
+        specifier: ^1.6.6
+        version: 1.6.6
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@20.12.2)(typescript@5.3.3)
@@ -88,8 +94,8 @@ importers:
         version: 0.14.4
     devDependencies:
       '@analogjs/platform':
-        specifier: ^1.3.1
-        version: 1.3.1(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@ngtools/webpack@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(typescript@5.3.3)(webpack@5.91.0(esbuild@0.19.12)))(@nx/devkit@18.2.1(nx@18.0.8))(@nx/vite@18.0.8(@babel/traverse@7.24.1)(@types/node@20.12.2)(nx@18.0.8)(typescript@5.3.3)(vite@5.0.13(@types/node@20.12.2)(less@4.1.3)(sass@1.72.0)(stylus@0.59.0)(terser@5.29.1))(vitest@1.4.0(@types/node@20.12.2)(jsdom@22.1.0)(less@4.1.3)(sass@1.72.0)(stylus@0.59.0)(terser@5.29.1)))(encoding@0.1.13)
+        specifier: 1.5.0
+        version: 1.5.0(tboivgnrqfobwpedjth4ultu4a)
       '@angular-devkit/build-angular':
         specifier: ^17.2.0
         version: 17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3)
@@ -159,41 +165,54 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/content@1.3.1':
-    resolution: {integrity: sha512-3ihT9I+lnYjwVOrs3F3QBWOOSIjFc4U5WpHvELbe24THxSfUsyolWWOzthDtnb6h39gTmJyNKjXo4Dp6FxB71A==}
+  '@analogjs/content@1.5.0':
+    resolution: {integrity: sha512-W66EPyw4dM/sfEP46msRFVu98lJJNy8h8LMXZnyDhXkKnNGvYCT0RYdjiJ7HrQbF3zLx0c7jyNeh4qRZeMW7UQ==}
     peerDependencies:
-      '@angular/common': '>=15.0.0 || ^18.0.0-rc.0'
-      '@angular/core': '>=15.0.0 || ^18.0.0-rc.0'
-      '@angular/platform-browser': '>=15.0.0 || ^18.0.0-rc.0'
-      '@angular/router': '>=15.0.0 || ^18.0.0-rc.0'
+      '@angular/common': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      '@angular/platform-browser': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      '@angular/router': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      '@nx/devkit': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       front-matter: ^4.0.2
-      marked: ^5.0.2
+      marked: '>=5.0.2'
       marked-gfm-heading-id: ^3.0.4
       marked-highlight: ^2.0.1
-      mermaid: ^10.2.4
+      marked-mangle: ^1.1.7
+      marked-shiki: ^1.1.0
       prismjs: ^1.29.0
       rxjs: ^6.5.0 || ^7.5.0
+      shiki: ^1.6.1
+    peerDependenciesMeta:
+      marked-highlight:
+        optional: true
+      marked-shiki:
+        optional: true
+      prismjs:
+        optional: true
+      shiki:
+        optional: true
 
-  '@analogjs/platform@1.3.1':
-    resolution: {integrity: sha512-j4tgNq/2IbYa5BLJXxOpCFpsajyETB2J7tKxfQnH8ErBk11zA2iqvPAmrpcfYvgH79cbo3oJDkJZdpYORLVotw==}
+  '@analogjs/platform@1.5.0':
+    resolution: {integrity: sha512-yraNodgTW1lwJqTYPlBUnFr0q1DuUImOwiXm47OjZYkvmYaOGdVTlkitgWZOiHJaVhpc1alPl7v7kmkSn1ge3g==}
     peerDependencies:
+      '@nx/angular': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       '@nx/devkit': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       '@nx/vite': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@analogjs/router@1.3.1':
-    resolution: {integrity: sha512-YeTuYlBcS6aj5TZMAI6Bs9YLZyErWhSfIsb7snfKNnnSQ0kloSosZDajbzR6pi0JoMCp8pJlxet4q6H5zv49hQ==}
+  '@analogjs/router@1.5.0':
+    resolution: {integrity: sha512-6iJvr/MILti4GKiEuVttCCB3yIyFWlNdPlFbZIOR19WwkMgYX8F01KjrThJAANZyHuQqJwTpWjrCIrR2PZ/A8A==}
     peerDependencies:
-      '@angular/core': '>=15.0.0 || ^18.0.0-rc.0'
-      '@angular/router': '>=15.0.0 || ^18.0.0-rc.0'
+      '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      '@angular/router': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
-  '@analogjs/vite-plugin-angular@1.3.1':
-    resolution: {integrity: sha512-Q/F+X5NBixMZnHDUffvB9it73326sdfVt35TJHMezMAC1ON370A2a/c/GEOZOUjczDU8JHvfgKzlsMQRHafanQ==}
+  '@analogjs/vite-plugin-angular@1.6.1':
+    resolution: {integrity: sha512-sF5Evn6CdjG8vfFJpDOKCKsqXi6UwrmokbuNFL/LB4Nsnj4L6k1TYSpD9xjKc9znS2bMT8blTqL2qROtsIFufA==}
     peerDependencies:
-      '@angular-devkit/build-angular': '>=15.0.0 || ^18.0.0-rc.0'
-      '@ngtools/webpack': '>=15.0.0 || ^18.0.0-rc.0'
+      '@angular-devkit/build-angular': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      '@ngtools/webpack': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
-  '@analogjs/vite-plugin-nitro@1.3.1':
-    resolution: {integrity: sha512-DmTwQkK8SpT90PR7F1E4/GSWW7mfbkkCKdhPVoCZbYO2ljVOtjqSSLo1S4PdGUlWnG3mWZHImQESLiHTBBR7fA==}
+  '@analogjs/vite-plugin-nitro@1.6.1':
+    resolution: {integrity: sha512-swwtLsrrh0QXB9on5/wMXrNY5VpOSBLfJVC+clx28shA6N06Xp7AIN4AnJlBfarq2uLq3fpEwObq16W4bMII6Q==}
 
   '@angular-devkit/architect@0.1703.2':
     resolution: {integrity: sha512-fT5gSzwDHOyGv8zF97t8rjeoYSGSxXjWWstl3rN1nXdO0qgJ5m6Sv0fupON+HltdXDCBLRH+2khNpqx/Fh0Qww==}
@@ -1098,9 +1117,6 @@ packages:
 
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
-
-  '@braintree/sanitize-url@6.0.4':
-    resolution: {integrity: sha512-s3jaWicZd0pkP0jf5ysyHUI/RE7MHos6qlToFcGWXVp+ykHOy77OUMrfbgJ9it2C5bow7OIQwYYaHjk9XlBQ2A==}
 
   '@cloudflare/kv-asset-handler@0.3.1':
     resolution: {integrity: sha512-lKN2XCfKCmpKb86a1tl4GIwsJYDy9TGuwjhDELLmpKygQhw8X2xR4dusgpC5Tg7q1pB96Eb0rBo81kxSILQMwA==}
@@ -2757,18 +2773,6 @@ packages:
   '@types/connect@3.4.38':
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
 
-  '@types/d3-scale-chromatic@3.0.3':
-    resolution: {integrity: sha512-laXM4+1o5ImZv3RpFAsTRn3TEkzqkytiOY0Dz0sq5cnd1dtNlk6sHLon4OvqaiJb28T0S/TdsBI3Sjsy+keJrw==}
-
-  '@types/d3-scale@4.0.8':
-    resolution: {integrity: sha512-gkK1VVTr5iNiYJ7vWDI+yUFFlszhNMtVeneJ6lUTKPjprsvLLI9/tgEGiXJOnlINJA8FyA88gfnQsHbybVZrYQ==}
-
-  '@types/d3-time@3.0.3':
-    resolution: {integrity: sha512-2p6olUZ4w3s+07q3Tm2dbiMZy5pCDfYwtLXXHUnVzXgQlZ/OyPtUz6OL382BkOuGlLXqfT+wqv8Fw2v8/0geBw==}
-
-  '@types/debug@4.1.12':
-    resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
-
   '@types/eslint-scope@3.7.7':
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
 
@@ -2811,18 +2815,12 @@ packages:
   '@types/json-stable-stringify@1.0.36':
     resolution: {integrity: sha512-b7bq23s4fgBB76n34m2b3RBf6M369B0Z9uRR8aHTMd8kZISRkmDEpPD8hhpYvDFzr3bJCPES96cm3Q6qRNDbQw==}
 
-  '@types/mdast@3.0.15':
-    resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
-
   '@types/mime@1.3.5':
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
 
   '@types/mime@4.0.0':
     resolution: {integrity: sha512-5eEkJZ/BLvTE3vXGKkWlyTSUVZuzj23Wj8PoyOq2lt5I3CYbiLBOPb3XmCW6QcuOibIUE6emHXHt9E/F/rCa6w==}
     deprecated: This is a stub types definition. mime provides its own type definitions, so you do not need this installed.
-
-  '@types/ms@0.7.34':
-    resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
   '@types/node-forge@1.3.11':
     resolution: {integrity: sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ==}
@@ -2862,9 +2860,6 @@ packages:
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
-
-  '@types/unist@2.0.10':
-    resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
 
   '@types/ws@8.5.10':
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
@@ -3198,6 +3193,7 @@ packages:
   are-we-there-yet@2.0.0:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
 
   arg@4.1.3:
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
@@ -3519,9 +3515,6 @@ packages:
     resolution: {integrity: sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==}
     engines: {node: '>=10'}
 
-  character-entities@2.0.2:
-    resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
-
   chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
 
@@ -3653,10 +3646,6 @@ packages:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
 
-  commander@8.3.0:
-    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
-    engines: {node: '>= 12'}
-
   common-path-prefix@3.0.0:
     resolution: {integrity: sha512-QE33hToZseCH3jS0qN96O/bSh3kaw/h+Tq7ngyY9eWDUnTlTNUyqfqvCXioLe5Na5jFsL78ra/wuBU4iuEgd4w==}
 
@@ -3747,9 +3736,6 @@ packages:
   corser@2.0.1:
     resolution: {integrity: sha512-utCYNzRSQIZNPIcGZdQc92UVJYAhtGAteCFg0yRaFm8f0P+CPtyGyHXJcGXnffjCybUCEx3FQ2G7U3/o9eIkVQ==}
     engines: {node: '>= 0.4.0'}
-
-  cose-base@1.0.3:
-    resolution: {integrity: sha512-s9whTXInMSgAp/NVXVNuVxVKzGH2qck3aQlVHxDCdAEPgtMKwc4Wq6/QKhgdEdgbLSi9rBTAcPoRa6JpiG4ksg==}
 
   cosmiconfig@6.0.0:
     resolution: {integrity: sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg==}
@@ -3908,166 +3894,12 @@ packages:
     resolution: {integrity: sha512-N4u2ABATi3Qplzf0hWbVCdjenim8F3ojEXpBDF5hBpjzW182MjNGLqfmQ0SkSPeQ+V86ZXgeH8aXj6kayd4jgg==}
     engines: {node: '>=14'}
 
-  cytoscape-cose-bilkent@4.1.0:
-    resolution: {integrity: sha512-wgQlVIUJF13Quxiv5e1gstZ08rnZj2XaLHGoFMYXz7SkNfCDOOteKBE6SYRfA9WxxI/iBc3ajfDoc6hb/MRAHQ==}
-    peerDependencies:
-      cytoscape: ^3.2.0
-
-  cytoscape@3.28.1:
-    resolution: {integrity: sha512-xyItz4O/4zp9/239wCcH8ZcFuuZooEeF8KHRmzjDfGdXsj3OG9MFSMA0pJE0uX3uCN/ygof6hHf4L7lst+JaDg==}
-    engines: {node: '>=0.10'}
-
-  d3-array@2.12.1:
-    resolution: {integrity: sha512-B0ErZK/66mHtEsR1TkPEEkwdy+WDesimkM5gpZr5Dsg54BiTA5RXtYW5qTLIAcekaS9xfZrzBLF/OAkB3Qn1YQ==}
-
-  d3-array@3.2.4:
-    resolution: {integrity: sha512-tdQAmyA18i4J7wprpYq8ClcxZy3SC31QMeByyCFyRt7BVHdREQZ5lpzoe5mFEYZUWe+oq8HBvk9JjpibyEV4Jg==}
-    engines: {node: '>=12'}
-
-  d3-axis@3.0.0:
-    resolution: {integrity: sha512-IH5tgjV4jE/GhHkRV0HiVYPDtvfjHQlQfJHs0usq7M30XcSBvOotpmH1IgkcXsO/5gEQZD43B//fc7SRT5S+xw==}
-    engines: {node: '>=12'}
-
-  d3-brush@3.0.0:
-    resolution: {integrity: sha512-ALnjWlVYkXsVIGlOsuWH1+3udkYFI48Ljihfnh8FZPF2QS9o+PzGLBslO0PjzVoHLZ2KCVgAM8NVkXPJB2aNnQ==}
-    engines: {node: '>=12'}
-
-  d3-chord@3.0.1:
-    resolution: {integrity: sha512-VE5S6TNa+j8msksl7HwjxMHDM2yNK3XCkusIlpX5kwauBfXuyLAtNg9jCp/iHH61tgI4sb6R/EIMWCqEIdjT/g==}
-    engines: {node: '>=12'}
-
-  d3-color@3.1.0:
-    resolution: {integrity: sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==}
-    engines: {node: '>=12'}
-
-  d3-contour@4.0.2:
-    resolution: {integrity: sha512-4EzFTRIikzs47RGmdxbeUvLWtGedDUNkTcmzoeyg4sP/dvCexO47AaQL7VKy/gul85TOxw+IBgA8US2xwbToNA==}
-    engines: {node: '>=12'}
-
-  d3-delaunay@6.0.4:
-    resolution: {integrity: sha512-mdjtIZ1XLAM8bm/hx3WwjfHt6Sggek7qH043O8KEjDXN40xi3vx/6pYSVTwLjEgiXQTbvaouWKynLBiUZ6SK6A==}
-    engines: {node: '>=12'}
-
-  d3-dispatch@3.0.1:
-    resolution: {integrity: sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg==}
-    engines: {node: '>=12'}
-
-  d3-drag@3.0.0:
-    resolution: {integrity: sha512-pWbUJLdETVA8lQNJecMxoXfH6x+mO2UQo8rSmZ+QqxcbyA3hfeprFgIT//HW2nlHChWeIIMwS2Fq+gEARkhTkg==}
-    engines: {node: '>=12'}
-
-  d3-dsv@3.0.1:
-    resolution: {integrity: sha512-UG6OvdI5afDIFP9w4G0mNq50dSOsXHJaRE8arAS5o9ApWnIElp8GZw1Dun8vP8OyHOZ/QJUKUJwxiiCCnUwm+Q==}
-    engines: {node: '>=12'}
-    hasBin: true
-
-  d3-ease@3.0.1:
-    resolution: {integrity: sha512-wR/XK3D3XcLIZwpbvQwQ5fK+8Ykds1ip7A2Txe0yxncXSdq1L9skcG7blcedkOX+ZcgxGAmLX1FrRGbADwzi0w==}
-    engines: {node: '>=12'}
-
-  d3-fetch@3.0.1:
-    resolution: {integrity: sha512-kpkQIM20n3oLVBKGg6oHrUchHM3xODkTzjMoj7aWQFq5QEM+R6E4WkzT5+tojDY7yjez8KgCBRoj4aEr99Fdqw==}
-    engines: {node: '>=12'}
-
-  d3-force@3.0.0:
-    resolution: {integrity: sha512-zxV/SsA+U4yte8051P4ECydjD/S+qeYtnaIyAs9tgHCqfguma/aAQDjo85A9Z6EKhBirHRJHXIgJUlffT4wdLg==}
-    engines: {node: '>=12'}
-
-  d3-format@3.1.0:
-    resolution: {integrity: sha512-YyUI6AEuY/Wpt8KWLgZHsIU86atmikuoOmCfommt0LYHiQSPjvX2AcFc38PX0CBpr2RCyZhjex+NS/LPOv6YqA==}
-    engines: {node: '>=12'}
-
-  d3-geo@3.1.1:
-    resolution: {integrity: sha512-637ln3gXKXOwhalDzinUgY83KzNWZRKbYubaG+fGVuc/dxO64RRljtCTnf5ecMyE1RIdtqpkVcq0IbtU2S8j2Q==}
-    engines: {node: '>=12'}
-
-  d3-hierarchy@3.1.2:
-    resolution: {integrity: sha512-FX/9frcub54beBdugHjDCdikxThEqjnR93Qt7PvQTOHxyiNCAlvMrHhclk3cD5VeAaq9fxmfRp+CnWw9rEMBuA==}
-    engines: {node: '>=12'}
-
-  d3-interpolate@3.0.1:
-    resolution: {integrity: sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==}
-    engines: {node: '>=12'}
-
-  d3-path@1.0.9:
-    resolution: {integrity: sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==}
-
-  d3-path@3.1.0:
-    resolution: {integrity: sha512-p3KP5HCf/bvjBSSKuXid6Zqijx7wIfNW+J/maPs+iwR35at5JCbLUT0LzF1cnjbCHWhqzQTIN2Jpe8pRebIEFQ==}
-    engines: {node: '>=12'}
-
-  d3-polygon@3.0.1:
-    resolution: {integrity: sha512-3vbA7vXYwfe1SYhED++fPUQlWSYTTGmFmQiany/gdbiWgU/iEyQzyymwL9SkJjFFuCS4902BSzewVGsHHmHtXg==}
-    engines: {node: '>=12'}
-
-  d3-quadtree@3.0.1:
-    resolution: {integrity: sha512-04xDrxQTDTCFwP5H6hRhsRcb9xxv2RzkcsygFzmkSIOJy3PeRJP7sNk3VRIbKXcog561P9oU0/rVH6vDROAgUw==}
-    engines: {node: '>=12'}
-
-  d3-random@3.0.1:
-    resolution: {integrity: sha512-FXMe9GfxTxqd5D6jFsQ+DJ8BJS4E/fT5mqqdjovykEB2oFbTMDVdg1MGFxfQW+FBOGoB++k8swBrgwSHT1cUXQ==}
-    engines: {node: '>=12'}
-
-  d3-sankey@0.12.3:
-    resolution: {integrity: sha512-nQhsBRmM19Ax5xEIPLMY9ZmJ/cDvd1BG3UVvt5h3WRxKg5zGRbvnteTyWAbzeSvlh3tW7ZEmq4VwR5mB3tutmQ==}
-
-  d3-scale-chromatic@3.1.0:
-    resolution: {integrity: sha512-A3s5PWiZ9YCXFye1o246KoscMWqf8BsD9eRiJ3He7C9OBaxKhAd5TFCdEx/7VbKtxxTsu//1mMJFrEt572cEyQ==}
-    engines: {node: '>=12'}
-
-  d3-scale@4.0.2:
-    resolution: {integrity: sha512-GZW464g1SH7ag3Y7hXjf8RoUuAFIqklOAq3MRl4OaWabTFJY9PN/E1YklhXLh+OQ3fM9yS2nOkCoS+WLZ6kvxQ==}
-    engines: {node: '>=12'}
-
-  d3-selection@3.0.0:
-    resolution: {integrity: sha512-fmTRWbNMmsmWq6xJV8D19U/gw/bwrHfNXxrIN+HfZgnzqTHp9jOmKMhsTUjXOJnZOdZY9Q28y4yebKzqDKlxlQ==}
-    engines: {node: '>=12'}
-
-  d3-shape@1.3.7:
-    resolution: {integrity: sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==}
-
-  d3-shape@3.2.0:
-    resolution: {integrity: sha512-SaLBuwGm3MOViRq2ABk3eLoxwZELpH6zhl3FbAoJ7Vm1gofKx6El1Ib5z23NUEhF9AsGl7y+dzLe5Cw2AArGTA==}
-    engines: {node: '>=12'}
-
-  d3-time-format@4.1.0:
-    resolution: {integrity: sha512-dJxPBlzC7NugB2PDLwo9Q8JiTR3M3e4/XANkreKSUxF8vvXKqm1Yfq4Q5dl8budlunRVlUUaDUgFt7eA8D6NLg==}
-    engines: {node: '>=12'}
-
-  d3-time@3.1.0:
-    resolution: {integrity: sha512-VqKjzBLejbSMT4IgbmVgDjpkYrNWUYJnbCGo874u7MMKIWsILRX+OpX/gTk8MqjpT1A/c6HY2dCA77ZN0lkQ2Q==}
-    engines: {node: '>=12'}
-
-  d3-timer@3.0.1:
-    resolution: {integrity: sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA==}
-    engines: {node: '>=12'}
-
-  d3-transition@3.0.1:
-    resolution: {integrity: sha512-ApKvfjsSR6tg06xrL434C0WydLr7JewBB3V+/39RMHsaXTOG0zmt/OAXeng5M5LBm0ojmxJrpomQVZ1aPvBL4w==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      d3-selection: 2 - 3
-
-  d3-zoom@3.0.0:
-    resolution: {integrity: sha512-b8AmV3kfQaqWAuacbPuNbL6vahnOJflOhexLzMMNLga62+/nh0JzvJ0aO/5a5MVgUFGS7Hu1P9P03o3fJkDCyw==}
-    engines: {node: '>=12'}
-
-  d3@7.9.0:
-    resolution: {integrity: sha512-e1U46jVP+w7Iut8Jt8ri1YsPOvFpg46k+K8TpCb0P+zjCkjkPnV7WzfDJzMHy1LnA+wj5pLT1wjO901gLXeEhA==}
-    engines: {node: '>=12'}
-
-  dagre-d3-es@7.0.10:
-    resolution: {integrity: sha512-qTCQmEhcynucuaZgY5/+ti3X/rnszKZhEQH/ZdWdtP1tA/y3VoHJzcVrO9pjjJCNpigfscAtoUB5ONcd2wNn0A==}
-
   data-urls@4.0.0:
     resolution: {integrity: sha512-/mMTei/JXPqvFqQtfyTowxmJVwr2PVAeCcDxyFf6LhoOu/09TX2OX3kb2wzi4DMXcfj4OItwDOnhl5oziPnT6g==}
     engines: {node: '>=14'}
 
   dataloader@2.2.2:
     resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
-
-  dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
 
   db0@0.1.4:
     resolution: {integrity: sha512-Ft6eCwONYxlwLjBXSJxw0t0RYtA5gW9mq8JfBXn9TtC0nDPlqePAhpv9v4g9aONBi6JI1OXHTKKkUYGd+BOrCA==}
@@ -4118,9 +3950,6 @@ packages:
   decimal.js@10.4.3:
     resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==}
 
-  decode-named-character-reference@1.0.2:
-    resolution: {integrity: sha512-O8x12RzrUF8xyVcY0KJowWsmaJxQbmy0/EtnNtHRpsOcT7dFk5W598coHqBVpmWo1oQQfsCqfCmkZN5DJrZVdg==}
-
   dedent@1.5.1:
     resolution: {integrity: sha512-+LxW+KLWxu3HW3M2w2ympwtqPrqYRzU8fqi6Fhd18fBALe15blJPI/I4+UHveMVG6lJqB4JNd4UG0S5cnVHwIg==}
     peerDependencies:
@@ -4158,9 +3987,6 @@ packages:
   defu@6.1.4:
     resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
 
-  delaunator@5.0.1:
-    resolution: {integrity: sha512-8nvh+XBe96aCESrGOqMp/84b13H9cdKbG5P2ejQCh4d4sK9RL4371qou9drQjMhvnPmhWl5hnmqbEE0fXr9Xnw==}
-
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
@@ -4183,10 +4009,6 @@ packages:
   dependency-graph@0.11.0:
     resolution: {integrity: sha512-JeMq7fEshyepOWDfcfHK06N3MhyPhz++vtqWhMT5O9A3K42rdsEDpfdVqjaqaAhsw6a+ZqeDvQVtD0hFHQWrzg==}
     engines: {node: '>= 0.6.0'}
-
-  dequal@2.0.3:
-    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
-    engines: {node: '>=6'}
 
   destr@2.0.3:
     resolution: {integrity: sha512-2N3BOUU4gYMpTP24s5rF5iP7BDr7uNTCs4ozw3kf/eKfvWSIu93GEBi5m427YoyJoeOzQ5smuu4nNAPGb8idSQ==}
@@ -4230,10 +4052,6 @@ packages:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
     engines: {node: '>=0.3.1'}
 
-  diff@5.2.0:
-    resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
-    engines: {node: '>=0.3.1'}
-
   dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
@@ -4263,9 +4081,6 @@ packages:
   domhandler@5.0.3:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
-
-  dompurify@3.0.11:
-    resolution: {integrity: sha512-Fan4uMuyB26gFV3ovPoEoQbxRRPfTu3CvImyZnhGq5fsIEO+gEFLp45ISFt+kQBWsK5ulDdT0oV28jS1UrwQLg==}
 
   domutils@3.1.0:
     resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
@@ -4309,9 +4124,6 @@ packages:
 
   electron-to-chromium@1.4.723:
     resolution: {integrity: sha512-rxFVtrMGMFROr4qqU6n95rUi9IlfIm+lIAt+hOToy/9r6CDv0XiEcQdC3VP71y1pE5CFTzKV0RvxOGYCPWWHPw==}
-
-  elkjs@0.9.2:
-    resolution: {integrity: sha512-2Y/RaA1pdgSHpY0YG4TYuYCD2wh97CRvu22eLG3Kz0pgQ/6KbIFTxsTnDc4MH/6hFlg2L/9qXrDMG0nMjP63iw==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -4691,6 +4503,7 @@ packages:
   gauge@3.0.2:
     resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
 
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
@@ -4751,6 +4564,7 @@ packages:
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   globals@11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
@@ -4883,9 +4697,6 @@ packages:
 
   header-case@2.0.4:
     resolution: {integrity: sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==}
-
-  heap@0.2.7:
-    resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
 
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
@@ -5056,13 +4867,6 @@ packages:
   inquirer@9.2.15:
     resolution: {integrity: sha512-vI2w4zl/mDluHt9YEQ/543VTCwPKWiHzKtm9dM2V0NdFcqEexDAjUHzO1oA60HRNaVifGXXM1tRRNluLVHa0Kg==}
     engines: {node: '>=18'}
-
-  internmap@1.0.1:
-    resolution: {integrity: sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw==}
-
-  internmap@2.0.3:
-    resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
-    engines: {node: '>=12'}
 
   invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
@@ -5473,23 +5277,12 @@ packages:
   karma-source-map-support@1.4.0:
     resolution: {integrity: sha512-RsBECncGO17KAoJCYXjv+ckIz+Ii9NCi+9enk+rq6XC81ezYkb4/RHE6CTXdA7IOJqoF3wcaLfVG0CPmE5ca6A==}
 
-  katex@0.16.10:
-    resolution: {integrity: sha512-ZiqaC04tp2O5utMsl2TEZTXxa6WSC4yo0fv5ML++D3QZv/vx2Mct0mTlRx3O+uUkjfuAgOkzsCmq5MiUEsDDdA==}
-    hasBin: true
-
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
-
-  khroma@2.1.0:
-    resolution: {integrity: sha512-Ls993zuzfayK269Svk9hzpeGUKob/sIgZzyHYdjQoAdQetRKpOLj+k/QQQ/6Qi0Yz65mlROrfd+Ev+1+7dz9Kw==}
 
   kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
-
-  kleur@4.1.5:
-    resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
-    engines: {node: '>=6'}
 
   klona@2.0.6:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
@@ -5500,9 +5293,6 @@ packages:
 
   launch-editor@2.6.1:
     resolution: {integrity: sha512-eB/uXmFVpY4zezmGp5XtU21kwo7GBbKB+EQ+UZeWtGb9yAM5xt/Evk+lYH3eRNAtId+ej4u7TYPFZ07w4s7rRw==}
-
-  layout-base@1.0.2:
-    resolution: {integrity: sha512-8h2oVEZNktL4BH2JCOI90iD1yXwL6iNW7KcCKT2QZgQJR2vbqDsldCTPRU9NifTCqHZci57XvQQ15YTu+sTYPg==}
 
   lazystream@1.0.1:
     resolution: {integrity: sha512-b94GiNHQNy6JNTrt5w6zNyffMrNkXZb3KTkCZJb2V1xaEGCk093vkZ2jk3tpaeP33/OiXC+WvK9AxUebnf5nbw==}
@@ -5596,9 +5386,6 @@ packages:
   locate-path@7.2.0:
     resolution: {integrity: sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
-  lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -5699,16 +5486,15 @@ packages:
     peerDependencies:
       marked: '>=4 <13'
 
+  marked-mangle@1.1.8:
+    resolution: {integrity: sha512-vN6a7AxdxP9PHQ6xI0EN/CesMOjcjqP0+JN/0cO2zypzyiyUhev82nWxA+/9JxYQawDErq8rT3G19AM+IgpmlQ==}
+    peerDependencies:
+      marked: '>=4 <14'
+
   marked@5.1.2:
     resolution: {integrity: sha512-ahRPGXJpjMjwSOlBoTMZAK7ATXkli5qCPxZ21TG44rx1KEo44bii4ekgTDQPNRQ4Kh7JMb9Ub1PVk1NxRSsorg==}
     engines: {node: '>= 16'}
     hasBin: true
-
-  mdast-util-from-markdown@1.3.1:
-    resolution: {integrity: sha512-4xTO/M8c82qBcnQc1tgpNtubGUW/Y1tBQ1B0i5CtSoelOLKFYlElIr3bvgREYYO5iRqbMY1YuqZng0GVOI8Qww==}
-
-  mdast-util-to-string@3.2.0:
-    resolution: {integrity: sha512-V4Zn/ncyN1QNSqSBxTrMOLpjr+IKdHl2v3KVLoWmDPscP4r9GcCi71gjgvUV1SFSKh92AjAG4peFuBl2/YgCJg==}
 
   mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
@@ -5734,9 +5520,6 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  mermaid@10.9.0:
-    resolution: {integrity: sha512-swZju0hFox/B/qoLKK0rOxxgh8Cf7rJSfAUc1u8fezVihYMvrJAS45GzAxTVf4Q+xn9uMgitBcmWk7nWGXOs/g==}
-
   meros@1.3.0:
     resolution: {integrity: sha512-2BNGOimxEz5hmjUG2FwoxCt5HN7BXdaWyFqEwxPTrJzVdABtrL4TiHTcsWSFAxPQ/tOnEaQEJh3qWq71QRMY+w==}
     engines: {node: '>=13'}
@@ -5749,69 +5532,6 @@ packages:
   methods@1.1.2:
     resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
     engines: {node: '>= 0.6'}
-
-  micromark-core-commonmark@1.1.0:
-    resolution: {integrity: sha512-BgHO1aRbolh2hcrzL2d1La37V0Aoz73ymF8rAcKnohLy93titmv62E0gP8Hrx9PKcKrqCZ1BbLGbP3bEhoXYlw==}
-
-  micromark-factory-destination@1.1.0:
-    resolution: {integrity: sha512-XaNDROBgx9SgSChd69pjiGKbV+nfHGDPVYFs5dOoDd7ZnMAE+Cuu91BCpsY8RT2NP9vo/B8pds2VQNCLiu0zhg==}
-
-  micromark-factory-label@1.1.0:
-    resolution: {integrity: sha512-OLtyez4vZo/1NjxGhcpDSbHQ+m0IIGnT8BoPamh+7jVlzLJBH98zzuCoUeMxvM6WsNeh8wx8cKvqLiPHEACn0w==}
-
-  micromark-factory-space@1.1.0:
-    resolution: {integrity: sha512-cRzEj7c0OL4Mw2v6nwzttyOZe8XY/Z8G0rzmWQZTBi/jjwyw/U4uqKtUORXQrR5bAZZnbTI/feRV/R7hc4jQYQ==}
-
-  micromark-factory-title@1.1.0:
-    resolution: {integrity: sha512-J7n9R3vMmgjDOCY8NPw55jiyaQnH5kBdV2/UXCtZIpnHH3P6nHUKaH7XXEYuWwx/xUJcawa8plLBEjMPU24HzQ==}
-
-  micromark-factory-whitespace@1.1.0:
-    resolution: {integrity: sha512-v2WlmiymVSp5oMg+1Q0N1Lxmt6pMhIHD457whWM7/GUlEks1hI9xj5w3zbc4uuMKXGisksZk8DzP2UyGbGqNsQ==}
-
-  micromark-util-character@1.2.0:
-    resolution: {integrity: sha512-lXraTwcX3yH/vMDaFWCQJP1uIszLVebzUa3ZHdrgxr7KEU/9mL4mVgCpGbyhvNLNlauROiNUq7WN5u7ndbY6xg==}
-
-  micromark-util-chunked@1.1.0:
-    resolution: {integrity: sha512-Ye01HXpkZPNcV6FiyoW2fGZDUw4Yc7vT0E9Sad83+bEDiCJ1uXu0S3mr8WLpsz3HaG3x2q0HM6CTuPdcZcluFQ==}
-
-  micromark-util-classify-character@1.1.0:
-    resolution: {integrity: sha512-SL0wLxtKSnklKSUplok1WQFoGhUdWYKggKUiqhX+Swala+BtptGCu5iPRc+xvzJ4PXE/hwM3FNXsfEVgoZsWbw==}
-
-  micromark-util-combine-extensions@1.1.0:
-    resolution: {integrity: sha512-Q20sp4mfNf9yEqDL50WwuWZHUrCO4fEyeDCnMGmG5Pr0Cz15Uo7KBs6jq+dq0EgX4DPwwrh9m0X+zPV1ypFvUA==}
-
-  micromark-util-decode-numeric-character-reference@1.1.0:
-    resolution: {integrity: sha512-m9V0ExGv0jB1OT21mrWcuf4QhP46pH1KkfWy9ZEezqHKAxkj4mPCy3nIH1rkbdMlChLHX531eOrymlwyZIf2iw==}
-
-  micromark-util-decode-string@1.1.0:
-    resolution: {integrity: sha512-YphLGCK8gM1tG1bd54azwyrQRjCFcmgj2S2GoJDNnh4vYtnL38JS8M4gpxzOPNyHdNEpheyWXCTnnTDY3N+NVQ==}
-
-  micromark-util-encode@1.1.0:
-    resolution: {integrity: sha512-EuEzTWSTAj9PA5GOAs992GzNh2dGQO52UvAbtSOMvXTxv3Criqb6IOzJUBCmEqrrXSblJIJBbFFv6zPxpreiJw==}
-
-  micromark-util-html-tag-name@1.2.0:
-    resolution: {integrity: sha512-VTQzcuQgFUD7yYztuQFKXT49KghjtETQ+Wv/zUjGSGBioZnkA4P1XXZPT1FHeJA6RwRXSF47yvJ1tsJdoxwO+Q==}
-
-  micromark-util-normalize-identifier@1.1.0:
-    resolution: {integrity: sha512-N+w5vhqrBihhjdpM8+5Xsxy71QWqGn7HYNUvch71iV2PM7+E3uWGox1Qp90loa1ephtCxG2ftRV/Conitc6P2Q==}
-
-  micromark-util-resolve-all@1.1.0:
-    resolution: {integrity: sha512-b/G6BTMSg+bX+xVCshPTPyAu2tmA0E4X98NSR7eIbeC6ycCqCeE7wjfDIgzEbkzdEVJXRtOG4FbEm/uGbCRouA==}
-
-  micromark-util-sanitize-uri@1.2.0:
-    resolution: {integrity: sha512-QO4GXv0XZfWey4pYFndLUKEAktKkG5kZTdUNaTAkzbuJxn2tNBOr+QtxR2XpWaMhbImT2dPzyLrPXLlPhph34A==}
-
-  micromark-util-subtokenize@1.1.0:
-    resolution: {integrity: sha512-kUQHyzRoxvZO2PuLzMt2P/dwVsTiivCK8icYTeR+3WgbuPqfHgPPy7nFKbeqRivBvn/3N3GBiNC+JRTMSxEC7A==}
-
-  micromark-util-symbol@1.1.0:
-    resolution: {integrity: sha512-uEjpEYY6KMs1g7QfJ2eX1SQEV+ZT4rUD3UcF6l57acZvLNK7PBZL+ty82Z1qhK1/yXIY4bdx04FKMgR0g4IAag==}
-
-  micromark-util-types@1.1.0:
-    resolution: {integrity: sha512-ukRBgie8TIAcacscVHSiddHjO4k/q3pnedmzMQ4iwDcK0FtFCohKOlFbaOL/mPgfnPsL3C1ZyxJa4sbWrBl3jg==}
-
-  micromark@3.2.0:
-    resolution: {integrity: sha512-uD66tJj54JLYq0De10AhWycZWGQNUvDI55xPgk2sQM5kn1JYlhbCMTtEeT27+vAhW2FBQxLlOmS3pmA7/2z4aA==}
 
   micromatch@4.0.5:
     resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
@@ -6066,9 +5786,6 @@ packages:
   node-releases@2.0.14:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
 
-  non-layered-tidy-tree-layout@2.0.2:
-    resolution: {integrity: sha512-gkXMxRzUH+PB0ax9dUN0yYF0S25BqeAYqhgMaLUFmpXLEk7Fcu8f4emJuOAY0V8kjDICxROIKsTAKsV/v355xw==}
-
   nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
     engines: {node: '>=6'}
@@ -6133,6 +5850,7 @@ packages:
 
   npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
+    deprecated: This package is no longer supported.
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -6946,9 +6664,6 @@ packages:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
 
-  robust-predicates@3.0.2:
-    resolution: {integrity: sha512-IXgzBWvWQwE6PrDI05OvmXUIruQTcoMDzRsOd5CDvHCVLcLHMTSYvOK5Cm46kWqlV3yAbuSpBZdJ5oP5OUoStg==}
-
   rollup-plugin-visualizer@5.12.0:
     resolution: {integrity: sha512-8/NU9jXcHRs7Nnj07PF2o4gjxmm9lXIrZ8r175bT9dK8qoLlvKTwRMArRCMgpMGlq8CTLugRvEmyMeMXIU2pNQ==}
     engines: {node: '>=14'}
@@ -6978,18 +6693,11 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rw@1.3.3:
-    resolution: {integrity: sha512-PdhdWy89SiZogBLaw42zdeqtRJ//zFd2PgQavcICDUgJT5oW10QCRKbJ6bg4r0/UY2M6BWd5tkxuGFRvCkgfHQ==}
-
   rxjs@7.5.7:
     resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
 
   rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
-
-  sade@1.8.1:
-    resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
-    engines: {node: '>=6'}
 
   safe-buffer@5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
@@ -7193,6 +6901,10 @@ packages:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
 
+  slugify@1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
+
   smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
@@ -7379,9 +7091,6 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
-  stylis@4.3.1:
-    resolution: {integrity: sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==}
-
   stylus-loader@7.1.3:
     resolution: {integrity: sha512-TY0SKwiY7D2kMd3UxaWKSf3xHF0FFN/FAfsSqfrhxRT/koXTwffq2cgEWDkLQz7VojMu7qEEHt5TlMjkPx9UDw==}
     engines: {node: '>= 14.15.0'}
@@ -7561,10 +7270,6 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
-  ts-dedent@2.2.0:
-    resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
-    engines: {node: '>=6.10'}
-
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
@@ -7728,9 +7433,6 @@ packages:
     resolution: {integrity: sha512-WrcA6AyEfqDX5bWige/4NQfPZMtASNVxdmWR76WESYQVAACSgWcR6e9i0mofqqBxYFtL4oAxPIptY73/0YE1DQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  unist-util-stringify-position@3.0.3:
-    resolution: {integrity: sha512-k5GzIBZ/QatR8N5X2y+drfpWG8IDBzdnVj6OInRNWm1oXrzydiaAT2OQiA8DPRRZyAKb9b6I2a6PxYklZD0gKg==}
-
   universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
     engines: {node: '>= 4.0.0'}
@@ -7841,15 +7543,6 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-
-  uuid@9.0.1:
-    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
-    hasBin: true
-
-  uvu@0.5.6:
-    resolution: {integrity: sha512-+g8ENReyr8YsOc6fv/NVJs2vFdHBnBNdfE49rshrTzDWOlUx4Gq7KOS2GD8eqhy2j+Ejq29+SbKH8yjkAqXqoA==}
-    engines: {node: '>=8'}
     hasBin: true
 
   v8-compile-cache-lib@3.0.1:
@@ -7984,9 +7677,6 @@ packages:
   web-streams-polyfill@3.3.3:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
     engines: {node: '>= 8'}
-
-  web-worker@1.3.0:
-    resolution: {integrity: sha512-BSR9wyRsy/KOValMgd5kMyr3JzpdeoR9KVId8u5GVlTTAtNChlsE4yTxeY7zMdNSyOmoKBv8NH2qeRY9Tg+IaA==}
 
   webcrypto-core@1.7.9:
     resolution: {integrity: sha512-FE+a4PPkOmBbgNDIyRmcHhgXn+2ClRl3JzJdDu/P4+B8y81LqKe6RAsI9b3lAOHe1T1BMkSjsRHTYRikImZnVA==}
@@ -8268,25 +7958,28 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@analogjs/content@1.3.1(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/router@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(front-matter@4.0.2)(marked-gfm-heading-id@3.1.3(marked@5.1.2))(marked-highlight@2.1.1(marked@5.1.2))(marked@5.1.2)(mermaid@10.9.0)(prismjs@1.29.0)(rxjs@7.5.7)':
+  '@analogjs/content@1.5.0(jhvjvfc3bzwqemty47kribftxy)':
     dependencies:
       '@angular/common': 17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7)
       '@angular/core': 17.3.2(rxjs@7.5.7)(zone.js@0.14.4)
       '@angular/platform-browser': 17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))
       '@angular/router': 17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7)
+      '@nx/devkit': 18.2.1(nx@18.0.8)
       front-matter: 4.0.2
       marked: 5.1.2
       marked-gfm-heading-id: 3.1.3(marked@5.1.2)
-      marked-highlight: 2.1.1(marked@5.1.2)
-      mermaid: 10.9.0
-      prismjs: 1.29.0
+      marked-mangle: 1.1.8(marked@5.1.2)
       rxjs: 7.5.7
       tslib: 2.6.2
+    optionalDependencies:
+      marked-highlight: 2.1.1(marked@5.1.2)
+      prismjs: 1.29.0
 
-  ? '@analogjs/platform@1.3.1(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@ngtools/webpack@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(typescript@5.3.3)(webpack@5.91.0(esbuild@0.19.12)))(@nx/devkit@18.2.1(nx@18.0.8))(@nx/vite@18.0.8(@babel/traverse@7.24.1)(@types/node@20.12.2)(nx@18.0.8)(typescript@5.3.3)(vite@5.0.13(@types/node@20.12.2)(less@4.1.3)(sass@1.72.0)(stylus@0.59.0)(terser@5.29.1))(vitest@1.4.0(@types/node@20.12.2)(jsdom@22.1.0)(less@4.1.3)(sass@1.72.0)(stylus@0.59.0)(terser@5.29.1)))(encoding@0.1.13)'
-  : dependencies:
-      '@analogjs/vite-plugin-angular': 1.3.1(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@ngtools/webpack@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(typescript@5.3.3)(webpack@5.91.0(esbuild@0.19.12)))
-      '@analogjs/vite-plugin-nitro': 1.3.1(encoding@0.1.13)
+  '@analogjs/platform@1.5.0(tboivgnrqfobwpedjth4ultu4a)':
+    dependencies:
+      '@analogjs/vite-plugin-angular': 1.6.1(v356mn27236ylfptizzwycawb4)
+      '@analogjs/vite-plugin-nitro': 1.6.1(encoding@0.1.13)
+      '@nx/angular': 18.0.8(kz6gni2vzwsxqucdwxsvinqruy)
       '@nx/devkit': 18.2.1(nx@18.0.8)
       '@nx/vite': 18.0.8(@babel/traverse@7.24.1)(@types/node@20.12.2)(nx@18.0.8)(typescript@5.3.3)(vite@5.0.13(@types/node@20.12.2)(less@4.1.3)(sass@1.72.0)(stylus@0.59.0)(terser@5.29.1))(vitest@1.4.0(@types/node@20.12.2)(jsdom@22.1.0)(less@4.1.3)(sass@1.72.0)(stylus@0.59.0)(terser@5.29.1))
       nitropack: 2.9.5(encoding@0.1.13)
@@ -8313,32 +8006,36 @@ snapshots:
       - uWebSockets.js
       - xml2js
 
-  '@analogjs/router@1.3.1(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/router@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(front-matter@4.0.2)(marked-gfm-heading-id@3.1.3(marked@5.1.2))(marked-highlight@2.1.1(marked@5.1.2))(marked@5.1.2)(mermaid@10.9.0)(prismjs@1.29.0)(rxjs@7.5.7)':
+  '@analogjs/router@1.5.0(jhvjvfc3bzwqemty47kribftxy)':
     dependencies:
       '@angular/core': 17.3.2(rxjs@7.5.7)(zone.js@0.14.4)
       '@angular/router': 17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7)
       tslib: 2.6.2
     optionalDependencies:
-      '@analogjs/content': 1.3.1(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/router@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(front-matter@4.0.2)(marked-gfm-heading-id@3.1.3(marked@5.1.2))(marked-highlight@2.1.1(marked@5.1.2))(marked@5.1.2)(mermaid@10.9.0)(prismjs@1.29.0)(rxjs@7.5.7)
+      '@analogjs/content': 1.5.0(jhvjvfc3bzwqemty47kribftxy)
     transitivePeerDependencies:
       - '@angular/common'
       - '@angular/platform-browser'
+      - '@nx/devkit'
       - front-matter
       - marked
       - marked-gfm-heading-id
       - marked-highlight
-      - mermaid
+      - marked-mangle
+      - marked-shiki
       - prismjs
       - rxjs
+      - shiki
 
-  ? '@analogjs/vite-plugin-angular@1.3.1(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@ngtools/webpack@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(typescript@5.3.3)(webpack@5.91.0(esbuild@0.19.12)))'
-  : dependencies:
+  '@analogjs/vite-plugin-angular@1.6.1(v356mn27236ylfptizzwycawb4)':
+    dependencies:
       '@angular-devkit/build-angular': 17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3)
       '@ngtools/webpack': 17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(typescript@5.3.3)(webpack@5.91.0(esbuild@0.19.12))
       ts-morph: 21.0.1
 
-  '@analogjs/vite-plugin-nitro@1.3.1(encoding@0.1.13)':
+  '@analogjs/vite-plugin-nitro@1.6.1(encoding@0.1.13)':
     dependencies:
+      esbuild: 0.20.2
       nitropack: 2.9.5(encoding@0.1.13)
       xmlbuilder2: 3.1.1
     transitivePeerDependencies:
@@ -8569,8 +8266,8 @@ snapshots:
       rxjs: 7.5.7
       tslib: 2.6.2
 
-  ? '@angular/material@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/cdk@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/forms@17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(rxjs@7.5.7)'
-  : dependencies:
+  '@angular/material@17.3.2(jot7uvknoj57mq4kktqiyl3ima)':
+    dependencies:
       '@angular/animations': 17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))
       '@angular/cdk': 17.3.2(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7)
       '@angular/common': 17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7)
@@ -10146,8 +9843,6 @@ snapshots:
       to-fast-properties: 2.0.0
 
   '@bcoe/v8-coverage@0.2.3': {}
-
-  '@braintree/sanitize-url@6.0.4': {}
 
   '@cloudflare/kv-asset-handler@0.3.1':
     dependencies:
@@ -11947,9 +11642,9 @@ snapshots:
       - bluebird
       - supports-color
 
-  ? '@nrwl/angular@18.0.8(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@angular-devkit/core@17.3.2(chokidar@3.6.0))(@angular-devkit/schematics@17.3.2(chokidar@3.6.0))(@babel/traverse@7.24.1)(@schematics/angular@17.3.2(chokidar@3.6.0))(@types/node@20.12.2)(esbuild@0.19.12)(eslint@8.57.0)(js-yaml@4.1.0)(nx@18.0.8)(rxjs@7.5.7)(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3))(typescript@5.3.3)'
-  : dependencies:
-      '@nx/angular': 18.0.8(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@angular-devkit/core@17.3.2(chokidar@3.6.0))(@angular-devkit/schematics@17.3.2(chokidar@3.6.0))(@babel/traverse@7.24.1)(@schematics/angular@17.3.2(chokidar@3.6.0))(@types/node@20.12.2)(esbuild@0.19.12)(eslint@8.57.0)(js-yaml@4.1.0)(nx@18.0.8)(rxjs@7.5.7)(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3))(typescript@5.3.3)
+  '@nrwl/angular@18.0.8(kz6gni2vzwsxqucdwxsvinqruy)':
+    dependencies:
+      '@nx/angular': 18.0.8(kz6gni2vzwsxqucdwxsvinqruy)
       tslib: 2.6.2
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
@@ -12132,12 +11827,12 @@ snapshots:
       - '@swc/core'
       - debug
 
-  ? '@nx/angular@18.0.8(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@angular-devkit/core@17.3.2(chokidar@3.6.0))(@angular-devkit/schematics@17.3.2(chokidar@3.6.0))(@babel/traverse@7.24.1)(@schematics/angular@17.3.2(chokidar@3.6.0))(@types/node@20.12.2)(esbuild@0.19.12)(eslint@8.57.0)(js-yaml@4.1.0)(nx@18.0.8)(rxjs@7.5.7)(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3))(typescript@5.3.3)'
-  : dependencies:
+  '@nx/angular@18.0.8(kz6gni2vzwsxqucdwxsvinqruy)':
+    dependencies:
       '@angular-devkit/build-angular': 17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3)
       '@angular-devkit/core': 17.3.2(chokidar@3.6.0)
       '@angular-devkit/schematics': 17.3.2(chokidar@3.6.0)
-      '@nrwl/angular': 18.0.8(@angular-devkit/build-angular@17.3.2(@angular/compiler-cli@17.3.2(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(typescript@5.3.3))(@angular/platform-server@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/compiler@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(@angular/platform-browser@17.3.2(@angular/animations@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4)))(@angular/common@17.3.2(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))(rxjs@7.5.7))(@angular/core@17.3.2(rxjs@7.5.7)(zone.js@0.14.4))))(@types/express@4.17.21)(@types/node@20.12.2)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3)))(typescript@5.3.3))(@angular-devkit/core@17.3.2(chokidar@3.6.0))(@angular-devkit/schematics@17.3.2(chokidar@3.6.0))(@babel/traverse@7.24.1)(@schematics/angular@17.3.2(chokidar@3.6.0))(@types/node@20.12.2)(esbuild@0.19.12)(eslint@8.57.0)(js-yaml@4.1.0)(nx@18.0.8)(rxjs@7.5.7)(ts-node@10.9.2(@types/node@20.12.2)(typescript@5.3.3))(typescript@5.3.3)
+      '@nrwl/angular': 18.0.8(kz6gni2vzwsxqucdwxsvinqruy)
       '@nx/cypress': 18.0.8(@babel/traverse@7.24.1)(@types/node@20.12.2)(js-yaml@4.1.0)(nx@18.0.8)(typescript@5.3.3)
       '@nx/devkit': 18.0.8(nx@18.0.8)
       '@nx/eslint': 18.0.8(@babel/traverse@7.24.1)(@types/node@20.12.2)(js-yaml@4.1.0)(nx@18.0.8)
@@ -12849,18 +12544,6 @@ snapshots:
     dependencies:
       '@types/node': 20.12.2
 
-  '@types/d3-scale-chromatic@3.0.3': {}
-
-  '@types/d3-scale@4.0.8':
-    dependencies:
-      '@types/d3-time': 3.0.3
-
-  '@types/d3-time@3.0.3': {}
-
-  '@types/debug@4.1.12':
-    dependencies:
-      '@types/ms': 0.7.34
-
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 8.56.7
@@ -12913,17 +12596,11 @@ snapshots:
 
   '@types/json-stable-stringify@1.0.36': {}
 
-  '@types/mdast@3.0.15':
-    dependencies:
-      '@types/unist': 2.0.10
-
   '@types/mime@1.3.5': {}
 
   '@types/mime@4.0.0':
     dependencies:
       mime: 4.0.1
-
-  '@types/ms@0.7.34': {}
 
   '@types/node-forge@1.3.11':
     dependencies:
@@ -12965,8 +12642,6 @@ snapshots:
       '@types/node': 20.12.2
 
   '@types/stack-utils@2.0.3': {}
-
-  '@types/unist@2.0.10': {}
 
   '@types/ws@8.5.10':
     dependencies:
@@ -13854,8 +13529,6 @@ snapshots:
 
   char-regex@1.0.2: {}
 
-  character-entities@2.0.2: {}
-
   chardet@0.7.0: {}
 
   check-error@1.0.3:
@@ -13972,8 +13645,6 @@ snapshots:
 
   commander@7.2.0: {}
 
-  commander@8.3.0: {}
-
   common-path-prefix@3.0.0: {}
 
   common-tags@1.8.2: {}
@@ -14067,10 +13738,6 @@ snapshots:
   core-util-is@1.0.3: {}
 
   corser@2.0.1: {}
-
-  cose-base@1.0.3:
-    dependencies:
-      layout-base: 1.0.2
 
   cosmiconfig@6.0.0:
     dependencies:
@@ -14268,188 +13935,6 @@ snapshots:
     dependencies:
       rrweb-cssom: 0.6.0
 
-  cytoscape-cose-bilkent@4.1.0(cytoscape@3.28.1):
-    dependencies:
-      cose-base: 1.0.3
-      cytoscape: 3.28.1
-
-  cytoscape@3.28.1:
-    dependencies:
-      heap: 0.2.7
-      lodash: 4.17.21
-
-  d3-array@2.12.1:
-    dependencies:
-      internmap: 1.0.1
-
-  d3-array@3.2.4:
-    dependencies:
-      internmap: 2.0.3
-
-  d3-axis@3.0.0: {}
-
-  d3-brush@3.0.0:
-    dependencies:
-      d3-dispatch: 3.0.1
-      d3-drag: 3.0.0
-      d3-interpolate: 3.0.1
-      d3-selection: 3.0.0
-      d3-transition: 3.0.1(d3-selection@3.0.0)
-
-  d3-chord@3.0.1:
-    dependencies:
-      d3-path: 3.1.0
-
-  d3-color@3.1.0: {}
-
-  d3-contour@4.0.2:
-    dependencies:
-      d3-array: 3.2.4
-
-  d3-delaunay@6.0.4:
-    dependencies:
-      delaunator: 5.0.1
-
-  d3-dispatch@3.0.1: {}
-
-  d3-drag@3.0.0:
-    dependencies:
-      d3-dispatch: 3.0.1
-      d3-selection: 3.0.0
-
-  d3-dsv@3.0.1:
-    dependencies:
-      commander: 7.2.0
-      iconv-lite: 0.6.3
-      rw: 1.3.3
-
-  d3-ease@3.0.1: {}
-
-  d3-fetch@3.0.1:
-    dependencies:
-      d3-dsv: 3.0.1
-
-  d3-force@3.0.0:
-    dependencies:
-      d3-dispatch: 3.0.1
-      d3-quadtree: 3.0.1
-      d3-timer: 3.0.1
-
-  d3-format@3.1.0: {}
-
-  d3-geo@3.1.1:
-    dependencies:
-      d3-array: 3.2.4
-
-  d3-hierarchy@3.1.2: {}
-
-  d3-interpolate@3.0.1:
-    dependencies:
-      d3-color: 3.1.0
-
-  d3-path@1.0.9: {}
-
-  d3-path@3.1.0: {}
-
-  d3-polygon@3.0.1: {}
-
-  d3-quadtree@3.0.1: {}
-
-  d3-random@3.0.1: {}
-
-  d3-sankey@0.12.3:
-    dependencies:
-      d3-array: 2.12.1
-      d3-shape: 1.3.7
-
-  d3-scale-chromatic@3.1.0:
-    dependencies:
-      d3-color: 3.1.0
-      d3-interpolate: 3.0.1
-
-  d3-scale@4.0.2:
-    dependencies:
-      d3-array: 3.2.4
-      d3-format: 3.1.0
-      d3-interpolate: 3.0.1
-      d3-time: 3.1.0
-      d3-time-format: 4.1.0
-
-  d3-selection@3.0.0: {}
-
-  d3-shape@1.3.7:
-    dependencies:
-      d3-path: 1.0.9
-
-  d3-shape@3.2.0:
-    dependencies:
-      d3-path: 3.1.0
-
-  d3-time-format@4.1.0:
-    dependencies:
-      d3-time: 3.1.0
-
-  d3-time@3.1.0:
-    dependencies:
-      d3-array: 3.2.4
-
-  d3-timer@3.0.1: {}
-
-  d3-transition@3.0.1(d3-selection@3.0.0):
-    dependencies:
-      d3-color: 3.1.0
-      d3-dispatch: 3.0.1
-      d3-ease: 3.0.1
-      d3-interpolate: 3.0.1
-      d3-selection: 3.0.0
-      d3-timer: 3.0.1
-
-  d3-zoom@3.0.0:
-    dependencies:
-      d3-dispatch: 3.0.1
-      d3-drag: 3.0.0
-      d3-interpolate: 3.0.1
-      d3-selection: 3.0.0
-      d3-transition: 3.0.1(d3-selection@3.0.0)
-
-  d3@7.9.0:
-    dependencies:
-      d3-array: 3.2.4
-      d3-axis: 3.0.0
-      d3-brush: 3.0.0
-      d3-chord: 3.0.1
-      d3-color: 3.1.0
-      d3-contour: 4.0.2
-      d3-delaunay: 6.0.4
-      d3-dispatch: 3.0.1
-      d3-drag: 3.0.0
-      d3-dsv: 3.0.1
-      d3-ease: 3.0.1
-      d3-fetch: 3.0.1
-      d3-force: 3.0.0
-      d3-format: 3.1.0
-      d3-geo: 3.1.1
-      d3-hierarchy: 3.1.2
-      d3-interpolate: 3.0.1
-      d3-path: 3.1.0
-      d3-polygon: 3.0.1
-      d3-quadtree: 3.0.1
-      d3-random: 3.0.1
-      d3-scale: 4.0.2
-      d3-scale-chromatic: 3.1.0
-      d3-selection: 3.0.0
-      d3-shape: 3.2.0
-      d3-time: 3.1.0
-      d3-time-format: 4.1.0
-      d3-timer: 3.0.1
-      d3-transition: 3.0.1(d3-selection@3.0.0)
-      d3-zoom: 3.0.0
-
-  dagre-d3-es@7.0.10:
-    dependencies:
-      d3: 7.9.0
-      lodash-es: 4.17.21
-
   data-urls@4.0.0:
     dependencies:
       abab: 2.0.6
@@ -14457,8 +13942,6 @@ snapshots:
       whatwg-url: 12.0.1
 
   dataloader@2.2.2: {}
-
-  dayjs@1.11.10: {}
 
   db0@0.1.4: {}
 
@@ -14479,10 +13962,6 @@ snapshots:
   decamelize@1.2.0: {}
 
   decimal.js@10.4.3: {}
-
-  decode-named-character-reference@1.0.2:
-    dependencies:
-      character-entities: 2.0.2
 
   dedent@1.5.1: {}
 
@@ -14512,10 +13991,6 @@ snapshots:
 
   defu@6.1.4: {}
 
-  delaunator@5.0.1:
-    dependencies:
-      robust-predicates: 3.0.2
-
   delayed-stream@1.0.0: {}
 
   delegates@1.0.0: {}
@@ -14527,8 +14002,6 @@ snapshots:
   depd@2.0.0: {}
 
   dependency-graph@0.11.0: {}
-
-  dequal@2.0.3: {}
 
   destr@2.0.3: {}
 
@@ -14556,8 +14029,6 @@ snapshots:
   diff-sequences@29.6.3: {}
 
   diff@4.0.2: {}
-
-  diff@5.2.0: {}
 
   dir-glob@3.0.1:
     dependencies:
@@ -14588,8 +14059,6 @@ snapshots:
   domhandler@5.0.3:
     dependencies:
       domelementtype: 2.3.0
-
-  dompurify@3.0.11: {}
 
   domutils@3.1.0:
     dependencies:
@@ -14625,8 +14094,6 @@ snapshots:
       jake: 10.8.7
 
   electron-to-chromium@1.4.723: {}
-
-  elkjs@0.9.2: {}
 
   emittery@0.13.1: {}
 
@@ -15388,8 +14855,6 @@ snapshots:
       capital-case: 1.0.4
       tslib: 2.6.2
 
-  heap@0.2.7: {}
-
   hoist-non-react-statics@3.3.2:
     dependencies:
       react-is: 16.13.1
@@ -15607,10 +15072,6 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
-
-  internmap@1.0.1: {}
-
-  internmap@2.0.3: {}
 
   invariant@2.2.4:
     dependencies:
@@ -16182,19 +15643,11 @@ snapshots:
     dependencies:
       source-map-support: 0.5.21
 
-  katex@0.16.10:
-    dependencies:
-      commander: 8.3.0
-
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
 
-  khroma@2.1.0: {}
-
   kind-of@6.0.3: {}
-
-  kleur@4.1.5: {}
 
   klona@2.0.6: {}
 
@@ -16204,8 +15657,6 @@ snapshots:
     dependencies:
       picocolors: 1.0.0
       shell-quote: 1.8.1
-
-  layout-base@1.0.2: {}
 
   lazystream@1.0.1:
     dependencies:
@@ -16341,8 +15792,6 @@ snapshots:
     dependencies:
       p-locate: 6.0.0
 
-  lodash-es@4.17.21: {}
-
   lodash.debounce@4.0.8: {}
 
   lodash.defaults@4.2.0: {}
@@ -16450,28 +15899,11 @@ snapshots:
     dependencies:
       marked: 5.1.2
 
+  marked-mangle@1.1.8(marked@5.1.2):
+    dependencies:
+      marked: 5.1.2
+
   marked@5.1.2: {}
-
-  mdast-util-from-markdown@1.3.1:
-    dependencies:
-      '@types/mdast': 3.0.15
-      '@types/unist': 2.0.10
-      decode-named-character-reference: 1.0.2
-      mdast-util-to-string: 3.2.0
-      micromark: 3.2.0
-      micromark-util-decode-numeric-character-reference: 1.1.0
-      micromark-util-decode-string: 1.1.0
-      micromark-util-normalize-identifier: 1.1.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-      unist-util-stringify-position: 3.0.3
-      uvu: 0.5.6
-    transitivePeerDependencies:
-      - supports-color
-
-  mdast-util-to-string@3.2.0:
-    dependencies:
-      '@types/mdast': 3.0.15
 
   mdn-data@2.0.28: {}
 
@@ -16489,169 +15921,11 @@ snapshots:
 
   merge2@1.4.1: {}
 
-  mermaid@10.9.0:
-    dependencies:
-      '@braintree/sanitize-url': 6.0.4
-      '@types/d3-scale': 4.0.8
-      '@types/d3-scale-chromatic': 3.0.3
-      cytoscape: 3.28.1
-      cytoscape-cose-bilkent: 4.1.0(cytoscape@3.28.1)
-      d3: 7.9.0
-      d3-sankey: 0.12.3
-      dagre-d3-es: 7.0.10
-      dayjs: 1.11.10
-      dompurify: 3.0.11
-      elkjs: 0.9.2
-      katex: 0.16.10
-      khroma: 2.1.0
-      lodash-es: 4.17.21
-      mdast-util-from-markdown: 1.3.1
-      non-layered-tidy-tree-layout: 2.0.2
-      stylis: 4.3.1
-      ts-dedent: 2.2.0
-      uuid: 9.0.1
-      web-worker: 1.3.0
-    transitivePeerDependencies:
-      - supports-color
-
   meros@1.3.0(@types/node@20.12.2):
     optionalDependencies:
       '@types/node': 20.12.2
 
   methods@1.1.2: {}
-
-  micromark-core-commonmark@1.1.0:
-    dependencies:
-      decode-named-character-reference: 1.0.2
-      micromark-factory-destination: 1.1.0
-      micromark-factory-label: 1.1.0
-      micromark-factory-space: 1.1.0
-      micromark-factory-title: 1.1.0
-      micromark-factory-whitespace: 1.1.0
-      micromark-util-character: 1.2.0
-      micromark-util-chunked: 1.1.0
-      micromark-util-classify-character: 1.1.0
-      micromark-util-html-tag-name: 1.2.0
-      micromark-util-normalize-identifier: 1.1.0
-      micromark-util-resolve-all: 1.1.0
-      micromark-util-subtokenize: 1.1.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-      uvu: 0.5.6
-
-  micromark-factory-destination@1.1.0:
-    dependencies:
-      micromark-util-character: 1.2.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-
-  micromark-factory-label@1.1.0:
-    dependencies:
-      micromark-util-character: 1.2.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-      uvu: 0.5.6
-
-  micromark-factory-space@1.1.0:
-    dependencies:
-      micromark-util-character: 1.2.0
-      micromark-util-types: 1.1.0
-
-  micromark-factory-title@1.1.0:
-    dependencies:
-      micromark-factory-space: 1.1.0
-      micromark-util-character: 1.2.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-
-  micromark-factory-whitespace@1.1.0:
-    dependencies:
-      micromark-factory-space: 1.1.0
-      micromark-util-character: 1.2.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-
-  micromark-util-character@1.2.0:
-    dependencies:
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-
-  micromark-util-chunked@1.1.0:
-    dependencies:
-      micromark-util-symbol: 1.1.0
-
-  micromark-util-classify-character@1.1.0:
-    dependencies:
-      micromark-util-character: 1.2.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-
-  micromark-util-combine-extensions@1.1.0:
-    dependencies:
-      micromark-util-chunked: 1.1.0
-      micromark-util-types: 1.1.0
-
-  micromark-util-decode-numeric-character-reference@1.1.0:
-    dependencies:
-      micromark-util-symbol: 1.1.0
-
-  micromark-util-decode-string@1.1.0:
-    dependencies:
-      decode-named-character-reference: 1.0.2
-      micromark-util-character: 1.2.0
-      micromark-util-decode-numeric-character-reference: 1.1.0
-      micromark-util-symbol: 1.1.0
-
-  micromark-util-encode@1.1.0: {}
-
-  micromark-util-html-tag-name@1.2.0: {}
-
-  micromark-util-normalize-identifier@1.1.0:
-    dependencies:
-      micromark-util-symbol: 1.1.0
-
-  micromark-util-resolve-all@1.1.0:
-    dependencies:
-      micromark-util-types: 1.1.0
-
-  micromark-util-sanitize-uri@1.2.0:
-    dependencies:
-      micromark-util-character: 1.2.0
-      micromark-util-encode: 1.1.0
-      micromark-util-symbol: 1.1.0
-
-  micromark-util-subtokenize@1.1.0:
-    dependencies:
-      micromark-util-chunked: 1.1.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-      uvu: 0.5.6
-
-  micromark-util-symbol@1.1.0: {}
-
-  micromark-util-types@1.1.0: {}
-
-  micromark@3.2.0:
-    dependencies:
-      '@types/debug': 4.1.12
-      debug: 4.3.4
-      decode-named-character-reference: 1.0.2
-      micromark-core-commonmark: 1.1.0
-      micromark-factory-space: 1.1.0
-      micromark-util-character: 1.2.0
-      micromark-util-chunked: 1.1.0
-      micromark-util-combine-extensions: 1.1.0
-      micromark-util-decode-numeric-character-reference: 1.1.0
-      micromark-util-encode: 1.1.0
-      micromark-util-normalize-identifier: 1.1.0
-      micromark-util-resolve-all: 1.1.0
-      micromark-util-sanitize-uri: 1.2.0
-      micromark-util-subtokenize: 1.1.0
-      micromark-util-symbol: 1.1.0
-      micromark-util-types: 1.1.0
-      uvu: 0.5.6
-    transitivePeerDependencies:
-      - supports-color
 
   micromatch@4.0.5:
     dependencies:
@@ -16957,8 +16231,6 @@ snapshots:
   node-machine-id@1.1.12: {}
 
   node-releases@2.0.14: {}
-
-  non-layered-tidy-tree-layout@2.0.2: {}
 
   nopt@5.0.0:
     dependencies:
@@ -17639,7 +16911,8 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.2.0
 
-  prismjs@1.29.0: {}
+  prismjs@1.29.0:
+    optional: true
 
   proc-log@3.0.0: {}
 
@@ -17875,8 +17148,6 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  robust-predicates@3.0.2: {}
-
   rollup-plugin-visualizer@5.12.0(rollup@4.13.2):
     dependencies:
       open: 8.4.2
@@ -17917,8 +17188,6 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  rw@1.3.3: {}
-
   rxjs@7.5.7:
     dependencies:
       tslib: 2.6.2
@@ -17926,10 +17195,6 @@ snapshots:
   rxjs@7.8.1:
     dependencies:
       tslib: 2.6.2
-
-  sade@1.8.1:
-    dependencies:
-      mri: 1.2.0
 
   safe-buffer@5.1.2: {}
 
@@ -18136,6 +17401,8 @@ snapshots:
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
 
+  slugify@1.6.6: {}
+
   smart-buffer@4.2.0: {}
 
   smob@1.5.0: {}
@@ -18336,8 +17603,6 @@ snapshots:
       browserslist: 4.23.0
       postcss: 8.4.38
       postcss-selector-parser: 6.0.16
-
-  stylis@4.3.1: {}
 
   stylus-loader@7.1.3(stylus@0.59.0)(webpack@5.91.0(esbuild@0.19.12)):
     dependencies:
@@ -18555,8 +17820,6 @@ snapshots:
     dependencies:
       typescript: 5.3.3
 
-  ts-dedent@2.2.0: {}
-
   ts-interface-checker@0.1.13: {}
 
   ts-invariant@0.10.3:
@@ -18735,10 +17998,6 @@ snapshots:
     dependencies:
       imurmurhash: 0.1.4
 
-  unist-util-stringify-position@3.0.3:
-    dependencies:
-      '@types/unist': 2.0.10
-
   universalify@0.2.0: {}
 
   universalify@2.0.1: {}
@@ -18824,15 +18083,6 @@ snapshots:
   utils-merge@1.0.1: {}
 
   uuid@8.3.2: {}
-
-  uuid@9.0.1: {}
-
-  uvu@0.5.6:
-    dependencies:
-      dequal: 2.0.3
-      diff: 5.2.0
-      kleur: 4.1.5
-      sade: 1.8.1
 
   v8-compile-cache-lib@3.0.1: {}
 
@@ -18959,8 +18209,6 @@ snapshots:
       defaults: 1.0.4
 
   web-streams-polyfill@3.3.3: {}
-
-  web-worker@1.3.0: {}
 
   webcrypto-core@1.7.9:
     dependencies:

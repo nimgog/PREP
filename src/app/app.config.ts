@@ -16,6 +16,9 @@ import { provideToastr } from 'ngx-toastr';
 import { withInMemoryScrolling } from '@angular/router';
 import { IMAGE_CONFIG, provideCloudflareLoader } from '@angular/common';
 import { provideContent, withMarkdownRenderer } from '@analogjs/content';
+import slugify from 'slugify';
+
+slugify.extend({ '(': '', ')': '' });
 
 export const appConfig: ApplicationConfig = {
   providers: [
