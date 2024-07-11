@@ -1,7 +1,14 @@
-import { RouteMeta } from '@analogjs/router';
-import { environment } from 'src/environments/environment';
+import { Component } from '@angular/core';
+import SurvivalKitComponent, {
+  sharedRouteMeta,
+} from 'src/app/components/shop/survival-kit.component';
 
-export const routeMeta: RouteMeta = {
-  redirectTo: environment.survivalKitPageLink,
-  pathMatch: 'full',
-};
+export const routeMeta = sharedRouteMeta;
+
+@Component({
+  selector: 'app-survival-kit-old-page',
+  standalone: true,
+  imports: [SurvivalKitComponent],
+  template: `<app-survival-kit></app-survival-kit>`,
+})
+export default class SurvivalKitOldPageComponent {}
