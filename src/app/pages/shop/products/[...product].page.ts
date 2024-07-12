@@ -1,20 +1,15 @@
 import { RouteMeta } from '@analogjs/router';
-import {
-  AsyncPipe,
-  DecimalPipe,
-  NgOptimizedImage,
-  NgTemplateOutlet,
-} from '@angular/common';
+import { AsyncPipe, DecimalPipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, of, switchMap, take, tap } from 'rxjs';
-import { SafePipe } from 'src/app/pipes/safe.pipe';
 import { ContextService } from 'src/app/services/context.service';
 import { ShopifyProductService } from 'src/app/services/shopify-product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { parseProductIdFromUrl } from 'src/app/utils/prepp-product-helpers';
 import { metaResolver, titleResolver } from './resolvers';
+import ProductDescription from '../../../components/shop/product-description.component';
 
 export const routeMeta: RouteMeta = {
   providers: [ShopifyProductService],
@@ -25,14 +20,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [
-    AsyncPipe,
-    DecimalPipe,
-    NgTemplateOutlet,
-    SafePipe,
-    FormsModule,
-    NgOptimizedImage,
-  ],
+  imports: [AsyncPipe, DecimalPipe, FormsModule, ProductDescription],
   template: `
     <div class="flex flex-col items-center w-full h-full pt-[100px] pb-5 px-4">
       <div class="container text-center">
@@ -40,7 +28,9 @@ export const routeMeta: RouteMeta = {
         <h1 class="mb-10 text-[2rem]">{{ product.title }}</h1>
         <h2>{{ product.summary }}</h2>
 
-        <div class="flex flex-col items-center justify-between lg:flex-row lg:items-start">
+        <div
+          class="flex flex-col items-center justify-between lg:flex-row lg:items-start"
+        >
           <div>
             @for (image of product.images; track image.src; let i = $index) {
             <div class="flex justify-center items-center w-[400px] h-[400px]">
@@ -133,11 +123,9 @@ export const routeMeta: RouteMeta = {
               }
             </div>
 
-            @if (contextService.isClientSide) {
-            <p [innerHTML]="product.htmlDescription | safe : 'html'">DUMMY</p>
-            } @else {
-            <p class="hidden">{{ product.textDescription }}</p>
-            }
+            <app-product-description
+              [htmlDescription]="product.htmlDescription"
+            ></app-product-description>
           </div>
         </div>
 
