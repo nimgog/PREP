@@ -9,7 +9,6 @@ import { RouterLink } from '@angular/router';
     <ul
       class="flex gap-x-2 lg:gap-x-[25px] text-prep-beige text-xs lg:text-base font-normal"
     >
-      <!-- TODO: Make this scroll down on the About Us page -->
       <li>
         <a routerLink="/about-us" fragment="contact">Contact Us</a>
       </li>

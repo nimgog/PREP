@@ -6,9 +6,9 @@ import SurvivalKitComponent, {
 export const routeMeta = sharedRouteMeta;
 
 @Component({
-  selector: 'app-survival-kit-old-page',
+  selector: 'app-survival-kit-new-page',
   standalone: true,
   imports: [SurvivalKitComponent],
   template: `<app-survival-kit></app-survival-kit>`,
 })
-export default class SurvivalKitOldPageComponent {}
+export default class SurvivalKitNewPageComponent {}

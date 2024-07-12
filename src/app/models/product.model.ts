@@ -27,7 +27,17 @@ export type ProductListItem = {
   summary: string;
   productPageUrl?: string;
   discounted: boolean;
-  imageUrl: string;
+  imageUrl: string; // TODO: Use Image type
   imageAlt?: string;
+  price: Money;
+};
+
+export type ProductV2 = {
+  id: string;
+  title: string;
+  summary: string;
+  textDescription: string;
+  htmlDescription: string;
+  images: Image[];
   price: Money;
 };

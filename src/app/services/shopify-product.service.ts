@@ -11,11 +11,17 @@ import {
   take,
   tap,
 } from 'rxjs';
-import type { Money, Product, ProductListItem } from '../models/product.model';
+import type {
+  Money,
+  Product,
+  ProductListItem,
+  ProductV2,
+} from '../models/product.model';
 import { LocationService } from './location.service';
 import {
   ProductGQL,
   ProductsGQL,
+  ProductV2GQL,
   ShippingFeeProductGQL,
 } from '../graphql/types';
 import { NotificationService } from './notification.service';
@@ -23,9 +29,9 @@ import { catchAndReportError } from '../utils/catch-and-report-error.operator';
 import {
   mapShopifyProductToPrepProduct,
   mapShopifyProductToPrepProductListItem,
+  mapShopifyVariantToPrepProduct,
 } from '../utils/shopify-product-helpers';
 import { LocalStorageService } from './local-storage.service';
-import { ContextService } from './context.service';
 
 @Injectable({
   providedIn: 'root',
@@ -45,6 +51,7 @@ export class ShopifyProductService {
   private readonly notificationService = inject(NotificationService);
 
   private readonly productsGQL = inject(ProductsGQL);
+  private readonly productV2GQL = inject(ProductV2GQL);
   private readonly productGQL = inject(ProductGQL);
   private readonly shippingFeeProductGQL = inject(ShippingFeeProductGQL);
 
@@ -75,6 +82,38 @@ export class ShopifyProductService {
       map((shopifyProducts) =>
         shopifyProducts.nodes.map(mapShopifyProductToPrepProductListItem)
       ),
+      catchAndReportError(this.notificationService)
+    );
+  }
+
+  fetchProductV2(productId: string): Observable<ProductV2 | null> {
+    if (!productId.startsWith('gid://shopify/ProductVariant/')) {
+      productId = `gid://shopify/ProductVariant/` + productId;
+    }
+
+    return this.locationService.getTwoLetterCountryCode().pipe(
+      switchMap((countryCode) =>
+        this.productV2GQL.fetch({
+          variantId: productId,
+          countryCode,
+        })
+      ),
+      map((response) => {
+        if (!response.data?.node || response.error || response.errors?.length) {
+          throw new Error(
+            `Shopify request failed: ${JSON.stringify(response)}`
+          );
+        }
+
+        return response.data.node;
+      }),
+      map((shopifyVariant) => {
+        if (shopifyVariant.__typename !== 'ProductVariant') {
+          throw new Error('Shopify request failed: Invalid product variant');
+        }
+
+        return mapShopifyVariantToPrepProduct(shopifyVariant);
+      }),
       catchAndReportError(this.notificationService)
     );
   }

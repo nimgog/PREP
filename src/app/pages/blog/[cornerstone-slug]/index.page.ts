@@ -37,7 +37,6 @@ export const routeMeta: RouteMeta = {
 
 const MAX_READ_MORE_PAGES = 4;
 
-// TODO: Style this component
 @Component({
   selector: 'app-cornerstone-page',
   standalone: true,
@@ -65,7 +64,6 @@ const MAX_READ_MORE_PAGES = 4;
         {{ cornerstonePageFile.attributes.title }}
       </h1>
 
-      <!-- TODO: Internationalize the date, just pass a locale to it -->
       <div>
         <p>{{ cornerstonePageFile.attributes.date | date }} | by N Johansson</p>
 
