@@ -1,5 +1,5 @@
 import { RouteMeta } from '@analogjs/router';
-import { AsyncPipe, DecimalPipe } from '@angular/common';
+import { AsyncPipe, DecimalPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,7 +20,13 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [AsyncPipe, DecimalPipe, FormsModule, ProductDescription],
+  imports: [
+    AsyncPipe,
+    DecimalPipe,
+    FormsModule,
+    ProductDescription,
+    NgOptimizedImage,
+  ],
   template: `
     <div class="flex flex-col items-center w-full h-full pt-[100px] pb-5 px-4">
       <div class="container text-center">
