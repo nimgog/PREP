@@ -55,7 +55,6 @@ export const sharedRouteMeta: RouteMeta = {
           </div>
         </div>
       </div>
-      <div class="absolute inset-0 bg-white opacity-50 z-0"></div>
     </div>
     <div class="w-full h-full pt-[100px] pb-5 px-4 flex justify-center">
       <div class="container">
