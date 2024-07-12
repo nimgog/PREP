@@ -70,7 +70,7 @@ const MAX_RELATED_SUPPORTING_PAGES = 4;
       </div>
 
       @if(contentText()) {
-      <app-blog-content [contentText]="contentText()!" />
+      <app-blog-content class="w-full" [contentText]="contentText()!" />
       } @if (relatedSupportingPageFiles.length) {
       <div class="flex flex-col items-center gap-y-4 w-full">
         <p>Articles you might also like:</p>

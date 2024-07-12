@@ -41,81 +41,77 @@ $analog-theme: mat.define-light-theme(
 }
 
 .analog-markdown {
-  padding: 20px; /* Adds padding around the content */
-  max-width: 800px; /* Sets a max-width for the content */
-  margin: 0 auto; /* Centers the content */
-  font-family: 'Helvetica', 'Arial', sans-serif; /* Sets a default font */
-}
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Helvetica', 'Arial', sans-serif;
 
-.analog-markdown h1 {
-  font-size: 32px; /* Sets font size for h1 */
-  font-weight: bold; /* Sets font weight for h1 */
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
 
-.analog-markdown h2 {
-  font-size: 24px; /* Sets font size for h2 */
-  font-weight: bold;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
+  h1 {
+    font-size: 32px;
+  }
 
-.analog-markdown h3 {
-  font-size: 1.5em; /* Sets font size for h3 */
-  font-weight: bold;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
+  h2 {
+    font-size: 24px;
+  }
 
-.analog-markdown h4 {
-  font-size: 1.25em; /* Sets font size for h4 */
-  font-weight: bold;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
+  h3 {
+    font-size: 1.5em;
+  }
 
-.analog-markdown h5 {
-  font-size: 1em; /* Sets font size for h5 */
-  font-weight: bold;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
+  h4 {
+    font-size: 1.25em;
+  }
 
-.analog-markdown h6 {
-  font-size: 0.875em; /* Sets font size for h6 */
-  font-weight: bold;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-}
+  h5 {
+    font-size: 1em;
+  }
 
-.analog-markdown p {
-  font-size: 18px; /* Sets font size for paragraph */
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
+  h6 {
+    font-size: 0.875em;
+  }
 
-/* You can also add styles for other elements like lists, links, etc. */
-.analog-markdown ul,
-.analog-markdown ol {
-  padding-left: 30px; /* Adds indentation to lists */
-}
+  p {
+    font-size: 18px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
 
-.analog-markdown ul {
-  list-style-type: disc;
-}
+  ul, ol {
+    padding-left: 30px;
+  }
 
-.analog-markdown ol {
-  list-style-type: decimal;
-}
+  ul {
+    list-style-type: disc;
+  }
 
-.analog-markdown a {
-  color: #1a0dab; /* Sets color for links */
-  text-decoration: none; /* Removes underline from links */
-}
+  ol {
+    list-style-type: decimal;
+  }
 
-.analog-markdown a:hover {
-  text-decoration: underline; /* Underlines links on hover */
-}
+  a {
+    color: #1a0dab;
+    text-decoration: none;
 
-/* Additional styles for blockquotes, code, etc., can be added similarly */
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  table {
+    border-spacing: 10px;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+
+    td {
+      padding: 8px;
+      text-align: center;
+    }
+  }
+}

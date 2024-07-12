@@ -71,7 +71,7 @@ const MAX_READ_MORE_PAGES = 4;
       </div>
 
       @if (contentText()) {
-      <app-blog-content [contentText]="contentText()!" />
+      <app-blog-content class="w-full" [contentText]="contentText()!" />
       } @if (readMoreSupportingPageFiles.length) {
       <div
         class="more-articles"
