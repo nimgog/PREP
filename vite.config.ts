@@ -14,6 +14,9 @@ import { defineConfig } from 'vite';
 import { environment } from './src/environments/environment';
 import { PageAttributes } from './src/app/models/blog.model';
 import { buildPreppProductUrl } from './src/app/utils/shopify-product-helpers';
+import { initSlugify } from './src/app/slugify.config';
+
+initSlugify();
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
