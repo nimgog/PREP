@@ -6,35 +6,14 @@ import type {
 } from 'src/app/graphql/types';
 import type {
   Image,
-  Product,
   ProductListItem,
   ProductV2,
-  ProductVariant,
 } from 'src/app/models/product.model';
 
 type ElementType<T> = T extends (infer U)[] ? U : never;
 
-type ShopifyProduct = NonNullable<ProductQuery['product']>;
-
-export const mapShopifyProductToPrepProduct = (
-  shopifyProduct: ShopifyProduct
-) => {
-  const variants = shopifyProduct.variants.nodes.map(
-    (shopifyProductVariant) => {
-      return <ProductVariant>{
-        id: shopifyProductVariant.id,
-        price: {
-          amount: parseFloat(shopifyProductVariant.price.amount),
-          currencyCode: shopifyProductVariant.price.currencyCode,
-        },
-      };
-    }
-  );
-
-  return <Product>{
-    variants,
-  };
-};
+const parseProductSku = (variantId: string) =>
+  variantId.replace('gid://shopify/ProductVariant/', '');
 
 export const buildPreppProductUrl = (
   variantId: string,
@@ -45,7 +24,7 @@ export const buildPreppProductUrl = (
     ? variantSlugSeoTagOverride
     : slugify(productTitle.toLowerCase());
 
-  const preppProductId = variantId.replace('gid://shopify/ProductVariant/', '');
+  const preppProductId = parseProductSku(variantId);
 
   return `/shop/products/${variantSlugSeoTags}-${preppProductId}`;
 };
@@ -57,14 +36,16 @@ export const mapShopifyProductToPrepProductListItem = (
   shopifyProduct: ShopifyProductListItem
 ): ProductListItem => {
   const variant = shopifyProduct.variants.nodes[0];
+  const preppProductId = parseProductSku(variant.id);
+
   const productPageUrl = buildPreppProductUrl(
-    variant.id,
+    preppProductId,
     shopifyProduct.title,
     variant.variantSlugSeoTagOverride?.value
   );
 
   return {
-    productId: variant.id,
+    productId: preppProductId,
     title: shopifyProduct.title,
     summary: shopifyProduct.summary?.value || '',
     productPageUrl: productPageUrl,
@@ -73,7 +54,7 @@ export const mapShopifyProductToPrepProductListItem = (
     imageUrl: variant.image?.url || '',
     imageAlt: variant.image?.altText || undefined,
     price: {
-      amount: variant.price.amount,
+      amount: +variant.price.amount,
       currencyCode: variant.price.currencyCode,
     },
   };
@@ -90,18 +71,30 @@ export const mapShopifyVariantToPrepProduct = (
     return null;
   }
 
+  const preppProductId = parseProductSku(shopifyVariant.id);
+
+  const productPageUrl = buildPreppProductUrl(
+    preppProductId,
+    shopifyVariant.product.title,
+    shopifyVariant.variantSlugSeoTagOverride?.value
+  );
+
   // TODO: Restrict image sizes in GQL definition
 
   return {
-    id: shopifyVariant.id,
+    id: preppProductId,
     title: shopifyVariant.product.title,
     summary: shopifyVariant.product.summary?.value || '',
+    productPageUrl: productPageUrl,
     textDescription: shopifyVariant.product.description,
     htmlDescription: shopifyVariant.product.descriptionHtml,
     images: shopifyVariant.product.images.nodes.map(
       (shopifyImage) =>
         <Image>{ src: shopifyImage.url, alt: shopifyImage.altText }
     ),
-    price: shopifyVariant.price,
+    price: {
+      amount: +shopifyVariant.price.amount,
+      currencyCode: shopifyVariant.price.currencyCode,
+    },
   };
 };

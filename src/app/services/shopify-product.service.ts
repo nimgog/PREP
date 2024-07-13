@@ -3,6 +3,7 @@ import type { Observable } from 'rxjs';
 import {
   catchError,
   concatMap,
+  EMPTY,
   interval,
   map,
   of,
@@ -13,13 +14,11 @@ import {
 } from 'rxjs';
 import type {
   Money,
-  Product,
   ProductListItem,
   ProductV2,
 } from '../models/product.model';
 import { LocationService } from './location.service';
 import {
-  ProductGQL,
   ProductsGQL,
   ProductV2GQL,
   ShippingFeeProductGQL,
@@ -27,11 +26,11 @@ import {
 import { NotificationService } from './notification.service';
 import { catchAndReportError } from '../utils/catch-and-report-error.operator';
 import {
-  mapShopifyProductToPrepProduct,
   mapShopifyProductToPrepProductListItem,
   mapShopifyVariantToPrepProduct,
 } from '../utils/shopify-product-helpers';
 import { LocalStorageService } from './local-storage.service';
+import { ContextService } from './context.service';
 
 @Injectable({
   providedIn: 'root',
@@ -39,21 +38,23 @@ import { LocalStorageService } from './local-storage.service';
 export class ShopifyProductService {
   private static readonly ProductPriceRefreshIntervalInMins = 10;
 
-  private _productPriceRefreshSignal$ = interval(
-    ShopifyProductService.ProductPriceRefreshIntervalInMins * 60 * 1000
-  ).pipe(
-    share(),
-    map(() => undefined)
-  );
-
   private readonly locationService = inject(LocationService);
   private readonly localStorageService = inject(LocalStorageService);
   private readonly notificationService = inject(NotificationService);
+  private readonly contextService = inject(ContextService);
 
   private readonly productsGQL = inject(ProductsGQL);
   private readonly productV2GQL = inject(ProductV2GQL);
-  private readonly productGQL = inject(ProductGQL);
   private readonly shippingFeeProductGQL = inject(ShippingFeeProductGQL);
+
+  private _productPriceRefreshSignal$ = this.contextService.isClientSide
+    ? interval(
+        ShopifyProductService.ProductPriceRefreshIntervalInMins * 60 * 1000
+      ).pipe(
+        share(),
+        map(() => undefined)
+      )
+    : EMPTY;
 
   get productPriceRefreshSignal$() {
     return this._productPriceRefreshSignal$;
@@ -87,14 +88,16 @@ export class ShopifyProductService {
   }
 
   fetchProductV2(productId: string): Observable<ProductV2 | null> {
-    if (!productId.startsWith('gid://shopify/ProductVariant/')) {
-      productId = `gid://shopify/ProductVariant/` + productId;
-    }
+    const shopifyVariantId = productId.startsWith(
+      'gid://shopify/ProductVariant/'
+    )
+      ? productId
+      : `gid://shopify/ProductVariant/` + productId;
 
     return this.locationService.getTwoLetterCountryCode().pipe(
       switchMap((countryCode) =>
         this.productV2GQL.fetch({
-          variantId: productId,
+          variantId: shopifyVariantId,
           countryCode,
         })
       ),
@@ -114,32 +117,6 @@ export class ShopifyProductService {
 
         return mapShopifyVariantToPrepProduct(shopifyVariant);
       }),
-      catchAndReportError(this.notificationService)
-    );
-  }
-
-  fetchProduct(productHandle: string): Observable<Product> {
-    return this.locationService.getTwoLetterCountryCode().pipe(
-      switchMap((countryCode) =>
-        this.productGQL.fetch({
-          productHandle,
-          countryCode,
-        })
-      ),
-      map((response) => {
-        if (
-          !response.data?.product ||
-          response.error ||
-          response.errors?.length
-        ) {
-          throw new Error(
-            `Shopify request failed: ${JSON.stringify(response)}`
-          );
-        }
-
-        return response.data.product;
-      }),
-      map((shopifyProduct) => mapShopifyProductToPrepProduct(shopifyProduct)),
       catchAndReportError(this.notificationService)
     );
   }

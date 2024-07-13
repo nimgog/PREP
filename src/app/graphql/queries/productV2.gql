@@ -7,6 +7,12 @@ query ProductV2($variantId: ID!, $countryCode: CountryCode!)
         amount
         currencyCode
       }
+      variantSlugSeoTagOverride: metafield(
+        namespace: "prepp_app"
+        key: "variant_slug_seo_tag_override"
+      ) {
+        value
+      }
       product {
         title
         summary: metafield(

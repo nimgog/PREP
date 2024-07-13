@@ -13,12 +13,13 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Subscription, take, tap } from 'rxjs';
 import { VideoModalComponent } from 'src/app/components/common/video-modal.component';
 import { ShopifyProductService } from 'src/app/services/shopify-product.service';
-import { Money, ProductVariant } from 'src/app/models/product.model';
+import { Money, ProductV2 } from 'src/app/models/product.model';
 import { ContextService } from 'src/app/services/context.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
 import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
 import { Meta } from '@angular/platform-browser';
+import ProductStructuredDataComponent from './product-structured-data.component';
 
 export const sharedRouteMeta: RouteMeta = {
   title: getFullPageTitle('Survival Kit'),
@@ -31,7 +32,13 @@ export const sharedRouteMeta: RouteMeta = {
 @Component({
   selector: 'app-survival-kit',
   standalone: true,
-  imports: [FormsModule, CommonModule, VideoModalComponent, NgOptimizedImage],
+  imports: [
+    FormsModule,
+    CommonModule,
+    VideoModalComponent,
+    NgOptimizedImage,
+    ProductStructuredDataComponent,
+  ],
   template: `
     <div class="flex flex-col w-full items-center">
       <div class="container">
@@ -168,15 +175,15 @@ export const sharedRouteMeta: RouteMeta = {
 
           <div class="product-details">
             <h1 class="product-title font-bold">Prepping Case - PREPC</h1>
-            <div *ngIf="productVariant" class="product-pricing">
+            <div *ngIf="product" class="product-pricing">
               <div class="flex flex-col mr-3">
-                <span *ngIf="productVariant" class="sale-price"
-                  >{{ productVariant.price.amount | number : '1.0-0' }}{{ ' '
-                  }}{{ productVariant.price.currencyCode }}</span
+                <span *ngIf="product" class="sale-price"
+                  >{{ product.price.amount | number : '1.0-0' }}{{ ' '
+                  }}{{ product.price.currencyCode }}</span
                 >
-                <span *ngIf="productVariant" class="original-price"
-                  >{{ productVariant.price.amount * 1.177 | number : '1.0-0'
-                  }}{{ ' ' }}{{ productVariant.price.currencyCode }}</span
+                <span *ngIf="product" class="original-price"
+                  >{{ product.price.amount * 1.177 | number : '1.0-0' }}{{ ' '
+                  }}{{ product.price.currencyCode }}</span
                 >
               </div>
               <span class="discount-percentage">-15%</span>
@@ -582,6 +589,11 @@ export const sharedRouteMeta: RouteMeta = {
           </div>
         </div>
       </div>
+
+      @if (product) {
+      <app-product-structured-data [product]="product">
+      </app-product-structured-data>
+      }
     </div>
   `,
   styles: [
@@ -1122,8 +1134,6 @@ export const sharedRouteMeta: RouteMeta = {
   ],
 })
 export default class SurvivalKitComponent implements OnInit, OnDestroy {
-  static readonly PRODUCT_HANDLE = 'prepc-prep-case';
-
   @ViewChild('imageRow') imageRow!: ElementRef;
   @ViewChild(VideoModalComponent) videoModal!: VideoModalComponent;
   quantity: number = 1;
@@ -1260,7 +1270,7 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
   isFetching = true;
   portrait = false;
 
-  productVariant?: ProductVariant;
+  product?: ProductV2;
   shippingFee?: Money;
   productPriceRefreshSignalSub?: Subscription;
 
@@ -1274,12 +1284,15 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
     this.fetchProduct();
     this.fetchShippingFee();
 
-    if (this.contextService.isClientSide) {
-      this.productPriceRefreshSignalSub =
-        this.shopifyProductService.productPriceRefreshSignal$
-          .pipe(tap(this.fetchProduct), tap(this.fetchShippingFee))
-          .subscribe();
+    this.productPriceRefreshSignalSub =
+      this.shopifyProductService.productPriceRefreshSignal$
+        .pipe(
+          tap(() => this.fetchProduct()),
+          tap(() => this.fetchShippingFee())
+        )
+        .subscribe();
 
+    if (this.contextService.isClientSide) {
       if (window.screen.width < 768) {
         this.portrait = true;
       }
@@ -1292,21 +1305,27 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
 
   fetchProduct(): void {
     this.shopifyProductService
-      .fetchProduct(SurvivalKitComponent.PRODUCT_HANDLE)
+      .fetchProductV2('47839582585162')
       .pipe(take(1))
       .subscribe({
         next: (product) => {
-          this.productVariant = product.variants[0];
+          if (!product) {
+            this.isFetching = false;
+            return;
+          }
+
+          this.product = product;
           this.isFetching = false;
 
+          // TODO: Look into these two tags below
           this.meta.updateTag({
             property: 'og:price:amount',
-            content: this.productVariant.price.amount.toFixed(2),
+            content: product.price.amount.toFixed(2),
           });
 
           this.meta.updateTag({
             property: 'og:price:currency',
-            content: this.productVariant.price.currencyCode,
+            content: product.price.currencyCode,
           });
         },
       });
@@ -1357,14 +1376,14 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
   }
 
   addToCart(): void {
-    if (!this.productVariant) {
+    if (!this.product) {
       this.notificationService.showUnknownErrorMessage();
       return;
     }
     const quantity = this.quantity > 0 ? this.quantity : 1;
     this.isLoading = true;
     this.shoppingCartService
-      .addLineItem(this.productVariant.id, quantity)
+      .addLineItem(this.product.id, quantity)
       .pipe(take(1))
       .subscribe({
         complete: () => {

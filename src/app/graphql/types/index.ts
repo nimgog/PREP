@@ -8325,6 +8325,12 @@ export const ProductV2 = gql`
         amount
         currencyCode
       }
+      variantSlugSeoTagOverride: metafield(
+        namespace: "prepp_app"
+        key: "variant_slug_seo_tag_override"
+      ) {
+        value
+      }
       product {
         title
         summary: metafield(
@@ -8485,7 +8491,7 @@ export type ProductV2QueryVariables = Exact<{
 }>;
 
 
-export type ProductV2Query = { __typename?: 'QueryRoot', node?: { __typename?: 'AppliedGiftCard' } | { __typename?: 'Article' } | { __typename?: 'Blog' } | { __typename?: 'Cart' } | { __typename?: 'CartLine' } | { __typename?: 'Checkout' } | { __typename?: 'CheckoutLineItem' } | { __typename?: 'Collection' } | { __typename?: 'Comment' } | { __typename?: 'ComponentizableCartLine' } | { __typename?: 'ExternalVideo' } | { __typename?: 'GenericFile' } | { __typename?: 'Location' } | { __typename?: 'MailingAddress' } | { __typename?: 'Market' } | { __typename?: 'MediaImage' } | { __typename?: 'MediaPresentation' } | { __typename?: 'Menu' } | { __typename?: 'MenuItem' } | { __typename?: 'Metafield' } | { __typename?: 'Metaobject' } | { __typename?: 'Model3d' } | { __typename?: 'Order' } | { __typename?: 'Page' } | { __typename?: 'Payment' } | { __typename?: 'Product' } | { __typename?: 'ProductOption' } | { __typename?: 'ProductVariant', id: string, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, product: { __typename?: 'Product', title: string, description: string, descriptionHtml: any, summary?: { __typename?: 'Metafield', value: string } | null, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any, altText?: string | null }> } } } | { __typename?: 'Shop' } | { __typename?: 'ShopPolicy' } | { __typename?: 'UrlRedirect' } | { __typename?: 'Video' } | null };
+export type ProductV2Query = { __typename?: 'QueryRoot', node?: { __typename?: 'AppliedGiftCard' } | { __typename?: 'Article' } | { __typename?: 'Blog' } | { __typename?: 'Cart' } | { __typename?: 'CartLine' } | { __typename?: 'Checkout' } | { __typename?: 'CheckoutLineItem' } | { __typename?: 'Collection' } | { __typename?: 'Comment' } | { __typename?: 'ComponentizableCartLine' } | { __typename?: 'ExternalVideo' } | { __typename?: 'GenericFile' } | { __typename?: 'Location' } | { __typename?: 'MailingAddress' } | { __typename?: 'Market' } | { __typename?: 'MediaImage' } | { __typename?: 'MediaPresentation' } | { __typename?: 'Menu' } | { __typename?: 'MenuItem' } | { __typename?: 'Metafield' } | { __typename?: 'Metaobject' } | { __typename?: 'Model3d' } | { __typename?: 'Order' } | { __typename?: 'Page' } | { __typename?: 'Payment' } | { __typename?: 'Product' } | { __typename?: 'ProductOption' } | { __typename?: 'ProductVariant', id: string, price: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, variantSlugSeoTagOverride?: { __typename?: 'Metafield', value: string } | null, product: { __typename?: 'Product', title: string, description: string, descriptionHtml: any, summary?: { __typename?: 'Metafield', value: string } | null, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any, altText?: string | null }> } } } | { __typename?: 'Shop' } | { __typename?: 'ShopPolicy' } | { __typename?: 'UrlRedirect' } | { __typename?: 'Video' } | null };
 
 export type ProductsQueryVariables = Exact<{
   countryCode: CountryCode;

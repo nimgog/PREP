@@ -3,13 +3,14 @@ import { AsyncPipe, DecimalPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, of, switchMap, take, tap } from 'rxjs';
+import { combineLatest, map, of, switchMap, take, tap } from 'rxjs';
 import { ContextService } from 'src/app/services/context.service';
 import { ShopifyProductService } from 'src/app/services/shopify-product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { parseProductIdFromUrl } from 'src/app/utils/prepp-product-helpers';
 import { metaResolver, titleResolver } from './resolvers';
 import ProductDescription from '../../../components/shop/product-description.component';
+import ProductStructuredDataComponent from '../../../components/shop/product-structured-data.component';
 
 export const routeMeta: RouteMeta = {
   providers: [ShopifyProductService],
@@ -26,6 +27,7 @@ export const routeMeta: RouteMeta = {
     FormsModule,
     ProductDescription,
     NgOptimizedImage,
+    ProductStructuredDataComponent,
   ],
   template: `
     <div class="flex flex-col items-center w-full h-full pt-[100px] pb-5 px-4">
@@ -131,10 +133,13 @@ export const routeMeta: RouteMeta = {
 
             <app-product-description
               [htmlDescription]="product.htmlDescription"
-            ></app-product-description>
+            >
+            </app-product-description>
           </div>
         </div>
 
+        <app-product-structured-data [product]="product">
+        </app-product-structured-data>
         }
       </div>
     </div>
@@ -256,8 +261,11 @@ export default class ProductPageComponent {
     map(() => parseProductIdFromUrl(this.router.url))
   );
 
-  readonly product$ = this.productSlug$.pipe(
-    switchMap((productId) => {
+  readonly product$ = combineLatest([
+    this.productSlug$,
+    this.shopifyProductService.productPriceRefreshSignal$,
+  ]).pipe(
+    switchMap(([productId]) => {
       if (!productId) {
         this.router.navigate(['/not-found'], { replaceUrl: true });
         return of(null);
