@@ -3,7 +3,7 @@ import { AsyncPipe, DecimalPipe, NgOptimizedImage } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, map, of, switchMap, take, tap } from 'rxjs';
+import { combineLatest, map, of, startWith, switchMap, take, tap } from 'rxjs';
 import { ContextService } from 'src/app/services/context.service';
 import { ShopifyProductService } from 'src/app/services/shopify-product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
@@ -263,7 +263,7 @@ export default class ProductPageComponent {
 
   readonly product$ = combineLatest([
     this.productSlug$,
-    this.shopifyProductService.productPriceRefreshSignal$,
+    this.shopifyProductService.productPriceRefreshSignal$.pipe(startWith(0)),
   ]).pipe(
     switchMap(([productId]) => {
       if (!productId) {
