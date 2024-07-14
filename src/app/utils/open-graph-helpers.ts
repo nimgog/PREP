@@ -1,13 +1,14 @@
 import { MetaTag } from '@analogjs/router';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { isAbsoluteURL } from './url-helpers';
 
 export const createCommonMetaResolver =
   (
     title: string,
     description: string,
     imageUrl?: string,
-    type: 'article' | 'website' = 'website'
+    type: 'article' | 'product' | 'website' = 'website'
   ) =>
   (_route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const metaTags: MetaTag[] = [
@@ -56,9 +57,14 @@ export const createCommonMetaResolver =
     if (imageUrl) {
       metaTags.push({
         property: 'og:image',
-        content: imageUrl.startsWith('/')
-          ? environment.cloudflareZone + imageUrl
-          : imageUrl,
+        content: isAbsoluteURL(imageUrl)
+          ? imageUrl
+          : environment.cloudflareZone + imageUrl,
+      });
+
+      metaTags.push({
+        property: 'og:image:alt',
+        content: type === 'product' ? description : title,
       });
     }
 

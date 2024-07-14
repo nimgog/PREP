@@ -26,22 +26,62 @@ export const titleResolver: ResolveFn<string> = async (_route, state) => {
   return getFullPageTitle(product.title);
 };
 
-export const metaResolver: ResolveFn<MetaTag[]> = async (route, state) => {
-  const productId = parseProductIdFromUrl(state.url);
+export const createProductMetaResolver =
+  (
+    titleOverride?: string,
+    descriptionOverride?: string
+  ): ResolveFn<MetaTag[]> =>
+  async (route, state) => {
+    const productId = parseProductIdFromUrl(state.url);
 
-  if (!productId) {
-    return [];
-  }
+    if (!productId) {
+      return [];
+    }
 
-  const shopifyProductsService = inject(ShopifyProductService);
-  const product = await firstValueFrom(
-    shopifyProductsService.fetchProductV2(productId)
-  );
+    const shopifyProductsService = inject(ShopifyProductService);
+    const product = await firstValueFrom(
+      shopifyProductsService.fetchProductV2(productId)
+    );
 
-  if (!product) {
-    return [];
-  }
+    if (!product) {
+      return [];
+    }
 
-  // TODO: Use product meta type
-  return createCommonMetaResolver(product.title, product.summary)(route, state);
-};
+    let metaTags: MetaTag[] = [
+      ...createCommonMetaResolver(
+        titleOverride || product.title,
+        descriptionOverride || product.summary,
+        product.images[0].src,
+        'product'
+      )(route, state),
+      {
+        property: 'product:brand',
+        content: 'Prepp me',
+      },
+      // TODO: Fill this later
+      // {
+      //   property: 'product:category',
+      //   content: '',
+      // },
+      {
+        property: 'product:price:amount',
+        content: product.price.amount.toFixed(2),
+      },
+      {
+        property: 'product:price:currency',
+        content: product.price.currencyCode,
+      },
+      {
+        property: 'product:condition',
+        content: 'New',
+      },
+      {
+        property: 'product:availability',
+        content: 'In stock',
+      },
+    ];
+
+    return metaTags;
+  };
+
+export const metaResolver = createProductMetaResolver();

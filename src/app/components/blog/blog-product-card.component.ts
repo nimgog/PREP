@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { BlogContentProduct } from 'src/app/models/blog.model';
+import { isAbsoluteURL } from 'src/app/utils/url-helpers';
 
 @Component({
   selector: 'app-blog-product-card',
@@ -59,21 +60,12 @@ export default class BlogProductCardComponent implements AfterViewInit {
   private readonly renderer = inject(Renderer2);
 
   readonly data = input.required<BlogContentProduct>();
-  readonly isExternalUrl = computed(() => this.isAbsoluteURL(this.data().url));
+  readonly isExternalUrl = computed(() => isAbsoluteURL(this.data().url));
   readonly isExternalImage = computed(() =>
-    this.isAbsoluteURL(this.data().imageUrl)
+    isAbsoluteURL(this.data().imageUrl)
   );
 
   readonly linkElement = viewChild.required<ElementRef>('linkElement');
-
-  isAbsoluteURL(url: string): boolean {
-    try {
-      new URL(url);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
 
   ngAfterViewInit(): void {
     if (this.isExternalUrl()) {

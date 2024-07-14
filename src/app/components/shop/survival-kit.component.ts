@@ -17,13 +17,13 @@ import { Money, ProductV2 } from 'src/app/models/product.model';
 import { ContextService } from 'src/app/services/context.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
-import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
+import { createProductMetaResolver } from 'src/app/pages/shop/products/resolvers';
 import { Meta } from '@angular/platform-browser';
 import ProductStructuredDataComponent from './product-structured-data.component';
 
 export const sharedRouteMeta: RouteMeta = {
   title: getFullPageTitle('Survival Kit'),
-  meta: createCommonMetaResolver(
+  meta: createProductMetaResolver(
     'Survival Kit',
     'Discover PREP´s Survival Kits, designed to help you face emergencies with confidence. Quality, reliability, and functionality in every kit.'
   ),
