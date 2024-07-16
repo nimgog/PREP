@@ -34,7 +34,7 @@ To ensure an accurate bow draw length measurement, you’ll need:
 
 **Draw Length Gauge**: This handy tool clips to your bowstring and measures the angle from your bow riser to the nock point in inches, offering a highly precise measurement.
 
-[IMAGE]{ "src": "src/assets/img/blogs/survival-skills/how-to-measure-bow-draw-length/span-draw-length-img.jpeg", "alt": "how to measure bow draw length", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+[IMAGE]{ "src": "/img/blogs/survival-skills/how-to-measure-bow-draw-length/span-draw-length-img.jpeg", "alt": "how to measure bow draw length", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 
 ## Methods for Measuring Bow Draw Length
 
