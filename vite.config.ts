@@ -15,7 +15,7 @@ import { environment } from './src/environments/environment';
 import { PageAttributes } from './src/app/models/blog.model';
 import { buildPreppProductUrl } from './src/app/utils/shopify-product-helpers';
 import { initSlugify } from './src/app/slugify.config';
-import { ProductId } from 'src/app/models/product.model';
+import { ProductId } from './src/app/models/product.model';
 
 initSlugify();
 
