@@ -1,4 +1,4 @@
-import type { Money } from './product.model';
+import type { Money, ProductId } from './product.model';
 
 export type ShoppingCart = {
   id: string;
@@ -12,7 +12,7 @@ export type ShoppingCart = {
 export type LineItem = {
   id: string;
   product: {
-    id: string;
+    id: ProductId;
     title: string;
     imageUrl: string;
   };

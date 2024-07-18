@@ -11,6 +11,7 @@ import {
 import { LocationService } from './location.service';
 import { NotificationService } from './notification.service';
 import { mapCart } from '../utils/shopify-cart-helpers';
+import { ProductId } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,12 +26,12 @@ export class ShopifyCartService {
   private readonly createCartGQL = inject(CreateCartGQL);
   private readonly setLineItemQuantityGQL = inject(SetLineItemQuantityGQL);
 
-  createCart(variantId: string) {
+  createCart(productId: ProductId) {
     return this.locationService.getTwoLetterCountryCode().pipe(
       switchMap((countryCode) =>
         this.createCartGQL
           .mutate({
-            variantId,
+            variantId: productId.shopifyId,
             countryCode,
           })
           .pipe(map((response) => mapCart(response.data?.cartCreate?.cart)))
@@ -47,11 +48,13 @@ export class ShopifyCartService {
     );
   }
 
-  addLineItem(cartId: string, variantId: string, quantity: number) {
-    return this.addLineItemGQL.mutate({ cartId, variantId, quantity }).pipe(
-      map((response) => mapCart(response.data?.cartLinesAdd?.cart)),
-      catchAndReportError(this.notificationService)
-    );
+  addLineItem(cartId: string, productId: ProductId, quantity: number) {
+    return this.addLineItemGQL
+      .mutate({ cartId, variantId: productId.shopifyId, quantity })
+      .pipe(
+        map((response) => mapCart(response.data?.cartLinesAdd?.cart)),
+        catchAndReportError(this.notificationService)
+      );
   }
 
   setLineItemQuantity(cartId: string, itemId: string, quantity: number) {

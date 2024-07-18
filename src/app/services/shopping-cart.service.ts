@@ -8,6 +8,7 @@ import { LocalStorageService } from './local-storage.service';
 import type { ShoppingCart } from '../models/shopping-cart.model';
 import { NotificationService } from './notification.service';
 import { ContextService } from './context.service';
+import { ProductId } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -73,7 +74,7 @@ export class ShoppingCartService implements OnInit, OnDestroy {
     this.cartIsVisibleSubject.next(false);
   }
 
-  addLineItem(productId: string, quantity = 1) {
+  addLineItem(productId: ProductId, quantity = 1) {
     return of(this.cartSubject.value).pipe(
       switchMap((cart) => {
         if (!cart) {

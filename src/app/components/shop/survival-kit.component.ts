@@ -13,12 +13,11 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Subscription, take, tap } from 'rxjs';
 import { VideoModalComponent } from 'src/app/components/common/video-modal.component';
 import { ShopifyProductService } from 'src/app/services/shopify-product.service';
-import { Money, ProductV2 } from 'src/app/models/product.model';
+import { Money, ProductId, ProductV2 } from 'src/app/models/product.model';
 import { ContextService } from 'src/app/services/context.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
 import { createProductMetaResolver } from 'src/app/pages/shop/products/resolvers';
-import { Meta } from '@angular/platform-browser';
 import ProductStructuredDataComponent from './product-structured-data.component';
 
 export const sharedRouteMeta: RouteMeta = {
@@ -1278,7 +1277,6 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
   private readonly shopifyProductService = inject(ShopifyProductService);
   private readonly contextService = inject(ContextService);
   private readonly notificationService = inject(NotificationService);
-  private readonly meta = inject(Meta);
 
   ngOnInit(): void {
     this.fetchProduct();
@@ -1305,7 +1303,7 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
 
   fetchProduct(): void {
     this.shopifyProductService
-      .fetchProductV2('47839582585162')
+      .fetchProductV2(new ProductId('47839582585162'))
       .pipe(take(1))
       .subscribe({
         next: (product) => {
@@ -1316,17 +1314,6 @@ export default class SurvivalKitComponent implements OnInit, OnDestroy {
 
           this.product = product;
           this.isFetching = false;
-
-          // TODO: Look into these two tags below
-          this.meta.updateTag({
-            property: 'og:price:amount',
-            content: product.price.amount.toFixed(2),
-          });
-
-          this.meta.updateTag({
-            property: 'og:price:currency',
-            content: product.price.currencyCode,
-          });
         },
       });
   }

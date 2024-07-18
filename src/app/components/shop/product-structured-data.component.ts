@@ -1,5 +1,5 @@
 import { Component, inject, input, OnInit, Renderer2 } from '@angular/core';
-import { ProductStructuredData } from 'src/app/models/product.model';
+import { ProductId, ProductStructuredData } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,10 +19,10 @@ export default class ProductStructuredDataComponent implements OnInit {
     this.injectJsonLd(product.id, jsonLd);
   }
 
-  injectJsonLd(productId: string, jsonLd: any) {
+  injectJsonLd(productId: ProductId, jsonLd: any) {
     const script = this.renderer.createElement('script');
     script.type = 'application/ld+json';
-    script.id = `jld-${productId}`;
+    script.id = `jld-${productId.preppId}`;
     script.text = JSON.stringify(jsonLd);
 
     const head = this.renderer.selectRootElement('head', true);

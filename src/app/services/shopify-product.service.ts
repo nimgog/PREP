@@ -14,6 +14,7 @@ import {
 } from 'rxjs';
 import type {
   Money,
+  ProductId,
   ProductListItem,
   ProductV2,
 } from '../models/product.model';
@@ -87,17 +88,11 @@ export class ShopifyProductService {
     );
   }
 
-  fetchProductV2(productId: string): Observable<ProductV2 | null> {
-    const shopifyVariantId = productId.startsWith(
-      'gid://shopify/ProductVariant/'
-    )
-      ? productId
-      : `gid://shopify/ProductVariant/` + productId;
-
+  fetchProductV2(productId: ProductId): Observable<ProductV2 | null> {
     return this.locationService.getTwoLetterCountryCode().pipe(
       switchMap((countryCode) =>
         this.productV2GQL.fetch({
-          variantId: shopifyVariantId,
+          variantId: productId.shopifyId,
           countryCode,
         })
       ),

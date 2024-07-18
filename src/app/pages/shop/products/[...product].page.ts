@@ -11,6 +11,7 @@ import { parseProductIdFromUrl } from 'src/app/utils/prepp-product-helpers';
 import { metaResolver, titleResolver } from './resolvers';
 import ProductDescription from '../../../components/shop/product-description.component';
 import ProductStructuredDataComponent from '../../../components/shop/product-structured-data.component';
+import { ProductId } from 'src/app/models/product.model';
 
 export const routeMeta: RouteMeta = {
   providers: [ShopifyProductService],
@@ -287,13 +288,17 @@ export default class ProductPageComponent {
 
   quantity = signal(1);
   isLoading = signal(false);
-  productId = signal('');
+  productId = signal<ProductId | undefined>(undefined);
 
   addToCart(): void {
+    if (!this.productId()) {
+      return;
+    }
+
     const quantity = this.quantity() > 0 ? this.quantity() : 1;
     this.isLoading.set(true);
     this.shoppingCartService
-      .addLineItem(this.productId(), quantity)
+      .addLineItem(this.productId()!, quantity)
       .pipe(take(1))
       .subscribe({
         complete: () => {

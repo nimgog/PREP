@@ -83,7 +83,7 @@ export default class ShopProductCard {
 
   addToCart(): void {
     this.shoppingCartService
-      .addLineItem(this.product().productId, 1)
+      .addLineItem(this.product().id, 1)
       .pipe(take(1))
       .subscribe({
         complete: () => this.shoppingCartService.openCart(),

@@ -1,4 +1,8 @@
-export const parseProductIdFromUrl = (relativeUrl: string): string | null => {
+import { ProductId } from '../models/product.model';
+
+export const parseProductIdFromUrl = (
+  relativeUrl: string
+): ProductId | null => {
   const productSlug = relativeUrl.replace('/shop/products/', '').split('/')[0];
 
   if (!productSlug) {
@@ -11,7 +15,7 @@ export const parseProductIdFromUrl = (relativeUrl: string): string | null => {
     return null;
   }
 
-  const productId = productSlug.substring(idSeparator + 1);
+  const rawProductId = productSlug.substring(idSeparator + 1);
 
-  return productId || null;
+  return rawProductId ? new ProductId(rawProductId) : null;
 };

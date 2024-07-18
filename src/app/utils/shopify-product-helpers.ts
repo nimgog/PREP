@@ -1,22 +1,16 @@
 import slugify from 'slugify';
-import type {
-  ProductQuery,
-  ProductsQuery,
-  ProductV2Query,
-} from 'src/app/graphql/types';
-import type {
+import type { ProductsQuery, ProductV2Query } from 'src/app/graphql/types';
+import {
   Image,
+  ProductId,
   ProductListItem,
   ProductV2,
 } from 'src/app/models/product.model';
 
 type ElementType<T> = T extends (infer U)[] ? U : never;
 
-const parseProductSku = (variantId: string) =>
-  variantId.replace('gid://shopify/ProductVariant/', '');
-
 export const buildPreppProductUrl = (
-  variantId: string,
+  productId: ProductId,
   productTitle: string,
   variantSlugSeoTagOverride?: string
 ) => {
@@ -24,9 +18,7 @@ export const buildPreppProductUrl = (
     ? variantSlugSeoTagOverride
     : slugify(productTitle.toLowerCase());
 
-  const preppProductId = parseProductSku(variantId);
-
-  return `/shop/products/${variantSlugSeoTags}-${preppProductId}`;
+  return `/shop/products/${variantSlugSeoTags}-${productId.preppId}`;
 };
 
 type ShopifyProductList = ProductsQuery['products'];
@@ -36,16 +28,16 @@ export const mapShopifyProductToPrepProductListItem = (
   shopifyProduct: ShopifyProductListItem
 ): ProductListItem => {
   const variant = shopifyProduct.variants.nodes[0];
-  const preppProductId = parseProductSku(variant.id);
+  const productId = new ProductId(variant.id);
 
   const productPageUrl = buildPreppProductUrl(
-    preppProductId,
+    productId,
     shopifyProduct.title,
     variant.variantSlugSeoTagOverride?.value
   );
 
   return {
-    productId: preppProductId,
+    id: productId,
     title: shopifyProduct.title,
     summary: shopifyProduct.summary?.value || '',
     productPageUrl: productPageUrl,
@@ -71,10 +63,10 @@ export const mapShopifyVariantToPrepProduct = (
     return null;
   }
 
-  const preppProductId = parseProductSku(shopifyVariant.id);
+  const productId = new ProductId(shopifyVariant.id);
 
   const productPageUrl = buildPreppProductUrl(
-    preppProductId,
+    productId,
     shopifyVariant.product.title,
     shopifyVariant.variantSlugSeoTagOverride?.value
   );
@@ -82,7 +74,7 @@ export const mapShopifyVariantToPrepProduct = (
   // TODO: Restrict image sizes in GQL definition
 
   return {
-    id: preppProductId,
+    id: productId,
     title: shopifyVariant.product.title,
     summary: shopifyVariant.product.summary?.value || '',
     productPageUrl: productPageUrl,

@@ -15,6 +15,7 @@ import { environment } from './src/environments/environment';
 import { PageAttributes } from './src/app/models/blog.model';
 import { buildPreppProductUrl } from './src/app/utils/shopify-product-helpers';
 import { initSlugify } from './src/app/slugify.config';
+import { ProductId } from 'src/app/models/product.model';
 
 initSlugify();
 
@@ -129,7 +130,7 @@ async function getProductRoutes(): Promise<string[]> {
 
   const productRoutes = products.map((product) =>
     buildPreppProductUrl(
-      product.variantId,
+      product.id,
       product.title,
       product.variantSlugSeoTagOverride
     )
@@ -139,7 +140,7 @@ async function getProductRoutes(): Promise<string[]> {
 }
 
 type Product = {
-  variantId: string;
+  id: ProductId;
   title: string;
   variantSlugSeoTagOverride?: string;
 };
@@ -188,7 +189,7 @@ async function fetchProducts(
     const variant = product.variants.nodes[0];
 
     return <Product>{
-      variantId: variant.id,
+      id: new ProductId(variant.id),
       title: product.title,
       variantSlugSeoTagOverride: variant.variantSlugSeoTagOverride?.value,
     };

@@ -59,7 +59,7 @@ export const sharedRouteMeta: RouteMeta = {
     <div class="w-full h-full pt-[100px] pb-5 px-4 flex justify-center">
       <div class="container">
         <div class="flex flex-wrap justify-center gap-x-14 gap-y-20 p-10">
-          @for (product of products$ | async; track product.productId) {
+          @for (product of products$ | async; track product.id.preppId) {
           <app-shop-product-card [product]="product"></app-shop-product-card>
           }
         </div>

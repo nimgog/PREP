@@ -3,6 +3,7 @@ import type {
   LineItem,
   ShoppingCart,
 } from 'src/app/models/shopping-cart.model';
+import { ProductId } from '../models/product.model';
 
 export const mapCart = (
   cartFragment: ShoppingCartFragment | null | undefined
@@ -13,13 +14,13 @@ export const mapCart = (
 
   const lines: LineItem[] = cartFragment.lines.nodes.map((shopifyLineItem) => {
     const {
-      merchandise: { id: productId, product, image: productImage },
+      merchandise: { id: rawProductId, product, image: productImage },
     } = shopifyLineItem;
 
     const lineItem: LineItem = {
       id: shopifyLineItem.id,
       product: {
-        id: productId,
+        id: new ProductId(rawProductId),
         title: product.title,
         imageUrl: productImage?.url,
       },
