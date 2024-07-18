@@ -1,11 +1,11 @@
 import slugify from 'slugify';
-import type { ProductsQuery, ProductV2Query } from 'src/app/graphql/types';
+import type { ProductsQuery, ProductV2Query } from '../graphql/types';
 import {
   Image,
   ProductId,
   ProductListItem,
   ProductV2,
-} from 'src/app/models/product.model';
+} from '../models/product.model';
 
 type ElementType<T> = T extends (infer U)[] ? U : never;
 
