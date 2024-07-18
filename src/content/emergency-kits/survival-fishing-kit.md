@@ -2,7 +2,7 @@
 title: "Survival fishing kit"
 description: "When it comes to surviving in the wild, knowing how to catch your own food is a crucial skill."
 date: 2024-07-18
-thumbnailImageUrl: /img/product-page/PREPC-open__top.png
+thumbnailImageUrl: /img/blogs/emergency-kit/survival-fishing-kit/survival-fishing-kit-cover.webp
 published: true
 ---
 
