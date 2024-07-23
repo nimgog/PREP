@@ -50,6 +50,8 @@ Mechanical filtration uses physical barriers to remove contaminants. It can be e
 
 Graphene filtration is a promising technology for desalination and water purification. It uses the unique properties of graphene to remove impurities, but large-scale production is still a significant challenge.
 
+[ARTICLE]{}
+
 ### Detailed Comparison of Purification Methods
 
 | **Method**         | **Effectiveness**                                      | **Cost**  | **Maintenance**            |

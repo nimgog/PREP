@@ -68,6 +68,9 @@ Understanding the habitats of non-bottom feeders is crucial for both conservatio
 - **Riverine**: Species like Salmon highlight the interplay between freshwater and marine environments.
 - **Coastal Waters**: Fish like Mackerel can often be found in coastal waters, accessible to shore-based anglers.
 
+[ARTICLE]{}
+
+
 ### Fishing Techniques
 
 Effective fishing techniques for catching non-bottom feeders:

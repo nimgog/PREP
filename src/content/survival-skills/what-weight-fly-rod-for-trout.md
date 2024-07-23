@@ -36,6 +36,8 @@ But it doesn't have to be this way. Understanding essential factors like rod wei
 - **Medium to Large Rivers:** A 9-foot rod provides a good balance of casting distance and line control.
 - **Lakes and Large Rivers:** A 9.5 to 10-foot rod is effective for longer casts and better mending.
 
+[ARTICLE]{}
+
 
 ### Section 3: Understanding Fly Rod Action
 

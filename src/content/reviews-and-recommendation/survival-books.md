@@ -119,7 +119,7 @@ Renowned authors in survival literature not only provide expert knowledge but al
 Each of these authors brings a unique perspective to survival literature, offering a wealth of knowledge and practical tips that can be applied in real-world situations. Their contributions have shaped the field and continue to inspire and educate those seeking to enhance their survival skills.
 
 
----
+[ARTICLE]{}
 
 
 ## Choosing the Right Survival Book
