@@ -40,7 +40,7 @@ import {
         class="flex flex-col md:flex-row gap-x-4 gap-y-2.5 p-5 bg-[#f5f5f5] border-2 border-black rounded-[10px]"
       >
         <div
-          class="w-full h-[200px] md:w-[40%] md:mr-5 relative rounded-lg overflow-hidden"
+          class="w-full md:w-[40%] md:mr-5 relative rounded-lg overflow-hidden"
         >
           <img
             class="object-cover"
@@ -141,17 +141,16 @@ export default class BlogInterlinkingComponent implements OnInit, OnDestroy {
     }
   }
 
-  private getAnotherArticleIndex(
-    allPageFiles: ContentFile<PageAttributes>[]
-  ): number {
-    const otherArticles = allPageFiles.filter(
-      (file) => file.slug !== this.currentSupportingPageSlug
-    );
-    if (otherArticles.length > 0) {
-      return allPageFiles.indexOf(otherArticles[0]);
-    } else {
+  private getAnotherArticleIndex(allPageFiles: ContentFile<PageAttributes>[]): number {
+    const currentIndex = allPageFiles.findIndex(file => file.slug === this.currentSupportingPageSlug);
+
+    if (currentIndex === -1) {
       return 0;
     }
+
+    const nextIndex = (currentIndex + 1) % allPageFiles.length;
+
+    return nextIndex;
   }
 
   getCategories(pageFile: ContentFile<PageAttributes>): string[] {

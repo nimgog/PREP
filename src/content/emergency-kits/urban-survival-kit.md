@@ -108,7 +108,8 @@ Understanding how urban and wilderness survival kits differ can help you prepare
 | Key Items             | Personal documents, portable chargers                  | Water filters, emergency shelters                       |
 | Mobility              | Lightweight, easy to carry                             | Durable, often heavier                                  |
 
----
+
+[ARTICLE]{}
 
 ## Customizing Your Urban Survival Kit
 

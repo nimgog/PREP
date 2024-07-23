@@ -158,6 +158,8 @@ For emergency improvisation, consider natural alternatives:
 - Trotline: Set up a horizontal line between two points with multiple baited hooks hanging from it.
 - Fish traps: Create simple traps using natural materials like reeds or branches in shallow water.
 
+[ARTICLE]{}
+
 ### Situational Tips
 
 **Different Environments**:

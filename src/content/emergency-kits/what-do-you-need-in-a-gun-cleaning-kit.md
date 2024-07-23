@@ -69,6 +69,8 @@ Not all firearms need the same maintenance. Here’s how to ensure your cleaning
 1. **Safety First**: Ensure your gun is unloaded. Double-check the chamber and magazine to confirm.
 2. **Workspace Setup**: Arrange your cleaning mat, tools, and supplies in a well-ventilated area.
 
+[ARTICLE]{}
+
 ### Disassembly
 
 1. **Basic Steps**: Follow your firearm’s manufacturer instructions to disassemble it into its major parts like the barrel, slide, frame, and magazine.
