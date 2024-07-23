@@ -10,6 +10,7 @@ import {
 import BlogImageComponent from './blog-image.component';
 import BlogProductCardComponent from './blog-product-card.component';
 import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-prepper-checklist.component';
+import BlogInterlinkingComponent from './blog-interlinking.component';
 
 @Component({
   selector: 'app-blog-content',
@@ -20,6 +21,7 @@ import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-preppe
     BlogImageComponent,
     BlogProductCardComponent,
     BlogOptimonkPrepperChecklistComponent,
+    BlogInterlinkingComponent,
   ],
   template: `
     <div>
@@ -31,7 +33,11 @@ import BlogOptimonkPrepperChecklistComponent from './blog-optimonk-embedd-preppe
       } @else if (contentPart.type === 'product') {
       <app-blog-product-card [data]="contentPart"></app-blog-product-card>
       } @else if (contentPart.type === 'embed') {
-      <app-blog-optimonk-prepper-checklist [data]="contentPart"></app-blog-optimonk-prepper-checklist>
+      <app-blog-optimonk-prepper-checklist
+        [data]="contentPart"
+      ></app-blog-optimonk-prepper-checklist>
+      }@else if (contentPart.type === 'article') {
+      <app-blog-interlinking></app-blog-interlinking>
       } }
     </div>
   `,
@@ -48,7 +54,7 @@ export default class BlogContentComponent {
     let remainingContent = content;
 
     const combinedRegex =
-      /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}|\[EMBED\]\{.*?\}/gi;
+      /\[IMAGE\]\{.*?\}|\[PRODUCT\]\{.*?\}|\[EMBED\]\{.*?\}|\[ARTICLE\]\{.*?\}/gi;
     let match;
 
     while ((match = combinedRegex.exec(content)) !== null) {
@@ -99,7 +105,16 @@ export default class BlogContentComponent {
 
           parts.push({
             type: 'embed',
-            id: embed.id
+            id: embed.id,
+          });
+        } else if (placeholder.startsWith('[ARTICLE]')) {
+          const embed = JSON.parse(
+            placeholder.replace('[ARTICLE]', '')
+          ) as BlogInterlinkingComponent;
+
+          parts.push({
+            type: 'article',
+            text: ''
           });
         }
 
