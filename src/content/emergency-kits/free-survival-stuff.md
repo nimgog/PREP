@@ -89,7 +89,7 @@ Why waste your time on dubious deals when you can craft your own survival gear w
 - **Materials:** Small container, basic medical supplies (bandages, antiseptic wipes, pain relievers, etc.)
 - **Instructions:** Gather essential medical supplies and store them in a small container. Make sure you have items for wound care, pain relief, and other basic needs. This kit will be a lifesaver when minor injuries occur.
 
-
+[ARTICLE]{}
 
 ### Conclusion
 

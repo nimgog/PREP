@@ -99,7 +99,7 @@ Plant native shrubs and trees to give birds natural places to hide and nest. Bir
 **3. Seasonal Adjustments**
 Birds have different needs throughout the year. Offer high-energy foods in winter and plenty of water in summer to meet their seasonal requirements.
 
----
+[ARTICLE]{}
 
 ## VI. Conclusion: Embrace the Joy of Bird-Watching
 

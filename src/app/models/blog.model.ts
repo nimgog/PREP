@@ -28,6 +28,11 @@ export type BlogContentMarkdown = {
   text: string;
 };
 
+export type BlogContentArticle = {
+  type: 'article',
+  text: string;
+}
+
 export type BlogContentProduct = {
   type: 'product';
   title: string;
@@ -47,4 +52,5 @@ export type BlogContentPart =
   | BlogContentImage
   | BlogContentMarkdown
   | BlogContentProduct
-  | BlogContentOptimonkEmbedd;
+  | BlogContentOptimonkEmbedd
+  | BlogContentArticle;

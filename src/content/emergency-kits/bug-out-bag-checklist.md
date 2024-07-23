@@ -98,6 +98,8 @@ Beyond the essentials, consider adding these useful items:
 -   Seasonal Gear: Sunscreen, insect repellent, or cold weather gear specific to the season. 
 
 
+
+[ARTICLE]{}
 ## How to Pack Your Bug Out Bag Effectively
 
 ### Packing Tips:

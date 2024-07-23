@@ -56,6 +56,8 @@ Maintaining the right moisture level is crucial to telling when jerky is done:
 
 _Tip:_ If you have a kitchen scale, weigh your jerky before and after drying to monitor moisture content indirectly.
 
+[ARTICLE]{}
+
 ## Temperature Guidelines
 
 Adhere to safe dehydration practices to ensure your jerky is done properly:

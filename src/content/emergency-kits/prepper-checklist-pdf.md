@@ -16,6 +16,10 @@ Is it Prepper Checklist or is it Preppers Checklist? I'm no authority on spellin
 
 A prepper checklist helps you organize and gather all the essential items you need to survive during an emergency. It covers everything from food and water storage to medical supplies, tools, and personal items. With our prepper checklist PDF, you can easily keep track of what you have and what you need to add to your emergency supplies.
 
+
+[ARTICLE]{}
+
+
 ## What’s Included in Our Prepper Checklist PDF
 
 ### Our preppers checklist PDF includes:

@@ -83,6 +83,8 @@ When you're aiming for precision, a draw length gauge is highly recommended for 
 - **Irregular Form**:
   - Taking measurements without using your usual form can result in a misleading bow draw length.
 
+[ARTICLE]{}
+
 ## Adjusting Draw Length for Different Scenarios
 
 Accurate initial measurement doesn’t mean immutable; adjustments might be necessary in various conditions:

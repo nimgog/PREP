@@ -68,6 +68,9 @@ The right accessories can greatly enhance your comfort and efficiency. Essential
 
 **tip:** is to carry a spare pair of gloves / socks in a sealed plastic bag to ensure they remain dry and ready to use when needed.
 
+[ARTICLE]{}
+
+
 ## Seasonal Considerations
 
 Duck hunting wardrobe varies with the seasons. Here’s a quick season-by-season guide:

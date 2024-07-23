@@ -82,6 +82,8 @@ Safety is paramount. Ensure your rifle is re-chambered by a professional and fol
 
 To dispel some common doubts:
 
+[ARTICLE]{}
+
 ##### Myths Debunked
 
 - **“Ackley Improved cartridges are hard to reload.”** With the right tools and knowledge, reloading them can be as simple as traditional cartridges and potentially more efficient.
