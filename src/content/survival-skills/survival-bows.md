@@ -61,7 +61,7 @@ As we delve deeper into the world of survival bows, we'll explore their types, h
 
 [ARTICLE]{}
 
-[IMAGE]{ "src": "/img/blogs/survival-skills/survival-bows/creating-own-surival-bow.jpg", "alt": "creating your own survival bow", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+[IMAGE]{ "src": "/img/blogs/survival-skills/survival-bows/creating-own-surival-bow.jpg", "alt": "creating your own survival bows", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 
 
 ## Section 3: Creating Your Own Survival Bow
@@ -82,55 +82,55 @@ In a survival situation, the ability to quickly fashion a functional bow from av
 
 #### **1. Selecting the Wood**
 
-Choose a sapling or branch that is about 1 to 1.5 inches in diameter and 5 to 6 feet long. The wood should be free of knots and branches, with a gradual taper from one end to the other. Test the wood's flexibility by bending a small branch; it should snap back quickly without breaking[3](https://wildernessawareness.org/articles/survival-bow-making/)[5](https://www.wildernesscollege.com/bow-making-instructions.html).
+Choose a sapling or branch that is about 1 to 1.5 inches in diameter and 5 to 6 feet long. The wood should be free of knots and branches, with a gradual taper from one end to the other. Test the wood's flexibility by bending a small branch; it should snap back quickly without breaking[[3]](https://wildernessawareness.org/articles/survival-bow-making/)[[5]](https://www.wildernesscollege.com/bow-making-instructions.html).
 
 #### **2. Preparing the Stave**
 
-- **Cutting and Debarking**: Cut the selected sapling and remove the bark. Be careful not to damage the wood underneath, as this could affect the bow's integrity[2](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
+- **Cutting and Debarking**: Cut the selected sapling and remove the bark. Be careful not to damage the wood underneath, as this could affect the bow's integrity[[2]](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
 
-- **Marking the Handle**: Find the middle of the stave and mark where the handle will be. This is typically about 4 to 6 inches in the center[3](https://wildernessawareness.org/articles/survival-bow-making/).
+- **Marking the Handle**: Find the middle of the stave and mark where the handle will be. This is typically about 4 to 6 inches in the center[[3]](https://wildernessawareness.org/articles/survival-bow-making/).
 
 #### **3. Shaping the Bow**
 
-- **Roughing Out the Side Profile**: Taper the limbs so that they are thinner at the tips and thicker near the handle. This helps in achieving a smooth bend[2](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
+- **Roughing Out the Side Profile**: Taper the limbs so that they are thinner at the tips and thicker near the handle. This helps in achieving a smooth bend[[2]](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
 
-- **Roughing Out the Front Profile**: Shape the front of the bow to ensure it is evenly tapered from the handle to the tips[2](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
+- **Roughing Out the Front Profile**: Shape the front of the bow to ensure it is evenly tapered from the handle to the tips[[2]](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
 
 #### **4. Tillering**
 
-Tillering is the process of ensuring that both limbs of the bow bend evenly. Hang the bow horizontally and pull down on the string to observe the bend. Remove wood from the belly of the limbs where they do not bend and leave material where they bend too much. The goal is to achieve a parabolic curve[5](https://www.wildernesscollege.com/bow-making-instructions.html).
+Tillering is the process of ensuring that both limbs of the bow bend evenly. Hang the bow horizontally and pull down on the string to observe the bend. Remove wood from the belly of the limbs where they do not bend and leave material where they bend too much. The goal is to achieve a parabolic curve[[5]](https://www.wildernesscollege.com/bow-making-instructions.html).
 
 #### **5. Stringing the Bow**
 
-Carve small notches on both sides of each tip to hold the bowstring. Tie loops into both ends of the string, ensuring there is about 5 to 6 inches between the string and the handle when the bow is strung. Be cautious not to pull back on the string until the bow is fully tillered[5](https://www.wildernesscollege.com/bow-making-instructions.html).
+Carve small notches on both sides of each tip to hold the bowstring. Tie loops into both ends of the string, ensuring there is about 5 to 6 inches between the string and the handle when the bow is strung. Be cautious not to pull back on the string until the bow is fully tillered[[5]](https://www.wildernesscollege.com/bow-making-instructions.html).
 
 ### **Making Arrows**
 
-- **Selecting Arrow Wood**: Use straight shoots from trees like maple, willow, or dogwood. The shoots should be as straight as possible and free of knots[3](https://wildernessawareness.org/articles/survival-bow-making/)[4](https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/).
+- **Selecting Arrow Wood**: Use straight shoots from trees like maple, willow, or dogwood. The shoots should be as straight as possible and free of knots[[3]](https://wildernessawareness.org/articles/survival-bow-making/)[[4]](https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/).
 
-- **Shaping the Arrows**: Scrape the bark off and straighten the shafts by heating them over a fire and bending them slightly past straight. Notch the small end for the string and sharpen or attach a point to the larger end[3](https://wildernessawareness.org/articles/survival-bow-making/).
+- **Shaping the Arrows**: Scrape the bark off and straighten the shafts by heating them over a fire and bending them slightly past straight. Notch the small end for the string and sharpen or attach a point to the larger end[[3]](https://wildernessawareness.org/articles/survival-bow-making/).
 
-- **Fletching**: Add feathers or other materials to stabilize the arrow in flight. This can be done by splitting the shaft and inserting the feathers, then wrapping them securely[3](https://wildernessawareness.org/articles/survival-bow-making/).
+- **Fletching**: Add feathers or other materials to stabilize the arrow in flight. This can be done by splitting the shaft and inserting the feathers, then wrapping them securely[[3]](https://wildernessawareness.org/articles/survival-bow-making/).
 
 ### **Tips and Considerations**
 
-- **Drying the Bow**: A green wood bow will need to be re-tillered as it dries. For a more durable bow, consider properly drying the wood, which can take several months[2](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
+- **Drying the Bow**: A green wood bow will need to be re-tillered as it dries. For a more durable bow, consider properly drying the wood, which can take several months[[2]](https://www.youtube.com/watch?v=8Gz4Ezxl9E0).
 
-- **Safety**: Always use an armguard to protect your forearm from the string. Check the bow and arrows regularly for any signs of damage or wear[4](https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/).
+- **Safety**: Always use an armguard to protect your forearm from the string. Check the bow and arrows regularly for any signs of damage or wear[[4]](https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/).
 
 By following these steps, you can create a functional survival bow that can significantly enhance your ability to hunt and defend in a wilderness setting.
 
 Citations:
 
-[1](https://www.youtube.com/watch?v=MnKAaehyeqM) https://www.youtube.com/watch?v=MnKAaehyeqM
+[[1]](https://www.youtube.com/watch?v=MnKAaehyeqM) https://www.youtube.com/watch?v=MnKAaehyeqM
 
-[2](https://www.youtube.com/watch?v=8Gz4Ezxl9E0) https://www.youtube.com/watch?v=8Gz4Ezxl9E0
+[[2]](https://www.youtube.com/watch?v=8Gz4Ezxl9E0) https://www.youtube.com/watch?v=8Gz4Ezxl9E0
 
-[3](https://wildernessawareness.org/articles/survival-bow-making/) https://wildernessawareness.org/articles/survival-bow-making/
+[[3]](https://wildernessawareness.org/articles/survival-bow-making/) https://wildernessawareness.org/articles/survival-bow-making/
 
-[4](https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/) https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/
+[[4]](https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/) https://www.offgridweb.com/preparation/building-your-own-survival-stick-bow/
 
-[5](https://www.wildernesscollege.com/bow-making-instructions.html) https://www.wildernesscollege.com/bow-making-instructions.html
+[[5]](https://www.wildernesscollege.com/bow-making-instructions.html) https://www.wildernesscollege.com/bow-making-instructions.html
 
 [EMBED]{ "id": "3" }
 
