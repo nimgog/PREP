@@ -2,7 +2,7 @@
 title: What does it take to survive?
 description: "Survival can be contextualized in various environments such as the wilderness, urban settings, extreme climates, and even during natural disasters."
 date: 2024-07-24
-thumbnailImageUrl: /img/blogs/emergency-planning/what-does-it-take-to-survive/maslow.jpeg
+thumbnailImageUrl: /img/blogs/emergency-planning/what-does-it-take-to-survive/what-does-it-take-to-survive/what-does-it-take-to-survive.jpeg
 published: true
 ---
 [IMAGE]{ "src": "/img/blogs/emergency-planning/what-does-it-take-to-survive/what-does-it-take-to-survive.jpeg", "alt": "What does it take to survive?", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
