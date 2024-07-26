@@ -29,8 +29,6 @@ Accidents can happen anywhere, anytime. Having a survival medical kit at home, i
 
 [EMBED]{ "id": "3" }
 
-### Stay Prepared!
-Sign up for our newsletter to get the latest tips and recommendations on survival gear and emergency preparedness.
 
 ## 4. Essential Items in a Survival Medical Kit
 ### First Aid Supplies
@@ -76,8 +74,7 @@ While DIY kits may seem cheaper initially, the cost of individual items can add 
 
 [ARTICLE]{}
 
-### Stay Informed!
-Join our mailing list for updates on the latest survival gear and expert tips on emergency preparedness.
+
 
 ## 7. Customizing Your Survival Medical Kit
 ### Adding Personal Items

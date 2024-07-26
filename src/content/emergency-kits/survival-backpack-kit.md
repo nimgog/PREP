@@ -31,8 +31,6 @@ Accidents and emergencies can happen at any time. Having a survival backpack kit
 
 [EMBED]{ "id": "3" }
 
-### Stay Prepared!
-Sign up for our newsletter to receive the latest tips and recommendations on survival gear and emergency preparedness.
 
 ## 4. Essential Items in a Survival Backpack Kit
 ### Food and Water Supplies
@@ -77,8 +75,6 @@ While DIY kits may seem cheaper initially, the cost of individual items can add 
 [ARTICLE]{}
 
 
-### Stay Informed!
-Join our mailing list for updates on the latest survival gear and expert tips on emergency preparedness.
 
 ## 7. Customizing Your Survival Backpack Kit
 ### Adding Personal Items
