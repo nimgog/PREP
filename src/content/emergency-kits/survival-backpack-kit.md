@@ -1,6 +1,6 @@
 ---
 title: "Survival Backpack kit"
-description: ""
+description: "This article delves into the importance, components, and customization of a survival backpack kit."
 date: 2024-07-26
 thumbnailImageUrl: /img/blogs/emergency-kit/survival-backpack-kit/survival-backpack-kit-prepp-me.jpg
 published: true
