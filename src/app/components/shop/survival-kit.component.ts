@@ -47,9 +47,9 @@ export const sharedRouteMeta: RouteMeta = {
           <h1
             class="product-title portrait:text-3xl landscape:text-4xl font-bold"
           >
-            Your Ultimate Prepping Case
+            Prepp Me's Emergency Kit
           </h1>
-          <h3>PREPC - 248 Essentials for Peace of Mind in Any Scenario</h3>
+          <h3>Prepp Me's Emergency Kit - 248 Essentials for Peace of Mind in Any Scenario</h3>
         </div>
         <div class="product-container">
           <div class="flex flex-col h-fit product-creative-column">
@@ -173,7 +173,7 @@ export const sharedRouteMeta: RouteMeta = {
           </div>
 
           <div class="product-details">
-            <h1 class="product-title font-bold">Prepping Case - PREPC</h1>
+            <h1 class="product-title font-bold">Prepp Me's Emergency Kit</h1>
             <div *ngIf="product" class="product-pricing">
               <div class="flex flex-col mr-3">
                 <span *ngIf="product" class="sale-price"
@@ -517,7 +517,7 @@ export const sharedRouteMeta: RouteMeta = {
                   In today's unpredictable world, being prepared is more than a
                   precaution—it's a necessity. Whether it's a natural disaster,
                   a power outage, or an unexpected emergency, having your PREP
-                  Case on hand can make all the difference. PREPC is designed
+                  Case on hand can make all the difference. Prepp Me's Emergency Kit is designed
                   not just for the outdoor adventurer but for every household
                   and car - ensuring that you and your loved ones have the
                   necessary tools to navigate any situation safely where ever
@@ -545,7 +545,7 @@ export const sharedRouteMeta: RouteMeta = {
               <div *ngIf="sections['features']" class="accordion-content">
                 <h3>Compact and Lightweight:</h3>
                 <p>
-                  Weighing less than a kilogram, the PREPC is engineered for
+                  Weighing less than a kilogram, the Prepp Me's Emergency Kit is engineered for
                   convenience and portability. Its sleek design allows it to be
                   a discreet yet indispensable addition to your car, home, or
                   backpack.
@@ -553,7 +553,7 @@ export const sharedRouteMeta: RouteMeta = {
 
                 <h3>Comprehensive Emergency Kit:</h3>
                 <p>
-                  From medical supplies to survival tools, the PREPC covers all
+                  From medical supplies to survival tools, the Prepp Me's Emergency Kit covers all
                   bases. Each of the 248 articles has been meticulously chosen
                   to offer solutions for a wide range of scenarios—ensuring
                   you're always a step ahead.
@@ -562,7 +562,7 @@ export const sharedRouteMeta: RouteMeta = {
                 <h3>Designed for Scandinavian Lifestyles:</h3>
                 <p>
                   Whether you're braving the wilderness, navigating the urban
-                  jungle, or simply enjoying the comfort of your home, the PREPC
+                  jungle, or simply enjoying the comfort of your home, the Prepp Me's Emergency Kit
                   is tailored to fit the dynamic Scandinavian way of life. It's
                   the perfect companion for households, nature enthusiasts, and
                   anyone who values preparedness and resilience.
@@ -571,14 +571,14 @@ export const sharedRouteMeta: RouteMeta = {
                 <h3>Quality and Reliability:</h3>
                 <p>
                   Crafted with the highest standards of quality and reliability,
-                  the PREPC is built to last. Each component is tested to ensure
+                  the Prepp Me's Emergency Kit is built to last. Each component is tested to ensure
                   it meets our rigorous requirements, providing you with peace
                   of mind in every situation.
                 </p>
 
                 <h3>Easy to Use and Access:</h3>
                 <p>
-                  The PREPC is designed for efficiency and ease of use. With
+                  The Prepp Me's Emergency Kit is designed for efficiency and ease of use. With
                   clearly organized compartments and an intuitive layout,
                   accessing the right tool at the right time is simple and
                   straightforward.
