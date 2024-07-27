@@ -52,7 +52,7 @@ export default class ProductStructuredDataComponent implements OnInit {
       name: product.title,
       image: [image],
       description: product.summary,
-      sku: product.id,
+      sku: product.id.preppId,
       brand: {
         '@type': 'Brand',
         name: 'Prepp me',
