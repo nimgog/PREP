@@ -21,10 +21,11 @@ import { isAbsoluteURL } from 'src/app/utils/url-helpers';
     <div class="flex justify-center w-full">
       <a
         #linkElement
-        class="flex max-w-md p-4 bg-white border border-gray-300 rounded-lg shadow-md flex-row cursor-pointer"
+        class="flex max-w-md p-4 bg-white border border-gray-300 rounded-lg shadow-md flex-col cursor-pointer"
         [href]="data().url"
         (click)="onClick($event)"
       >
+      <div class="flex flex-row">
         <div class="flex justify-center items-center w-full h-full">
           @if(isExternalImage()){
           <img
@@ -47,10 +48,13 @@ import { isAbsoluteURL } from 'src/app/utils/url-helpers';
           }
         </div>
 
+
         <div class="flex flex-col ml-3">
           <h2 class="text-lg font-semibold">{{ data().title }}</h2>
           <p class="mt-2 text-gray-700">{{ data().description }}</p>
         </div>
+      </div>
+      <button class="px-6 py-3.5 text-white text-bold mt-3 bg-[#588157] uppercase lg:rounded-lg">SHOP NOW</button>
       </a>
     </div>
   `,
