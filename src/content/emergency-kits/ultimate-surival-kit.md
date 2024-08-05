@@ -18,6 +18,8 @@ This isn't just another generic survival kit; it's a meticulously curated collec
 
 Here's why the Ultimate Survival Kit is the answer to your search:
 
+[PRODUCT]{ "title": "The ultimate survival kit", "description": "You only want the best when SHTF, checkout your ultimate survival kit with 240+ articles", "url": "/survival-kit", "imageUrl": "/img/product-page/PREPC_front.png", "imageAlt": "Survival kit", "imagePriority": true }
+
 **Ultimate Survival Kit / Bug Out Bag: Be Ready for Anything**
 
 When disaster strikes, you need a reliable bug out bag that's ready to go.  The Ultimate Survival Kit is your grab-and-go solution for a quick and safe evacuation.
@@ -73,12 +75,11 @@ The Ultimate Survival Kit from Prepp.me is more than just a collection of items;
 * **Food and Nutrition:**  Includes the only guide you will need and the tools needed to source water and food in the wild.
 * **Tools and Gear:**  From a multi-tool and compass to a whistle and paracord bracelet, our kit equips you with the essential tools for building, repairing, signaling, and navigating.
 
-
-[ARTICLE]{}
-
-
 **Don't Wait for Disaster to Strike: Invest in Your Peace of Mind Today**
 
 The Ultimate Survival Kit from Prepp.me is your key to unlocking peace of mind and confidence in the face of uncertainty. Don't wait until it's too late. Be prepared for anything.
+
+[ARTICLE]{}
+
 
 
