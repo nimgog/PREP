@@ -388,6 +388,7 @@ export const routeMeta: RouteMeta = {
         .home-page__text-section {
           right: 20px;
           max-width: 500px;
+          background: rgba(0, 0, 0, 0.5);
 
           @media screen and (max-width: 1200px) {
             margin-top: unset;
@@ -404,8 +405,6 @@ export const routeMeta: RouteMeta = {
               transform: unset;
             }
           }
-
-          background: rgba(0, 0, 0, 0.5);
         }
 
         #light-section {
