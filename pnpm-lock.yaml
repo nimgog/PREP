@@ -59,6 +59,9 @@ importers:
       graphql:
         specifier: ^16.8.1
         version: 16.9.0
+      html-entities:
+        specifier: ^2.5.2
+        version: 2.5.2
       marked:
         specifier: ^5.0.2
         version: 5.1.2
