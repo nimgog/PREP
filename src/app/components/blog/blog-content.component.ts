@@ -1,6 +1,7 @@
 import { MarkdownComponent } from '@analogjs/content';
 import { NgOptimizedImage } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
+import { decode } from 'html-entities';
 import {
   BlogContentImage,
   BlogContentOptimonkEmbedd,
@@ -70,9 +71,10 @@ export default class BlogContentComponent {
         }
 
         if (placeholder.startsWith('[IMAGE]')) {
-          const image = JSON.parse(
-            placeholder.replace('[IMAGE]', '')
-          ) as BlogContentImage;
+          const image = this.parsePlaceholder<BlogContentImage>(
+            placeholder,
+            '[IMAGE]'
+          );
 
           parts.push({
             type: 'image',
@@ -85,9 +87,10 @@ export default class BlogContentComponent {
             priority: image.priority || false,
           });
         } else if (placeholder.startsWith('[PRODUCT]')) {
-          const product = JSON.parse(
-            placeholder.replace('[PRODUCT]', '')
-          ) as BlogContentProduct;
+          const product = this.parsePlaceholder<BlogContentProduct>(
+            placeholder,
+            '[PRODUCT]'
+          );
 
           parts.push({
             type: 'product',
@@ -99,22 +102,19 @@ export default class BlogContentComponent {
             imagePriority: product.imagePriority || false,
           });
         } else if (placeholder.startsWith('[EMBED]')) {
-          const embed = JSON.parse(
-            placeholder.replace('[EMBED]', '')
-          ) as BlogContentOptimonkEmbedd;
+          const embed = this.parsePlaceholder<BlogContentOptimonkEmbedd>(
+            placeholder,
+            '[EMBED]'
+          );
 
           parts.push({
             type: 'embed',
             id: embed.id,
           });
         } else if (placeholder.startsWith('[ARTICLE]')) {
-          const embed = JSON.parse(
-            placeholder.replace('[ARTICLE]', '')
-          ) as BlogInterlinkingComponent;
-
           parts.push({
             type: 'article',
-            text: ''
+            text: '',
           });
         }
 
@@ -129,5 +129,14 @@ export default class BlogContentComponent {
     }
 
     return parts;
+  }
+
+  parsePlaceholder<T>(placeholder: string, prefix: string): T {
+    const withoutPrefix = placeholder.replace(prefix, '');
+    const decoded = decode(withoutPrefix);
+    const cleaned = decoded.replace(/<a[\s\S]*?>([\s\S]*?)<\/a>/g, '$1');
+    const json = JSON.parse(cleaned);
+
+    return json as T;
   }
 }
