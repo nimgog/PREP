@@ -11,6 +11,7 @@ import * as path from 'path';
 import * as fs from 'fs/promises';
 import fm from 'front-matter';
 import { defineConfig } from 'vite';
+import { ViteMinifyPlugin as minify } from 'vite-plugin-minify';
 import { environment } from './src/environments/environment';
 import { PageAttributes } from './src/app/models/blog.model';
 import { buildPreppProductUrl } from './src/app/utils/shopify-product-helpers';
@@ -76,6 +77,12 @@ export default defineConfig(({ mode }) => ({
       vite: {
         inlineStylesExtension: 'scss',
       },
+    }),
+    minify({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true,
     }),
   ],
   test: {
