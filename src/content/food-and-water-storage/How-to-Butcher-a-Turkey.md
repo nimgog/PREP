@@ -2,7 +2,7 @@
 title: How to Butcher and Preserve a Turkey
 description: "Whether you’re preparing for a self-sufficient lifestyle or just want to take control of your food sources, learning how to butcher and preserve a turkey is an essential skill"
 date: 2024-08-19
-thumbnailImageUrl: 
+thumbnailImageUrl: /img/blogs/food-and-water-storage/how-to-butcher-turkey/Butchering-a-Turkey.jpeg
 published: true
 
 ---
