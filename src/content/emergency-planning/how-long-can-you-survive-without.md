@@ -60,7 +60,7 @@ Water is essential for maintaining bodily functions, and dehydration can set in 
 - **Rainwater collection:** Use tarps, ponchos, or large leaves to collect rainwater. Make sure to store the collected water in a clean container.
 - **Purification:** Boil water for at least one minute to kill pathogens. If boiling is not an option, use a portable water filter, purification tablets, or create a makeshift filter using sand, charcoal, and cloth.
 
-[IMAGE]{ "src": "src/assets/img/blogs/emergency-planning/rule-of-threes/no_food.webp", "alt": "Three Weeks Without Food", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
+[IMAGE]{ "src": "/img/blogs/emergency-planning/rule-of-threes/no_food.webp", "alt": "Three Weeks Without Food", "width": 760, "height": 507, "srcset": "500w, 760w", "priority": true }
 
 ### Three Weeks Without Food
 
