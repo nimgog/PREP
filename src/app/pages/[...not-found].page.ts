@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getFullPageTitle } from '../utils/page-helpers';
 import { createCommonMetaResolver } from '../utils/open-graph-helpers';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Not Found'),
@@ -15,14 +16,14 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-not-found-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslocoPipe],
   template: `
     <div class="w-full h-full pt-32">
-      <div>Page Not Found</div>
+      <div>{{ 'not-found-page-title' | transloco }}</div>
 
-      <div>The page you are looking for cannot be found.</div>
+      <div>{{ 'not-found-page-description' | transloco }}</div>
 
-      <a routerLink="/">Go Back Home</a>
+      <a routerLink="/">{{ 'not-found-page-button' | transloco }}</a>
     </div>
   `,
 })

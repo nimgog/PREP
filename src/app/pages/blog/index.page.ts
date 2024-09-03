@@ -8,6 +8,7 @@ import {
   runInInjectionContext,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { CornerstonePageAttributes } from 'src/app/models/blog.model';
 import { createCommonMetaResolver } from 'src/app/utils/open-graph-helpers';
 import { getFullPageTitle } from 'src/app/utils/page-helpers';
@@ -23,62 +24,53 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-becoming-prepared-page',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgOptimizedImage],
+  imports: [RouterLink, CommonModule, NgOptimizedImage, TranslocoPipe],
   template: `
     <div class="blog-container pt-[100px] pb-5">
-      <h1 class="title">Becoming Prepared</h1>
+  <h1 class="title">{{ 'blog-page-title' | transloco }}</h1>
 
-      <p class="summary">
-        Welcome to Becoming Prepared - our ultimate resource for all things
-        preparedness. Whether you're just starting out or looking to enhance
-        your emergency readiness, our blog is filled with advice and in-depth
-        guides on a wide range of topics. From building comprehensive emergency
-        kits and mastering food and water storage techniques to honing survival
-        skills and creating robust emergency plans, we cover everything you need
-        to feel confident and prepared. Dive into our reviews and
-        recommendations for the best gear and resources to ensure your safety
-        and well-being, no matter what challenges may come your way. Stay
-        prepared, stay safe, with Prepp.me
-      </p>
+  <p class="summary">
+    {{ 'blog-page-summary' | transloco }}
+  </p>
 
-      <div class="cards-container">
-        <div
-          *ngFor="let page of cornerstonePageFiles; index as i"
-          class="card"
-          [routerLink]="['/blog/' + page.slug]"
-        >
-          <div class="image-container relative overflow-hidden">
-            <img
-              class="object-cover object-center"
-              [ngSrc]="page.attributes.thumbnailImageUrl"
-              sizes="(max-width: 767px) 80vw, 30vw"
-              [alt]="page.attributes.title"
-              [priority]="i < 2"
-              fill
-            />
-          </div>
-
-          <div class="content">
-            <a [routerLink]="['/blog/' + page.slug]" class="page-title">{{
-              page.attributes.title
-            }}</a>
-
-            <p class="page-description">{{ page.attributes.description }}</p>
-          </div>
-        </div>
+  <div class="cards-container">
+    <div
+      *ngFor="let page of cornerstonePageFiles; index as i"
+      class="card"
+      [routerLink]="['/blog/' + page.slug]"
+    >
+      <div class="image-container relative overflow-hidden">
+        <img
+          class="object-cover object-center"
+          [ngSrc]="page.attributes.thumbnailImageUrl"
+          sizes="(max-width: 767px) 80vw, 30vw"
+          [alt]="page.attributes.title"
+          [priority]="i < 2"
+          fill
+        />
       </div>
 
-      <div class="flex justify-center my-10">
-        <a
-          routerLink="/blog/pages/1"
-          role="button"
-          aria-label="See all articles"
-          class="px-4 py-2 border-2 border-black rounded-[10px] bg-[#f5f5f5] text-black"
-        >
-          See All Articles
-        </a>
+      <div class="content">
+        <a [routerLink]="['/blog/' + page.slug]" class="page-title">{{
+          page.attributes.title
+        }}</a>
+
+        <p class="page-description">{{ page.attributes.description }}</p>
       </div>
     </div>
+  </div>
+
+  <div class="flex justify-center my-10">
+    <a
+      routerLink="/blog/pages/1"
+      role="button"
+      aria-label="See all articles"
+      class="px-4 py-2 border-2 border-black rounded-[10px] bg-[#f5f5f5] text-black"
+    >
+      {{ 'blog-page-see-all-articles' | transloco }}
+    </a>
+  </div>
+</div>
   `,
   styles: [
     `
