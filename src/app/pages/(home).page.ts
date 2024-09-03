@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getFullPageTitle } from '../utils/page-helpers';
 import { createCommonMetaResolver } from '../utils/open-graph-helpers';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 export const routeMeta: RouteMeta = {
   title: getFullPageTitle('Home'),
@@ -16,7 +17,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink, NgOptimizedImage],
+  imports: [RouterLink, NgOptimizedImage, TranslocoPipe],
   template: `
     <div class="flex flex-col w-full h-full items-center">
       <div class="w-full h-screen absolute -z-10 overflow-hidden">
@@ -42,7 +43,7 @@ export const routeMeta: RouteMeta = {
             >
               Are you ready when it happens?
             </h1>
-
+            <p>{{'test' | transloco}}</p>
             <p
               class="lg:block text-prep-beige text-base font-normal leading-loose mt-3 portrait:text-sm portrait:leading-6"
             >

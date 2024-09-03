@@ -14,10 +14,24 @@ import { IMAGE_CONFIG, provideCloudflareLoader } from '@angular/common';
 import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 import { initSlugify } from './slugify.config';
 
+import {  isDevMode } from '@angular/core';
+import { provideTransloco } from '@jsverse/transloco';
+
+import { TranslocoHttpLoader } from './transloco-loader';
+
 initSlugify();
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(withFetch()),
+    provideTransloco({
+      config: {
+          availableLangs: ['en', 'es', 'sv'],
+          defaultLang: 'en',
+          prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader
+  }),
     provideFileRouter(
       withInMemoryScrolling({
         anchorScrolling: 'enabled',
@@ -25,7 +39,6 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideContent(withMarkdownRenderer()),
-    provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimations(),
     provideToastr({
